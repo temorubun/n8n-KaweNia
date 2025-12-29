@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-12-23T04:29:58.000Z",
+  "createdAt": "2025-12-23T04:04:30.780Z",
+  "id": "BLaMYLTwz2n2jV28",
+  "name": "sfsdf",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "061ebda4-50e5-424b-abcf-a2722ecb31b8",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-12-23T04:04:30.783Z",
+      "createdAt": "2025-12-23T04:04:30.783Z",
+      "role": "workflow:owner",
+      "workflowId": "BLaMYLTwz2n2jV28",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
