@@ -1,0 +1,1170 @@
+{
+  "updatedAt": "2025-12-29T05:36:50.264Z",
+  "createdAt": "2025-12-24T01:13:53.564Z",
+  "id": "O8vquiaZTVhmKPN3",
+  "name": "Edit Surat Nawaripi - Sub AI Agent",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.body['Id Surat SKTM'] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{Tanggal_Surat}",
+              "replaceText": "={{ $json.body['Tanggal Surat'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Pemerintah_Kabupaten}",
+              "replaceText": "={{ $json.body['Pemerintah Kabupaten'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Distrik}",
+              "replaceText": "={{ $json.body.Distrik }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Kampung_Kelurahan}",
+              "replaceText": "={{ $json.body['Kampung Kelurahan'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Alamat_Kantor}",
+              "replaceText": "={{ $json.body['Alamat Kantor'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Provinsi}",
+              "replaceText": "={{ $json.body.Provinsi }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Kode_Pos}",
+              "replaceText": "={{ $json.body['Kode Pos'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Email}",
+              "replaceText": "={{ $json.body.Email }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Nomor_Surat}",
+              "replaceText": "={{ $json.body['Nomor Surat'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_1}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 1'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_2}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 2'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_3}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 3'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_4}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 4'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_5}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 5'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Nama_Pemohon}",
+              "replaceText": "={{ $json.body['Nama Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{NIK_Pemohon}",
+              "replaceText": "={{ $json.body['NIK Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{TTL_Pemohon}",
+              "replaceText": "={{ $json.body['TTL Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Agama_Pemohon}",
+              "replaceText": "={{ $json.body['Agama Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Jenis_Kelamin_Pemohon}",
+              "replaceText": "={{ $json.body['Jenis Kelamin Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Status_Perkawinan_Pemohon}",
+              "replaceText": "={{ $json.body['Status Perkawinan Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Pekerjaan_Pemohon}",
+              "replaceText": "={{ $json.body['Pekerjaan Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Alamat_Pemohon}",
+              "replaceText": "={{ $json.body['Alamat Pemohon'] }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        240,
+        80
+      ],
+      "id": "a2c341e8-2c8c-4a34-9b88-230bbdaa1e56",
+      "name": "Surat SKTM Nawaripi",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $fromAI('Id_Surat_Pengantar_RT', ``, 'string') }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{Kampung_Kelurahan}",
+              "replaceText": "={{ $fromAI('Kampung_Kelurahan', `Nama Kampung Kelurahan`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Nomor_RT}",
+              "replaceText": "={{ $fromAI('Nomor_RT', `Nomor RT`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Jln}",
+              "replaceText": "={{ $fromAI('Jln', `Alamat Kampung Kelurahan`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Nomor_Surat_RT}",
+              "replaceText": "={{ $fromAI('Nomor_Surat_RT', `Nomor Surat Pengantar RT Kampung Nawaripi`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Nama_Pemohon}",
+              "replaceText": "={{ $fromAI('Nama_Pemohon', `Nama Pemohon Menggunakan Huruf Capital`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Tempat_Tanggal_Lahir}",
+              "replaceText": "={{ $fromAI('Tempat_Tanggal_Lahir', `Tempat Tanggal Lahir Pemohon \ngunakan Format \nNamaTempat, Tanggal-Bulan-Tahun\nNamaTempat menggunakan Huruf Capital \nTanggal-Bulan-Tahun menggunakan Angka \n`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Jenis_Kelamin}",
+              "replaceText": "={{ $fromAI('Jenis_Kelamin', `Jenis Kelamin Pemohon Gunakan Huruf capital`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Pekerjaan}",
+              "replaceText": "={{ $fromAI('Pekerjaan', `Pekerjaan Pemohon Gunakan Huruf Capital`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Alamat}",
+              "replaceText": "={{ $fromAI('Alamat', `Alamat Pemohon Menggunakan Huruf Capital`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{NIK_Pemohon}",
+              "replaceText": "={{ $fromAI('NIK_Pemohon', `Nomor NIK Pemohon`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keperluan_Pemohon}",
+              "replaceText": "={{ $fromAI('Keperluan_Pemohon', `Keperluan Pemohon Buat Surat Pengantar RT`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Tanggal_Surat}",
+              "replaceText": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Nama_Ketua_RT}",
+              "replaceText": "={{ $fromAI('Nama_Ketua_RT', `Nama RT\nNama Orang \nBukan Status RT`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{NomorPos}",
+              "replaceText": "={{ $fromAI('NomorPos', `Nomor Kode Pos`, 'string') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        -128,
+        304
+      ],
+      "id": "6ebfc56e-9541-4fd7-8447-a38dd237c29a",
+      "name": "Surat Pengantar RT Nawaripi",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Doc_ID_or_URL', ``, 'string') }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{waktu_surat}",
+              "replaceText": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{nomor_surat}",
+              "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields1_New_Text', `Nomor Surat Pengaduan`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{jumlah_lampiran}",
+              "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields2_New_Text', `Jumlah Angka Lampiran`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{perihal_surat}",
+              "replaceText": "Laporan Pengaduan Masyarakat"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{isi_surat}",
+              "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields4_New_Text', `Isi Surat`, 'string') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        128,
+        304
+      ],
+      "id": "27e66022-3d44-4379-8e99-3cd76928462e",
+      "name": "Surat Pemberitahuan Nawaripi",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Doc_ID_or_URL', ``, 'string') }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{waktu_surat}",
+              "replaceText": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{nomor_surat}",
+              "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields1_New_Text', `Nomor Surat Pengaduan`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{jumlah_lampiran}",
+              "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields2_New_Text', `Jumlah Angka Lampiran`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{perihal_surat}",
+              "replaceText": "Laporan Pengaduan Masyarakat"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{isi_surat}",
+              "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields4_New_Text', `Isi Surat`, 'string') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        368,
+        304
+      ],
+      "id": "f04b522e-0b75-404e-88f3-2c0aa2ff4af8",
+      "name": "Surat Pengaduan Nawaripi",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Folder\n### **[Edit Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/PRByDVbDdX8sYu1E)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Kampung Nawaripi](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/m4VVaWRfz87EAMmo/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/HqKecT91tgThE9s5/workflows) / [Edit Surat Nawaripi - Sub AI Agent]()** ",
+        "height": 112,
+        "width": 992
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -320,
+        -336
+      ],
+      "typeVersion": 1,
+      "id": "e3e3dbed-f74a-41e6-887f-4c78ba51a3fb",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 480,
+        "width": 992
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -320,
+        -224
+      ],
+      "typeVersion": 1,
+      "id": "888b808d-b9b2-4138-b7f6-79b8491fbecc",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -272,
+        -208
+      ],
+      "typeVersion": 1,
+      "id": "e9c7ec48-ecf9-4b04-b65b-212748980fc5",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "### Sub AI Agent Edit Surat ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -32,
+        -208
+      ],
+      "typeVersion": 1,
+      "id": "055651bf-c8f4-4be7-a4ca-b504fadb2891",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        368,
+        -208
+      ],
+      "typeVersion": 1,
+      "id": "a2d7b223-3479-4f67-86ac-3130dd424f26",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -96,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "d70e2c7b-5a0c-4bae-a351-8bc304851837",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Edit Surat\n\n\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        176,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "292f4fac-339f-4c3b-97ac-d2b6d62e1370",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "a78cbec2-0f0a-4c30-873e-e770447dae61",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -192,
+        -144
+      ],
+      "id": "4d7c787b-6d06-4a74-8121-4721450d1a2e",
+      "name": "WI-Surat",
+      "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        400,
+        -144
+      ],
+      "id": "92de44d9-32c1-4ed0-88f2-3145e0a89c1f",
+      "name": "WR-Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -32,
+        96
+      ],
+      "id": "1178f314-95f9-40f1-bf36-acda9a58db69",
+      "name": "AI-Surat",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body[\"System Message\"] }}",
+          "maxIterations": 3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        32,
+        -144
+      ],
+      "id": "f610d680-0f63-4f4b-9806-dbec87c54f8e",
+      "name": "Sub AI Agent Edit Surat"
+    }
+  ],
+  "connections": {
+    "Surat SKTM Nawaripi": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sub AI Agent Edit Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat Pengantar RT Nawaripi": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Surat Pemberitahuan Nawaripi": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Surat Pengaduan Nawaripi": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "WI-Surat": {
+      "main": [
+        [
+          {
+            "node": "Sub AI Agent Edit Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Surat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sub AI Agent Edit Surat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sub AI Agent Edit Surat": {
+      "main": [
+        [
+          {
+            "node": "WR-Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "d6a544c0-fd45-4f9b-871c-955e516f056c",
+  "activeVersionId": "d6a544c0-fd45-4f9b-871c-955e516f056c",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-24T01:13:53.568Z",
+      "createdAt": "2025-12-24T01:13:53.568Z",
+      "role": "workflow:owner",
+      "workflowId": "O8vquiaZTVhmKPN3",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-29T05:36:50.265Z",
+    "createdAt": "2025-12-29T05:36:50.265Z",
+    "versionId": "d6a544c0-fd45-4f9b-871c-955e516f056c",
+    "workflowId": "O8vquiaZTVhmKPN3",
+    "nodes": [
+      {
+        "parameters": {
+          "operation": "update",
+          "documentURL": "={{ $json.body['Id Surat SKTM'] }}",
+          "actionsUi": {
+            "actionFields": [
+              {
+                "action": "replaceAll",
+                "text": "{Tanggal_Surat}",
+                "replaceText": "={{ $json.body['Tanggal Surat'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Pemerintah_Kabupaten}",
+                "replaceText": "={{ $json.body['Pemerintah Kabupaten'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Distrik}",
+                "replaceText": "={{ $json.body.Distrik }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Kampung_Kelurahan}",
+                "replaceText": "={{ $json.body['Kampung Kelurahan'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Alamat_Kantor}",
+                "replaceText": "={{ $json.body['Alamat Kantor'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Provinsi}",
+                "replaceText": "={{ $json.body.Provinsi }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Kode_Pos}",
+                "replaceText": "={{ $json.body['Kode Pos'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Email}",
+                "replaceText": "={{ $json.body.Email }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Nomor_Surat}",
+                "replaceText": "={{ $json.body['Nomor Surat'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_1}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 1'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_2}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 2'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_3}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 3'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_4}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 4'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_5}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 5'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Nama_Pemohon}",
+                "replaceText": "={{ $json.body['Nama Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{NIK_Pemohon}",
+                "replaceText": "={{ $json.body['NIK Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{TTL_Pemohon}",
+                "replaceText": "={{ $json.body['TTL Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Agama_Pemohon}",
+                "replaceText": "={{ $json.body['Agama Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Jenis_Kelamin_Pemohon}",
+                "replaceText": "={{ $json.body['Jenis Kelamin Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Status_Perkawinan_Pemohon}",
+                "replaceText": "={{ $json.body['Status Perkawinan Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Pekerjaan_Pemohon}",
+                "replaceText": "={{ $json.body['Pekerjaan Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Alamat_Pemohon}",
+                "replaceText": "={{ $json.body['Alamat Pemohon'] }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.googleDocsTool",
+        "typeVersion": 2,
+        "position": [
+          240,
+          80
+        ],
+        "id": "a2c341e8-2c8c-4a34-9b88-230bbdaa1e56",
+        "name": "Surat SKTM Nawaripi",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDocsOAuth2Api": {
+            "id": "et8bSa0Nlnpparmf",
+            "name": "Google Docs account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "update",
+          "documentURL": "={{ $fromAI('Id_Surat_Pengantar_RT', ``, 'string') }}",
+          "actionsUi": {
+            "actionFields": [
+              {
+                "action": "replaceAll",
+                "text": "{Kampung_Kelurahan}",
+                "replaceText": "={{ $fromAI('Kampung_Kelurahan', `Nama Kampung Kelurahan`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Nomor_RT}",
+                "replaceText": "={{ $fromAI('Nomor_RT', `Nomor RT`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Jln}",
+                "replaceText": "={{ $fromAI('Jln', `Alamat Kampung Kelurahan`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Nomor_Surat_RT}",
+                "replaceText": "={{ $fromAI('Nomor_Surat_RT', `Nomor Surat Pengantar RT Kampung Nawaripi`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Nama_Pemohon}",
+                "replaceText": "={{ $fromAI('Nama_Pemohon', `Nama Pemohon Menggunakan Huruf Capital`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Tempat_Tanggal_Lahir}",
+                "replaceText": "={{ $fromAI('Tempat_Tanggal_Lahir', `Tempat Tanggal Lahir Pemohon \ngunakan Format \nNamaTempat, Tanggal-Bulan-Tahun\nNamaTempat menggunakan Huruf Capital \nTanggal-Bulan-Tahun menggunakan Angka \n`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Jenis_Kelamin}",
+                "replaceText": "={{ $fromAI('Jenis_Kelamin', `Jenis Kelamin Pemohon Gunakan Huruf capital`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Pekerjaan}",
+                "replaceText": "={{ $fromAI('Pekerjaan', `Pekerjaan Pemohon Gunakan Huruf Capital`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Alamat}",
+                "replaceText": "={{ $fromAI('Alamat', `Alamat Pemohon Menggunakan Huruf Capital`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{NIK_Pemohon}",
+                "replaceText": "={{ $fromAI('NIK_Pemohon', `Nomor NIK Pemohon`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keperluan_Pemohon}",
+                "replaceText": "={{ $fromAI('Keperluan_Pemohon', `Keperluan Pemohon Buat Surat Pengantar RT`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Tanggal_Surat}",
+                "replaceText": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Nama_Ketua_RT}",
+                "replaceText": "={{ $fromAI('Nama_Ketua_RT', `Nama RT\nNama Orang \nBukan Status RT`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{NomorPos}",
+                "replaceText": "={{ $fromAI('NomorPos', `Nomor Kode Pos`, 'string') }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.googleDocsTool",
+        "typeVersion": 2,
+        "position": [
+          -128,
+          304
+        ],
+        "id": "6ebfc56e-9541-4fd7-8447-a38dd237c29a",
+        "name": "Surat Pengantar RT Nawaripi",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDocsOAuth2Api": {
+            "id": "et8bSa0Nlnpparmf",
+            "name": "Google Docs account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "update",
+          "documentURL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Doc_ID_or_URL', ``, 'string') }}",
+          "actionsUi": {
+            "actionFields": [
+              {
+                "action": "replaceAll",
+                "text": "{waktu_surat}",
+                "replaceText": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{nomor_surat}",
+                "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields1_New_Text', `Nomor Surat Pengaduan`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{jumlah_lampiran}",
+                "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields2_New_Text', `Jumlah Angka Lampiran`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{perihal_surat}",
+                "replaceText": "Laporan Pengaduan Masyarakat"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{isi_surat}",
+                "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields4_New_Text', `Isi Surat`, 'string') }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.googleDocsTool",
+        "typeVersion": 2,
+        "position": [
+          128,
+          304
+        ],
+        "id": "27e66022-3d44-4379-8e99-3cd76928462e",
+        "name": "Surat Pemberitahuan Nawaripi",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDocsOAuth2Api": {
+            "id": "et8bSa0Nlnpparmf",
+            "name": "Google Docs account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "update",
+          "documentURL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Doc_ID_or_URL', ``, 'string') }}",
+          "actionsUi": {
+            "actionFields": [
+              {
+                "action": "replaceAll",
+                "text": "{waktu_surat}",
+                "replaceText": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{nomor_surat}",
+                "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields1_New_Text', `Nomor Surat Pengaduan`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{jumlah_lampiran}",
+                "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields2_New_Text', `Jumlah Angka Lampiran`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{perihal_surat}",
+                "replaceText": "Laporan Pengaduan Masyarakat"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{isi_surat}",
+                "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields4_New_Text', `Isi Surat`, 'string') }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.googleDocsTool",
+        "typeVersion": 2,
+        "position": [
+          368,
+          304
+        ],
+        "id": "f04b522e-0b75-404e-88f3-2c0aa2ff4af8",
+        "name": "Surat Pengaduan Nawaripi",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDocsOAuth2Api": {
+            "id": "et8bSa0Nlnpparmf",
+            "name": "Google Docs account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Folder\n### **[Edit Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/PRByDVbDdX8sYu1E)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Kampung Nawaripi](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/m4VVaWRfz87EAMmo/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/HqKecT91tgThE9s5/workflows) / [Edit Surat Nawaripi - Sub AI Agent]()** ",
+          "height": 112,
+          "width": 992
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -320,
+          -336
+        ],
+        "typeVersion": 1,
+        "id": "e3e3dbed-f74a-41e6-887f-4c78ba51a3fb",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 480,
+          "width": 992
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -320,
+          -224
+        ],
+        "typeVersion": 1,
+        "id": "888b808d-b9b2-4138-b7f6-79b8491fbecc",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -272,
+          -208
+        ],
+        "typeVersion": 1,
+        "id": "e9c7ec48-ecf9-4b04-b65b-212748980fc5",
+        "name": "Sticky Note17"
+      },
+      {
+        "parameters": {
+          "content": "### Sub AI Agent Edit Surat ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -32,
+          -208
+        ],
+        "typeVersion": 1,
+        "id": "055651bf-c8f4-4be7-a4ca-b504fadb2891",
+        "name": "Sticky Note28"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          368,
+          -208
+        ],
+        "typeVersion": 1,
+        "id": "a2d7b223-3479-4f67-86ac-3130dd424f26",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -96,
+          32
+        ],
+        "typeVersion": 1,
+        "id": "d70e2c7b-5a0c-4bae-a351-8bc304851837",
+        "name": "Sticky Note27"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Edit Surat\n\n\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          176,
+          32
+        ],
+        "typeVersion": 1,
+        "id": "292f4fac-339f-4c3b-97ac-d2b6d62e1370",
+        "name": "Sticky Note25"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "a78cbec2-0f0a-4c30-873e-e770447dae61",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -192,
+          -144
+        ],
+        "id": "4d7c787b-6d06-4a74-8121-4721450d1a2e",
+        "name": "WI-Surat",
+        "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          400,
+          -144
+        ],
+        "id": "92de44d9-32c1-4ed0-88f2-3145e0a89c1f",
+        "name": "WR-Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          -32,
+          96
+        ],
+        "id": "1178f314-95f9-40f1-bf36-acda9a58db69",
+        "name": "AI-Surat",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body[\"System Message\"] }}",
+            "maxIterations": 3
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3,
+        "position": [
+          32,
+          -144
+        ],
+        "id": "f610d680-0f63-4f4b-9806-dbec87c54f8e",
+        "name": "Sub AI Agent Edit Surat"
+      }
+    ],
+    "connections": {
+      "Surat SKTM Nawaripi": {
+        "ai_tool": [
+          [
+            {
+              "node": "Sub AI Agent Edit Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat Pengantar RT Nawaripi": {
+        "ai_tool": [
+          []
+        ]
+      },
+      "Surat Pemberitahuan Nawaripi": {
+        "ai_tool": [
+          []
+        ]
+      },
+      "Surat Pengaduan Nawaripi": {
+        "ai_tool": [
+          []
+        ]
+      },
+      "WI-Surat": {
+        "main": [
+          [
+            {
+              "node": "Sub AI Agent Edit Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Surat": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Sub AI Agent Edit Surat",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Sub AI Agent Edit Surat": {
+        "main": [
+          [
+            {
+              "node": "WR-Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
