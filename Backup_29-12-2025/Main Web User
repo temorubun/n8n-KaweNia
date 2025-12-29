@@ -1,0 +1,4143 @@
+{
+  "updatedAt": "2025-12-28T08:11:14.438Z",
+  "createdAt": "2025-12-28T08:07:54.593Z",
+  "id": "24ErbbIFOB6hZ0mS",
+  "name": "Main Web User",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "# SKTM Web User\n",
+        "height": 80,
+        "width": 304
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        624,
+        -96
+      ],
+      "typeVersion": 1,
+      "id": "afa55818-7b9d-44a4-b32e-78be08e2a2d8",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 656,
+        "width": 2016
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -208,
+        -128
+      ],
+      "typeVersion": 1,
+      "id": "b196b39f-4ec1-4a08-a926-d5f677ea539b",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input SKTM User\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -48,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "7b3158d9-9556-41ad-a9f1-f7a1695a54c0",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "content": "### Format Json SKTM User",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        192,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "f95e42b2-a6c8-4247-8180-cb6bc310f6fd",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "5d7b4004-1933-4a49-a361-19967b790736-web-sktm",
+        "authentication": "basicAuth",
+        "options": {
+          "responseData": "=Terimakasih \nSaya Sedang Momproses Data Dalam Format Web Untuk dapat di tanda tangan\nmohon Tunggu"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        16,
+        64
+      ],
+      "id": "cf532b45-5c9b-493e-a648-311b0d57b9c7",
+      "name": "a",
+      "webhookId": "5d7b4004-1933-4a49-a361-19967b790736",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "sJXgZq72GcirQDnl",
+          "name": "Besic Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2999c3a4-9ee9-4c82-83ce-95e6b45a0d48",
+              "name": "data_web.user.status",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "6a0d7133-8705-485d-b276-1161d9ed0dd0",
+              "name": "data_web.user.tanggal",
+              "value": "={{ $('a').item.json.body.data_web.user.tanggal }}",
+              "type": "string"
+            },
+            {
+              "id": "6746fcf3-7db2-4ee1-b948-8f10afe34bb8",
+              "name": "data_web.user.id.json",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "70384254-1964-4d77-ad50-65102e2d21c6",
+              "name": "data_web.user.id.html",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "2072b653-8ab1-4fc1-a1d0-b993495ffb79",
+              "name": "data_web.user.id.css",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "0c53b5e2-ffaa-4e8a-b06f-70c1d354c6ad",
+              "name": "data_web.user.id.javascript",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "fa3a3761-f231-4f7c-842b-1b7351e46a26",
+              "name": "data_web.user.id.folder",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "29f00277-9897-4fe7-9f83-427f9816effb",
+              "name": "data_web.user.data_surat.pemohon",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.pemohon }}",
+              "type": "object"
+            },
+            {
+              "id": "055afe7a-bbe3-4e82-ba43-ae8689a60906",
+              "name": "data_web.user.data_surat.perihal",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.perihal }}",
+              "type": "string"
+            },
+            {
+              "id": "a02f0ee2-88ff-4905-8da9-625bb1b8c88f",
+              "name": "data_web.user.data_surat.dokumen",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.dokumen }}",
+              "type": "array"
+            },
+            {
+              "id": "1b28027d-e6e1-4300-857a-b81156345d4d",
+              "name": "data_web.user.whatsapp",
+              "value": "={{ $('a').item.json.body.data_web.user.whatsapp }}",
+              "type": "object"
+            },
+            {
+              "id": "8d8be6b1-b418-4a2d-92b3-df822b49a08f",
+              "name": "data_web.user.logo",
+              "value": "={{ $('a').item.json.body.data_web.user.logo }}",
+              "type": "string"
+            },
+            {
+              "id": "4e720b9c-e188-47bb-ac5e-8670b4752220",
+              "name": "data_web.user.tombol.kirim_surat",
+              "value": "={{ $('a').item.json.body.data_web.user.tombol.kirim_surat }}",
+              "type": "string"
+            },
+            {
+              "id": "fb8c30ee-147e-40a7-9f4f-a7384d76520a",
+              "name": "data_web.user.tombol.edit_data",
+              "value": "={{ $('a').item.json.body.data_web.user.tombol.edit_data }}",
+              "type": "string"
+            },
+            {
+              "id": "9579a10e-bcb6-4ff1-a030-c9d787d94b96",
+              "name": "data_web.user.tombol.kirim_file",
+              "value": "={{ $('a').item.json.body.data_web.user.tombol.kirim_file }}",
+              "type": "string"
+            },
+            {
+              "id": "5c5d438d-858a-4d47-9e04-97c0b205b85a",
+              "name": "data_web.user.tombol.hapus_file",
+              "value": "={{ $('a').item.json.body.data_web.user.tombol.hapus_file }}",
+              "type": "string"
+            },
+            {
+              "id": "3c3072b9-9f44-47cd-a49a-ee85851529fc",
+              "name": "data_web.user.tombol.hapus_surat",
+              "value": "={{ $('a').item.json.body.data_web.user.tombol.hapus_surat }}",
+              "type": "string"
+            },
+            {
+              "id": "0385c278-39e0-4907-9adb-31a1bfc3bfea",
+              "name": "data_web.admin2.status",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "1b703f57-eaf6-485c-b167-de6692d9b8a7",
+              "name": "data_web.admin2.tanggal",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "2769c358-c6b9-4f1c-9b89-521b9fa7a2f3",
+              "name": "data_web.admin2.nomor_surat",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "a7d7130c-aa0a-4813-b4b7-24e807baa51a",
+              "name": "data_web.admin2.id.json",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "62e24f06-9e72-4607-8010-6e8be02d5172",
+              "name": "data_web.admin2.id.html",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "6f1268e4-aeeb-45e7-8a40-7cfbd0790674",
+              "name": "data_web.admin2.id.css",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "02ca1a57-bde0-4e0b-af63-6825322b42e5",
+              "name": "data_web.admin2.id.javascript",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "461a6f2a-dedb-4cd9-9cd9-ea3f5c70918f",
+              "name": "data_web.admin2.id.folder",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "298453bd-5730-4ad2-a995-c3bb0081fffc",
+              "name": "data_web.admin2.data_surat.kop.pemerintah_kabupaten",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "2a1f3e4c-788f-40ca-9353-260c5765ff91",
+              "name": "data_web.admin2.data_surat.kop.provinsi",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "f4024f63-b4db-4c1d-8d0c-82d94e3956e0",
+              "name": "data_web.admin2.data_surat.kop.distrik",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "1a24fa44-0776-4938-98db-631a9f688b6f",
+              "name": "data_web.admin2.data_surat.kop.alamat",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "d8565f6e-5b56-46a8-80c0-d622cacaf149",
+              "name": "data_web.admin2.data_surat.kop.kode_pos",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "38f87163-c257-4441-825a-4ecbda32c9dd",
+              "name": "data_web.admin2.data_surat.kop.email",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "ddfa590c-cf5e-4e79-9d7e-cb17eca2d005",
+              "name": "data_web.admin2.data_surat.admin.nama",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "dc7cac9e-f2e4-4f8c-91b3-4ade12ee5423",
+              "name": "data_web.admin2.data_surat.admin.jabatan",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "f8a2bc4f-7a65-43be-ad23-8b9369999d8b",
+              "name": "data_web.admin2.data_surat.admin.nip",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "d8b3c3c7-250b-4882-a25a-6a3e58c6f4a2",
+              "name": "data_web.admin2.data_surat.admin.id_tanda_tangan",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "b9acdcd7-a268-4f64-b07c-e83993fffdf8",
+              "name": "data_web.admin2.data_surat.admin.nomor_hp",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "03f63c3c-24e2-4e47-b976-5074d0ccb8f6",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_1",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "896615fa-54e6-4aab-bab7-a051eb6bc63e",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_2",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "572ef276-deb0-43de-9d8c-1ecb1428678d",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_3",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "d672f9ee-b115-433d-a8be-622853cad7ca",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_4",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "d10df30a-c356-41c3-9817-2d59d2abdb86",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_5",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "7113987b-835b-4d03-929b-c8cb20100ff3",
+              "name": "data_web.admin2.data_surat.dokumen",
+              "value": "null",
+              "type": "object"
+            },
+            {
+              "id": "977a86a5-d85a-42ec-a3b2-1f0e5457b30d",
+              "name": "data_web.admin2.whatsapp.session",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "ab79952b-feca-4d53-b428-fbdbcdb344ae",
+              "name": "data_web.admin2.whatsapp.chat_id",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "bad81411-caa6-4756-a957-218a50889abe",
+              "name": "data_web.admin2.logo",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "5ec96419-fd88-4eb1-a007-d05336ac2b12",
+              "name": "data_web.admin2.tombol.kirim_surat",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "9e81fd93-d70a-49fb-af02-fbd0f78db555",
+              "name": "data_web.admin2.tombol.hapus_surat",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "240bb78b-074f-4b25-8ce1-0ff5a06e858c",
+              "name": "data_web.admin2.tombol.kirim_pesan",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        256,
+        64
+      ],
+      "id": "9b3a79ec-a4b0-4ee8-aec8-0c0d7aed9a66",
+      "name": "a1",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Folder SKTM\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/cEw9xBahqSZKc2b9",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        432,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "973b37f2-3739-4106-af4b-65ac9908b815",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/570dd45a-b961-4940-929a-97573b3dce0b",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Saya Minta Id Folder SKTM User\nRespon Hanya Id Folder Baru Jangan Tambahkan Apapun!"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Data {{ $('a1').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }}\" Untuk Mendapatkan Id Perent Folder Surat\nKemudian \nWajib Gunakan \"AI Agent Tool Drive\" Untuk Membuat Folder Baru "
+            },
+            {
+              "name": "tool.Prompt",
+              "value": "=Buat Folder Baru Dan Berikan saya Hanya Id Folder Baru "
+            },
+            {
+              "name": "tool.System Message",
+              "value": "=Gunakan \"Drive Create Folder\" Untuk Membbuat Folder Baru"
+            },
+            {
+              "name": "tool.Name Folder",
+              "value": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ( $('a1').item.json.data_web.user.data_surat.pemohon.nama ).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($('a1').item.json.data_web.user.data_surat.pemohon.nik) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        64
+      ],
+      "id": "f40a2d15-0bd1-4d4c-8322-8aba90aac484",
+      "name": "a2",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Nomor Surat\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/wY4n6zJKNfJ5PD0W",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        672,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "c4b6a4ae-cab8-4c2e-86c1-f78a8a90ff2f",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/27d5c8f6-ada4-45c9-b829-fe806a0a6996",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Saya Minta Nomor SKTM Baru Distrik Wania\nPerihal = {{ $('a1').item.json.data_web.user.data_surat.perihal }}\nRespon \nHanya Berikan Nomor Surat Baru Tanpa Menambahkan Apapaun!"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Read SKTM Distrik Wania\" Untuk Melihat Nomor Surat Yang Terakhir\nKemudian Buat Nommor Surat Baru Gunakan Format Ini\n\nFormat Nomor Surat\nNomor Induk / Nomor Urut / DW / Tahun Sekarang\n\nNomor Induk Berdasarkan Perihal \nPerihal BPJS maka gunakan = 400.2.1\nPerihal Biaya Pendidikan = 400.3.2.1\n\nNomor Urut Tambahkan +1\n\nDW Tidak Berubah\n\ngunakan waktu ini {{ $now }}\n\nDan Wajib Gunakan \"Add SKTM Distrik Wania\" Untuk Menambahkan Nomor surat Baru"
+            },
+            {
+              "name": "perihal",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.perihal }}"
+            },
+            {
+              "name": "nama_pemohon",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.nama }}"
+            },
+            {
+              "name": "nik_pemohon",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.nik }}"
+            },
+            {
+              "name": "ttl",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.ttl }}"
+            },
+            {
+              "name": "agama",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.agama }}"
+            },
+            {
+              "name": "jenis_kelamin",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.jenis_kelamin }}"
+            },
+            {
+              "name": "status_perkawinan",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.status_perkawinan }}"
+            },
+            {
+              "name": "pekerjaan",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.pekerjaan }}"
+            },
+            {
+              "name": "alamat_pemohon",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.alamat }}"
+            },
+            {
+              "name": "nomor_hp",
+              "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.nomor_hp }}"
+            },
+            {
+              "name": "link_perent_folder_sktm_user",
+              "value": "=https://drive.google.com/drive/folders/{{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        752,
+        64
+      ],
+      "id": "f823ea18-00b7-45cf-ac6a-68a6b141374f",
+      "name": "a3",
+      "notesInFlow": true,
+      "notes": "\n"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Data Distrik Wania\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Y7V5eVu80aorUx60",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        912,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "17765119-b783-4b5e-9bdb-66689ef369c2",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/b37234f8-9fb4-47ee-a42c-0deeddac2e68",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Saya Minta Data"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Data Distrik Wania\" Untuk Mendapatkan Data Yang Di minta"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        992,
+        64
+      ],
+      "id": "fcec9e65-967b-4e18-8d47-818f0a1e6ee3",
+      "name": "a4",
+      "notesInFlow": true,
+      "notes": "  \n"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Data Web Surat \n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/MUvsV7i1WkFokBze",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1152,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "aa7d749f-34ab-44a8-a52d-9e195e680844",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/6944c1da-bb3d-455e-aa09-4e1e0a192a84",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Saya Minta Data"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Data Distrik Wania\" Untuk Mendapatkan Semua Data Yang di minta\nuntuk keterangan sktm nomor 3 lakukan edit pada bagian biaya yang sesuai dengan {{ $('a1').item.json.data_web.user.data_surat.perihal }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1232,
+        64
+      ],
+      "id": "094740b7-e9bb-4a94-83d9-f4e7a2491001",
+      "name": "a5",
+      "notesInFlow": true,
+      "notes": "\n"
+    },
+    {
+      "parameters": {
+        "content": "### Join Data AI Agent",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1392,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "1140768d-b4c2-4b23-8b9f-14836bb29145",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2999c3a4-9ee9-4c82-83ce-95e6b45a0d48",
+              "name": "data_web.user.status",
+              "value": "={{ $('a').item.json.body.data_web.user.status }}",
+              "type": "string"
+            },
+            {
+              "id": "6a0d7133-8705-485d-b276-1161d9ed0dd0",
+              "name": "data_web.user.tanggal",
+              "value": "={{ $('a').item.json.body.data_web.user.tanggal }}",
+              "type": "string"
+            },
+            {
+              "id": "6746fcf3-7db2-4ee1-b948-8f10afe34bb8",
+              "name": "data_web.user.id.json",
+              "value": "={{ $('a').item.json.body.data_web.user.id.json }}",
+              "type": "string"
+            },
+            {
+              "id": "70384254-1964-4d77-ad50-65102e2d21c6",
+              "name": "data_web.user.id.html",
+              "value": "={{ $('a').item.json.body.data_web.user.id.html }}",
+              "type": "string"
+            },
+            {
+              "id": "2072b653-8ab1-4fc1-a1d0-b993495ffb79",
+              "name": "data_web.user.id.css",
+              "value": "={{ $('a').item.json.body.data_web.user.id.css }}",
+              "type": "string"
+            },
+            {
+              "id": "0c53b5e2-ffaa-4e8a-b06f-70c1d354c6ad",
+              "name": "data_web.user.id.javascript",
+              "value": "={{ $('a').item.json.body.data_web.user.id.javascript }}",
+              "type": "string"
+            },
+            {
+              "id": "fa3a3761-f231-4f7c-842b-1b7351e46a26",
+              "name": "data_web.user.id.folder",
+              "value": "={{ $('a2').item.json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "29f00277-9897-4fe7-9f83-427f9816effb",
+              "name": "data_web.user.data_surat.pemohon",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.pemohon }}",
+              "type": "object"
+            },
+            {
+              "id": "055afe7a-bbe3-4e82-ba43-ae8689a60906",
+              "name": "data_web.user.data_surat.perihal",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.perihal }}",
+              "type": "string"
+            },
+            {
+              "id": "a02f0ee2-88ff-4905-8da9-625bb1b8c88f",
+              "name": "data_web.user.data_surat.dokumen",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.dokumen }}",
+              "type": "array"
+            },
+            {
+              "id": "1b28027d-e6e1-4300-857a-b81156345d4d",
+              "name": "data_web.user.whatsapp",
+              "value": "={{ $('a').item.json.body.data_web.user.whatsapp }}",
+              "type": "object"
+            },
+            {
+              "id": "8d8be6b1-b418-4a2d-92b3-df822b49a08f",
+              "name": "data_web.user.logo",
+              "value": "={{ $('a5').item.json.output.Logo }}",
+              "type": "string"
+            },
+            {
+              "id": "4e720b9c-e188-47bb-ac5e-8670b4752220",
+              "name": "data_web.user.tombol.kirim_surat",
+              "value": "={{ $('a5').item.json.output.Tombol_Kirim_Surat_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "fb8c30ee-147e-40a7-9f4f-a7384d76520a",
+              "name": "data_web.user.tombol.edit_data",
+              "value": "={{$('a5').item.json.output.Tombol_Edit_Data_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "9579a10e-bcb6-4ff1-a030-c9d787d94b96",
+              "name": "data_web.user.tombol.kirim_file",
+              "value": "={{$('a5').item.json.output.Tombol_Kirim_File_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "5c5d438d-858a-4d47-9e04-97c0b205b85a",
+              "name": "data_web.user.tombol.hapus_file",
+              "value": "={{ $('a5').item.json.output.Tombol_Hapus_File_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "3c3072b9-9f44-47cd-a49a-ee85851529fc",
+              "name": "data_web.user.tombol.hapus_surat",
+              "value": "={{ $('a5').item.json.output.Tombol_Hapus_Surat_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "0385c278-39e0-4907-9adb-31a1bfc3bfea",
+              "name": "data_web.admin2.status",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "1b703f57-eaf6-485c-b167-de6692d9b8a7",
+              "name": "data_web.admin2.tanggal",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "2769c358-c6b9-4f1c-9b89-521b9fa7a2f3",
+              "name": "data_web.admin2.nomor_surat",
+              "value": "={{ $('a3').item.json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "a7d7130c-aa0a-4813-b4b7-24e807baa51a",
+              "name": "data_web.admin2.id.json",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "62e24f06-9e72-4607-8010-6e8be02d5172",
+              "name": "data_web.admin2.id.html",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "6f1268e4-aeeb-45e7-8a40-7cfbd0790674",
+              "name": "data_web.admin2.id.css",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "02ca1a57-bde0-4e0b-af63-6825322b42e5",
+              "name": "data_web.admin2.id.javascript",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "461a6f2a-dedb-4cd9-9cd9-ea3f5c70918f",
+              "name": "data_web.admin2.id.folder",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "298453bd-5730-4ad2-a995-c3bb0081fffc",
+              "name": "data_web.admin2.data_surat.kop.pemerintah_kabupaten",
+              "value": "={{ $('a4').item.json.output.Pemerintah_Kabupaten }}",
+              "type": "string"
+            },
+            {
+              "id": "2a1f3e4c-788f-40ca-9353-260c5765ff91",
+              "name": "data_web.admin2.data_surat.kop.provinsi",
+              "value": "={{ $('a4').item.json.output.Provinsi }}",
+              "type": "string"
+            },
+            {
+              "id": "f4024f63-b4db-4c1d-8d0c-82d94e3956e0",
+              "name": "data_web.admin2.data_surat.kop.distrik",
+              "value": "={{ $('a4').item.json.output.Distrik }}",
+              "type": "string"
+            },
+            {
+              "id": "1a24fa44-0776-4938-98db-631a9f688b6f",
+              "name": "data_web.admin2.data_surat.kop.alamat",
+              "value": "={{ $('a4').item.json.output.Alamat }}",
+              "type": "string"
+            },
+            {
+              "id": "d8565f6e-5b56-46a8-80c0-d622cacaf149",
+              "name": "data_web.admin2.data_surat.kop.kode_pos",
+              "value": "={{ $('a4').item.json.output.Kode_Pos }}",
+              "type": "string"
+            },
+            {
+              "id": "38f87163-c257-4441-825a-4ecbda32c9dd",
+              "name": "data_web.admin2.data_surat.kop.email",
+              "value": "={{ $('a4').item.json.output.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "ddfa590c-cf5e-4e79-9d7e-cb17eca2d005",
+              "name": "data_web.admin2.data_surat.admin.nama",
+              "value": "={{ $('a4').item.json.output.Nama_Pimpinan }}",
+              "type": "string"
+            },
+            {
+              "id": "dc7cac9e-f2e4-4f8c-91b3-4ade12ee5423",
+              "name": "data_web.admin2.data_surat.admin.jabatan",
+              "value": "={{ $('a4').item.json.output.Jabatan }}",
+              "type": "string"
+            },
+            {
+              "id": "f8a2bc4f-7a65-43be-ad23-8b9369999d8b",
+              "name": "data_web.admin2.data_surat.admin.nip",
+              "value": "={{ $('a4').item.json.output.Nip }}",
+              "type": "string"
+            },
+            {
+              "id": "d8b3c3c7-250b-4882-a25a-6a3e58c6f4a2",
+              "name": "data_web.admin2.data_surat.admin.id_tanda_tangan",
+              "value": "={{ $('a4').item.json.output.Id_Tanda_Tangan }}",
+              "type": "string"
+            },
+            {
+              "id": "b9acdcd7-a268-4f64-b07c-e83993fffdf8",
+              "name": "data_web.admin2.data_surat.admin.nomor_hp",
+              "value": "={{ $('a4').item.json.output.Nomor_HP }}",
+              "type": "string"
+            },
+            {
+              "id": "03f63c3c-24e2-4e47-b976-5074d0ccb8f6",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_1",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_1 }}",
+              "type": "string"
+            },
+            {
+              "id": "896615fa-54e6-4aab-bab7-a051eb6bc63e",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_2",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_2 }}",
+              "type": "string"
+            },
+            {
+              "id": "572ef276-deb0-43de-9d8c-1ecb1428678d",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_3",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_3 }}",
+              "type": "string"
+            },
+            {
+              "id": "d672f9ee-b115-433d-a8be-622853cad7ca",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_4",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_4 }}",
+              "type": "string"
+            },
+            {
+              "id": "d10df30a-c356-41c3-9817-2d59d2abdb86",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_5",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_5 }}",
+              "type": "string"
+            },
+            {
+              "id": "7113987b-835b-4d03-929b-c8cb20100ff3",
+              "name": "data_web.admin2.data_surat.dokumen",
+              "value": "null",
+              "type": "object"
+            },
+            {
+              "id": "977a86a5-d85a-42ec-a3b2-1f0e5457b30d",
+              "name": "data_web.admin2.whatsapp.session",
+              "value": "={{ $('a4').item.json.output.Session_WhatsApp }}",
+              "type": "string"
+            },
+            {
+              "id": "ab79952b-feca-4d53-b428-fbdbcdb344ae",
+              "name": "data_web.admin2.whatsapp.chat_id",
+              "value": "={{ $('a4').item.json.output.Chat_Id_WhatsAp }}",
+              "type": "string"
+            },
+            {
+              "id": "bad81411-caa6-4756-a957-218a50889abe",
+              "name": "data_web.admin2.logo",
+              "value": "={{ $('a5').item.json.output.Logo }}",
+              "type": "string"
+            },
+            {
+              "id": "5ec96419-fd88-4eb1-a007-d05336ac2b12",
+              "name": "data_web.admin2.tombol.kirim_surat",
+              "value": "={{ $('a5').item.json.output.Tombol_Kirim_Surat_SKTM_Admin_2 }}",
+              "type": "string"
+            },
+            {
+              "id": "9e81fd93-d70a-49fb-af02-fbd0f78db555",
+              "name": "data_web.admin2.tombol.hapus_surat",
+              "value": "={{ $('a5').item.json.output.Tombol_Hapus_Surat_SKTM_Admin_2 }}",
+              "type": "string"
+            },
+            {
+              "id": "240bb78b-074f-4b25-8ce1-0ff5a06e858c",
+              "name": "data_web.admin2.tombol.kirim_pesan",
+              "value": "={{ $('a5').item.json.output.Tombol_Kirim_Pesan_SKTM_Admin_2 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1472,
+        64
+      ],
+      "id": "fa56309e-3577-4739-b41c-fda1e79f34a4",
+      "name": "a6",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "### Tool Uploud json\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/m26iXk3EPtsefvLz",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "c9ea84f2-ae5d-4c2e-a3df-7c4121ff1038",
+      "name": "Sticky Note15"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/0b03dc2d-0d53-4066-a82b-5828946439cb-uploud-json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "Nama File",
+              "value": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($json.data_web.user.data_surat.pemohon.nama).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($json.data_web.user.data_surat.pemohon.nik) }}"
+            },
+            {
+              "name": "Lokasi File",
+              "value": "={{ $json.data_web.user.id.folder }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -112,
+        288
+      ],
+      "id": "3b0222cb-d7e5-4246-8639-4bdecba4007f",
+      "name": "a7",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "### Join Data Tool Json",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        80,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "546bf173-5b01-4fcb-952b-aca2a1e7134d",
+      "name": "Sticky Note14"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2999c3a4-9ee9-4c82-83ce-95e6b45a0d48",
+              "name": "data_web.user.status",
+              "value": "={{ $('a').item.json.body.data_web.user.status }}",
+              "type": "string"
+            },
+            {
+              "id": "6a0d7133-8705-485d-b276-1161d9ed0dd0",
+              "name": "data_web.user.tanggal",
+              "value": "={{ $('a').item.json.body.data_web.user.tanggal }}",
+              "type": "string"
+            },
+            {
+              "id": "6746fcf3-7db2-4ee1-b948-8f10afe34bb8",
+              "name": "data_web.user.id.json",
+              "value": "={{ $('a7').item.json.data }}",
+              "type": "string"
+            },
+            {
+              "id": "70384254-1964-4d77-ad50-65102e2d21c6",
+              "name": "data_web.user.id.html",
+              "value": "={{ $('a').item.json.body.data_web.user.id.html }}",
+              "type": "string"
+            },
+            {
+              "id": "2072b653-8ab1-4fc1-a1d0-b993495ffb79",
+              "name": "data_web.user.id.css",
+              "value": "={{ $('a').item.json.body.data_web.user.id.css }}",
+              "type": "string"
+            },
+            {
+              "id": "0c53b5e2-ffaa-4e8a-b06f-70c1d354c6ad",
+              "name": "data_web.user.id.javascript",
+              "value": "={{ $('a').item.json.body.data_web.user.id.javascript }}",
+              "type": "string"
+            },
+            {
+              "id": "fa3a3761-f231-4f7c-842b-1b7351e46a26",
+              "name": "data_web.user.id.folder",
+              "value": "={{ $('a2').item.json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "29f00277-9897-4fe7-9f83-427f9816effb",
+              "name": "data_web.user.data_surat.pemohon",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.pemohon }}",
+              "type": "object"
+            },
+            {
+              "id": "055afe7a-bbe3-4e82-ba43-ae8689a60906",
+              "name": "data_web.user.data_surat.perihal",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.perihal }}",
+              "type": "string"
+            },
+            {
+              "id": "a02f0ee2-88ff-4905-8da9-625bb1b8c88f",
+              "name": "data_web.user.data_surat.dokumen",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.dokumen }}",
+              "type": "array"
+            },
+            {
+              "id": "1b28027d-e6e1-4300-857a-b81156345d4d",
+              "name": "data_web.user.whatsapp",
+              "value": "={{ $('a').item.json.body.data_web.user.whatsapp }}",
+              "type": "object"
+            },
+            {
+              "id": "8d8be6b1-b418-4a2d-92b3-df822b49a08f",
+              "name": "data_web.user.logo",
+              "value": "={{ $('a5').item.json.output.Logo }}",
+              "type": "string"
+            },
+            {
+              "id": "4e720b9c-e188-47bb-ac5e-8670b4752220",
+              "name": "data_web.user.tombol.kirim_surat",
+              "value": "={{ $('a5').item.json.output.Tombol_Kirim_Surat_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "fb8c30ee-147e-40a7-9f4f-a7384d76520a",
+              "name": "data_web.user.tombol.edit_data",
+              "value": "={{$('a5').item.json.output.Tombol_Edit_Data_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "9579a10e-bcb6-4ff1-a030-c9d787d94b96",
+              "name": "data_web.user.tombol.kirim_file",
+              "value": "={{$('a5').item.json.output.Tombol_Kirim_File_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "5c5d438d-858a-4d47-9e04-97c0b205b85a",
+              "name": "data_web.user.tombol.hapus_file",
+              "value": "={{ $('a5').item.json.output.Tombol_Hapus_File_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "3c3072b9-9f44-47cd-a49a-ee85851529fc",
+              "name": "data_web.user.tombol.hapus_surat",
+              "value": "={{ $('a5').item.json.output.Tombol_Hapus_Surat_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "0385c278-39e0-4907-9adb-31a1bfc3bfea",
+              "name": "data_web.admin2.status",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "1b703f57-eaf6-485c-b167-de6692d9b8a7",
+              "name": "data_web.admin2.tanggal",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "2769c358-c6b9-4f1c-9b89-521b9fa7a2f3",
+              "name": "data_web.admin2.nomor_surat",
+              "value": "={{ $('a3').item.json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "a7d7130c-aa0a-4813-b4b7-24e807baa51a",
+              "name": "data_web.admin2.id.json",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "62e24f06-9e72-4607-8010-6e8be02d5172",
+              "name": "data_web.admin2.id.html",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "6f1268e4-aeeb-45e7-8a40-7cfbd0790674",
+              "name": "data_web.admin2.id.css",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "02ca1a57-bde0-4e0b-af63-6825322b42e5",
+              "name": "data_web.admin2.id.javascript",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "461a6f2a-dedb-4cd9-9cd9-ea3f5c70918f",
+              "name": "data_web.admin2.id.folder",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "298453bd-5730-4ad2-a995-c3bb0081fffc",
+              "name": "data_web.admin2.data_surat.kop.pemerintah_kabupaten",
+              "value": "={{ $('a4').item.json.output.Pemerintah_Kabupaten }}",
+              "type": "string"
+            },
+            {
+              "id": "2a1f3e4c-788f-40ca-9353-260c5765ff91",
+              "name": "data_web.admin2.data_surat.kop.provinsi",
+              "value": "={{ $('a4').item.json.output.Provinsi }}",
+              "type": "string"
+            },
+            {
+              "id": "f4024f63-b4db-4c1d-8d0c-82d94e3956e0",
+              "name": "data_web.admin2.data_surat.kop.distrik",
+              "value": "={{ $('a4').item.json.output.Distrik }}",
+              "type": "string"
+            },
+            {
+              "id": "1a24fa44-0776-4938-98db-631a9f688b6f",
+              "name": "data_web.admin2.data_surat.kop.alamat",
+              "value": "={{ $('a4').item.json.output.Alamat }}",
+              "type": "string"
+            },
+            {
+              "id": "d8565f6e-5b56-46a8-80c0-d622cacaf149",
+              "name": "data_web.admin2.data_surat.kop.kode_pos",
+              "value": "={{ $('a4').item.json.output.Kode_Pos }}",
+              "type": "string"
+            },
+            {
+              "id": "38f87163-c257-4441-825a-4ecbda32c9dd",
+              "name": "data_web.admin2.data_surat.kop.email",
+              "value": "={{ $('a4').item.json.output.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "ddfa590c-cf5e-4e79-9d7e-cb17eca2d005",
+              "name": "data_web.admin2.data_surat.admin.nama",
+              "value": "={{ $('a4').item.json.output.Nama_Pimpinan }}",
+              "type": "string"
+            },
+            {
+              "id": "dc7cac9e-f2e4-4f8c-91b3-4ade12ee5423",
+              "name": "data_web.admin2.data_surat.admin.jabatan",
+              "value": "={{ $('a4').item.json.output.Jabatan }}",
+              "type": "string"
+            },
+            {
+              "id": "f8a2bc4f-7a65-43be-ad23-8b9369999d8b",
+              "name": "data_web.admin2.data_surat.admin.nip",
+              "value": "={{ $('a4').item.json.output.Nip }}",
+              "type": "string"
+            },
+            {
+              "id": "d8b3c3c7-250b-4882-a25a-6a3e58c6f4a2",
+              "name": "data_web.admin2.data_surat.admin.id_tanda_tangan",
+              "value": "={{ $('a4').item.json.output.Id_Tanda_Tangan }}",
+              "type": "string"
+            },
+            {
+              "id": "b9acdcd7-a268-4f64-b07c-e83993fffdf8",
+              "name": "data_web.admin2.data_surat.admin.nomor_hp",
+              "value": "={{ $('a4').item.json.output.Nomor_HP }}",
+              "type": "string"
+            },
+            {
+              "id": "03f63c3c-24e2-4e47-b976-5074d0ccb8f6",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_1",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_1 }}",
+              "type": "string"
+            },
+            {
+              "id": "896615fa-54e6-4aab-bab7-a051eb6bc63e",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_2",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_2 }}",
+              "type": "string"
+            },
+            {
+              "id": "572ef276-deb0-43de-9d8c-1ecb1428678d",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_3",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_3 }}",
+              "type": "string"
+            },
+            {
+              "id": "d672f9ee-b115-433d-a8be-622853cad7ca",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_4",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_4 }}",
+              "type": "string"
+            },
+            {
+              "id": "d10df30a-c356-41c3-9817-2d59d2abdb86",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_5",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_5 }}",
+              "type": "string"
+            },
+            {
+              "id": "7113987b-835b-4d03-929b-c8cb20100ff3",
+              "name": "data_web.admin2.data_surat.dokumen",
+              "value": "null",
+              "type": "object"
+            },
+            {
+              "id": "977a86a5-d85a-42ec-a3b2-1f0e5457b30d",
+              "name": "data_web.admin2.whatsapp.session",
+              "value": "={{ $('a4').item.json.output.Session_WhatsApp }}",
+              "type": "string"
+            },
+            {
+              "id": "ab79952b-feca-4d53-b428-fbdbcdb344ae",
+              "name": "data_web.admin2.whatsapp.chat_id",
+              "value": "={{ $('a4').item.json.output.Chat_Id_WhatsAp }}",
+              "type": "string"
+            },
+            {
+              "id": "bad81411-caa6-4756-a957-218a50889abe",
+              "name": "data_web.admin2.logo",
+              "value": "={{ $('a5').item.json.output.Logo }}",
+              "type": "string"
+            },
+            {
+              "id": "5ec96419-fd88-4eb1-a007-d05336ac2b12",
+              "name": "data_web.admin2.tombol.kirim_surat",
+              "value": "={{ $('a6').item.json.data_web.admin2.tombol.kirim_surat }}",
+              "type": "string"
+            },
+            {
+              "id": "9e81fd93-d70a-49fb-af02-fbd0f78db555",
+              "name": "data_web.admin2.tombol.hapus_surat",
+              "value": "={{ $('a6').item.json.data_web.admin2.tombol.hapus_surat }}",
+              "type": "string"
+            },
+            {
+              "id": "240bb78b-074f-4b25-8ce1-0ff5a06e858c",
+              "name": "data_web.admin2.tombol.kirim_pesan",
+              "value": "={{ $('a6').item.json.data_web.admin2.tombol.kirim_pesan }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        144,
+        288
+      ],
+      "id": "df7d2f37-24c3-4e96-8c23-14f56c26971d",
+      "name": "a8",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "### Tool Generate Web\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/sKrLOmNtRlDNCKH9",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        320,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "75ec3d0c-c2b7-428c-b147-f41ad8173933",
+      "name": "Sticky Note16"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/67379661-2458-45d3-8bce-3dc149f95ca9-web-sktm-user",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('a8').item.json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        288
+      ],
+      "id": "d32e3781-8933-413a-9ccb-f78c28ffc886",
+      "name": "a9",
+      "notesInFlow": true,
+      "notes": "\n"
+    },
+    {
+      "parameters": {
+        "content": "### Join Data Tool Web",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        560,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "fe8405c8-88b6-4375-aab3-1e8d73197932",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2999c3a4-9ee9-4c82-83ce-95e6b45a0d48",
+              "name": "data_web.user.status",
+              "value": "={{ $('a').item.json.body.data_web.user.status }}",
+              "type": "string"
+            },
+            {
+              "id": "6a0d7133-8705-485d-b276-1161d9ed0dd0",
+              "name": "data_web.user.tanggal",
+              "value": "={{ $('a').item.json.body.data_web.user.tanggal }}",
+              "type": "string"
+            },
+            {
+              "id": "6746fcf3-7db2-4ee1-b948-8f10afe34bb8",
+              "name": "data_web.user.id.json",
+              "value": "={{ $('a7').item.json.data }}",
+              "type": "string"
+            },
+            {
+              "id": "70384254-1964-4d77-ad50-65102e2d21c6",
+              "name": "data_web.user.id.html",
+              "value": "={{ $('a9').item.json['Id HTML'] }}",
+              "type": "string"
+            },
+            {
+              "id": "2072b653-8ab1-4fc1-a1d0-b993495ffb79",
+              "name": "data_web.user.id.css",
+              "value": "={{ $('a9').item.json['Id CSS'] }}",
+              "type": "string"
+            },
+            {
+              "id": "0c53b5e2-ffaa-4e8a-b06f-70c1d354c6ad",
+              "name": "data_web.user.id.javascript",
+              "value": "={{ $('a9').item.json['Id JS'] }}",
+              "type": "string"
+            },
+            {
+              "id": "fa3a3761-f231-4f7c-842b-1b7351e46a26",
+              "name": "data_web.user.id.folder",
+              "value": "={{ $('a2').item.json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "29f00277-9897-4fe7-9f83-427f9816effb",
+              "name": "data_web.user.data_surat.pemohon",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.pemohon }}",
+              "type": "object"
+            },
+            {
+              "id": "055afe7a-bbe3-4e82-ba43-ae8689a60906",
+              "name": "data_web.user.data_surat.perihal",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.perihal }}",
+              "type": "string"
+            },
+            {
+              "id": "a02f0ee2-88ff-4905-8da9-625bb1b8c88f",
+              "name": "data_web.user.data_surat.dokumen",
+              "value": "={{ $('a').item.json.body.data_web.user.data_surat.dokumen }}",
+              "type": "array"
+            },
+            {
+              "id": "1b28027d-e6e1-4300-857a-b81156345d4d",
+              "name": "data_web.user.whatsapp",
+              "value": "={{ $('a').item.json.body.data_web.user.whatsapp }}",
+              "type": "object"
+            },
+            {
+              "id": "8d8be6b1-b418-4a2d-92b3-df822b49a08f",
+              "name": "data_web.user.logo",
+              "value": "={{ $('a5').item.json.output.Logo }}",
+              "type": "string"
+            },
+            {
+              "id": "4e720b9c-e188-47bb-ac5e-8670b4752220",
+              "name": "data_web.user.tombol.kirim_surat",
+              "value": "={{ $('a5').item.json.output.Tombol_Kirim_Surat_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "fb8c30ee-147e-40a7-9f4f-a7384d76520a",
+              "name": "data_web.user.tombol.edit_data",
+              "value": "={{$('a5').item.json.output.Tombol_Edit_Data_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "9579a10e-bcb6-4ff1-a030-c9d787d94b96",
+              "name": "data_web.user.tombol.kirim_file",
+              "value": "={{$('a5').item.json.output.Tombol_Kirim_File_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "5c5d438d-858a-4d47-9e04-97c0b205b85a",
+              "name": "data_web.user.tombol.hapus_file",
+              "value": "={{ $('a5').item.json.output.Tombol_Hapus_File_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "3c3072b9-9f44-47cd-a49a-ee85851529fc",
+              "name": "data_web.user.tombol.hapus_surat",
+              "value": "={{ $('a5').item.json.output.Tombol_Hapus_Surat_SKTM_User }}",
+              "type": "string"
+            },
+            {
+              "id": "0385c278-39e0-4907-9adb-31a1bfc3bfea",
+              "name": "data_web.admin2.status",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "1b703f57-eaf6-485c-b167-de6692d9b8a7",
+              "name": "data_web.admin2.tanggal",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "2769c358-c6b9-4f1c-9b89-521b9fa7a2f3",
+              "name": "data_web.admin2.nomor_surat",
+              "value": "={{ $('a3').item.json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "a7d7130c-aa0a-4813-b4b7-24e807baa51a",
+              "name": "data_web.admin2.id.json",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "62e24f06-9e72-4607-8010-6e8be02d5172",
+              "name": "data_web.admin2.id.html",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "6f1268e4-aeeb-45e7-8a40-7cfbd0790674",
+              "name": "data_web.admin2.id.css",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "02ca1a57-bde0-4e0b-af63-6825322b42e5",
+              "name": "data_web.admin2.id.javascript",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "461a6f2a-dedb-4cd9-9cd9-ea3f5c70918f",
+              "name": "data_web.admin2.id.folder",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "298453bd-5730-4ad2-a995-c3bb0081fffc",
+              "name": "data_web.admin2.data_surat.kop.pemerintah_kabupaten",
+              "value": "={{ $('a4').item.json.output.Pemerintah_Kabupaten }}",
+              "type": "string"
+            },
+            {
+              "id": "2a1f3e4c-788f-40ca-9353-260c5765ff91",
+              "name": "data_web.admin2.data_surat.kop.provinsi",
+              "value": "={{ $('a4').item.json.output.Provinsi }}",
+              "type": "string"
+            },
+            {
+              "id": "f4024f63-b4db-4c1d-8d0c-82d94e3956e0",
+              "name": "data_web.admin2.data_surat.kop.distrik",
+              "value": "={{ $('a4').item.json.output.Distrik }}",
+              "type": "string"
+            },
+            {
+              "id": "1a24fa44-0776-4938-98db-631a9f688b6f",
+              "name": "data_web.admin2.data_surat.kop.alamat",
+              "value": "={{ $('a4').item.json.output.Alamat }}",
+              "type": "string"
+            },
+            {
+              "id": "d8565f6e-5b56-46a8-80c0-d622cacaf149",
+              "name": "data_web.admin2.data_surat.kop.kode_pos",
+              "value": "={{ $('a4').item.json.output.Kode_Pos }}",
+              "type": "string"
+            },
+            {
+              "id": "38f87163-c257-4441-825a-4ecbda32c9dd",
+              "name": "data_web.admin2.data_surat.kop.email",
+              "value": "={{ $('a4').item.json.output.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "ddfa590c-cf5e-4e79-9d7e-cb17eca2d005",
+              "name": "data_web.admin2.data_surat.admin.nama",
+              "value": "={{ $('a4').item.json.output.Nama_Pimpinan }}",
+              "type": "string"
+            },
+            {
+              "id": "dc7cac9e-f2e4-4f8c-91b3-4ade12ee5423",
+              "name": "data_web.admin2.data_surat.admin.jabatan",
+              "value": "={{ $('a4').item.json.output.Jabatan }}",
+              "type": "string"
+            },
+            {
+              "id": "f8a2bc4f-7a65-43be-ad23-8b9369999d8b",
+              "name": "data_web.admin2.data_surat.admin.nip",
+              "value": "={{ $('a4').item.json.output.Nip }}",
+              "type": "string"
+            },
+            {
+              "id": "d8b3c3c7-250b-4882-a25a-6a3e58c6f4a2",
+              "name": "data_web.admin2.data_surat.admin.id_tanda_tangan",
+              "value": "={{ $('a4').item.json.output.Id_Tanda_Tangan }}",
+              "type": "string"
+            },
+            {
+              "id": "b9acdcd7-a268-4f64-b07c-e83993fffdf8",
+              "name": "data_web.admin2.data_surat.admin.nomor_hp",
+              "value": "={{ $('a4').item.json.output.Nomor_HP }}",
+              "type": "string"
+            },
+            {
+              "id": "03f63c3c-24e2-4e47-b976-5074d0ccb8f6",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_1",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_1 }}",
+              "type": "string"
+            },
+            {
+              "id": "896615fa-54e6-4aab-bab7-a051eb6bc63e",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_2",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_2 }}",
+              "type": "string"
+            },
+            {
+              "id": "572ef276-deb0-43de-9d8c-1ecb1428678d",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_3",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_3 }}",
+              "type": "string"
+            },
+            {
+              "id": "d672f9ee-b115-433d-a8be-622853cad7ca",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_4",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_4 }}",
+              "type": "string"
+            },
+            {
+              "id": "d10df30a-c356-41c3-9817-2d59d2abdb86",
+              "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_5",
+              "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_5 }}",
+              "type": "string"
+            },
+            {
+              "id": "7113987b-835b-4d03-929b-c8cb20100ff3",
+              "name": "data_web.admin2.data_surat.dokumen",
+              "value": "null",
+              "type": "object"
+            },
+            {
+              "id": "977a86a5-d85a-42ec-a3b2-1f0e5457b30d",
+              "name": "data_web.admin2.whatsapp.session",
+              "value": "={{ $('a4').item.json.output.Session_WhatsApp }}",
+              "type": "string"
+            },
+            {
+              "id": "ab79952b-feca-4d53-b428-fbdbcdb344ae",
+              "name": "data_web.admin2.whatsapp.chat_id",
+              "value": "={{ $('a4').item.json.output.Chat_Id_WhatsAp }}",
+              "type": "string"
+            },
+            {
+              "id": "bad81411-caa6-4756-a957-218a50889abe",
+              "name": "data_web.admin2.logo",
+              "value": "={{ $('a5').item.json.output.Logo }}",
+              "type": "string"
+            },
+            {
+              "id": "5ec96419-fd88-4eb1-a007-d05336ac2b12",
+              "name": "data_web.admin2.tombol.kirim_surat",
+              "value": "={{ $('a8').item.json.data_web.admin2.tombol.kirim_surat }}",
+              "type": "string"
+            },
+            {
+              "id": "9e81fd93-d70a-49fb-af02-fbd0f78db555",
+              "name": "data_web.admin2.tombol.hapus_surat",
+              "value": "={{ $('a8').item.json.data_web.admin2.tombol.hapus_surat }}",
+              "type": "string"
+            },
+            {
+              "id": "240bb78b-074f-4b25-8ce1-0ff5a06e858c",
+              "name": "data_web.admin2.tombol.kirim_pesan",
+              "value": "={{ $('a8').item.json.data_web.admin2.tombol.kirim_pesan }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        288
+      ],
+      "id": "460c7a82-cfe7-4859-83a0-a560e77c3b87",
+      "name": "a10",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "### Tool Update json\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/m26iXk3EPtsefvLz",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        800,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "d1ff2383-ba0b-42ca-b70f-2e4bf2000a05",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/0b03dc2d-0d53-4066-a82b-5828946439cb-update-json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "Lokasi File",
+              "value": "={{ $('a6').item.json.data_web.user.id.folder }}"
+            },
+            {
+              "name": "Nama File",
+              "value": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($('a6').item.json.data_web.user.data_surat.pemohon.nama).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($('a6').item.json.data_web.user.data_surat.pemohon.nik) }}"
+            },
+            {
+              "name": "Id File",
+              "value": "={{ $('a10').item.json.data_web.user.id.json }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        288
+      ],
+      "id": "abd07140-d276-4ef8-9fe1-041a94bc3394",
+      "name": "a11",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Pesan Surat\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1040,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "f8f90dd8-53b2-499f-ba4e-e5c2bf04febc",
+      "name": "Sticky Note20"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Buat Pesan Dan Kirim Pesan\n\nData Buat Pesan\nNama Pemohon = {{ $('a10').item.json.data_web.user.data_surat.pemohon.nama }}\nLink = https://distrikwania.com/data/{{ $('a10').item.json.data_web.user.id.html.substring(3) }}\n\nData Kirim Pesan\nSession WhatsApp = {{ $('a10').item.json.data_web.user.whatsapp.session }}\nChat Id WhatsApp = {{ $('a10').item.json.data_web.user.whatsapp.chat_id }}\n\nRespon Hanya \nBerhasil Atau Gagal"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan\n\nGunakan Format ini untuk Buat Pesan \nPermohonan SKTM sudah selesai di buat.\nSilakan buka tautan berikut untuk Mengirim Surat Keterangan Tidak Mampu untuk di tanda Tangan\nLink : \n\n\nRespon Hanya \nBerhasil Atau Gagal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1136,
+        288
+      ],
+      "id": "55af8fc6-8482-4b6f-a4cc-826037173a13",
+      "name": "a12",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Pesan Surat\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1280,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "4f6119a1-4e07-4b52-aba8-7a61b6a1a120",
+      "name": "Sticky Note21"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Kirim Pesan \n\nKepada Yth.\nOperator {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }} 🌸\n\nDengan hormat,\nDisampaikan bahwa Permohonan Surat Keterangan Tidak Mampu (SKTM) atas nama warga berikut:\n\nNama : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nama }}\nNik : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nik }}\nKontak : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nomor_hp }}\nKeperluan : {{ $('a10').item.json.data_web.user.data_surat.perihal }}\n\nTelah dikirim kepada Operator {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }} untuk proses pemeriksaan dan validasi Data Pemohon.\n\nDokumen tersebut dapat diakses melalui tautan berikut:\n🔗 https://distrikwania.com/data/{{ $('a10').item.json.data_web.user.id.html.substring(3) }}\n\nAtas perhatian dan kerja sama, disampaikan terima kasih.\nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan.\n\nHormat kami,\nKawe Nia 🤝\nAsisten Digital Distrik Wania\n\nGunakan Tool Contac Untuk Ambil Data Berdasarkan \nKampung_Kelurahan = {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }}\nAmbil Data \nChat_Id_WhatsApp_Operator_Kampung_Kelurahan dan\nSession_WhatsApp_Operator_Kampung_Kelurahan \n\nGunakan Tool Pesan Untuk Kirim Pesan\n\n\n\nRespon Hanya\nBerhasil Atau gagal"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Tool Contac\" Untuk mengambil data contact chat_id dan session\nWajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan\nSebelum Kirim Pesan Wajib Rapikan Agar Lebih Rapih Dan Lebih Formal"
+            },
+            {
+              "name": "={{ $json.data_web.user.id.html }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1376,
+        288
+      ],
+      "id": "489c9dab-0f19-4ce2-84d1-009aede45fc1",
+      "name": "a13",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Pesan Surat\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1520,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "34b51c6c-12f6-4004-9e6d-70648ad8c336",
+      "name": "Sticky Note22"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Kirim Pesan \n\nKepada Yth.\nIbu Kepala Distrik Wania 🌸\n\nDengan hormat,\nDisampaikan bahwa Permohonan Surat Keterangan Tidak Mampu (SKTM) atas nama warga berikut:\n\nNama : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nama }}\nNik : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nik }}\nKontak : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nomor_hp }}\nKeperluan : {{ $('a10').item.json.data_web.user.data_surat.perihal }}\n\nTelah dikirim kepada Operator {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }} untuk proses pemeriksaan dan validasi Data Pemohon.\n\nKontak Operator\nNama Operator :\nNomor Hp Operator :\n\nDokumen tersebut dapat diakses melalui tautan berikut:\n🔗 https://distrikwania.com/data/{{ $('a10').item.json.data_web.user.id.html.substring(3) }}\n\nAtas perhatian dan kerja sama Ibu, disampaikan terima kasih.\nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu.\n\nHormat kami,\nKawe Nia 🤝\nAsisten Digital Distrik Wania\n\nGunakan Tool Contac Untuk Ambil Data Berdasarkan \nKampung_Kelurahan = Distrik Wania\nAmbil Data \nChat_Id_WhatsApp_Kepala_Kampung_Kelurahan dan\nSession_WhatsApp_Kepala_Kampung_Kelurahan \nEdit Nama Operator dan Nomor Hp Operator dari {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }}\n\nGunakan Tool Pesan Untuk Kirim Pesan\n\n\n\nRespon Hanya\nBerhasil Atau gagal"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Tool Contac\" Untuk mengambil data contact chat_id dan session\nWajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan\nSebelum Kirim Pesan Wajib Rapikan Agar Lebih Rapih Dan Lebih Formal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        288
+      ],
+      "id": "316ff220-05df-4191-8bf6-242c90f2ab17",
+      "name": "a14",
+      "notesInFlow": true,
+      "notes": "\n"
+    }
+  ],
+  "connections": {
+    "a": {
+      "main": [
+        [
+          {
+            "node": "a1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a1": {
+      "main": [
+        [
+          {
+            "node": "a2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a2": {
+      "main": [
+        [
+          {
+            "node": "a3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a3": {
+      "main": [
+        [
+          {
+            "node": "a4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a4": {
+      "main": [
+        [
+          {
+            "node": "a5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a5": {
+      "main": [
+        [
+          {
+            "node": "a6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a6": {
+      "main": [
+        [
+          {
+            "node": "a7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a7": {
+      "main": [
+        [
+          {
+            "node": "a8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a8": {
+      "main": [
+        [
+          {
+            "node": "a9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a9": {
+      "main": [
+        [
+          {
+            "node": "a10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a10": {
+      "main": [
+        [
+          {
+            "node": "a11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a11": {
+      "main": [
+        [
+          {
+            "node": "a12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a12": {
+      "main": [
+        [
+          {
+            "node": "a13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a13": {
+      "main": [
+        [
+          {
+            "node": "a14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "a": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "1684",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "authorization": "Basic RGlzdHJpa1dhbmlhOkRpc3RyaWtXYW5pYQ==",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9a9c8bd239189c99-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.71.82.44",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.71.82.44"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "data_web": {
+              "user": {
+                "data_surat": {
+                  "pemohon": {
+                    "nama": "Syafruddin",
+                    "nik": "910901078740007",
+                    "ttl": "Ralla, 07-08-1974",
+                    "agama": "Islam",
+                    "jenis_kelamin": "Laki-laki",
+                    "status_perkawinan": "Kawin",
+                    "pekerjaan": "Petani/Pekebun",
+                    "alamat": "Wania",
+                    "kampung_kelurahan": "Nawaripi",
+                    "nomor_rt": "10",
+                    "kecamatan": "Wania",
+                    "kota_kabupaten": "Mimika",
+                    "provinsi": "Papua Tengah",
+                    "nomor_hp": "6285230047347"
+                  },
+                  "perihal": "untuk administrasi kampus politeknik amamapare timika",
+                  "dokumen": [
+                    {
+                      "nama": "KTP - Syafruddin",
+                      "tipe": "image/jpeg",
+                      "id": "1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU",
+                      "size": "88330",
+                      "view": "https://drive.google.com/file/d/1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU&export=download"
+                    },
+                    {
+                      "nama": "Kartu Keluarga - Syafruddin",
+                      "tipe": "image/jpeg",
+                      "id": "1acIfBcH3Za7vPRpcum36INWQFjIEYNPw",
+                      "size": "137745",
+                      "view": "https://drive.google.com/file/d/1acIfBcH3Za7vPRpcum36INWQFjIEYNPw/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1acIfBcH3Za7vPRpcum36INWQFjIEYNPw&export=download"
+                    },
+                    {
+                      "nama": "Surat Pengantar RT - Syafruddin",
+                      "tipe": "pdf",
+                      "id": "1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw",
+                      "size": "187745",
+                      "view": "https://drive.google.com/file/d/1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw&export=download"
+                    }
+                  ]
+                },
+                "whatsapp": {
+                  "session": "KaweNia",
+                  "chat_id": "6285230047347@c.us"
+                },
+                "status": "",
+                "tanggal": "25 November 2025",
+                "id": {
+                  "json": "",
+                  "html": "",
+                  "css": "",
+                  "javascript": "",
+                  "folder": "400.2.1/036/DW/2025"
+                },
+                "logo": "",
+                "tombol": {
+                  "kirim_surat": "",
+                  "edit_data": "",
+                  "kirim_file": "",
+                  "hapus_file": "",
+                  "hapus_surat": ""
+                }
+              },
+              "admin1": "",
+              "admin2": ""
+            }
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/5d7b4004-1933-4a49-a361-19967b790736-web-sktm",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "b4cd6d9f-a371-418f-aa0f-8fb4392e3612",
+  "activeVersionId": "b4cd6d9f-a371-418f-aa0f-8fb4392e3612",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-28T08:07:54.597Z",
+      "createdAt": "2025-12-28T08:07:54.597Z",
+      "role": "workflow:owner",
+      "workflowId": "24ErbbIFOB6hZ0mS",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-28T08:11:14.440Z",
+    "createdAt": "2025-12-28T08:11:14.440Z",
+    "versionId": "b4cd6d9f-a371-418f-aa0f-8fb4392e3612",
+    "workflowId": "24ErbbIFOB6hZ0mS",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "# SKTM Web User\n",
+          "height": 80,
+          "width": 304
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          624,
+          -96
+        ],
+        "typeVersion": 1,
+        "id": "afa55818-7b9d-44a4-b32e-78be08e2a2d8",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 656,
+          "width": 2016
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -208,
+          -128
+        ],
+        "typeVersion": 1,
+        "id": "b196b39f-4ec1-4a08-a926-d5f677ea539b",
+        "name": "Sticky Note5"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input SKTM User\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -48,
+          32
+        ],
+        "typeVersion": 1,
+        "id": "7b3158d9-9556-41ad-a9f1-f7a1695a54c0",
+        "name": "Sticky Note7"
+      },
+      {
+        "parameters": {
+          "content": "### Format Json SKTM User",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          192,
+          32
+        ],
+        "typeVersion": 1,
+        "id": "f95e42b2-a6c8-4247-8180-cb6bc310f6fd",
+        "name": "Sticky Note8"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "5d7b4004-1933-4a49-a361-19967b790736-web-sktm",
+          "authentication": "basicAuth",
+          "options": {
+            "responseData": "=Terimakasih \nSaya Sedang Momproses Data Dalam Format Web Untuk dapat di tanda tangan\nmohon Tunggu"
+          }
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          16,
+          64
+        ],
+        "id": "cf532b45-5c9b-493e-a648-311b0d57b9c7",
+        "name": "a",
+        "webhookId": "5d7b4004-1933-4a49-a361-19967b790736",
+        "credentials": {
+          "httpBasicAuth": {
+            "id": "sJXgZq72GcirQDnl",
+            "name": "Besic Auth"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "2999c3a4-9ee9-4c82-83ce-95e6b45a0d48",
+                "name": "data_web.user.status",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "6a0d7133-8705-485d-b276-1161d9ed0dd0",
+                "name": "data_web.user.tanggal",
+                "value": "={{ $('a').item.json.body.data_web.user.tanggal }}",
+                "type": "string"
+              },
+              {
+                "id": "6746fcf3-7db2-4ee1-b948-8f10afe34bb8",
+                "name": "data_web.user.id.json",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "70384254-1964-4d77-ad50-65102e2d21c6",
+                "name": "data_web.user.id.html",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "2072b653-8ab1-4fc1-a1d0-b993495ffb79",
+                "name": "data_web.user.id.css",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "0c53b5e2-ffaa-4e8a-b06f-70c1d354c6ad",
+                "name": "data_web.user.id.javascript",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "fa3a3761-f231-4f7c-842b-1b7351e46a26",
+                "name": "data_web.user.id.folder",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "29f00277-9897-4fe7-9f83-427f9816effb",
+                "name": "data_web.user.data_surat.pemohon",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.pemohon }}",
+                "type": "object"
+              },
+              {
+                "id": "055afe7a-bbe3-4e82-ba43-ae8689a60906",
+                "name": "data_web.user.data_surat.perihal",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.perihal }}",
+                "type": "string"
+              },
+              {
+                "id": "a02f0ee2-88ff-4905-8da9-625bb1b8c88f",
+                "name": "data_web.user.data_surat.dokumen",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.dokumen }}",
+                "type": "array"
+              },
+              {
+                "id": "1b28027d-e6e1-4300-857a-b81156345d4d",
+                "name": "data_web.user.whatsapp",
+                "value": "={{ $('a').item.json.body.data_web.user.whatsapp }}",
+                "type": "object"
+              },
+              {
+                "id": "8d8be6b1-b418-4a2d-92b3-df822b49a08f",
+                "name": "data_web.user.logo",
+                "value": "={{ $('a').item.json.body.data_web.user.logo }}",
+                "type": "string"
+              },
+              {
+                "id": "4e720b9c-e188-47bb-ac5e-8670b4752220",
+                "name": "data_web.user.tombol.kirim_surat",
+                "value": "={{ $('a').item.json.body.data_web.user.tombol.kirim_surat }}",
+                "type": "string"
+              },
+              {
+                "id": "fb8c30ee-147e-40a7-9f4f-a7384d76520a",
+                "name": "data_web.user.tombol.edit_data",
+                "value": "={{ $('a').item.json.body.data_web.user.tombol.edit_data }}",
+                "type": "string"
+              },
+              {
+                "id": "9579a10e-bcb6-4ff1-a030-c9d787d94b96",
+                "name": "data_web.user.tombol.kirim_file",
+                "value": "={{ $('a').item.json.body.data_web.user.tombol.kirim_file }}",
+                "type": "string"
+              },
+              {
+                "id": "5c5d438d-858a-4d47-9e04-97c0b205b85a",
+                "name": "data_web.user.tombol.hapus_file",
+                "value": "={{ $('a').item.json.body.data_web.user.tombol.hapus_file }}",
+                "type": "string"
+              },
+              {
+                "id": "3c3072b9-9f44-47cd-a49a-ee85851529fc",
+                "name": "data_web.user.tombol.hapus_surat",
+                "value": "={{ $('a').item.json.body.data_web.user.tombol.hapus_surat }}",
+                "type": "string"
+              },
+              {
+                "id": "0385c278-39e0-4907-9adb-31a1bfc3bfea",
+                "name": "data_web.admin2.status",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "1b703f57-eaf6-485c-b167-de6692d9b8a7",
+                "name": "data_web.admin2.tanggal",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "2769c358-c6b9-4f1c-9b89-521b9fa7a2f3",
+                "name": "data_web.admin2.nomor_surat",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "a7d7130c-aa0a-4813-b4b7-24e807baa51a",
+                "name": "data_web.admin2.id.json",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "62e24f06-9e72-4607-8010-6e8be02d5172",
+                "name": "data_web.admin2.id.html",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "6f1268e4-aeeb-45e7-8a40-7cfbd0790674",
+                "name": "data_web.admin2.id.css",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "02ca1a57-bde0-4e0b-af63-6825322b42e5",
+                "name": "data_web.admin2.id.javascript",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "461a6f2a-dedb-4cd9-9cd9-ea3f5c70918f",
+                "name": "data_web.admin2.id.folder",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "298453bd-5730-4ad2-a995-c3bb0081fffc",
+                "name": "data_web.admin2.data_surat.kop.pemerintah_kabupaten",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "2a1f3e4c-788f-40ca-9353-260c5765ff91",
+                "name": "data_web.admin2.data_surat.kop.provinsi",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "f4024f63-b4db-4c1d-8d0c-82d94e3956e0",
+                "name": "data_web.admin2.data_surat.kop.distrik",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "1a24fa44-0776-4938-98db-631a9f688b6f",
+                "name": "data_web.admin2.data_surat.kop.alamat",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "d8565f6e-5b56-46a8-80c0-d622cacaf149",
+                "name": "data_web.admin2.data_surat.kop.kode_pos",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "38f87163-c257-4441-825a-4ecbda32c9dd",
+                "name": "data_web.admin2.data_surat.kop.email",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "ddfa590c-cf5e-4e79-9d7e-cb17eca2d005",
+                "name": "data_web.admin2.data_surat.admin.nama",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "dc7cac9e-f2e4-4f8c-91b3-4ade12ee5423",
+                "name": "data_web.admin2.data_surat.admin.jabatan",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "f8a2bc4f-7a65-43be-ad23-8b9369999d8b",
+                "name": "data_web.admin2.data_surat.admin.nip",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "d8b3c3c7-250b-4882-a25a-6a3e58c6f4a2",
+                "name": "data_web.admin2.data_surat.admin.id_tanda_tangan",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "b9acdcd7-a268-4f64-b07c-e83993fffdf8",
+                "name": "data_web.admin2.data_surat.admin.nomor_hp",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "03f63c3c-24e2-4e47-b976-5074d0ccb8f6",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_1",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "896615fa-54e6-4aab-bab7-a051eb6bc63e",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_2",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "572ef276-deb0-43de-9d8c-1ecb1428678d",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_3",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "d672f9ee-b115-433d-a8be-622853cad7ca",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_4",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "d10df30a-c356-41c3-9817-2d59d2abdb86",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_5",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "7113987b-835b-4d03-929b-c8cb20100ff3",
+                "name": "data_web.admin2.data_surat.dokumen",
+                "value": "null",
+                "type": "object"
+              },
+              {
+                "id": "977a86a5-d85a-42ec-a3b2-1f0e5457b30d",
+                "name": "data_web.admin2.whatsapp.session",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "ab79952b-feca-4d53-b428-fbdbcdb344ae",
+                "name": "data_web.admin2.whatsapp.chat_id",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "bad81411-caa6-4756-a957-218a50889abe",
+                "name": "data_web.admin2.logo",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "5ec96419-fd88-4eb1-a007-d05336ac2b12",
+                "name": "data_web.admin2.tombol.kirim_surat",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "9e81fd93-d70a-49fb-af02-fbd0f78db555",
+                "name": "data_web.admin2.tombol.hapus_surat",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "240bb78b-074f-4b25-8ce1-0ff5a06e858c",
+                "name": "data_web.admin2.tombol.kirim_pesan",
+                "value": "",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          256,
+          64
+        ],
+        "id": "9b3a79ec-a4b0-4ee8-aec8-0c0d7aed9a66",
+        "name": "a1",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Folder SKTM\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/cEw9xBahqSZKc2b9",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          432,
+          32
+        ],
+        "typeVersion": 1,
+        "id": "973b37f2-3739-4106-af4b-65ac9908b815",
+        "name": "Sticky Note9"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/570dd45a-b961-4940-929a-97573b3dce0b",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Saya Minta Id Folder SKTM User\nRespon Hanya Id Folder Baru Jangan Tambahkan Apapun!"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Data {{ $('a1').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }}\" Untuk Mendapatkan Id Perent Folder Surat\nKemudian \nWajib Gunakan \"AI Agent Tool Drive\" Untuk Membuat Folder Baru "
+              },
+              {
+                "name": "tool.Prompt",
+                "value": "=Buat Folder Baru Dan Berikan saya Hanya Id Folder Baru "
+              },
+              {
+                "name": "tool.System Message",
+                "value": "=Gunakan \"Drive Create Folder\" Untuk Membbuat Folder Baru"
+              },
+              {
+                "name": "tool.Name Folder",
+                "value": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ( $('a1').item.json.data_web.user.data_surat.pemohon.nama ).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($('a1').item.json.data_web.user.data_surat.pemohon.nik) }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          480,
+          64
+        ],
+        "id": "f40a2d15-0bd1-4d4c-8322-8aba90aac484",
+        "name": "a2",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Nomor Surat\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/wY4n6zJKNfJ5PD0W",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          672,
+          32
+        ],
+        "typeVersion": 1,
+        "id": "c4b6a4ae-cab8-4c2e-86c1-f78a8a90ff2f",
+        "name": "Sticky Note10"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/27d5c8f6-ada4-45c9-b829-fe806a0a6996",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Saya Minta Nomor SKTM Baru Distrik Wania\nPerihal = {{ $('a1').item.json.data_web.user.data_surat.perihal }}\nRespon \nHanya Berikan Nomor Surat Baru Tanpa Menambahkan Apapaun!"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Read SKTM Distrik Wania\" Untuk Melihat Nomor Surat Yang Terakhir\nKemudian Buat Nommor Surat Baru Gunakan Format Ini\n\nFormat Nomor Surat\nNomor Induk / Nomor Urut / DW / Tahun Sekarang\n\nNomor Induk Berdasarkan Perihal \nPerihal BPJS maka gunakan = 400.2.1\nPerihal Biaya Pendidikan = 400.3.2.1\n\nNomor Urut Tambahkan +1\n\nDW Tidak Berubah\n\ngunakan waktu ini {{ $now }}\n\nDan Wajib Gunakan \"Add SKTM Distrik Wania\" Untuk Menambahkan Nomor surat Baru"
+              },
+              {
+                "name": "perihal",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.perihal }}"
+              },
+              {
+                "name": "nama_pemohon",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.nama }}"
+              },
+              {
+                "name": "nik_pemohon",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.nik }}"
+              },
+              {
+                "name": "ttl",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.ttl }}"
+              },
+              {
+                "name": "agama",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.agama }}"
+              },
+              {
+                "name": "jenis_kelamin",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.jenis_kelamin }}"
+              },
+              {
+                "name": "status_perkawinan",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.status_perkawinan }}"
+              },
+              {
+                "name": "pekerjaan",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.pekerjaan }}"
+              },
+              {
+                "name": "alamat_pemohon",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.alamat }}"
+              },
+              {
+                "name": "nomor_hp",
+                "value": "={{ $('a1').item.json.data_web.user.data_surat.pemohon.nomor_hp }}"
+              },
+              {
+                "name": "link_perent_folder_sktm_user",
+                "value": "=https://drive.google.com/drive/folders/{{ $json.output }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          752,
+          64
+        ],
+        "id": "f823ea18-00b7-45cf-ac6a-68a6b141374f",
+        "name": "a3",
+        "notesInFlow": true,
+        "notes": "\n"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Data Distrik Wania\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Y7V5eVu80aorUx60",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          912,
+          32
+        ],
+        "typeVersion": 1,
+        "id": "17765119-b783-4b5e-9bdb-66689ef369c2",
+        "name": "Sticky Note11"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/b37234f8-9fb4-47ee-a42c-0deeddac2e68",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Saya Minta Data"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Data Distrik Wania\" Untuk Mendapatkan Data Yang Di minta"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          992,
+          64
+        ],
+        "id": "fcec9e65-967b-4e18-8d47-818f0a1e6ee3",
+        "name": "a4",
+        "notesInFlow": true,
+        "notes": "  \n"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Data Web Surat \n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/MUvsV7i1WkFokBze",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1152,
+          32
+        ],
+        "typeVersion": 1,
+        "id": "aa7d749f-34ab-44a8-a52d-9e195e680844",
+        "name": "Sticky Note12"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/6944c1da-bb3d-455e-aa09-4e1e0a192a84",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Saya Minta Data"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Data Distrik Wania\" Untuk Mendapatkan Semua Data Yang di minta\nuntuk keterangan sktm nomor 3 lakukan edit pada bagian biaya yang sesuai dengan {{ $('a1').item.json.data_web.user.data_surat.perihal }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          1232,
+          64
+        ],
+        "id": "094740b7-e9bb-4a94-83d9-f4e7a2491001",
+        "name": "a5",
+        "notesInFlow": true,
+        "notes": "\n"
+      },
+      {
+        "parameters": {
+          "content": "### Join Data AI Agent",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1392,
+          32
+        ],
+        "typeVersion": 1,
+        "id": "1140768d-b4c2-4b23-8b9f-14836bb29145",
+        "name": "Sticky Note13"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "2999c3a4-9ee9-4c82-83ce-95e6b45a0d48",
+                "name": "data_web.user.status",
+                "value": "={{ $('a').item.json.body.data_web.user.status }}",
+                "type": "string"
+              },
+              {
+                "id": "6a0d7133-8705-485d-b276-1161d9ed0dd0",
+                "name": "data_web.user.tanggal",
+                "value": "={{ $('a').item.json.body.data_web.user.tanggal }}",
+                "type": "string"
+              },
+              {
+                "id": "6746fcf3-7db2-4ee1-b948-8f10afe34bb8",
+                "name": "data_web.user.id.json",
+                "value": "={{ $('a').item.json.body.data_web.user.id.json }}",
+                "type": "string"
+              },
+              {
+                "id": "70384254-1964-4d77-ad50-65102e2d21c6",
+                "name": "data_web.user.id.html",
+                "value": "={{ $('a').item.json.body.data_web.user.id.html }}",
+                "type": "string"
+              },
+              {
+                "id": "2072b653-8ab1-4fc1-a1d0-b993495ffb79",
+                "name": "data_web.user.id.css",
+                "value": "={{ $('a').item.json.body.data_web.user.id.css }}",
+                "type": "string"
+              },
+              {
+                "id": "0c53b5e2-ffaa-4e8a-b06f-70c1d354c6ad",
+                "name": "data_web.user.id.javascript",
+                "value": "={{ $('a').item.json.body.data_web.user.id.javascript }}",
+                "type": "string"
+              },
+              {
+                "id": "fa3a3761-f231-4f7c-842b-1b7351e46a26",
+                "name": "data_web.user.id.folder",
+                "value": "={{ $('a2').item.json.output }}",
+                "type": "string"
+              },
+              {
+                "id": "29f00277-9897-4fe7-9f83-427f9816effb",
+                "name": "data_web.user.data_surat.pemohon",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.pemohon }}",
+                "type": "object"
+              },
+              {
+                "id": "055afe7a-bbe3-4e82-ba43-ae8689a60906",
+                "name": "data_web.user.data_surat.perihal",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.perihal }}",
+                "type": "string"
+              },
+              {
+                "id": "a02f0ee2-88ff-4905-8da9-625bb1b8c88f",
+                "name": "data_web.user.data_surat.dokumen",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.dokumen }}",
+                "type": "array"
+              },
+              {
+                "id": "1b28027d-e6e1-4300-857a-b81156345d4d",
+                "name": "data_web.user.whatsapp",
+                "value": "={{ $('a').item.json.body.data_web.user.whatsapp }}",
+                "type": "object"
+              },
+              {
+                "id": "8d8be6b1-b418-4a2d-92b3-df822b49a08f",
+                "name": "data_web.user.logo",
+                "value": "={{ $('a5').item.json.output.Logo }}",
+                "type": "string"
+              },
+              {
+                "id": "4e720b9c-e188-47bb-ac5e-8670b4752220",
+                "name": "data_web.user.tombol.kirim_surat",
+                "value": "={{ $('a5').item.json.output.Tombol_Kirim_Surat_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "fb8c30ee-147e-40a7-9f4f-a7384d76520a",
+                "name": "data_web.user.tombol.edit_data",
+                "value": "={{$('a5').item.json.output.Tombol_Edit_Data_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "9579a10e-bcb6-4ff1-a030-c9d787d94b96",
+                "name": "data_web.user.tombol.kirim_file",
+                "value": "={{$('a5').item.json.output.Tombol_Kirim_File_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "5c5d438d-858a-4d47-9e04-97c0b205b85a",
+                "name": "data_web.user.tombol.hapus_file",
+                "value": "={{ $('a5').item.json.output.Tombol_Hapus_File_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "3c3072b9-9f44-47cd-a49a-ee85851529fc",
+                "name": "data_web.user.tombol.hapus_surat",
+                "value": "={{ $('a5').item.json.output.Tombol_Hapus_Surat_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "0385c278-39e0-4907-9adb-31a1bfc3bfea",
+                "name": "data_web.admin2.status",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "1b703f57-eaf6-485c-b167-de6692d9b8a7",
+                "name": "data_web.admin2.tanggal",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "2769c358-c6b9-4f1c-9b89-521b9fa7a2f3",
+                "name": "data_web.admin2.nomor_surat",
+                "value": "={{ $('a3').item.json.output }}",
+                "type": "string"
+              },
+              {
+                "id": "a7d7130c-aa0a-4813-b4b7-24e807baa51a",
+                "name": "data_web.admin2.id.json",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "62e24f06-9e72-4607-8010-6e8be02d5172",
+                "name": "data_web.admin2.id.html",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "6f1268e4-aeeb-45e7-8a40-7cfbd0790674",
+                "name": "data_web.admin2.id.css",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "02ca1a57-bde0-4e0b-af63-6825322b42e5",
+                "name": "data_web.admin2.id.javascript",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "461a6f2a-dedb-4cd9-9cd9-ea3f5c70918f",
+                "name": "data_web.admin2.id.folder",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "298453bd-5730-4ad2-a995-c3bb0081fffc",
+                "name": "data_web.admin2.data_surat.kop.pemerintah_kabupaten",
+                "value": "={{ $('a4').item.json.output.Pemerintah_Kabupaten }}",
+                "type": "string"
+              },
+              {
+                "id": "2a1f3e4c-788f-40ca-9353-260c5765ff91",
+                "name": "data_web.admin2.data_surat.kop.provinsi",
+                "value": "={{ $('a4').item.json.output.Provinsi }}",
+                "type": "string"
+              },
+              {
+                "id": "f4024f63-b4db-4c1d-8d0c-82d94e3956e0",
+                "name": "data_web.admin2.data_surat.kop.distrik",
+                "value": "={{ $('a4').item.json.output.Distrik }}",
+                "type": "string"
+              },
+              {
+                "id": "1a24fa44-0776-4938-98db-631a9f688b6f",
+                "name": "data_web.admin2.data_surat.kop.alamat",
+                "value": "={{ $('a4').item.json.output.Alamat }}",
+                "type": "string"
+              },
+              {
+                "id": "d8565f6e-5b56-46a8-80c0-d622cacaf149",
+                "name": "data_web.admin2.data_surat.kop.kode_pos",
+                "value": "={{ $('a4').item.json.output.Kode_Pos }}",
+                "type": "string"
+              },
+              {
+                "id": "38f87163-c257-4441-825a-4ecbda32c9dd",
+                "name": "data_web.admin2.data_surat.kop.email",
+                "value": "={{ $('a4').item.json.output.Email }}",
+                "type": "string"
+              },
+              {
+                "id": "ddfa590c-cf5e-4e79-9d7e-cb17eca2d005",
+                "name": "data_web.admin2.data_surat.admin.nama",
+                "value": "={{ $('a4').item.json.output.Nama_Pimpinan }}",
+                "type": "string"
+              },
+              {
+                "id": "dc7cac9e-f2e4-4f8c-91b3-4ade12ee5423",
+                "name": "data_web.admin2.data_surat.admin.jabatan",
+                "value": "={{ $('a4').item.json.output.Jabatan }}",
+                "type": "string"
+              },
+              {
+                "id": "f8a2bc4f-7a65-43be-ad23-8b9369999d8b",
+                "name": "data_web.admin2.data_surat.admin.nip",
+                "value": "={{ $('a4').item.json.output.Nip }}",
+                "type": "string"
+              },
+              {
+                "id": "d8b3c3c7-250b-4882-a25a-6a3e58c6f4a2",
+                "name": "data_web.admin2.data_surat.admin.id_tanda_tangan",
+                "value": "={{ $('a4').item.json.output.Id_Tanda_Tangan }}",
+                "type": "string"
+              },
+              {
+                "id": "b9acdcd7-a268-4f64-b07c-e83993fffdf8",
+                "name": "data_web.admin2.data_surat.admin.nomor_hp",
+                "value": "={{ $('a4').item.json.output.Nomor_HP }}",
+                "type": "string"
+              },
+              {
+                "id": "03f63c3c-24e2-4e47-b976-5074d0ccb8f6",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_1",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_1 }}",
+                "type": "string"
+              },
+              {
+                "id": "896615fa-54e6-4aab-bab7-a051eb6bc63e",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_2",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_2 }}",
+                "type": "string"
+              },
+              {
+                "id": "572ef276-deb0-43de-9d8c-1ecb1428678d",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_3",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_3 }}",
+                "type": "string"
+              },
+              {
+                "id": "d672f9ee-b115-433d-a8be-622853cad7ca",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_4",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_4 }}",
+                "type": "string"
+              },
+              {
+                "id": "d10df30a-c356-41c3-9817-2d59d2abdb86",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_5",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_5 }}",
+                "type": "string"
+              },
+              {
+                "id": "7113987b-835b-4d03-929b-c8cb20100ff3",
+                "name": "data_web.admin2.data_surat.dokumen",
+                "value": "null",
+                "type": "object"
+              },
+              {
+                "id": "977a86a5-d85a-42ec-a3b2-1f0e5457b30d",
+                "name": "data_web.admin2.whatsapp.session",
+                "value": "={{ $('a4').item.json.output.Session_WhatsApp }}",
+                "type": "string"
+              },
+              {
+                "id": "ab79952b-feca-4d53-b428-fbdbcdb344ae",
+                "name": "data_web.admin2.whatsapp.chat_id",
+                "value": "={{ $('a4').item.json.output.Chat_Id_WhatsAp }}",
+                "type": "string"
+              },
+              {
+                "id": "bad81411-caa6-4756-a957-218a50889abe",
+                "name": "data_web.admin2.logo",
+                "value": "={{ $('a5').item.json.output.Logo }}",
+                "type": "string"
+              },
+              {
+                "id": "5ec96419-fd88-4eb1-a007-d05336ac2b12",
+                "name": "data_web.admin2.tombol.kirim_surat",
+                "value": "={{ $('a5').item.json.output.Tombol_Kirim_Surat_SKTM_Admin_2 }}",
+                "type": "string"
+              },
+              {
+                "id": "9e81fd93-d70a-49fb-af02-fbd0f78db555",
+                "name": "data_web.admin2.tombol.hapus_surat",
+                "value": "={{ $('a5').item.json.output.Tombol_Hapus_Surat_SKTM_Admin_2 }}",
+                "type": "string"
+              },
+              {
+                "id": "240bb78b-074f-4b25-8ce1-0ff5a06e858c",
+                "name": "data_web.admin2.tombol.kirim_pesan",
+                "value": "={{ $('a5').item.json.output.Tombol_Kirim_Pesan_SKTM_Admin_2 }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1472,
+          64
+        ],
+        "id": "fa56309e-3577-4739-b41c-fda1e79f34a4",
+        "name": "a6",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "### Tool Uploud json\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/m26iXk3EPtsefvLz",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -160,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "c9ea84f2-ae5d-4c2e-a3df-7c4121ff1038",
+        "name": "Sticky Note15"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/0b03dc2d-0d53-4066-a82b-5828946439cb-uploud-json",
+          "sendQuery": true,
+          "queryParameters": {
+            "parameters": [
+              {
+                "name": "Nama File",
+                "value": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($json.data_web.user.data_surat.pemohon.nama).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($json.data_web.user.data_surat.pemohon.nik) }}"
+              },
+              {
+                "name": "Lokasi File",
+                "value": "={{ $json.data_web.user.id.folder }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          -112,
+          288
+        ],
+        "id": "3b0222cb-d7e5-4246-8639-4bdecba4007f",
+        "name": "a7",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "### Join Data Tool Json",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          80,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "546bf173-5b01-4fcb-952b-aca2a1e7134d",
+        "name": "Sticky Note14"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "2999c3a4-9ee9-4c82-83ce-95e6b45a0d48",
+                "name": "data_web.user.status",
+                "value": "={{ $('a').item.json.body.data_web.user.status }}",
+                "type": "string"
+              },
+              {
+                "id": "6a0d7133-8705-485d-b276-1161d9ed0dd0",
+                "name": "data_web.user.tanggal",
+                "value": "={{ $('a').item.json.body.data_web.user.tanggal }}",
+                "type": "string"
+              },
+              {
+                "id": "6746fcf3-7db2-4ee1-b948-8f10afe34bb8",
+                "name": "data_web.user.id.json",
+                "value": "={{ $('a7').item.json.data }}",
+                "type": "string"
+              },
+              {
+                "id": "70384254-1964-4d77-ad50-65102e2d21c6",
+                "name": "data_web.user.id.html",
+                "value": "={{ $('a').item.json.body.data_web.user.id.html }}",
+                "type": "string"
+              },
+              {
+                "id": "2072b653-8ab1-4fc1-a1d0-b993495ffb79",
+                "name": "data_web.user.id.css",
+                "value": "={{ $('a').item.json.body.data_web.user.id.css }}",
+                "type": "string"
+              },
+              {
+                "id": "0c53b5e2-ffaa-4e8a-b06f-70c1d354c6ad",
+                "name": "data_web.user.id.javascript",
+                "value": "={{ $('a').item.json.body.data_web.user.id.javascript }}",
+                "type": "string"
+              },
+              {
+                "id": "fa3a3761-f231-4f7c-842b-1b7351e46a26",
+                "name": "data_web.user.id.folder",
+                "value": "={{ $('a2').item.json.output }}",
+                "type": "string"
+              },
+              {
+                "id": "29f00277-9897-4fe7-9f83-427f9816effb",
+                "name": "data_web.user.data_surat.pemohon",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.pemohon }}",
+                "type": "object"
+              },
+              {
+                "id": "055afe7a-bbe3-4e82-ba43-ae8689a60906",
+                "name": "data_web.user.data_surat.perihal",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.perihal }}",
+                "type": "string"
+              },
+              {
+                "id": "a02f0ee2-88ff-4905-8da9-625bb1b8c88f",
+                "name": "data_web.user.data_surat.dokumen",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.dokumen }}",
+                "type": "array"
+              },
+              {
+                "id": "1b28027d-e6e1-4300-857a-b81156345d4d",
+                "name": "data_web.user.whatsapp",
+                "value": "={{ $('a').item.json.body.data_web.user.whatsapp }}",
+                "type": "object"
+              },
+              {
+                "id": "8d8be6b1-b418-4a2d-92b3-df822b49a08f",
+                "name": "data_web.user.logo",
+                "value": "={{ $('a5').item.json.output.Logo }}",
+                "type": "string"
+              },
+              {
+                "id": "4e720b9c-e188-47bb-ac5e-8670b4752220",
+                "name": "data_web.user.tombol.kirim_surat",
+                "value": "={{ $('a5').item.json.output.Tombol_Kirim_Surat_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "fb8c30ee-147e-40a7-9f4f-a7384d76520a",
+                "name": "data_web.user.tombol.edit_data",
+                "value": "={{$('a5').item.json.output.Tombol_Edit_Data_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "9579a10e-bcb6-4ff1-a030-c9d787d94b96",
+                "name": "data_web.user.tombol.kirim_file",
+                "value": "={{$('a5').item.json.output.Tombol_Kirim_File_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "5c5d438d-858a-4d47-9e04-97c0b205b85a",
+                "name": "data_web.user.tombol.hapus_file",
+                "value": "={{ $('a5').item.json.output.Tombol_Hapus_File_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "3c3072b9-9f44-47cd-a49a-ee85851529fc",
+                "name": "data_web.user.tombol.hapus_surat",
+                "value": "={{ $('a5').item.json.output.Tombol_Hapus_Surat_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "0385c278-39e0-4907-9adb-31a1bfc3bfea",
+                "name": "data_web.admin2.status",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "1b703f57-eaf6-485c-b167-de6692d9b8a7",
+                "name": "data_web.admin2.tanggal",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "2769c358-c6b9-4f1c-9b89-521b9fa7a2f3",
+                "name": "data_web.admin2.nomor_surat",
+                "value": "={{ $('a3').item.json.output }}",
+                "type": "string"
+              },
+              {
+                "id": "a7d7130c-aa0a-4813-b4b7-24e807baa51a",
+                "name": "data_web.admin2.id.json",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "62e24f06-9e72-4607-8010-6e8be02d5172",
+                "name": "data_web.admin2.id.html",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "6f1268e4-aeeb-45e7-8a40-7cfbd0790674",
+                "name": "data_web.admin2.id.css",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "02ca1a57-bde0-4e0b-af63-6825322b42e5",
+                "name": "data_web.admin2.id.javascript",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "461a6f2a-dedb-4cd9-9cd9-ea3f5c70918f",
+                "name": "data_web.admin2.id.folder",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "298453bd-5730-4ad2-a995-c3bb0081fffc",
+                "name": "data_web.admin2.data_surat.kop.pemerintah_kabupaten",
+                "value": "={{ $('a4').item.json.output.Pemerintah_Kabupaten }}",
+                "type": "string"
+              },
+              {
+                "id": "2a1f3e4c-788f-40ca-9353-260c5765ff91",
+                "name": "data_web.admin2.data_surat.kop.provinsi",
+                "value": "={{ $('a4').item.json.output.Provinsi }}",
+                "type": "string"
+              },
+              {
+                "id": "f4024f63-b4db-4c1d-8d0c-82d94e3956e0",
+                "name": "data_web.admin2.data_surat.kop.distrik",
+                "value": "={{ $('a4').item.json.output.Distrik }}",
+                "type": "string"
+              },
+              {
+                "id": "1a24fa44-0776-4938-98db-631a9f688b6f",
+                "name": "data_web.admin2.data_surat.kop.alamat",
+                "value": "={{ $('a4').item.json.output.Alamat }}",
+                "type": "string"
+              },
+              {
+                "id": "d8565f6e-5b56-46a8-80c0-d622cacaf149",
+                "name": "data_web.admin2.data_surat.kop.kode_pos",
+                "value": "={{ $('a4').item.json.output.Kode_Pos }}",
+                "type": "string"
+              },
+              {
+                "id": "38f87163-c257-4441-825a-4ecbda32c9dd",
+                "name": "data_web.admin2.data_surat.kop.email",
+                "value": "={{ $('a4').item.json.output.Email }}",
+                "type": "string"
+              },
+              {
+                "id": "ddfa590c-cf5e-4e79-9d7e-cb17eca2d005",
+                "name": "data_web.admin2.data_surat.admin.nama",
+                "value": "={{ $('a4').item.json.output.Nama_Pimpinan }}",
+                "type": "string"
+              },
+              {
+                "id": "dc7cac9e-f2e4-4f8c-91b3-4ade12ee5423",
+                "name": "data_web.admin2.data_surat.admin.jabatan",
+                "value": "={{ $('a4').item.json.output.Jabatan }}",
+                "type": "string"
+              },
+              {
+                "id": "f8a2bc4f-7a65-43be-ad23-8b9369999d8b",
+                "name": "data_web.admin2.data_surat.admin.nip",
+                "value": "={{ $('a4').item.json.output.Nip }}",
+                "type": "string"
+              },
+              {
+                "id": "d8b3c3c7-250b-4882-a25a-6a3e58c6f4a2",
+                "name": "data_web.admin2.data_surat.admin.id_tanda_tangan",
+                "value": "={{ $('a4').item.json.output.Id_Tanda_Tangan }}",
+                "type": "string"
+              },
+              {
+                "id": "b9acdcd7-a268-4f64-b07c-e83993fffdf8",
+                "name": "data_web.admin2.data_surat.admin.nomor_hp",
+                "value": "={{ $('a4').item.json.output.Nomor_HP }}",
+                "type": "string"
+              },
+              {
+                "id": "03f63c3c-24e2-4e47-b976-5074d0ccb8f6",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_1",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_1 }}",
+                "type": "string"
+              },
+              {
+                "id": "896615fa-54e6-4aab-bab7-a051eb6bc63e",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_2",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_2 }}",
+                "type": "string"
+              },
+              {
+                "id": "572ef276-deb0-43de-9d8c-1ecb1428678d",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_3",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_3 }}",
+                "type": "string"
+              },
+              {
+                "id": "d672f9ee-b115-433d-a8be-622853cad7ca",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_4",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_4 }}",
+                "type": "string"
+              },
+              {
+                "id": "d10df30a-c356-41c3-9817-2d59d2abdb86",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_5",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_5 }}",
+                "type": "string"
+              },
+              {
+                "id": "7113987b-835b-4d03-929b-c8cb20100ff3",
+                "name": "data_web.admin2.data_surat.dokumen",
+                "value": "null",
+                "type": "object"
+              },
+              {
+                "id": "977a86a5-d85a-42ec-a3b2-1f0e5457b30d",
+                "name": "data_web.admin2.whatsapp.session",
+                "value": "={{ $('a4').item.json.output.Session_WhatsApp }}",
+                "type": "string"
+              },
+              {
+                "id": "ab79952b-feca-4d53-b428-fbdbcdb344ae",
+                "name": "data_web.admin2.whatsapp.chat_id",
+                "value": "={{ $('a4').item.json.output.Chat_Id_WhatsAp }}",
+                "type": "string"
+              },
+              {
+                "id": "bad81411-caa6-4756-a957-218a50889abe",
+                "name": "data_web.admin2.logo",
+                "value": "={{ $('a5').item.json.output.Logo }}",
+                "type": "string"
+              },
+              {
+                "id": "5ec96419-fd88-4eb1-a007-d05336ac2b12",
+                "name": "data_web.admin2.tombol.kirim_surat",
+                "value": "={{ $('a6').item.json.data_web.admin2.tombol.kirim_surat }}",
+                "type": "string"
+              },
+              {
+                "id": "9e81fd93-d70a-49fb-af02-fbd0f78db555",
+                "name": "data_web.admin2.tombol.hapus_surat",
+                "value": "={{ $('a6').item.json.data_web.admin2.tombol.hapus_surat }}",
+                "type": "string"
+              },
+              {
+                "id": "240bb78b-074f-4b25-8ce1-0ff5a06e858c",
+                "name": "data_web.admin2.tombol.kirim_pesan",
+                "value": "={{ $('a6').item.json.data_web.admin2.tombol.kirim_pesan }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          144,
+          288
+        ],
+        "id": "df7d2f37-24c3-4e96-8c23-14f56c26971d",
+        "name": "a8",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "### Tool Generate Web\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/sKrLOmNtRlDNCKH9",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          320,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "75ec3d0c-c2b7-428c-b147-f41ad8173933",
+        "name": "Sticky Note16"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/67379661-2458-45d3-8bce-3dc149f95ca9-web-sktm-user",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $('a8').item.json }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          400,
+          288
+        ],
+        "id": "d32e3781-8933-413a-9ccb-f78c28ffc886",
+        "name": "a9",
+        "notesInFlow": true,
+        "notes": "\n"
+      },
+      {
+        "parameters": {
+          "content": "### Join Data Tool Web",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          560,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "fe8405c8-88b6-4375-aab3-1e8d73197932",
+        "name": "Sticky Note17"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "2999c3a4-9ee9-4c82-83ce-95e6b45a0d48",
+                "name": "data_web.user.status",
+                "value": "={{ $('a').item.json.body.data_web.user.status }}",
+                "type": "string"
+              },
+              {
+                "id": "6a0d7133-8705-485d-b276-1161d9ed0dd0",
+                "name": "data_web.user.tanggal",
+                "value": "={{ $('a').item.json.body.data_web.user.tanggal }}",
+                "type": "string"
+              },
+              {
+                "id": "6746fcf3-7db2-4ee1-b948-8f10afe34bb8",
+                "name": "data_web.user.id.json",
+                "value": "={{ $('a7').item.json.data }}",
+                "type": "string"
+              },
+              {
+                "id": "70384254-1964-4d77-ad50-65102e2d21c6",
+                "name": "data_web.user.id.html",
+                "value": "={{ $('a9').item.json['Id HTML'] }}",
+                "type": "string"
+              },
+              {
+                "id": "2072b653-8ab1-4fc1-a1d0-b993495ffb79",
+                "name": "data_web.user.id.css",
+                "value": "={{ $('a9').item.json['Id CSS'] }}",
+                "type": "string"
+              },
+              {
+                "id": "0c53b5e2-ffaa-4e8a-b06f-70c1d354c6ad",
+                "name": "data_web.user.id.javascript",
+                "value": "={{ $('a9').item.json['Id JS'] }}",
+                "type": "string"
+              },
+              {
+                "id": "fa3a3761-f231-4f7c-842b-1b7351e46a26",
+                "name": "data_web.user.id.folder",
+                "value": "={{ $('a2').item.json.output }}",
+                "type": "string"
+              },
+              {
+                "id": "29f00277-9897-4fe7-9f83-427f9816effb",
+                "name": "data_web.user.data_surat.pemohon",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.pemohon }}",
+                "type": "object"
+              },
+              {
+                "id": "055afe7a-bbe3-4e82-ba43-ae8689a60906",
+                "name": "data_web.user.data_surat.perihal",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.perihal }}",
+                "type": "string"
+              },
+              {
+                "id": "a02f0ee2-88ff-4905-8da9-625bb1b8c88f",
+                "name": "data_web.user.data_surat.dokumen",
+                "value": "={{ $('a').item.json.body.data_web.user.data_surat.dokumen }}",
+                "type": "array"
+              },
+              {
+                "id": "1b28027d-e6e1-4300-857a-b81156345d4d",
+                "name": "data_web.user.whatsapp",
+                "value": "={{ $('a').item.json.body.data_web.user.whatsapp }}",
+                "type": "object"
+              },
+              {
+                "id": "8d8be6b1-b418-4a2d-92b3-df822b49a08f",
+                "name": "data_web.user.logo",
+                "value": "={{ $('a5').item.json.output.Logo }}",
+                "type": "string"
+              },
+              {
+                "id": "4e720b9c-e188-47bb-ac5e-8670b4752220",
+                "name": "data_web.user.tombol.kirim_surat",
+                "value": "={{ $('a5').item.json.output.Tombol_Kirim_Surat_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "fb8c30ee-147e-40a7-9f4f-a7384d76520a",
+                "name": "data_web.user.tombol.edit_data",
+                "value": "={{$('a5').item.json.output.Tombol_Edit_Data_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "9579a10e-bcb6-4ff1-a030-c9d787d94b96",
+                "name": "data_web.user.tombol.kirim_file",
+                "value": "={{$('a5').item.json.output.Tombol_Kirim_File_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "5c5d438d-858a-4d47-9e04-97c0b205b85a",
+                "name": "data_web.user.tombol.hapus_file",
+                "value": "={{ $('a5').item.json.output.Tombol_Hapus_File_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "3c3072b9-9f44-47cd-a49a-ee85851529fc",
+                "name": "data_web.user.tombol.hapus_surat",
+                "value": "={{ $('a5').item.json.output.Tombol_Hapus_Surat_SKTM_User }}",
+                "type": "string"
+              },
+              {
+                "id": "0385c278-39e0-4907-9adb-31a1bfc3bfea",
+                "name": "data_web.admin2.status",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "1b703f57-eaf6-485c-b167-de6692d9b8a7",
+                "name": "data_web.admin2.tanggal",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "2769c358-c6b9-4f1c-9b89-521b9fa7a2f3",
+                "name": "data_web.admin2.nomor_surat",
+                "value": "={{ $('a3').item.json.output }}",
+                "type": "string"
+              },
+              {
+                "id": "a7d7130c-aa0a-4813-b4b7-24e807baa51a",
+                "name": "data_web.admin2.id.json",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "62e24f06-9e72-4607-8010-6e8be02d5172",
+                "name": "data_web.admin2.id.html",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "6f1268e4-aeeb-45e7-8a40-7cfbd0790674",
+                "name": "data_web.admin2.id.css",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "02ca1a57-bde0-4e0b-af63-6825322b42e5",
+                "name": "data_web.admin2.id.javascript",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "461a6f2a-dedb-4cd9-9cd9-ea3f5c70918f",
+                "name": "data_web.admin2.id.folder",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "298453bd-5730-4ad2-a995-c3bb0081fffc",
+                "name": "data_web.admin2.data_surat.kop.pemerintah_kabupaten",
+                "value": "={{ $('a4').item.json.output.Pemerintah_Kabupaten }}",
+                "type": "string"
+              },
+              {
+                "id": "2a1f3e4c-788f-40ca-9353-260c5765ff91",
+                "name": "data_web.admin2.data_surat.kop.provinsi",
+                "value": "={{ $('a4').item.json.output.Provinsi }}",
+                "type": "string"
+              },
+              {
+                "id": "f4024f63-b4db-4c1d-8d0c-82d94e3956e0",
+                "name": "data_web.admin2.data_surat.kop.distrik",
+                "value": "={{ $('a4').item.json.output.Distrik }}",
+                "type": "string"
+              },
+              {
+                "id": "1a24fa44-0776-4938-98db-631a9f688b6f",
+                "name": "data_web.admin2.data_surat.kop.alamat",
+                "value": "={{ $('a4').item.json.output.Alamat }}",
+                "type": "string"
+              },
+              {
+                "id": "d8565f6e-5b56-46a8-80c0-d622cacaf149",
+                "name": "data_web.admin2.data_surat.kop.kode_pos",
+                "value": "={{ $('a4').item.json.output.Kode_Pos }}",
+                "type": "string"
+              },
+              {
+                "id": "38f87163-c257-4441-825a-4ecbda32c9dd",
+                "name": "data_web.admin2.data_surat.kop.email",
+                "value": "={{ $('a4').item.json.output.Email }}",
+                "type": "string"
+              },
+              {
+                "id": "ddfa590c-cf5e-4e79-9d7e-cb17eca2d005",
+                "name": "data_web.admin2.data_surat.admin.nama",
+                "value": "={{ $('a4').item.json.output.Nama_Pimpinan }}",
+                "type": "string"
+              },
+              {
+                "id": "dc7cac9e-f2e4-4f8c-91b3-4ade12ee5423",
+                "name": "data_web.admin2.data_surat.admin.jabatan",
+                "value": "={{ $('a4').item.json.output.Jabatan }}",
+                "type": "string"
+              },
+              {
+                "id": "f8a2bc4f-7a65-43be-ad23-8b9369999d8b",
+                "name": "data_web.admin2.data_surat.admin.nip",
+                "value": "={{ $('a4').item.json.output.Nip }}",
+                "type": "string"
+              },
+              {
+                "id": "d8b3c3c7-250b-4882-a25a-6a3e58c6f4a2",
+                "name": "data_web.admin2.data_surat.admin.id_tanda_tangan",
+                "value": "={{ $('a4').item.json.output.Id_Tanda_Tangan }}",
+                "type": "string"
+              },
+              {
+                "id": "b9acdcd7-a268-4f64-b07c-e83993fffdf8",
+                "name": "data_web.admin2.data_surat.admin.nomor_hp",
+                "value": "={{ $('a4').item.json.output.Nomor_HP }}",
+                "type": "string"
+              },
+              {
+                "id": "03f63c3c-24e2-4e47-b976-5074d0ccb8f6",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_1",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_1 }}",
+                "type": "string"
+              },
+              {
+                "id": "896615fa-54e6-4aab-bab7-a051eb6bc63e",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_2",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_2 }}",
+                "type": "string"
+              },
+              {
+                "id": "572ef276-deb0-43de-9d8c-1ecb1428678d",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_3",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_3 }}",
+                "type": "string"
+              },
+              {
+                "id": "d672f9ee-b115-433d-a8be-622853cad7ca",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_4",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_4 }}",
+                "type": "string"
+              },
+              {
+                "id": "d10df30a-c356-41c3-9817-2d59d2abdb86",
+                "name": "data_web.admin2.data_surat.keterangan_sktm.keterangan_5",
+                "value": "={{ $('a5').item.json.output.Keterangan_SKTM.keterangan_5 }}",
+                "type": "string"
+              },
+              {
+                "id": "7113987b-835b-4d03-929b-c8cb20100ff3",
+                "name": "data_web.admin2.data_surat.dokumen",
+                "value": "null",
+                "type": "object"
+              },
+              {
+                "id": "977a86a5-d85a-42ec-a3b2-1f0e5457b30d",
+                "name": "data_web.admin2.whatsapp.session",
+                "value": "={{ $('a4').item.json.output.Session_WhatsApp }}",
+                "type": "string"
+              },
+              {
+                "id": "ab79952b-feca-4d53-b428-fbdbcdb344ae",
+                "name": "data_web.admin2.whatsapp.chat_id",
+                "value": "={{ $('a4').item.json.output.Chat_Id_WhatsAp }}",
+                "type": "string"
+              },
+              {
+                "id": "bad81411-caa6-4756-a957-218a50889abe",
+                "name": "data_web.admin2.logo",
+                "value": "={{ $('a5').item.json.output.Logo }}",
+                "type": "string"
+              },
+              {
+                "id": "5ec96419-fd88-4eb1-a007-d05336ac2b12",
+                "name": "data_web.admin2.tombol.kirim_surat",
+                "value": "={{ $('a8').item.json.data_web.admin2.tombol.kirim_surat }}",
+                "type": "string"
+              },
+              {
+                "id": "9e81fd93-d70a-49fb-af02-fbd0f78db555",
+                "name": "data_web.admin2.tombol.hapus_surat",
+                "value": "={{ $('a8').item.json.data_web.admin2.tombol.hapus_surat }}",
+                "type": "string"
+              },
+              {
+                "id": "240bb78b-074f-4b25-8ce1-0ff5a06e858c",
+                "name": "data_web.admin2.tombol.kirim_pesan",
+                "value": "={{ $('a8').item.json.data_web.admin2.tombol.kirim_pesan }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          624,
+          288
+        ],
+        "id": "460c7a82-cfe7-4859-83a0-a560e77c3b87",
+        "name": "a10",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "### Tool Update json\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/m26iXk3EPtsefvLz",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          800,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "d1ff2383-ba0b-42ca-b70f-2e4bf2000a05",
+        "name": "Sticky Note18"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/0b03dc2d-0d53-4066-a82b-5828946439cb-update-json",
+          "sendQuery": true,
+          "queryParameters": {
+            "parameters": [
+              {
+                "name": "Lokasi File",
+                "value": "={{ $('a6').item.json.data_web.user.id.folder }}"
+              },
+              {
+                "name": "Nama File",
+                "value": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($('a6').item.json.data_web.user.data_surat.pemohon.nama).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($('a6').item.json.data_web.user.data_surat.pemohon.nik) }}"
+              },
+              {
+                "name": "Id File",
+                "value": "={{ $('a10').item.json.data_web.user.id.json }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          880,
+          288
+        ],
+        "id": "abd07140-d276-4ef8-9fe1-041a94bc3394",
+        "name": "a11",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Pesan Surat\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1040,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "f8f90dd8-53b2-499f-ba4e-e5c2bf04febc",
+        "name": "Sticky Note20"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Buat Pesan Dan Kirim Pesan\n\nData Buat Pesan\nNama Pemohon = {{ $('a10').item.json.data_web.user.data_surat.pemohon.nama }}\nLink = https://distrikwania.com/data/{{ $('a10').item.json.data_web.user.id.html.substring(3) }}\n\nData Kirim Pesan\nSession WhatsApp = {{ $('a10').item.json.data_web.user.whatsapp.session }}\nChat Id WhatsApp = {{ $('a10').item.json.data_web.user.whatsapp.chat_id }}\n\nRespon Hanya \nBerhasil Atau Gagal"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan\n\nGunakan Format ini untuk Buat Pesan \nPermohonan SKTM sudah selesai di buat.\nSilakan buka tautan berikut untuk Mengirim Surat Keterangan Tidak Mampu untuk di tanda Tangan\nLink : \n\n\nRespon Hanya \nBerhasil Atau Gagal"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          1136,
+          288
+        ],
+        "id": "55af8fc6-8482-4b6f-a4cc-826037173a13",
+        "name": "a12",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Pesan Surat\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1280,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "4f6119a1-4e07-4b52-aba8-7a61b6a1a120",
+        "name": "Sticky Note21"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Kirim Pesan \n\nKepada Yth.\nOperator {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }} 🌸\n\nDengan hormat,\nDisampaikan bahwa Permohonan Surat Keterangan Tidak Mampu (SKTM) atas nama warga berikut:\n\nNama : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nama }}\nNik : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nik }}\nKontak : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nomor_hp }}\nKeperluan : {{ $('a10').item.json.data_web.user.data_surat.perihal }}\n\nTelah dikirim kepada Operator {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }} untuk proses pemeriksaan dan validasi Data Pemohon.\n\nDokumen tersebut dapat diakses melalui tautan berikut:\n🔗 https://distrikwania.com/data/{{ $('a10').item.json.data_web.user.id.html.substring(3) }}\n\nAtas perhatian dan kerja sama, disampaikan terima kasih.\nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan.\n\nHormat kami,\nKawe Nia 🤝\nAsisten Digital Distrik Wania\n\nGunakan Tool Contac Untuk Ambil Data Berdasarkan \nKampung_Kelurahan = {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }}\nAmbil Data \nChat_Id_WhatsApp_Operator_Kampung_Kelurahan dan\nSession_WhatsApp_Operator_Kampung_Kelurahan \n\nGunakan Tool Pesan Untuk Kirim Pesan\n\n\n\nRespon Hanya\nBerhasil Atau gagal"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Tool Contac\" Untuk mengambil data contact chat_id dan session\nWajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan\nSebelum Kirim Pesan Wajib Rapikan Agar Lebih Rapih Dan Lebih Formal"
+              },
+              {
+                "name": "={{ $json.data_web.user.id.html }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          1376,
+          288
+        ],
+        "id": "489c9dab-0f19-4ce2-84d1-009aede45fc1",
+        "name": "a13",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Pesan Surat\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1520,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "34b51c6c-12f6-4004-9e6d-70648ad8c336",
+        "name": "Sticky Note22"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Kirim Pesan \n\nKepada Yth.\nIbu Kepala Distrik Wania 🌸\n\nDengan hormat,\nDisampaikan bahwa Permohonan Surat Keterangan Tidak Mampu (SKTM) atas nama warga berikut:\n\nNama : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nama }}\nNik : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nik }}\nKontak : {{ $('a10').item.json.data_web.user.data_surat.pemohon.nomor_hp }}\nKeperluan : {{ $('a10').item.json.data_web.user.data_surat.perihal }}\n\nTelah dikirim kepada Operator {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }} untuk proses pemeriksaan dan validasi Data Pemohon.\n\nKontak Operator\nNama Operator :\nNomor Hp Operator :\n\nDokumen tersebut dapat diakses melalui tautan berikut:\n🔗 https://distrikwania.com/data/{{ $('a10').item.json.data_web.user.id.html.substring(3) }}\n\nAtas perhatian dan kerja sama Ibu, disampaikan terima kasih.\nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu.\n\nHormat kami,\nKawe Nia 🤝\nAsisten Digital Distrik Wania\n\nGunakan Tool Contac Untuk Ambil Data Berdasarkan \nKampung_Kelurahan = Distrik Wania\nAmbil Data \nChat_Id_WhatsApp_Kepala_Kampung_Kelurahan dan\nSession_WhatsApp_Kepala_Kampung_Kelurahan \nEdit Nama Operator dan Nomor Hp Operator dari {{ $('a10').item.json.data_web.user.data_surat.pemohon.kampung_kelurahan }}\n\nGunakan Tool Pesan Untuk Kirim Pesan\n\n\n\nRespon Hanya\nBerhasil Atau gagal"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Tool Contac\" Untuk mengambil data contact chat_id dan session\nWajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan\nSebelum Kirim Pesan Wajib Rapikan Agar Lebih Rapih Dan Lebih Formal"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          1600,
+          288
+        ],
+        "id": "316ff220-05df-4191-8bf6-242c90f2ab17",
+        "name": "a14",
+        "notesInFlow": true,
+        "notes": "\n"
+      }
+    ],
+    "connections": {
+      "a": {
+        "main": [
+          [
+            {
+              "node": "a1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a1": {
+        "main": [
+          [
+            {
+              "node": "a2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a2": {
+        "main": [
+          [
+            {
+              "node": "a3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a3": {
+        "main": [
+          [
+            {
+              "node": "a4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a4": {
+        "main": [
+          [
+            {
+              "node": "a5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a5": {
+        "main": [
+          [
+            {
+              "node": "a6",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a6": {
+        "main": [
+          [
+            {
+              "node": "a7",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a7": {
+        "main": [
+          [
+            {
+              "node": "a8",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a8": {
+        "main": [
+          [
+            {
+              "node": "a9",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a9": {
+        "main": [
+          [
+            {
+              "node": "a10",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a10": {
+        "main": [
+          [
+            {
+              "node": "a11",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a11": {
+        "main": [
+          [
+            {
+              "node": "a12",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a12": {
+        "main": [
+          [
+            {
+              "node": "a13",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a13": {
+        "main": [
+          [
+            {
+              "node": "a14",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
