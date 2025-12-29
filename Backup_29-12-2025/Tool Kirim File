@@ -1,0 +1,1377 @@
+{
+  "updatedAt": "2025-12-23T08:13:55.706Z",
+  "createdAt": "2025-11-16T07:58:38.695Z",
+  "id": "rHlkBTCXxLOt2Zu6",
+  "name": "Tool Kirim File",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 352,
+        "width": 1504
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -384,
+        528
+      ],
+      "typeVersion": 1,
+      "id": "0bd86141-0e66-4c29-98ff-fbaca996b197",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -352,
+        656
+      ],
+      "typeVersion": 1,
+      "id": "16ae383d-8d9b-41fd-86dc-bcaa2ee399c9",
+      "name": "Sticky Note124"
+    },
+    {
+      "parameters": {
+        "content": "### Format Json\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -112,
+        656
+      ],
+      "typeVersion": 1,
+      "id": "c23a4bf2-f424-491a-aade-35d9fcab3db8",
+      "name": "Sticky Note125"
+    },
+    {
+      "parameters": {
+        "content": "### Download File\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        128,
+        656
+      ],
+      "typeVersion": 1,
+      "id": "c202dad0-29fd-43d9-956c-2832ebdf7767",
+      "name": "Sticky Note126"
+    },
+    {
+      "parameters": {
+        "content": "### Covert Binari To String Base 64",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        368,
+        656
+      ],
+      "typeVersion": 1,
+      "id": "b9c9d282-6da3-489a-ab44-26292b6c06c6",
+      "name": "Sticky Note127"
+    },
+    {
+      "parameters": {
+        "content": "### WhatsApp Kirim File",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        608,
+        656
+      ],
+      "typeVersion": 1,
+      "id": "b0193d3d-582e-401e-8cf7-04472b4b15e3",
+      "name": "Sticky Note128"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        848,
+        656
+      ],
+      "typeVersion": 1,
+      "id": "5f4673d3-4706-492a-ba42-653be921c6b2",
+      "name": "Sticky Note129"
+    },
+    {
+      "parameters": {
+        "content": "# Kirim File",
+        "height": 80,
+        "width": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        192,
+        544
+      ],
+      "typeVersion": 1,
+      "id": "e1ca1b71-1af4-4d63-a014-479d8719b3ee",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "f2f28bb3-372d-438c-b8b4-8a1bfca494a8-kirim-file",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -288,
+        704
+      ],
+      "id": "1342e142-082a-4064-8af4-b1b43b7d5563",
+      "name": "b",
+      "webhookId": "f2f28bb3-372d-438c-b8b4-8a1bfca494a8"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dd489832-eeb3-422e-97d2-9eb41aa079cb",
+              "name": "Id File",
+              "value": "={{ $json.body['Id File'] }}",
+              "type": "string"
+            },
+            {
+              "id": "3d3582be-ba93-4dae-ba02-97549672db54",
+              "name": "Nama File",
+              "value": "={{ $json.body['Nama File'] }}",
+              "type": "string"
+            },
+            {
+              "id": "70af23ee-13eb-4d8d-ac15-1e556e380ade",
+              "name": "Chat Id",
+              "value": "={{ $json.body['Chat Id'] }}",
+              "type": "string"
+            },
+            {
+              "id": "1560fe0a-7eb1-4c14-b96c-cf061036a836",
+              "name": "Session",
+              "value": "={{ $json.body.Session }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -32,
+        704
+      ],
+      "id": "735ed146-f65b-4210-835d-48bee32ab08d",
+      "name": "b1",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json['Id File'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        208,
+        704
+      ],
+      "id": "6d7d3fca-e2a8-420a-99fc-6d307dbfbf5f",
+      "name": "b2",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        432,
+        704
+      ],
+      "id": "722a7413-a437-48f7-97a9-902ca32f02d1",
+      "name": "b3",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send File",
+        "session": "=KaweNia",
+        "chatId": "={{ $('b1').item.json['Chat Id'] }}",
+        "file": "={\n  \"mimetype\": \"{{ $('b2').item.binary.data.mimeType }}\",\n  \"filename\": \"{{ $('b1').item.json['Nama File'] }}\",\n  \"data\": \"{{ $json.data }}\"\n}\n",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        672,
+        704
+      ],
+      "id": "0f5d1c75-45fb-4d2e-b32c-85b318a15f4d",
+      "name": "b4",
+      "notesInFlow": true,
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "Gambar Telah Berhasil Terkirim",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        912,
+        704
+      ],
+      "id": "cc93f448-908d-4fef-b0eb-9bf73286ea04",
+      "name": "b5"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 352,
+        "width": 1504
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -384,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "ea84a06e-12f9-44f1-aa76-8c16cb9893b3",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -352,
+        304
+      ],
+      "typeVersion": 1,
+      "id": "2faf756f-8fe3-46d6-bb7a-f2f7455af24c",
+      "name": "Sticky Note130"
+    },
+    {
+      "parameters": {
+        "content": "### Format Json\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -112,
+        304
+      ],
+      "typeVersion": 1,
+      "id": "7f415389-b7cf-460a-8645-ae4740cf16c7",
+      "name": "Sticky Note131"
+    },
+    {
+      "parameters": {
+        "content": "### Download File Convert PDF",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        128,
+        304
+      ],
+      "typeVersion": 1,
+      "id": "f3a744eb-3a91-4d69-b1a6-af9c2d116db1",
+      "name": "Sticky Note132"
+    },
+    {
+      "parameters": {
+        "content": "### Covert Binari To String Base 64",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        368,
+        304
+      ],
+      "typeVersion": 1,
+      "id": "2da9269d-a13a-4218-b8ce-7468d0ff007e",
+      "name": "Sticky Note133"
+    },
+    {
+      "parameters": {
+        "content": "### WhatsApp Kirim File",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        608,
+        304
+      ],
+      "typeVersion": 1,
+      "id": "f931e099-5838-49ec-85c1-8b42be9fcaaf",
+      "name": "Sticky Note134"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        848,
+        304
+      ],
+      "typeVersion": 1,
+      "id": "abd35600-6c2d-4b84-beed-a67a801a6f86",
+      "name": "Sticky Note135"
+    },
+    {
+      "parameters": {
+        "content": "# Kirim Surat",
+        "height": 80,
+        "width": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        192,
+        192
+      ],
+      "typeVersion": 1,
+      "id": "63e8ad75-e827-40a1-91e0-ed806a83dd07",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "f2f28bb3-372d-438c-b8b4-8a1bfca494a8-kirim-surat",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -288,
+        352
+      ],
+      "id": "6381842c-d19a-42cb-a994-cc82cce96982",
+      "name": "a",
+      "webhookId": "f2f28bb3-372d-438c-b8b4-8a1bfca494a8"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dd489832-eeb3-422e-97d2-9eb41aa079cb",
+              "name": "Id Surat",
+              "value": "={{ $json.body['Id Surat'] }}",
+              "type": "string"
+            },
+            {
+              "id": "3d3582be-ba93-4dae-ba02-97549672db54",
+              "name": "Nama Surat",
+              "value": "={{ $json.body['Nama Surat'] }}",
+              "type": "string"
+            },
+            {
+              "id": "70af23ee-13eb-4d8d-ac15-1e556e380ade",
+              "name": "Chat Id",
+              "value": "={{ $json.body['Chat Id'] }}",
+              "type": "string"
+            },
+            {
+              "id": "1560fe0a-7eb1-4c14-b96c-cf061036a836",
+              "name": "Session",
+              "value": "={{ $json.body.Session }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -48,
+        352
+      ],
+      "id": "3f95da93-5bba-4ac7-9be3-67800aedf25d",
+      "name": "a1",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json['Id Surat'] }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf",
+              "drawingsToFormat": "application/pdf",
+              "slidesToFormat": "application/pdf",
+              "sheetsToFormat": "application/pdf"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        192,
+        352
+      ],
+      "id": "6c669fcf-5cde-462e-9fd8-aaff7c655a15",
+      "name": "a2",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        448,
+        352
+      ],
+      "id": "ddd180c5-3a3f-4ebb-a39a-76621cb082a8",
+      "name": "a3",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send File",
+        "session": "=KaweNia",
+        "chatId": "={{ $('a1').item.json['Chat Id'] }}",
+        "file": "={\n  \"mimetype\": \"{{ $('a2').item.binary.data.mimeType }}\",\n  \"filename\": \"{{ $('a1').item.json['Nama Surat'] }}\",\n  \"data\": \"{{ $json.data }}\"\n}\n",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        672,
+        352
+      ],
+      "id": "d4016576-8c1a-40de-af4a-04d5515d3030",
+      "name": "a4",
+      "notesInFlow": true,
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "Surat Telah Berhasil Terkirim",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        896,
+        352
+      ],
+      "id": "ff580b60-5ba9-40cb-87e6-1f0563b45328",
+      "name": "a5"
+    }
+  ],
+  "connections": {
+    "b": {
+      "main": [
+        [
+          {
+            "node": "b1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b1": {
+      "main": [
+        [
+          {
+            "node": "b2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b2": {
+      "main": [
+        [
+          {
+            "node": "b3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b3": {
+      "main": [
+        [
+          {
+            "node": "b4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b4": {
+      "main": [
+        [
+          {
+            "node": "b5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a": {
+      "main": [
+        [
+          {
+            "node": "a1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a1": {
+      "main": [
+        [
+          {
+            "node": "a2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a2": {
+      "main": [
+        [
+          {
+            "node": "a3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a3": {
+      "main": [
+        [
+          {
+            "node": "a4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a4": {
+      "main": [
+        [
+          {
+            "node": "a5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "b": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "141",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9b0dc1f3aa71fc0c-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.69.176.166",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.69.176.166"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Id File": "1q0ekUfSoy_PsIj5nzvulbSNwWrWM25pmqgdoL9hFoww",
+            "Nama File": "SKTM - Syafruddin",
+            "Chat Id": "6285230047347@c.us",
+            "Session": "KaweNia"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f2f28bb3-372d-438c-b8b4-8a1bfca494a8-kirim-file",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "a": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "143",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9b0dd0641ba5fd84-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.70.208.129",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.70.208.129"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Id Surat": "1q0ekUfSoy_PsIj5nzvulbSNwWrWM25pmqgdoL9hFoww",
+            "Nama Surat": "SKTM - Syafruddin",
+            "Chat Id": "6285230047347@c.us",
+            "Session": "KaweNia"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f2f28bb3-372d-438c-b8b4-8a1bfca494a8-kirim-surat",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "381d1f13-0c99-417f-81ea-c47aebd9092f",
+  "activeVersionId": "381d1f13-0c99-417f-81ea-c47aebd9092f",
+  "triggerCount": 2,
+  "shared": [
+    {
+      "updatedAt": "2025-11-16T07:58:38.698Z",
+      "createdAt": "2025-11-16T07:58:38.698Z",
+      "role": "workflow:owner",
+      "workflowId": "rHlkBTCXxLOt2Zu6",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-23T08:13:44.040Z",
+    "createdAt": "2025-12-23T08:13:44.040Z",
+    "versionId": "381d1f13-0c99-417f-81ea-c47aebd9092f",
+    "workflowId": "rHlkBTCXxLOt2Zu6",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 352,
+          "width": 1504
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -384,
+          528
+        ],
+        "typeVersion": 1,
+        "id": "0bd86141-0e66-4c29-98ff-fbaca996b197",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -352,
+          656
+        ],
+        "typeVersion": 1,
+        "id": "16ae383d-8d9b-41fd-86dc-bcaa2ee399c9",
+        "name": "Sticky Note124"
+      },
+      {
+        "parameters": {
+          "content": "### Format Json\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -112,
+          656
+        ],
+        "typeVersion": 1,
+        "id": "c23a4bf2-f424-491a-aade-35d9fcab3db8",
+        "name": "Sticky Note125"
+      },
+      {
+        "parameters": {
+          "content": "### Download File\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          128,
+          656
+        ],
+        "typeVersion": 1,
+        "id": "c202dad0-29fd-43d9-956c-2832ebdf7767",
+        "name": "Sticky Note126"
+      },
+      {
+        "parameters": {
+          "content": "### Covert Binari To String Base 64",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          368,
+          656
+        ],
+        "typeVersion": 1,
+        "id": "b9c9d282-6da3-489a-ab44-26292b6c06c6",
+        "name": "Sticky Note127"
+      },
+      {
+        "parameters": {
+          "content": "### WhatsApp Kirim File",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          608,
+          656
+        ],
+        "typeVersion": 1,
+        "id": "b0193d3d-582e-401e-8cf7-04472b4b15e3",
+        "name": "Sticky Note128"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          848,
+          656
+        ],
+        "typeVersion": 1,
+        "id": "5f4673d3-4706-492a-ba42-653be921c6b2",
+        "name": "Sticky Note129"
+      },
+      {
+        "parameters": {
+          "content": "# Kirim File",
+          "height": 80,
+          "width": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          192,
+          544
+        ],
+        "typeVersion": 1,
+        "id": "e1ca1b71-1af4-4d63-a014-479d8719b3ee",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "f2f28bb3-372d-438c-b8b4-8a1bfca494a8-kirim-file",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -288,
+          704
+        ],
+        "id": "1342e142-082a-4064-8af4-b1b43b7d5563",
+        "name": "b",
+        "webhookId": "f2f28bb3-372d-438c-b8b4-8a1bfca494a8"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "dd489832-eeb3-422e-97d2-9eb41aa079cb",
+                "name": "Id File",
+                "value": "={{ $json.body['Id File'] }}",
+                "type": "string"
+              },
+              {
+                "id": "3d3582be-ba93-4dae-ba02-97549672db54",
+                "name": "Nama File",
+                "value": "={{ $json.body['Nama File'] }}",
+                "type": "string"
+              },
+              {
+                "id": "70af23ee-13eb-4d8d-ac15-1e556e380ade",
+                "name": "Chat Id",
+                "value": "={{ $json.body['Chat Id'] }}",
+                "type": "string"
+              },
+              {
+                "id": "1560fe0a-7eb1-4c14-b96c-cf061036a836",
+                "name": "Session",
+                "value": "={{ $json.body.Session }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -32,
+          704
+        ],
+        "id": "735ed146-f65b-4210-835d-48bee32ab08d",
+        "name": "b1",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "operation": "download",
+          "fileId": {
+            "__rl": true,
+            "value": "={{ $json['Id File'] }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          208,
+          704
+        ],
+        "id": "6d7d3fca-e2a8-420a-99fc-6d307dbfbf5f",
+        "name": "b2",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "binaryToPropery",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.extractFromFile",
+        "typeVersion": 1,
+        "position": [
+          432,
+          704
+        ],
+        "id": "722a7413-a437-48f7-97a9-902ca32f02d1",
+        "name": "b3",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "resource": "Chatting",
+          "operation": "Send File",
+          "session": "=KaweNia",
+          "chatId": "={{ $('b1').item.json['Chat Id'] }}",
+          "file": "={\n  \"mimetype\": \"{{ $('b2').item.binary.data.mimeType }}\",\n  \"filename\": \"{{ $('b1').item.json['Nama File'] }}\",\n  \"data\": \"{{ $json.data }}\"\n}\n",
+          "requestOptions": {}
+        },
+        "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+        "typeVersion": 202502,
+        "position": [
+          672,
+          704
+        ],
+        "id": "0f5d1c75-45fb-4d2e-b32c-85b318a15f4d",
+        "name": "b4",
+        "notesInFlow": true,
+        "credentials": {
+          "wahaApi": {
+            "id": "uivlaHVGkUY1vyJT",
+            "name": "WAHA account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "respondWith": "text",
+          "responseBody": "Gambar Telah Berhasil Terkirim",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          912,
+          704
+        ],
+        "id": "cc93f448-908d-4fef-b0eb-9bf73286ea04",
+        "name": "b5"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 352,
+          "width": 1504
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -384,
+          176
+        ],
+        "typeVersion": 1,
+        "id": "ea84a06e-12f9-44f1-aa76-8c16cb9893b3",
+        "name": "Sticky Note3"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -352,
+          304
+        ],
+        "typeVersion": 1,
+        "id": "2faf756f-8fe3-46d6-bb7a-f2f7455af24c",
+        "name": "Sticky Note130"
+      },
+      {
+        "parameters": {
+          "content": "### Format Json\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -112,
+          304
+        ],
+        "typeVersion": 1,
+        "id": "7f415389-b7cf-460a-8645-ae4740cf16c7",
+        "name": "Sticky Note131"
+      },
+      {
+        "parameters": {
+          "content": "### Download File Convert PDF",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          128,
+          304
+        ],
+        "typeVersion": 1,
+        "id": "f3a744eb-3a91-4d69-b1a6-af9c2d116db1",
+        "name": "Sticky Note132"
+      },
+      {
+        "parameters": {
+          "content": "### Covert Binari To String Base 64",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          368,
+          304
+        ],
+        "typeVersion": 1,
+        "id": "2da9269d-a13a-4218-b8ce-7468d0ff007e",
+        "name": "Sticky Note133"
+      },
+      {
+        "parameters": {
+          "content": "### WhatsApp Kirim File",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          608,
+          304
+        ],
+        "typeVersion": 1,
+        "id": "f931e099-5838-49ec-85c1-8b42be9fcaaf",
+        "name": "Sticky Note134"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          848,
+          304
+        ],
+        "typeVersion": 1,
+        "id": "abd35600-6c2d-4b84-beed-a67a801a6f86",
+        "name": "Sticky Note135"
+      },
+      {
+        "parameters": {
+          "content": "# Kirim Surat",
+          "height": 80,
+          "width": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          192,
+          192
+        ],
+        "typeVersion": 1,
+        "id": "63e8ad75-e827-40a1-91e0-ed806a83dd07",
+        "name": "Sticky Note4"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "f2f28bb3-372d-438c-b8b4-8a1bfca494a8-kirim-surat",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -288,
+          352
+        ],
+        "id": "6381842c-d19a-42cb-a994-cc82cce96982",
+        "name": "a",
+        "webhookId": "f2f28bb3-372d-438c-b8b4-8a1bfca494a8"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "dd489832-eeb3-422e-97d2-9eb41aa079cb",
+                "name": "Id Surat",
+                "value": "={{ $json.body['Id Surat'] }}",
+                "type": "string"
+              },
+              {
+                "id": "3d3582be-ba93-4dae-ba02-97549672db54",
+                "name": "Nama Surat",
+                "value": "={{ $json.body['Nama Surat'] }}",
+                "type": "string"
+              },
+              {
+                "id": "70af23ee-13eb-4d8d-ac15-1e556e380ade",
+                "name": "Chat Id",
+                "value": "={{ $json.body['Chat Id'] }}",
+                "type": "string"
+              },
+              {
+                "id": "1560fe0a-7eb1-4c14-b96c-cf061036a836",
+                "name": "Session",
+                "value": "={{ $json.body.Session }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -48,
+          352
+        ],
+        "id": "3f95da93-5bba-4ac7-9be3-67800aedf25d",
+        "name": "a1",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "operation": "download",
+          "fileId": {
+            "__rl": true,
+            "value": "={{ $json['Id Surat'] }}",
+            "mode": "id"
+          },
+          "options": {
+            "googleFileConversion": {
+              "conversion": {
+                "docsToFormat": "application/pdf",
+                "drawingsToFormat": "application/pdf",
+                "slidesToFormat": "application/pdf",
+                "sheetsToFormat": "application/pdf"
+              }
+            }
+          }
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          192,
+          352
+        ],
+        "id": "6c669fcf-5cde-462e-9fd8-aaff7c655a15",
+        "name": "a2",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "binaryToPropery",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.extractFromFile",
+        "typeVersion": 1,
+        "position": [
+          448,
+          352
+        ],
+        "id": "ddd180c5-3a3f-4ebb-a39a-76621cb082a8",
+        "name": "a3",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "resource": "Chatting",
+          "operation": "Send File",
+          "session": "=KaweNia",
+          "chatId": "={{ $('a1').item.json['Chat Id'] }}",
+          "file": "={\n  \"mimetype\": \"{{ $('a2').item.binary.data.mimeType }}\",\n  \"filename\": \"{{ $('a1').item.json['Nama Surat'] }}\",\n  \"data\": \"{{ $json.data }}\"\n}\n",
+          "requestOptions": {}
+        },
+        "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+        "typeVersion": 202502,
+        "position": [
+          672,
+          352
+        ],
+        "id": "d4016576-8c1a-40de-af4a-04d5515d3030",
+        "name": "a4",
+        "notesInFlow": true,
+        "credentials": {
+          "wahaApi": {
+            "id": "uivlaHVGkUY1vyJT",
+            "name": "WAHA account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "respondWith": "text",
+          "responseBody": "Surat Telah Berhasil Terkirim",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          896,
+          352
+        ],
+        "id": "ff580b60-5ba9-40cb-87e6-1f0563b45328",
+        "name": "a5"
+      }
+    ],
+    "connections": {
+      "b": {
+        "main": [
+          [
+            {
+              "node": "b1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b1": {
+        "main": [
+          [
+            {
+              "node": "b2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b2": {
+        "main": [
+          [
+            {
+              "node": "b3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b3": {
+        "main": [
+          [
+            {
+              "node": "b4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b4": {
+        "main": [
+          [
+            {
+              "node": "b5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a": {
+        "main": [
+          [
+            {
+              "node": "a1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a1": {
+        "main": [
+          [
+            {
+              "node": "a2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a2": {
+        "main": [
+          [
+            {
+              "node": "a3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a3": {
+        "main": [
+          [
+            {
+              "node": "a4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a4": {
+        "main": [
+          [
+            {
+              "node": "a5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
