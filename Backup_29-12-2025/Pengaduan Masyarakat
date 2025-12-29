@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-09-15T20:51:05.000Z",
+  "createdAt": "2025-09-15T10:13:26.655Z",
+  "id": "OXU1Kgg2dRC3wyZz",
+  "name": "Pengaduan Masyarakat",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "f45c92cc-60ea-4e2b-aa74-3b92cbd8ecdc",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-09-15T10:13:26.658Z",
+      "createdAt": "2025-09-15T10:13:26.658Z",
+      "role": "workflow:owner",
+      "workflowId": "OXU1Kgg2dRC3wyZz",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
