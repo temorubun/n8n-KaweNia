@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-26T01:51:48.000Z",
+  "createdAt": "2025-08-20T07:55:47.831Z",
+  "id": "YPTb5RVbMIvnnpU3",
+  "name": "Tombol Edit Surat Keterangan Tidak Mampu",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "bd849e1c-c083-45e6-b417-83cb6265df7d",
+  "activeVersionId": null,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-08-20T07:55:47.834Z",
+      "createdAt": "2025-08-20T07:55:47.834Z",
+      "role": "workflow:owner",
+      "workflowId": "YPTb5RVbMIvnnpU3",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
