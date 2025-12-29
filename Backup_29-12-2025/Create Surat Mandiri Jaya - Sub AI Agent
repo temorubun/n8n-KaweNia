@@ -1,0 +1,592 @@
+{
+  "updatedAt": "2025-12-29T05:44:34.566Z",
+  "createdAt": "2025-12-28T07:12:42.606Z",
+  "id": "py0bm9m5Ucibm90H",
+  "name": "Create Surat Mandiri Jaya - Sub AI Agent",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 464,
+        "width": 1008
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "7fb736bf-c9af-4bbf-8fd8-8bce2bc68882",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -224,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "c55d7e6f-0bc2-4f08-acfb-8a78167deffe",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "### Sub AI Agent Create Surat",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        16,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "47a2a94c-d6ea-4213-983a-02c08a6e6c6d",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        416,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "3470d0b9-6416-4bf0-b5ea-e93f3ba051cc",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -48,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "30f8c51b-defa-484f-bbed-4dbd22ffc8c9",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### [Tool Create Surat](https://drive.google.com/file/d/1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM/view)\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        224,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "56c0650c-395d-4b1c-96e9-3c2ce980ae79",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "662157a2-6c3a-4bff-afc1-56d33b033d29",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -144,
+        80
+      ],
+      "id": "6e6ea9f2-f8fd-4e0f-b585-3451618c3bd2",
+      "name": "WI-Surat",
+      "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        448,
+        80
+      ],
+      "id": "eb8e50d6-cddc-4b4f-905a-19f42d834f63",
+      "name": "WR-Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        16,
+        320
+      ],
+      "id": "62b7bfd8-b5f3-4207-b314-b289994e5c94",
+      "name": "AI-Surat",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Folder\n### **[Create Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/EGNbiL4dDoPys27W)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Kampung Mandiri Jaya](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/BKnTE0nN83IzBdNy/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/dMBkZ6I3aXF89txS/workflows) / [Create Surat Mandiri Jaya - Sub AI Agent]()** \n\n",
+        "height": 112,
+        "width": 1008
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "209055c7-fa08-4dca-b1f9-083de9b4c719",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM",
+          "mode": "id"
+        },
+        "name": "={{ $json.body['File Name'] }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.body['Parent Folder'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        304,
+        304
+      ],
+      "id": "ad7c03a1-c533-4241-9e22-9c4f1524dfc0",
+      "name": "Surat SKTM Mandiri Jaya",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body[\"System Message\"] }}",
+          "maxIterations": 3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        80,
+        80
+      ],
+      "id": "1c1aaff0-70a8-4ffc-9ab6-1910866df2ff",
+      "name": "Sub AI Agent Create Surat"
+    }
+  ],
+  "connections": {
+    "WI-Surat": {
+      "main": [
+        [
+          {
+            "node": "Sub AI Agent Create Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Surat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sub AI Agent Create Surat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat SKTM Mandiri Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sub AI Agent Create Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sub AI Agent Create Surat": {
+      "main": [
+        [
+          {
+            "node": "WR-Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "WI-Surat": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "282",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9b28e0872edff928-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.68.164.166",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.68.164.166"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Prompt": "Saya Minta Id Surat SKTM Kampung Nawaripi\nRespon Hanya berikan Id Tanpa Menambahkan Apapun",
+            "System Message": "Gunakan \"Surat SKTM Kampung Nawaripi\" Untuk Mendapatkan Id Yang Di Minta",
+            "File Name": "SKTM - Syafruddin",
+            "Parent Folder": "1YreC0asR3oJqtyEWiat7XtlePgaD6mZe"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "ff567efb-5eff-4360-9408-6e8fc09ad25f",
+  "activeVersionId": "ff567efb-5eff-4360-9408-6e8fc09ad25f",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-28T07:12:42.609Z",
+      "createdAt": "2025-12-28T07:12:42.609Z",
+      "role": "workflow:owner",
+      "workflowId": "py0bm9m5Ucibm90H",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-29T05:44:34.566Z",
+    "createdAt": "2025-12-29T05:44:34.566Z",
+    "versionId": "ff567efb-5eff-4360-9408-6e8fc09ad25f",
+    "workflowId": "py0bm9m5Ucibm90H",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 464,
+          "width": 1008
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -288,
+          0
+        ],
+        "typeVersion": 1,
+        "id": "7fb736bf-c9af-4bbf-8fd8-8bce2bc68882",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -224,
+          16
+        ],
+        "typeVersion": 1,
+        "id": "c55d7e6f-0bc2-4f08-acfb-8a78167deffe",
+        "name": "Sticky Note17"
+      },
+      {
+        "parameters": {
+          "content": "### Sub AI Agent Create Surat",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          16,
+          16
+        ],
+        "typeVersion": 1,
+        "id": "47a2a94c-d6ea-4213-983a-02c08a6e6c6d",
+        "name": "Sticky Note28"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          416,
+          16
+        ],
+        "typeVersion": 1,
+        "id": "3470d0b9-6416-4bf0-b5ea-e93f3ba051cc",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -48,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "30f8c51b-defa-484f-bbed-4dbd22ffc8c9",
+        "name": "Sticky Note27"
+      },
+      {
+        "parameters": {
+          "content": "### [Tool Create Surat](https://drive.google.com/file/d/1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM/view)\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          224,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "56c0650c-395d-4b1c-96e9-3c2ce980ae79",
+        "name": "Sticky Note25"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "662157a2-6c3a-4bff-afc1-56d33b033d29",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -144,
+          80
+        ],
+        "id": "6e6ea9f2-f8fd-4e0f-b585-3451618c3bd2",
+        "name": "WI-Surat",
+        "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          448,
+          80
+        ],
+        "id": "eb8e50d6-cddc-4b4f-905a-19f42d834f63",
+        "name": "WR-Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          16,
+          320
+        ],
+        "id": "62b7bfd8-b5f3-4207-b314-b289994e5c94",
+        "name": "AI-Surat",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Folder\n### **[Create Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/EGNbiL4dDoPys27W)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Kampung Mandiri Jaya](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/BKnTE0nN83IzBdNy/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/dMBkZ6I3aXF89txS/workflows) / [Create Surat Mandiri Jaya - Sub AI Agent]()** \n\n",
+          "height": 112,
+          "width": 1008
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -288,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "209055c7-fa08-4dca-b1f9-083de9b4c719",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "operation": "copy",
+          "fileId": {
+            "__rl": true,
+            "value": "1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM",
+            "mode": "id"
+          },
+          "name": "={{ $json.body['File Name'] }}",
+          "sameFolder": false,
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.body['Parent Folder'] }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          304,
+          304
+        ],
+        "id": "ad7c03a1-c533-4241-9e22-9c4f1524dfc0",
+        "name": "Surat SKTM Mandiri Jaya",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body[\"System Message\"] }}",
+            "maxIterations": 3
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3,
+        "position": [
+          80,
+          80
+        ],
+        "id": "1c1aaff0-70a8-4ffc-9ab6-1910866df2ff",
+        "name": "Sub AI Agent Create Surat"
+      }
+    ],
+    "connections": {
+      "WI-Surat": {
+        "main": [
+          [
+            {
+              "node": "Sub AI Agent Create Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Surat": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Sub AI Agent Create Surat",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat SKTM Mandiri Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "Sub AI Agent Create Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Sub AI Agent Create Surat": {
+        "main": [
+          [
+            {
+              "node": "WR-Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
