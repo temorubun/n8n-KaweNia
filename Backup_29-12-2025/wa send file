@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-03T04:06:53.000Z",
+  "createdAt": "2025-08-02T13:43:20.908Z",
+  "id": "EQmcikHvRvGJH5wX",
+  "name": "wa send file",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "6a4f771e-57c5-4fa6-b8d0-3f6427401911",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-02T13:43:20.912Z",
+      "createdAt": "2025-08-02T13:43:20.912Z",
+      "role": "workflow:owner",
+      "workflowId": "EQmcikHvRvGJH5wX",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
