@@ -1,0 +1,931 @@
+{
+  "updatedAt": "2025-12-28T08:42:22.271Z",
+  "createdAt": "2025-11-14T02:23:08.216Z",
+  "id": "5hZ2M9nhLgNGELSW",
+  "name": "AI Agent Aspirasi",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Buatkan Laporan Formal Untuk\n{{ JSON.stringify($json.body, null, 2) }}\n",
+        "options": {
+          "systemMessage": "Wajib Gunakan \"Tool AI Agent Send Aspirasi To Kepala Distrik\" dan \"Tool AI Agent Send Aspirasi To Operator Distrik\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -416,
+        -240
+      ],
+      "id": "a1aa63b2-5c92-4ffd-ac70-3e85778ec6b8",
+      "name": "AI Agent Aspirasi"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "9125554b-e1e0-49a5-a801-320139487033a-warga23",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -624,
+        -240
+      ],
+      "id": "43710580-2692-4661-9eae-c5e1004f2ab2",
+      "name": "WI-4",
+      "webhookId": "9125554b-e1e0-49a5-a801-320139487033"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -112,
+        -240
+      ],
+      "id": "536577c6-f786-4494-8fed-6f1a16f0d59f",
+      "name": "WR-4"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -416,
+        -32
+      ],
+      "id": "713b1c2e-bc63-4b8b-88c4-47e0bff39bc7",
+      "name": "AI-4",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Gunakan ini untuk mengirim Laporan Aspirasi Kepada Kepala Distrik Wania",
+        "text": "=Buatkan Laporan Formal Untuk\n{{ JSON.stringify($json.body, null, 2) }}",
+        "options": {
+          "systemMessage": "=## Format Laporan Pengaduan  \n\nKepada Yth.  \nIbu Kepala Distrik Wania 🌸  \n\nDengan hormat,  \nDisampaikan bahwa telah masuk laporan aspirasi masyarakat dari warga NAMA WARGA (WA:NOMOR HP WARGA).  \n\nDengan isi aspirasi sebagai berikut:  \n[Ringkas inti aspirasi] 💡  \n\n- Kategori: **(isi otomatis oleh AI berdasarkan konteks)**  \n- Lokasi: **(isi otomatis oleh AI berdasarkan pesan/metadata)**  \n- Waktu/Perkiraan: **(isi otomatis oleh AI)**  \n- Dampak/Manfaat tambahan: **(isi otomatis oleh AI)**  \n\nSebagai bahan pendukung, berikut kami lampirkan dokumentasi aspirasi:  \n[🔗 Wajib Sertakan Lampiran, tanya warga / tanya Database_User_Agent sesuai konteks]     \n\nDengan ini, laporan aspirasi telah sampai kepada Ibu Kepala Distrik Wania untuk ditindaklanjuti sesuai kewenangan.  \n\nAtas perhatian dan kerjasama Ibu, disampaikan terima kasih 🙏🏻.  \nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu ✨.  \n\nSalam hormat,  \nKawe Nia 🤝  \nAsisten Digital Distrik Wania    \n\n---\n\nWajib Gunakan \"Tool Gmail Send Aspirasi To Kepala Distrik\" dan \"Tool WhatsApp Send Aspirasi To Kepala Distrik\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -544,
+        96
+      ],
+      "id": "71296a1f-4f17-4344-89a2-c32036c7655c",
+      "name": "Tool AI Agent Send Aspirasi To Kepala Distrik"
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Gunakan ini untuk mengirim Laporan Aspirasi Kepada Operator Distrik Wania",
+        "text": "=Buatkan Laporan Formal Untuk\n{{ JSON.stringify($json.body, null, 2) }}",
+        "options": {
+          "systemMessage": "=## Format Laporan Pengaduan  \n\nKepada Yth.  \nOperator Distrik Wania 🌸  \n\nDengan hormat,  \nDisampaikan bahwa telah masuk laporan aspirasi masyarakat dari warga NAMA WARGA (WA:NOMOR HP WARGA).  \n\nDengan isi aspirasi sebagai berikut:  \n[Ringkas inti aspirasi] 💡  \n\n- Kategori: **(isi otomatis oleh AI berdasarkan konteks)**  \n- Lokasi: **(isi otomatis oleh AI berdasarkan pesan/metadata)**  \n- Waktu/Perkiraan: **(isi otomatis oleh AI)**  \n- Dampak/Manfaat tambahan: **(isi otomatis oleh AI)**  \n\nSebagai bahan pendukung, berikut kami lampirkan dokumentasi aspirasi:  \n[🔗 Wajib Sertakan Lampiran, tanya warga / tanya Database_User_Agent sesuai konteks]     \n\nDengan ini, laporan aspirasi telah sampai kepada Ibu Kepala Distrik Wania untuk ditindaklanjuti sesuai kewenangan.  \n\nAtas perhatian dan kerjasama Ibu, disampaikan terima kasih 🙏🏻.  \nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu ✨.  \n\nSalam hormat,  \nKawe Nia 🤝  \nAsisten Digital Distrik Wania  \n\n---\n\nWajib Gunakan \"Tool Gmail Send Aspirasi To Operator Distrik\" dan \"Tool WhatsApp Send Aspirasi To Operator Distrik\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -96,
+        96
+      ],
+      "id": "71722cad-7f1a-4a99-948a-8abdc4debce2",
+      "name": "Tool AI Agent Send Aspirasi To Operator Distrik"
+    },
+    {
+      "parameters": {
+        "sendTo": "=agunghenditemorubun@gmail.com",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "emailType": "text",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        -512,
+        288
+      ],
+      "id": "c5c4b29e-88bc-428e-9a6b-db3e15db2027",
+      "name": "Tool Gmail Send Aspirasi To Kepala Distrik",
+      "webhookId": "d0317799-eada-4ec2-9fbe-96fcf2085a8c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "1aPzqo5Q5DyzjRZG",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://waha-vdgnbkmlxfqn.mangga.sumopod.my.id/api/sendText",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wahaApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "session",
+              "value": "=KaweNia"
+            },
+            {
+              "name": "chatId",
+              "value": "=6281396650844@c.us"
+            },
+            {
+              "name": "text",
+              "value": "={{ $fromAI('Message', ``, 'string') }}"
+            },
+            {
+              "name": "linkPreview",
+              "value": "false"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -336,
+        288
+      ],
+      "id": "a19783f4-4e45-4cd5-863c-3edd0371adbf",
+      "name": "Tool WhatsApp Send Aspirasi To Kepala Distrik",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://waha-vdgnbkmlxfqn.mangga.sumopod.my.id/api/sendText",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wahaApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "session",
+              "value": "=KaweNia"
+            },
+            {
+              "name": "chatId",
+              "value": "6282238590540@c.us"
+            },
+            {
+              "name": "text",
+              "value": "={{ $fromAI('Message', ``, 'string') }}"
+            },
+            {
+              "name": "linkPreview",
+              "value": "false"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        144,
+        288
+      ],
+      "id": "7eeabdd0-7495-4bcc-a231-6c0892b864d7",
+      "name": "Tool WhatsApp Send Aspirasi To Operator Distrik",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "=agunghenditemorubun@gmail.com",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "emailType": "text",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        288
+      ],
+      "id": "c668a2a3-c06a-4e14-9a82-070fd3ba9b04",
+      "name": "Tool Gmail Send Aspirasi To Operator Distrik",
+      "webhookId": "d0317799-eada-4ec2-9fbe-96fcf2085a8c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "1aPzqo5Q5DyzjRZG",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -640,
+        288
+      ],
+      "id": "eb020408-096b-4b95-bbe6-62caac5b4d13",
+      "name": "AI-4A",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -176,
+        288
+      ],
+      "id": "c4732c50-c67c-4747-99df-a945271b33fe",
+      "name": "AI-4B",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "AI Agent Aspirasi": {
+      "main": [
+        [
+          {
+            "node": "WR-4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WI-4": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Aspirasi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Aspirasi",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool AI Agent Send Aspirasi To Kepala Distrik": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Aspirasi",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool AI Agent Send Aspirasi To Operator Distrik": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Aspirasi",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool Gmail Send Aspirasi To Kepala Distrik": {
+      "ai_tool": [
+        [
+          {
+            "node": "Tool AI Agent Send Aspirasi To Kepala Distrik",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool WhatsApp Send Aspirasi To Kepala Distrik": {
+      "ai_tool": [
+        [
+          {
+            "node": "Tool AI Agent Send Aspirasi To Kepala Distrik",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool WhatsApp Send Aspirasi To Operator Distrik": {
+      "ai_tool": [
+        [
+          {
+            "node": "Tool AI Agent Send Aspirasi To Operator Distrik",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool Gmail Send Aspirasi To Operator Distrik": {
+      "ai_tool": [
+        [
+          {
+            "node": "Tool AI Agent Send Aspirasi To Operator Distrik",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-4A": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Tool AI Agent Send Aspirasi To Kepala Distrik",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-4B": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Tool AI Agent Send Aspirasi To Operator Distrik",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "WI-4": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "3734",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9998ae31e8c6eba2-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "multipart/form-data; boundary=--------------------------93d0d6716d73399b8ad940f9",
+            "x-forwarded-for": "8.215.39.173, 172.70.142.15",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.70.142.15"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Nomor Hp User": "6285230047347",
+            "Nama User": "Mr.Sky",
+            "Laporan Pengaduan": "Penumpukan sampah di area terbuka di Gang Cempaka yang mengganggu kebersihan dan kesehatan lingkungan sekitar.",
+            "Deskripsi Laporan Pengaduan": "https://drive.google.com/file/d/1ltPn4A9DfuABkJgFlV7hIhs3ZEKsQ-Hq/view?usp=drivesdk",
+            "Lampiran Gambar 1": "Gambar menunjukkan tumpukan sampah di area terbuka dengan berbagai jenis sampah seperti plastik, ban bekas, kain, dan sampah lainnya; terlihat juga mobil Toyota dengan plat nomor PA 8444 MI di lokasi.",
+            "Deskripsi Lampiran Gambar 1": "",
+            "Lampiran Gambar 2": "",
+            "Deskripsi Lampiran Gambar 2": "",
+            "Lampiran Gambar 3": "",
+            "Deskripsi Lampiran Gambar 3": "Di Nawaripi Gang Cempaka",
+            "Tempat Kejadian": "",
+            "Lampiran Gambar 4": "",
+            "Deskripsi Lampiran Gambar 4": "",
+            "Lampiran Gambar 5": "",
+            "Deskripsi Lampiran Gambar 5": "",
+            "Lampiran Gambar 6": "",
+            "Deskripsi Lampiran Gambar 6": "",
+            "Lampiran Gambar 7": "",
+            "Deskripsi Lampiran Gambar 7": "",
+            "Lampiran Gambar 8": "",
+            "Deskripsi Lampiran Gambar 8": "",
+            "Lampiran Gambar 9": "",
+            "Deskripsi Lampiran Gambar 9": "",
+            "Lampiran Gambar 10": "",
+            "Deskripsi Lampiran Gambar 10": "",
+            "Lampiran Gambar 11": "",
+            "Deskripsi Lampiran Gambar 11": ""
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/9125554b-e1e0-49a5-a801-320139487033",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "aae66b62-b56d-4588-a760-e89845c3f7b4",
+  "activeVersionId": "aae66b62-b56d-4588-a760-e89845c3f7b4",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-14T02:23:08.218Z",
+      "createdAt": "2025-11-14T02:23:08.218Z",
+      "role": "workflow:owner",
+      "workflowId": "5hZ2M9nhLgNGELSW",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-11-27T06:24:38.693Z",
+    "createdAt": "2025-11-27T06:24:38.693Z",
+    "versionId": "aae66b62-b56d-4588-a760-e89845c3f7b4",
+    "workflowId": "5hZ2M9nhLgNGELSW",
+    "nodes": [
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Buatkan Laporan Formal Untuk\n{{ JSON.stringify($json.body, null, 2) }}\n",
+          "options": {
+            "systemMessage": "Wajib Gunakan \"Tool AI Agent Send Aspirasi To Kepala Distrik\" dan \"Tool AI Agent Send Aspirasi To Operator Distrik\""
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          -416,
+          -240
+        ],
+        "id": "a1aa63b2-5c92-4ffd-ac70-3e85778ec6b8",
+        "name": "AI Agent Aspirasi"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "9125554b-e1e0-49a5-a801-320139487033a-warga23",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -624,
+          -240
+        ],
+        "id": "43710580-2692-4661-9eae-c5e1004f2ab2",
+        "name": "WI-4",
+        "webhookId": "9125554b-e1e0-49a5-a801-320139487033"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -112,
+          -240
+        ],
+        "id": "536577c6-f786-4494-8fed-6f1a16f0d59f",
+        "name": "WR-4"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -416,
+          -32
+        ],
+        "id": "713b1c2e-bc63-4b8b-88c4-47e0bff39bc7",
+        "name": "AI-4",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "=Gunakan ini untuk mengirim Laporan Aspirasi Kepada Kepala Distrik Wania",
+          "text": "=Buatkan Laporan Formal Untuk\n{{ JSON.stringify($json.body, null, 2) }}",
+          "options": {
+            "systemMessage": "=## Format Laporan Pengaduan  \n\nKepada Yth.  \nIbu Kepala Distrik Wania 🌸  \n\nDengan hormat,  \nDisampaikan bahwa telah masuk laporan aspirasi masyarakat dari warga NAMA WARGA (WA:NOMOR HP WARGA).  \n\nDengan isi aspirasi sebagai berikut:  \n[Ringkas inti aspirasi] 💡  \n\n- Kategori: **(isi otomatis oleh AI berdasarkan konteks)**  \n- Lokasi: **(isi otomatis oleh AI berdasarkan pesan/metadata)**  \n- Waktu/Perkiraan: **(isi otomatis oleh AI)**  \n- Dampak/Manfaat tambahan: **(isi otomatis oleh AI)**  \n\nSebagai bahan pendukung, berikut kami lampirkan dokumentasi aspirasi:  \n[🔗 Wajib Sertakan Lampiran, tanya warga / tanya Database_User_Agent sesuai konteks]     \n\nDengan ini, laporan aspirasi telah sampai kepada Ibu Kepala Distrik Wania untuk ditindaklanjuti sesuai kewenangan.  \n\nAtas perhatian dan kerjasama Ibu, disampaikan terima kasih 🙏🏻.  \nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu ✨.  \n\nSalam hormat,  \nKawe Nia 🤝  \nAsisten Digital Distrik Wania    \n\n---\n\nWajib Gunakan \"Tool Gmail Send Aspirasi To Kepala Distrik\" dan \"Tool WhatsApp Send Aspirasi To Kepala Distrik\""
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -544,
+          96
+        ],
+        "id": "71296a1f-4f17-4344-89a2-c32036c7655c",
+        "name": "Tool AI Agent Send Aspirasi To Kepala Distrik"
+      },
+      {
+        "parameters": {
+          "toolDescription": "=Gunakan ini untuk mengirim Laporan Aspirasi Kepada Operator Distrik Wania",
+          "text": "=Buatkan Laporan Formal Untuk\n{{ JSON.stringify($json.body, null, 2) }}",
+          "options": {
+            "systemMessage": "=## Format Laporan Pengaduan  \n\nKepada Yth.  \nOperator Distrik Wania 🌸  \n\nDengan hormat,  \nDisampaikan bahwa telah masuk laporan aspirasi masyarakat dari warga NAMA WARGA (WA:NOMOR HP WARGA).  \n\nDengan isi aspirasi sebagai berikut:  \n[Ringkas inti aspirasi] 💡  \n\n- Kategori: **(isi otomatis oleh AI berdasarkan konteks)**  \n- Lokasi: **(isi otomatis oleh AI berdasarkan pesan/metadata)**  \n- Waktu/Perkiraan: **(isi otomatis oleh AI)**  \n- Dampak/Manfaat tambahan: **(isi otomatis oleh AI)**  \n\nSebagai bahan pendukung, berikut kami lampirkan dokumentasi aspirasi:  \n[🔗 Wajib Sertakan Lampiran, tanya warga / tanya Database_User_Agent sesuai konteks]     \n\nDengan ini, laporan aspirasi telah sampai kepada Ibu Kepala Distrik Wania untuk ditindaklanjuti sesuai kewenangan.  \n\nAtas perhatian dan kerjasama Ibu, disampaikan terima kasih 🙏🏻.  \nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu ✨.  \n\nSalam hormat,  \nKawe Nia 🤝  \nAsisten Digital Distrik Wania  \n\n---\n\nWajib Gunakan \"Tool Gmail Send Aspirasi To Operator Distrik\" dan \"Tool WhatsApp Send Aspirasi To Operator Distrik\""
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -96,
+          96
+        ],
+        "id": "71722cad-7f1a-4a99-948a-8abdc4debce2",
+        "name": "Tool AI Agent Send Aspirasi To Operator Distrik"
+      },
+      {
+        "parameters": {
+          "sendTo": "=agunghenditemorubun@gmail.com",
+          "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+          "emailType": "text",
+          "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+          "options": {
+            "appendAttribution": false
+          }
+        },
+        "type": "n8n-nodes-base.gmailTool",
+        "typeVersion": 2.1,
+        "position": [
+          -512,
+          288
+        ],
+        "id": "c5c4b29e-88bc-428e-9a6b-db3e15db2027",
+        "name": "Tool Gmail Send Aspirasi To Kepala Distrik",
+        "webhookId": "d0317799-eada-4ec2-9fbe-96fcf2085a8c",
+        "credentials": {
+          "gmailOAuth2": {
+            "id": "1aPzqo5Q5DyzjRZG",
+            "name": "Gmail account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://waha-vdgnbkmlxfqn.mangga.sumopod.my.id/api/sendText",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "wahaApi",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "session",
+                "value": "=KaweNia"
+              },
+              {
+                "name": "chatId",
+                "value": "=6281396650844@c.us"
+              },
+              {
+                "name": "text",
+                "value": "={{ $fromAI('Message', ``, 'string') }}"
+              },
+              {
+                "name": "linkPreview",
+                "value": "false"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          -336,
+          288
+        ],
+        "id": "a19783f4-4e45-4cd5-863c-3edd0371adbf",
+        "name": "Tool WhatsApp Send Aspirasi To Kepala Distrik",
+        "credentials": {
+          "wahaApi": {
+            "id": "uivlaHVGkUY1vyJT",
+            "name": "WAHA account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://waha-vdgnbkmlxfqn.mangga.sumopod.my.id/api/sendText",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "wahaApi",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "session",
+                "value": "=KaweNia"
+              },
+              {
+                "name": "chatId",
+                "value": "6282238590540@c.us"
+              },
+              {
+                "name": "text",
+                "value": "={{ $fromAI('Message', ``, 'string') }}"
+              },
+              {
+                "name": "linkPreview",
+                "value": "false"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          144,
+          288
+        ],
+        "id": "7eeabdd0-7495-4bcc-a231-6c0892b864d7",
+        "name": "Tool WhatsApp Send Aspirasi To Operator Distrik",
+        "credentials": {
+          "wahaApi": {
+            "id": "uivlaHVGkUY1vyJT",
+            "name": "WAHA account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "sendTo": "=agunghenditemorubun@gmail.com",
+          "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+          "emailType": "text",
+          "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+          "options": {
+            "appendAttribution": false
+          }
+        },
+        "type": "n8n-nodes-base.gmailTool",
+        "typeVersion": 2.1,
+        "position": [
+          -32,
+          288
+        ],
+        "id": "c668a2a3-c06a-4e14-9a82-070fd3ba9b04",
+        "name": "Tool Gmail Send Aspirasi To Operator Distrik",
+        "webhookId": "d0317799-eada-4ec2-9fbe-96fcf2085a8c",
+        "credentials": {
+          "gmailOAuth2": {
+            "id": "1aPzqo5Q5DyzjRZG",
+            "name": "Gmail account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -640,
+          288
+        ],
+        "id": "eb020408-096b-4b95-bbe6-62caac5b4d13",
+        "name": "AI-4A",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -176,
+          288
+        ],
+        "id": "c4732c50-c67c-4747-99df-a945271b33fe",
+        "name": "AI-4B",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "AI Agent Aspirasi": {
+        "main": [
+          [
+            {
+              "node": "WR-4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "WI-4": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Aspirasi",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-4": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Aspirasi",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool AI Agent Send Aspirasi To Kepala Distrik": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Aspirasi",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool AI Agent Send Aspirasi To Operator Distrik": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Aspirasi",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool Gmail Send Aspirasi To Kepala Distrik": {
+        "ai_tool": [
+          [
+            {
+              "node": "Tool AI Agent Send Aspirasi To Kepala Distrik",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool WhatsApp Send Aspirasi To Kepala Distrik": {
+        "ai_tool": [
+          [
+            {
+              "node": "Tool AI Agent Send Aspirasi To Kepala Distrik",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool WhatsApp Send Aspirasi To Operator Distrik": {
+        "ai_tool": [
+          [
+            {
+              "node": "Tool AI Agent Send Aspirasi To Operator Distrik",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool Gmail Send Aspirasi To Operator Distrik": {
+        "ai_tool": [
+          [
+            {
+              "node": "Tool AI Agent Send Aspirasi To Operator Distrik",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-4A": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Tool AI Agent Send Aspirasi To Kepala Distrik",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-4B": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Tool AI Agent Send Aspirasi To Operator Distrik",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "system migration",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
