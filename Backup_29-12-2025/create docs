@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-03T04:07:12.000Z",
+  "createdAt": "2025-08-02T04:35:06.100Z",
+  "id": "3UUudKX5RRiDHqfw",
+  "name": "create docs",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "cd2d7dd4-98e5-485f-9bc7-c1854cc8335e",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-02T04:35:06.103Z",
+      "createdAt": "2025-08-02T04:35:06.103Z",
+      "role": "workflow:owner",
+      "workflowId": "3UUudKX5RRiDHqfw",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
