@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-26T02:17:52.000Z",
+  "createdAt": "2025-08-03T04:06:04.267Z",
+  "id": "gBaKF0sNkuKwGy91",
+  "name": "Create Surat Keterangan Tidak mampu",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "2002846b-9036-4523-8be7-6923bc9808a6",
+  "activeVersionId": null,
+  "triggerCount": 3,
+  "shared": [
+    {
+      "updatedAt": "2025-08-03T04:06:04.271Z",
+      "createdAt": "2025-08-03T04:06:04.271Z",
+      "role": "workflow:owner",
+      "workflowId": "gBaKF0sNkuKwGy91",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
