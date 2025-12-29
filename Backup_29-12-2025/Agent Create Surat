@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-11-05T04:04:27.000Z",
+  "createdAt": "2025-10-10T11:13:32.663Z",
+  "id": "C2ZPxeZqy2Y3UZlC",
+  "name": "Agent Create Surat",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "106cf40f-4265-4c18-a895-b261cb5f8999",
+  "activeVersionId": null,
+  "triggerCount": 2,
+  "shared": [
+    {
+      "updatedAt": "2025-10-10T11:13:32.665Z",
+      "createdAt": "2025-10-10T11:13:32.665Z",
+      "role": "workflow:owner",
+      "workflowId": "C2ZPxeZqy2Y3UZlC",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
