@@ -1,0 +1,44 @@
+{
+  "updatedAt": "2025-11-05T04:04:59.000Z",
+  "createdAt": "2025-08-01T04:28:53.102Z",
+  "id": "CVppSWMKoAgvkzj8",
+  "name": "Wania Mimika",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "lT9zrVlXfUlXokva"
+  },
+  "staticData": {
+    "global": {
+      "ww_delay": {
+        "6285230047347@c.us": {
+          "lastTsMs": 1758674484926,
+          "count": 1
+        }
+      }
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "86a3b2c4-2ae5-4ea8-9fae-7d417daa0125",
+  "activeVersionId": null,
+  "triggerCount": 3,
+  "shared": [
+    {
+      "updatedAt": "2025-08-01T04:28:53.105Z",
+      "createdAt": "2025-08-01T04:28:53.105Z",
+      "role": "workflow:owner",
+      "workflowId": "CVppSWMKoAgvkzj8",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
