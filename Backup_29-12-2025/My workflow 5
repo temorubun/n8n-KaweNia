@@ -1,0 +1,51 @@
+{
+  "updatedAt": "2025-08-12T22:05:26.000Z",
+  "createdAt": "2025-08-12T21:58:15.467Z",
+  "id": "Gx7u0tX6tQT0VlEt",
+  "name": "My workflow 5",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "bf02859c-ee2e-4b2d-b183-3c56f18f785d",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-12T21:58:15.471Z",
+      "createdAt": "2025-08-12T21:58:15.471Z",
+      "role": "workflow:owner",
+      "workflowId": "Gx7u0tX6tQT0VlEt",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": [
+    {
+      "updatedAt": "2025-08-10T09:47:00.546Z",
+      "createdAt": "2025-08-10T09:47:00.546Z",
+      "id": "5EvYMqkT6hm9Ac07",
+      "name": "RAG"
+    },
+    {
+      "updatedAt": "2025-08-10T09:47:00.550Z",
+      "createdAt": "2025-08-10T09:47:00.550Z",
+      "id": "OkgWehpzaCX26zDI",
+      "name": "chatbot"
+    },
+    {
+      "updatedAt": "2025-08-10T09:47:00.544Z",
+      "createdAt": "2025-08-10T09:47:00.544Z",
+      "id": "reIJXUm7R2zGILXR",
+      "name": "template"
+    }
+  ]
+}
