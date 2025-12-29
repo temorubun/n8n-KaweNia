@@ -1,0 +1,901 @@
+{
+  "updatedAt": "2025-12-28T05:33:27.658Z",
+  "createdAt": "2025-12-24T02:21:41.425Z",
+  "id": "mTT196vfVcf5IIV6",
+  "name": "AI Agent Arsip SKTM",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 528,
+        "width": 944
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -432,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "02a0ea32-9333-452c-b4e3-2cb51a72adba",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -400,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "9f16c372-4f7d-49ea-b662-b749bfeee19e",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Arsip SKTM Nawaripi\n\n\n\n\n\n\n\n### ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "c593811d-7657-43b3-8d82-59b8ad3c709a",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        240,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "5b86baa0-3d44-4108-b539-135456e7a288",
+      "name": "Sticky Note31"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -272,
+        144
+      ],
+      "typeVersion": 1,
+      "id": "2f146551-9fce-4d53-94ff-a41d4918134e",
+      "name": "Sticky Note32"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Arsip Surat Keterangan Tidak Mampu\n\n\n\n\n\n\n\n### https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit#gid=0",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        96,
+        144
+      ],
+      "typeVersion": 1,
+      "id": "44b2b24a-2a11-483e-a184-2a3cd4293dfc",
+      "name": "Sticky Note33"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "b13d8b3c-085a-495b-8344-8433dc69cc39",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -288,
+        -64
+      ],
+      "id": "67ef3b41-4f01-4492-b310-4fea29736ca9",
+      "name": "WI-Surat",
+      "webhookId": "964f9e9d-8a03-47e9-b097-1284c8665bf1"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        272,
+        -64
+      ],
+      "id": "ea81d1fd-a755-432b-a005-e48eea5c8a8e",
+      "name": "WR-Surat"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -80,
+        -64
+      ],
+      "id": "cfdccb82-5cc7-4189-b613-57f1e4b7bc4c",
+      "name": "AI Agent Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -160,
+        224
+      ],
+      "id": "3a8c1447-744d-4f4f-9d0f-4a7e36445e35",
+      "name": "AI-Surat",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s",
+          "mode": "list",
+          "cachedResultName": "Nomor Surat Keterangan Tidak Mampu Distrik Wania",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Kampung Nawaripi",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Nomor Surat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nomor_Surat', `Nomor Surat`, 'string') }}",
+            "Tanggal Surat": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}",
+            "Perihal": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Perihal', `Perihal`, 'string') }}",
+            "Nama": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nama', `Nama`, 'string') }}",
+            "Nik": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nik', `Nik`, 'string') }}",
+            "TTL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('TTL', `TTL`, 'string') }}",
+            "Agama": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Agama', `Agama`, 'string') }}",
+            "Jenis Kelamin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Jenis_Kelamin', `Jenis Kelamin`, 'string') }}",
+            "Status Perkawinan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Status_Perkawinan', `Status Perkawinan`, 'string') }}",
+            "Pekerjaan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Pekerjaan', `Pekerjaan`, 'string') }}",
+            "Alamat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Alamat', `Alamat`, 'string') }}",
+            "Nomor Hp": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nomor_Hp', `Nomor Hp`, 'string') }}",
+            "Keterangan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Keterangan', `Keterangan`, 'string') }}",
+            "Link File": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Link_File', `Link File`, 'string') }}"
+          },
+          "matchingColumns": [
+            "Nomor Surat"
+          ],
+          "schema": [
+            {
+              "id": "Tanggal Surat",
+              "displayName": "Tanggal Surat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nomor Surat",
+              "displayName": "Nomor Surat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Perihal",
+              "displayName": "Perihal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama",
+              "displayName": "Nama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nik",
+              "displayName": "Nik",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TTL",
+              "displayName": "TTL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Agama",
+              "displayName": "Agama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Jenis Kelamin",
+              "displayName": "Jenis Kelamin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status Perkawinan",
+              "displayName": "Status Perkawinan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Pekerjaan",
+              "displayName": "Pekerjaan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alamat",
+              "displayName": "Alamat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nomor Hp",
+              "displayName": "Nomor Hp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Keterangan",
+              "displayName": "Keterangan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Link File",
+              "displayName": "Link File",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        176,
+        208
+      ],
+      "id": "9ee4c201-5714-4d73-b556-0d76ddfa9624",
+      "name": "Arsip SKTM Nawaripi",
+      "notesInFlow": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7VY1hRGS2jrWPehL",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "WI-Surat": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Surat": {
+      "main": [
+        [
+          {
+            "node": "WR-Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Surat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Arsip SKTM Nawaripi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "WI-Surat": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "1413",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9b0dc123cf1ffdbb-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.70.208.128",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.70.208.128"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Prompt": "Buatkan Surat SKTM  Kampung Nawaripi\nRespon Hanya Berhasil Atau Gagal",
+            "System Message": "Wajib Gunakan \"Surat SKTM  Kampung Nawaripi\" Untuk Membuat Surat SKTM",
+            "Id Surat SKTM": "1q0ekUfSoy_PsIj5nzvulbSNwWrWM25pmqgdoL9hFoww",
+            "Tanggal Surat": "20 Desember 2025",
+            "Pemerintah Kabupaten": "Pemerintah Kabupaten Mimika",
+            "Distrik": "Distrik Wania",
+            "Kampung Kelurahan": "Kampung Nawaripi",
+            "Alamat Kantor": "Jln. Yohanes Aikawe",
+            "Provinsi": "Papua Tengah",
+            "Kode Pos": "99963",
+            "Email": "nawaripi@gmail.com",
+            "Nomor Surat": "400.2.1/24/KI/DW/2025",
+            "Keterangan SKTM Nomor 1": "Yang bertanda tangan dibawah ini Kepala Kampung Nawaripi menerangkan dengan sesungguhnya bahwa :",
+            "Keterangan SKTM Nomor 2": "Tersebut namanya di atas adalah benar-benar penduduk Kampung Nawaripi.",
+            "Keterangan SKTM Nomor 3": "Tersebut namanya di atas adalah benar-berstatus ekonomi lemah yang tidak mampu menebus atau membayar biaya administrasi kampus Politeknik Amamapare Timika.",
+            "Keterangan SKTM Nomor 4": "Mohon surat keterangan ini digunakan sebagaimana mestinya.",
+            "Keterangan SKTM Nomor 5": "Demikian surat keterangan tidak mampu ini, kami buat untuk dapat digunakan sebagaimana  mestinya.",
+            "Nama Pemohon": "Syafruddin",
+            "NIK Pemohon": "910901078740007",
+            "TTL Pemohon": "Ralla, 07-08-1974",
+            "Agama Pemohon": "Islam",
+            "Jenis Kelamin Pemohon": "Laki-Laki",
+            "Status Perkawinan Pemohon": "KAWIN",
+            "Pekerjaan Pemohon": "Petani/Pekebun",
+            "Alamat Pemohon": "Wania"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/964f9e9d-8a03-47e9-b097-1284c8665bf1",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "4d71b058-1ea8-4479-91d5-1f2a2b459efd",
+  "activeVersionId": "4d71b058-1ea8-4479-91d5-1f2a2b459efd",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-24T02:21:41.429Z",
+      "createdAt": "2025-12-24T02:21:41.429Z",
+      "role": "workflow:owner",
+      "workflowId": "mTT196vfVcf5IIV6",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-28T05:33:27.658Z",
+    "createdAt": "2025-12-28T05:33:27.658Z",
+    "versionId": "4d71b058-1ea8-4479-91d5-1f2a2b459efd",
+    "workflowId": "mTT196vfVcf5IIV6",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 528,
+          "width": 944
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -432,
+          -144
+        ],
+        "typeVersion": 1,
+        "id": "02a0ea32-9333-452c-b4e3-2cb51a72adba",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -400,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "9f16c372-4f7d-49ea-b662-b749bfeee19e",
+        "name": "Sticky Note18"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Arsip SKTM Nawaripi\n\n\n\n\n\n\n\n### ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -160,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "c593811d-7657-43b3-8d82-59b8ad3c709a",
+        "name": "Sticky Note29"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          240,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "5b86baa0-3d44-4108-b539-135456e7a288",
+        "name": "Sticky Note31"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -272,
+          144
+        ],
+        "typeVersion": 1,
+        "id": "2f146551-9fce-4d53-94ff-a41d4918134e",
+        "name": "Sticky Note32"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Arsip Surat Keterangan Tidak Mampu\n\n\n\n\n\n\n\n### https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit#gid=0",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          96,
+          144
+        ],
+        "typeVersion": 1,
+        "id": "44b2b24a-2a11-483e-a184-2a3cd4293dfc",
+        "name": "Sticky Note33"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "b13d8b3c-085a-495b-8344-8433dc69cc39",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -288,
+          -64
+        ],
+        "id": "67ef3b41-4f01-4492-b310-4fea29736ca9",
+        "name": "WI-Surat",
+        "webhookId": "964f9e9d-8a03-47e9-b097-1284c8665bf1"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          272,
+          -64
+        ],
+        "id": "ea81d1fd-a755-432b-a005-e48eea5c8a8e",
+        "name": "WR-Surat"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          -80,
+          -64
+        ],
+        "id": "cfdccb82-5cc7-4189-b613-57f1e4b7bc4c",
+        "name": "AI Agent Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -160,
+          224
+        ],
+        "id": "3a8c1447-744d-4f4f-9d0f-4a7e36445e35",
+        "name": "AI-Surat",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "appendOrUpdate",
+          "documentId": {
+            "__rl": true,
+            "value": "13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s",
+            "mode": "list",
+            "cachedResultName": "Nomor Surat Keterangan Tidak Mampu Distrik Wania",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Kampung Nawaripi",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit#gid=0"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Nomor Surat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nomor_Surat', `Nomor Surat`, 'string') }}",
+              "Tanggal Surat": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}",
+              "Perihal": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Perihal', `Perihal`, 'string') }}",
+              "Nama": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nama', `Nama`, 'string') }}",
+              "Nik": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nik', `Nik`, 'string') }}",
+              "TTL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('TTL', `TTL`, 'string') }}",
+              "Agama": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Agama', `Agama`, 'string') }}",
+              "Jenis Kelamin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Jenis_Kelamin', `Jenis Kelamin`, 'string') }}",
+              "Status Perkawinan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Status_Perkawinan', `Status Perkawinan`, 'string') }}",
+              "Pekerjaan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Pekerjaan', `Pekerjaan`, 'string') }}",
+              "Alamat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Alamat', `Alamat`, 'string') }}",
+              "Nomor Hp": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nomor_Hp', `Nomor Hp`, 'string') }}",
+              "Keterangan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Keterangan', `Keterangan`, 'string') }}",
+              "Link File": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Link_File', `Link File`, 'string') }}"
+            },
+            "matchingColumns": [
+              "Nomor Surat"
+            ],
+            "schema": [
+              {
+                "id": "Tanggal Surat",
+                "displayName": "Tanggal Surat",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "Nomor Surat",
+                "displayName": "Nomor Surat",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Perihal",
+                "displayName": "Perihal",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nama",
+                "displayName": "Nama",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nik",
+                "displayName": "Nik",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "TTL",
+                "displayName": "TTL",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Agama",
+                "displayName": "Agama",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Jenis Kelamin",
+                "displayName": "Jenis Kelamin",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Status Perkawinan",
+                "displayName": "Status Perkawinan",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Pekerjaan",
+                "displayName": "Pekerjaan",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Alamat",
+                "displayName": "Alamat",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nomor Hp",
+                "displayName": "Nomor Hp",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Keterangan",
+                "displayName": "Keterangan",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Link File",
+                "displayName": "Link File",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheetsTool",
+        "typeVersion": 4.7,
+        "position": [
+          176,
+          208
+        ],
+        "id": "9ee4c201-5714-4d73-b556-0d76ddfa9624",
+        "name": "Arsip SKTM Nawaripi",
+        "notesInFlow": true,
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "7VY1hRGS2jrWPehL",
+            "name": "Google Sheets account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "WI-Surat": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Surat": {
+        "main": [
+          [
+            {
+              "node": "WR-Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Surat": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Arsip SKTM Nawaripi": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
