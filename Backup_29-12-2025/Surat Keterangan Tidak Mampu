@@ -1,0 +1,39 @@
+{
+  "updatedAt": "2025-10-10T02:10:46.000Z",
+  "createdAt": "2025-09-12T21:44:18.059Z",
+  "id": "3DafyIQJmqkYolmj",
+  "name": "Surat Keterangan Tidak Mampu",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    },
+    "node:G1": {
+      "recurrenceRules": []
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "9d005ac1-10ec-4172-aad2-108d7abbaba6",
+  "activeVersionId": null,
+  "triggerCount": 8,
+  "shared": [
+    {
+      "updatedAt": "2025-09-12T21:44:18.062Z",
+      "createdAt": "2025-09-12T21:44:18.062Z",
+      "role": "workflow:owner",
+      "workflowId": "3DafyIQJmqkYolmj",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
