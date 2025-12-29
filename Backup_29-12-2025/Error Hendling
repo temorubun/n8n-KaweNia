@@ -1,0 +1,78 @@
+{
+  "updatedAt": "2025-12-28T08:42:25.199Z",
+  "createdAt": "2025-10-10T02:14:12.214Z",
+  "id": "lT9zrVlXfUlXokva",
+  "name": "Error Hendling",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4c9fc5ea-e63a-4139-baa9-c8765ce9e541",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "=KaweNia",
+        "chatId": "=6285230047347@c.us",
+        "text": "=Error Node {{ $json.execution.error.node.name }}\n\n{{ $json.execution.error.message }}\n\n{{ $json.execution.url }}\n\n{{ $json.execution.error.stack }}",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        208,
+        0
+      ],
+      "id": "d16a83e7-db90-4255-9a6e-377b6c5a64cc",
+      "name": "Send a text message",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "5900a5e5-1657-49a8-93de-6fb67fbe014c",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-10-10T02:14:12.216Z",
+      "createdAt": "2025-10-10T02:14:12.216Z",
+      "role": "workflow:owner",
+      "workflowId": "lT9zrVlXfUlXokva",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
