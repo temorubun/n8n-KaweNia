@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-11-05T04:04:38.000Z",
+  "createdAt": "2025-10-10T23:34:24.545Z",
+  "id": "yp0bLSk8rSbmiZ04",
+  "name": "Backup Database",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "32d7cf61-d043-44c1-bf2a-4f074f86beed",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-10-10T23:34:24.547Z",
+      "createdAt": "2025-10-10T23:34:24.547Z",
+      "role": "workflow:owner",
+      "workflowId": "yp0bLSk8rSbmiZ04",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
