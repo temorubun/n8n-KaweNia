@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-26T01:51:27.000Z",
+  "createdAt": "2025-08-03T11:51:37.656Z",
+  "id": "IUuWzqhI50Roe8jx",
+  "name": "Informasi jadwal dan kegiatan kampung",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "df720119-98d4-488b-b18f-e1f6c470f7f0",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-03T11:51:37.660Z",
+      "createdAt": "2025-08-03T11:51:37.660Z",
+      "role": "workflow:owner",
+      "workflowId": "IUuWzqhI50Roe8jx",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
