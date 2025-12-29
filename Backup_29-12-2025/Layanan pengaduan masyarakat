@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-26T01:50:55.000Z",
+  "createdAt": "2025-08-03T08:26:19.149Z",
+  "id": "bBiwTzUaTE5CwwIP",
+  "name": "Layanan pengaduan masyarakat",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "487306a8-b04e-4ac5-a77a-2ed8f3373328",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-03T08:26:19.154Z",
+      "createdAt": "2025-08-03T08:26:19.154Z",
+      "role": "workflow:owner",
+      "workflowId": "bBiwTzUaTE5CwwIP",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
