@@ -1,0 +1,33 @@
+{
+  "updatedAt": "2025-08-03T21:52:53.000Z",
+  "createdAt": "2025-08-03T21:29:11.524Z",
+  "id": "dlCESk4cda7HoibC",
+  "name": "Chat with local LLMs using n8n and Ollama",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateId": "2384",
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "f5ab2944-a368-4ac9-9e78-8771a8c23536",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-03T21:29:11.530Z",
+      "createdAt": "2025-08-03T21:29:11.530Z",
+      "role": "workflow:owner",
+      "workflowId": "dlCESk4cda7HoibC",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
