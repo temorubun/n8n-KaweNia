@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-23T04:14:55.000Z",
+  "createdAt": "2025-08-14T06:21:23.551Z",
+  "id": "UGHAg81vGstxRZQx",
+  "name": "Webhook",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "6ccd4a22-06f9-4981-ba19-faa145eba761",
+  "activeVersionId": null,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-08-14T06:21:23.554Z",
+      "createdAt": "2025-08-14T06:21:23.554Z",
+      "role": "workflow:owner",
+      "workflowId": "UGHAg81vGstxRZQx",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
