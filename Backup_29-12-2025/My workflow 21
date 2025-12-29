@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-09-15T20:51:15.000Z",
+  "createdAt": "2025-09-15T20:33:27.827Z",
+  "id": "M4GkF4oHwjwtJQaP",
+  "name": "My workflow 21",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "317be3bf-461a-49fd-804a-5b19eb6e6c18",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-09-15T20:33:27.831Z",
+      "createdAt": "2025-09-15T20:33:27.831Z",
+      "role": "workflow:owner",
+      "workflowId": "M4GkF4oHwjwtJQaP",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
