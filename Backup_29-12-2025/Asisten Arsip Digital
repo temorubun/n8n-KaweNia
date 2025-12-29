@@ -1,0 +1,919 @@
+{
+  "updatedAt": "2025-12-28T08:34:16.407Z",
+  "createdAt": "2025-11-18T03:44:51.288Z",
+  "id": "kUVLmJconoEJ0QAT",
+  "name": "Asisten Arsip Digital",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "104Ox1W5r6R_zARQjEGrjd0uxhRJFrGN6",
+          "mode": "id"
+        },
+        "event": "fileUpdated",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -944,
+        160
+      ],
+      "id": "e9630167-af21-4e3e-bc66-5446605a6c89",
+      "name": "Google Drive Trigger",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "06b8e599-7199-4f31-a7cd-093ba51574b3",
+              "name": "Id File",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -752,
+        160
+      ],
+      "id": "49f7f653-b42c-4eed-a76b-fd829fea64c7",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json['Id File'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -544,
+        160
+      ],
+      "id": "8e3324ed-3779-47c6-9c9c-473e17fe8416",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Gunakan Data Ini Untuk Tambahkan Data Arsip SKTM\n{{ $json.content }}",
+        "options": {
+          "systemMessage": "=\nTambahkan Data \n\nGunakan \"Tool SKTM Masuk\"\n\nGunakan \"Tool SKTM Keluar\"\n\n\nRespon Berikan data lengkap Yang Berhasil di tambahkan",
+          "passthroughBinaryImages": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        128,
+        160
+      ],
+      "id": "6e92b858-24dd-4d59-832c-c4ca08e90c35",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Edit Fields').item.json['Id File'] }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -96,
+        -16
+      ],
+      "id": "fec06fc9-1a01-49ec-a846-71ac14de9f5c",
+      "name": "Share file1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        128,
+        368
+      ],
+      "id": "c1984f76-65dc-4228-96c8-bc4dd6d06dfe",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "=KaweNia",
+        "chatId": "=6285233997773@c.us",
+        "text": "={{ $json.output }}",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        576,
+        144
+      ],
+      "id": "f747bc29-bf15-42f7-b4b4-0160a9473230",
+      "name": "Send a text message",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Gunakan Ini Hanya Untuk SKTM Masuk",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1TQF3sNt3VuYM29hvCQ4z0AUl9FcK9nT0A8kEqfgYBNs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "SKTM Masuk",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TQF3sNt3VuYM29hvCQ4z0AUl9FcK9nT0A8kEqfgYBNs/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tanggal Surat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Tanggal_Surat', `Wajib Gunakan Format \nAngka_Tanggal Nama_Bulan Tahun`, 'string') }}",
+            "Nomor Surat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nomor_Surat', `Nomor Surat`, 'string') }}",
+            "Perihal": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Perihal', `Perhila itu Lihat di Keterangan \nApakah BPJS Atau Biaya Pendidikan Ata Apa Yang Tertera`, 'string') }}",
+            "Nama": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nama', `Nama`, 'string') }}",
+            "Keterangan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Keterangan', `Nama Kampung Atau Nama Kelurahan`, 'string') }}",
+            "Nik": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nik', `NIK`, 'string') }}",
+            "TTL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('TTL', `Tempat Tanggal Lahir`, 'string') }}",
+            "Agama": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Agama', `Agama`, 'string') }}",
+            "Jenis Kelamin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Jenis_Kelamin', `Jenis Kelamin`, 'string') }}",
+            "Status Perkawinan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Status_Perkawinan', `Status Perkawinan`, 'string') }}",
+            "Pekerjaan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Pekerjaan', `Pekerjaan`, 'string') }}",
+            "Alamat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Alamat', `Alamat`, 'string') }}",
+            "Link File": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Link_File', `Link File`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Tanggal Surat",
+              "displayName": "Tanggal Surat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nomor Surat",
+              "displayName": "Nomor Surat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Perihal",
+              "displayName": "Perihal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nama",
+              "displayName": "Nama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nik",
+              "displayName": "Nik",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TTL",
+              "displayName": "TTL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Agama",
+              "displayName": "Agama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Jenis Kelamin",
+              "displayName": "Jenis Kelamin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status Perkawinan",
+              "displayName": "Status Perkawinan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Pekerjaan",
+              "displayName": "Pekerjaan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alamat",
+              "displayName": "Alamat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Keterangan",
+              "displayName": "Keterangan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Link File",
+              "displayName": "Link File",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        128,
+        544
+      ],
+      "id": "8533a7db-a406-4ea1-a87b-77f5af546928",
+      "name": "Tool SKTM Masuk",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7VY1hRGS2jrWPehL",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Gunakan Ini Hanya Untuk SKTM Keluar",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1TQF3sNt3VuYM29hvCQ4z0AUl9FcK9nT0A8kEqfgYBNs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 259665880,
+          "mode": "list",
+          "cachedResultName": "SKTM Keluar",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TQF3sNt3VuYM29hvCQ4z0AUl9FcK9nT0A8kEqfgYBNs/edit#gid=259665880"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tanggal Surat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Tanggal_Surat', `Wajib Gunakan Format \nAngka Tanggal Nama Bulan Tahun`, 'string') }}",
+            "Nomor Surat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nomor_Surat', `Nomor Surat`, 'string') }}",
+            "Perihal": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Perihal', `Perhila itu Lihat di Keterangan \nApakah BPJS Atau Biaya Pendidikan Ata Apa Yang Tertera`, 'string') }}",
+            "Nama": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nama', `Nama`, 'string') }}",
+            "Keterangan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Keterangan', `Nama Kampung Atau Nama Kelurahan`, 'string') }}",
+            "Nik": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Nik', `NIK`, 'string') }}",
+            "TTL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('TTL', `Tempat Tanggal Lahir`, 'string') }}",
+            "Agama": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Agama', `Agama`, 'string') }}",
+            "Jenis Kelamin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Jenis_Kelamin', `Jenis Kelamin`, 'string') }}",
+            "Status Perkawinan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Status_Perkawinan', `Status Perkawinan`, 'string') }}",
+            "Pekerjaan": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Pekerjaan', `Pekerjaan`, 'string') }}",
+            "Alamat": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Alamat', `Alamat`, 'string') }}",
+            "Link File": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Link_File', `Link File`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Tanggal Surat",
+              "displayName": "Tanggal Surat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nomor Surat",
+              "displayName": "Nomor Surat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Perihal",
+              "displayName": "Perihal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nama",
+              "displayName": "Nama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nik",
+              "displayName": "Nik",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TTL",
+              "displayName": "TTL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Agama",
+              "displayName": "Agama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Jenis Kelamin",
+              "displayName": "Jenis Kelamin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status Perkawinan",
+              "displayName": "Status Perkawinan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Pekerjaan",
+              "displayName": "Pekerjaan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alamat",
+              "displayName": "Alamat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Keterangan",
+              "displayName": "Keterangan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Link File",
+              "displayName": "Link File",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        304,
+        544
+      ],
+      "id": "95830004-f4f7-433d-8a0b-40cc18fc0ed8",
+      "name": "Tool SKTM Keluar",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7VY1hRGS2jrWPehL",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "text": "=Anda adalah AI OCR yang ahli membaca dan memahami teks pada gambar.\nTugas Anda: Membaca semua teks yang terlihat pada gambar dan membaca caption yang dikirim bersama gambar, lalu mengembalikannya dalam format JSON sesuai struktur data yang ditemukan di gambar tersebut.\n\nInstruksi penting:\n\nAnda adalah AI OCR dan Klasifikasi Dokumen.\n\nJika\nYANG TANDA TANGAN ADALAH NAMA MATHIUS SEDAN,S.Pd MAKA INI ADALAH SURAT KELUAR \n\nJika\nYANG TANDA TANGAN ADALAH NAMA MERLYN TEMORUBUN,S.STP MAKA INI ADALAH SURAT KELUAR\n\nJIKA BUKAN NAMA INI MAKA ITU ADALAH SURAT MASUK\n\n\nBerikan Lebel Ini adalah Surat Masuk Atau Surat Keluar \n\nBerikan Data \n1. Tanggal Nama_Bulan Tahun\n2. Nomor Surat\n3. Perihal terkait Biaya Pendidikan Atau BPJS Atau Lainnya\n4. Nama\n5. NIK\n6. Tempat Tanggal Lahir\n7. Agama\n8. Jenis Kelamin\n9. Status Perkawinan\n10. Pekerjaan\n11. Alamat\n12. Keterangan (Adalah Nama Kampung Atau Nama Kelurahan)\n13. Link File = https://drive.google.com/file/d/{{ $('Edit Fields').item.json['Id File'] }}/view?usp=drive_link\n\n**Kembalikan hasil dalam format JSON valid berikut:**\n\n```json\n{\n  \"Jenis_Gambar\": \"SKTM-Masuk/SKTM-Keluar\",\n  \"Data\": {\n    \"Field1\": \"Value1\",\n    \"Field2\": \"Value2\",\n    \"Field3\": \"Value3\",\n    \"Field4\": \"Value4\",\n    \"Field5\": null\n  }\n}\n\n",
+        "inputType": "base64",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -112,
+        160
+      ],
+      "id": "40dfab56-01cf-400b-aec1-50da6252c437",
+      "name": "Analyze image1",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "=KaweNia",
+        "chatId": "=6285230047347@c.us",
+        "text": "={{ $json.output }}",
+        "linkPreview": false,
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        528,
+        320
+      ],
+      "id": "8dd704fe-7055-4a6d-b669-c54dbbbb21d0",
+      "name": "Send a text message1",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json['Id File'] }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1za-jnDY6P985NPkzfRoPQPfu4K_73_8t",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -320,
+        0
+      ],
+      "id": "b585079d-92ab-4932-b5f7-00cfc05b6fcf",
+      "name": "Move file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Analyze image1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Move file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Share file1": {
+      "main": [
+        []
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool SKTM Masuk": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool SKTM Keluar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze image1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Move file": {
+      "main": [
+        [
+          {
+            "node": "Share file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Google Drive Trigger": {
+      "lastTimeChecked": "2025-11-22T08:35:05Z"
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Google Drive Trigger": [
+      {
+        "json": {
+          "parents": [
+            "104Ox1W5r6R_zARQjEGrjd0uxhRJFrGN6"
+          ],
+          "lastModifyingUser": {
+            "displayName": "Wania Mimika",
+            "kind": "drive#user",
+            "me": true,
+            "permissionId": "16784184813193788326",
+            "emailAddress": "mimikawania@gmail.com",
+            "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocJKOI2_mYjgGOrnusDEACWV6JvnxXjNoe5fiNmOnOtRNPqKu-A=s64"
+          },
+          "owners": [
+            {
+              "displayName": "Wania Mimika",
+              "kind": "drive#user",
+              "me": true,
+              "permissionId": "16784184813193788326",
+              "emailAddress": "mimikawania@gmail.com",
+              "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocJKOI2_mYjgGOrnusDEACWV6JvnxXjNoe5fiNmOnOtRNPqKu-A=s64"
+            }
+          ],
+          "permissions": [
+            {
+              "kind": "drive#permission",
+              "id": "16784184813193788326",
+              "type": "user",
+              "emailAddress": "mimikawania@gmail.com",
+              "role": "owner",
+              "displayName": "Wania Mimika",
+              "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocJKOI2_mYjgGOrnusDEACWV6JvnxXjNoe5fiNmOnOtRNPqKu-A=s64",
+              "deleted": false,
+              "pendingOwner": false
+            }
+          ],
+          "spaces": [
+            "drive"
+          ],
+          "capabilities": {
+            "canAcceptOwnership": false,
+            "canAddChildren": false,
+            "canAddMyDriveParent": false,
+            "canChangeCopyRequiresWriterPermission": true,
+            "canChangeItemDownloadRestriction": true,
+            "canChangeSecurityUpdateEnabled": false,
+            "canChangeViewersCanCopyContent": true,
+            "canComment": true,
+            "canCopy": true,
+            "canDelete": true,
+            "canDisableInheritedPermissions": false,
+            "canDownload": true,
+            "canEdit": true,
+            "canEnableInheritedPermissions": true,
+            "canListChildren": false,
+            "canModifyContent": true,
+            "canModifyContentRestriction": true,
+            "canModifyEditorContentRestriction": true,
+            "canModifyOwnerContentRestriction": true,
+            "canModifyLabels": false,
+            "canMoveChildrenWithinDrive": false,
+            "canMoveItemIntoTeamDrive": true,
+            "canMoveItemOutOfDrive": true,
+            "canMoveItemWithinDrive": true,
+            "canReadLabels": false,
+            "canReadRevisions": true,
+            "canRemoveChildren": false,
+            "canRemoveContentRestriction": false,
+            "canRemoveMyDriveParent": true,
+            "canRename": true,
+            "canShare": true,
+            "canTrash": true,
+            "canUntrash": true
+          },
+          "permissionIds": [
+            "16784184813193788326"
+          ],
+          "imageMediaMetadata": {
+            "width": 2480,
+            "height": 3507,
+            "rotation": 0
+          },
+          "linkShareMetadata": {
+            "securityUpdateEligible": false,
+            "securityUpdateEnabled": true
+          },
+          "downloadRestrictions": {
+            "itemDownloadRestriction": {
+              "restrictedForReaders": false,
+              "restrictedForWriters": false
+            },
+            "effectiveDownloadRestrictionWithContext": {
+              "restrictedForReaders": false,
+              "restrictedForWriters": false
+            }
+          },
+          "kind": "drive#file",
+          "id": "1o4m6CulZriNNMH95y2fXGEJL1o0w9nhF",
+          "name": "IMG_18112025142011.jpg",
+          "mimeType": "image/jpeg",
+          "starred": false,
+          "trashed": false,
+          "explicitlyTrashed": false,
+          "version": "2",
+          "webContentLink": "https://drive.google.com/uc?id=1o4m6CulZriNNMH95y2fXGEJL1o0w9nhF&export=download",
+          "webViewLink": "https://drive.google.com/file/d/1o4m6CulZriNNMH95y2fXGEJL1o0w9nhF/view?usp=drivesdk",
+          "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/image/jpeg",
+          "hasThumbnail": true,
+          "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNq4ASM0LAefDQm9epBoJBWScGp2oe4fsRvUDYlG1W8LQx45ipGLIM-hI0mP9XEXZdhu5ysVWFj0TT4i2Z7Qd8T2JDAnL0P08JI5o3MHrvcOvI=s220",
+          "thumbnailVersion": "1",
+          "viewedByMe": true,
+          "viewedByMeTime": "2025-11-18T05:20:14.580Z",
+          "createdTime": "2025-11-18T05:20:14.580Z",
+          "modifiedTime": "2025-11-18T05:20:14.361Z",
+          "modifiedByMeTime": "2025-11-18T05:20:14.361Z",
+          "modifiedByMe": true,
+          "shared": false,
+          "ownedByMe": true,
+          "viewersCanCopyContent": true,
+          "copyRequiresWriterPermission": false,
+          "writersCanShare": true,
+          "originalFilename": "IMG_18112025142011.jpg",
+          "fullFileExtension": "jpg",
+          "fileExtension": "jpg",
+          "md5Checksum": "95023c2c7b7124f601ca34980292c293",
+          "sha1Checksum": "0ef4a4e783f8b78b77447ec85dab59e8c0f5e937",
+          "sha256Checksum": "6f0b2d4a4f8b92e83728eeb7d67fd9d51fc036e282d7e8220761d01f65fb9ea5",
+          "size": "1466268",
+          "quotaBytesUsed": "1466268",
+          "headRevisionId": "0B0xYEv-WS4EsYW9vSll5Y3hab2pCNVorc2UzRDV6dVFNZVFnPQ",
+          "isAppAuthorized": false,
+          "inheritedPermissionsDisabled": false
+        }
+      }
+    ]
+  },
+  "versionId": "4412e765-4ca7-4b7b-82ef-e5453031390c",
+  "activeVersionId": null,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-18T03:44:51.290Z",
+      "createdAt": "2025-11-18T03:44:51.290Z",
+      "role": "workflow:owner",
+      "workflowId": "kUVLmJconoEJ0QAT",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
