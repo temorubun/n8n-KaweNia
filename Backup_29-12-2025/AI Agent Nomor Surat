@@ -1,0 +1,1322 @@
+{
+  "updatedAt": "2025-12-28T05:28:04.713Z",
+  "createdAt": "2025-11-15T01:43:06.985Z",
+  "id": "wY4n6zJKNfJ5PD0W",
+  "name": "AI Agent Nomor Surat",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Sub AI Agent Nomor Surat Pengaduan",
+        "height": 80,
+        "width": 272
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1872,
+        432
+      ],
+      "typeVersion": 1,
+      "id": "9d0cd89b-d404-4d71-83e5-99e7ee0dbdaf",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 416,
+        "width": 272
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1872,
+        432
+      ],
+      "typeVersion": 1,
+      "id": "4ec8ecb8-ef5b-4f16-9302-4b9deef8e2ac",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1856,
+        672
+      ],
+      "id": "d1db3f26-18b6-406b-82a8-c8bebe01c0cb",
+      "name": "AI-D",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1L4yTVhmi0zssME0eXOusxHMRTDQUDjLfoSfXQbmnQYc",
+          "mode": "list",
+          "cachedResultName": "Surat Pengaduan",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1L4yTVhmi0zssME0eXOusxHMRTDQUDjLfoSfXQbmnQYc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1L4yTVhmi0zssME0eXOusxHMRTDQUDjLfoSfXQbmnQYc/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        -1712,
+        656
+      ],
+      "id": "7042b87d-c4a7-4af7-823e-d0de28cde782",
+      "name": "Tool-D",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7VY1hRGS2jrWPehL",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Route = Surat Pengaduan\nGunakan Ini Hanya Untuk Surat Pengaduan",
+        "text": "=Kerjakan Ini\n{{ JSON.stringify($json.body) }}\n{{ JSON.stringify($json.query) }}",
+        "options": {
+          "systemMessage": "=Berikan Nomor Surat Baru \n\nGunakan Tool \"Tool-D\" untuk melihat nomor surat Terakhir dan Buat Nomor Surat Baru Menggunakan\nFormat nomor surat menggunakan pola: 400.x/SPD/DW/[ROMAWI_BULAN]/[TAHUN].\nAngka 400.x meningkat +1 untuk setiap laporan baru.\nSPD adalah kode jenis surat (Surat Pengaduan), DW adalah kode Distrik Wania,\nsedangkan bulan ditulis dalam angka Romawi dan tahun mengikuti tahun berjalan.\n\nGunakan Data Waktu Ini \n{{ $now }}\n\nHanya Berikan Hasil Nomor Surat\nJangan Menambahkan Text Apapun!!!"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -1856,
+        544
+      ],
+      "id": "28f24569-c07c-44af-a0de-8b7f278af611",
+      "name": "AI Agent D"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk RT Nawaripi",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -3008,
+        160
+      ],
+      "id": "f9e8acca-7e04-420f-8341-d0a3479f10c0",
+      "name": "AI Agent SPRT Nawaripi",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk RT Mawokau Jaya",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -2752,
+        160
+      ],
+      "id": "13e5d40e-c293-4023-bfb0-26ef861fe57a",
+      "name": "AI Agent SPRT Mawokau Jaya",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 720,
+        "width": 1744
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3152,
+        -384
+      ],
+      "typeVersion": 1,
+      "id": "f3a45908-e94d-40d1-b5ef-8b45efd10083",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2704,
+        -352
+      ],
+      "typeVersion": 1,
+      "id": "8d92edfd-cae3-4d4f-a00e-e441df9fafab",
+      "name": "Sticky Note19"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Nomor Surat Pengantar RT\n\n\n\n\n\n\n\n### ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2464,
+        -352
+      ],
+      "typeVersion": 1,
+      "id": "50470fc3-f84a-438c-aec0-7f09e1373d4b",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2064,
+        -352
+      ],
+      "typeVersion": 1,
+      "id": "5e606e43-0547-415f-b645-c5167ff80ebf",
+      "name": "Sticky Note37"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2592,
+        -128
+      ],
+      "typeVersion": 1,
+      "id": "b58a9098-fef5-48ed-88a5-c1b2840466db",
+      "name": "Sticky Note42"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Nomor Surat  RT Nawaripi\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/FQMH2RcO0Vy28zwN",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3120,
+        96
+      ],
+      "typeVersion": 1,
+      "id": "fe204605-3f9d-4e27-aaf2-6c11401e729a",
+      "name": "Sticky Note43"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Nomor Surat  RT Mawokau Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/TisUnKM9U4QXtBFZ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2880,
+        96
+      ],
+      "typeVersion": 1,
+      "id": "d9d55014-2b53-4f4a-b38d-7bcff6ede570",
+      "name": "Sticky Note44"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Nomor Surat  RT Mandiri Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/AJkTU6AuWDBz6qip",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2640,
+        96
+      ],
+      "typeVersion": 1,
+      "id": "3fb58cd6-9e63-4d3a-b7f3-ee69dfb031e5",
+      "name": "Sticky Note45"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Nomor Surat  RT Kadun Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/tLFp47zhiNKkGbPQ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2400,
+        96
+      ],
+      "typeVersion": 1,
+      "id": "7a60d6d4-838d-43d0-b360-0c5f1f083852",
+      "name": "Sticky Note46"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Nomor Surat  RT Wonosari Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/NqB6ClvauosnNljQ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2160,
+        96
+      ],
+      "typeVersion": 1,
+      "id": "d78948ff-955e-4a43-81bd-177c15dd6708",
+      "name": "Sticky Note47"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Nomor Surat  RT Kamoro Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/xYV20YqTRVt9slae",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1920,
+        96
+      ],
+      "typeVersion": 1,
+      "id": "5c57aa02-6e31-4877-9b44-b9d88f819dc7",
+      "name": "Sticky Note48"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Nomor Surat  RT Inauga\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Zy1yhXLJkfTyUE0S",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1680,
+        96
+      ],
+      "typeVersion": 1,
+      "id": "d820ef86-1794-40f7-bf57-0f037d7dbc6d",
+      "name": "Sticky Note49"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c1295e63-4283-4cd4-a95b-c757424bc9af",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2640,
+        -304
+      ],
+      "id": "ecbfe411-1c4a-43c6-9da3-1ddd67672aa1",
+      "name": "WI-SPRT",
+      "webhookId": "c1295e63-4283-4cd4-a95b-c757424bc9af"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -2384,
+        -304
+      ],
+      "id": "7cabb26c-eec7-429e-b64e-7ce48c57b6ca",
+      "name": "AI Agent SPRT"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -2032,
+        -304
+      ],
+      "id": "bc5d4cb3-56cb-40a5-97c6-f8d024dbca3d",
+      "name": "WR-SPRT"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2528,
+        -48
+      ],
+      "id": "a139cca6-5149-4646-acf3-3bdb3a83694c",
+      "name": "AI-SPRT",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk RT Mandiri Jaya",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -2512,
+        160
+      ],
+      "id": "cfec853c-ac23-491c-9f42-1893b42aac97",
+      "name": "AI Agent SPRT Mandiri Jaya",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk RT Kadun Jaya",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -2272,
+        160
+      ],
+      "id": "e43ce9bd-c075-4e98-8271-9ce21c22005b",
+      "name": "AI Agent SPRT Kadun Jaya",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk RT Wonosari Jaya",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -2032,
+        160
+      ],
+      "id": "792ba4b4-9d3f-4ebe-aadb-7395570d3cbb",
+      "name": "AI Agent SPRT Wonosari Jaya",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk RT Kamoro Jaya",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -1792,
+        160
+      ],
+      "id": "c90a23f0-ecd6-46b4-b24b-f96f9832ad09",
+      "name": "AI Agent SPRT Kamoro Jaya",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk RT Inauga",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -1552,
+        160
+      ],
+      "id": "b3f499cd-fc11-4acf-b050-8b27b96f0acf",
+      "name": "AI Agent SPRT Inauga",
+      "notesInFlow": true
+    }
+  ],
+  "connections": {
+    "AI-D": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent D",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool-D": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent D",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent D": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "AI Agent SPRT Nawaripi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent SPRT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent SPRT Mawokau Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent SPRT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WI-SPRT": {
+      "main": [
+        [
+          {
+            "node": "AI Agent SPRT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent SPRT": {
+      "main": [
+        [
+          {
+            "node": "WR-SPRT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-SPRT": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent SPRT",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent SPRT Mandiri Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent SPRT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent SPRT Kadun Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent SPRT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent SPRT Wonosari Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent SPRT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent SPRT Kamoro Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent SPRT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent SPRT Inauga": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent SPRT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "WI-SPRT": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "1213",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9a6ead741dadf8f2-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.68.164.166",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.68.164.166"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Prompt": "Saya Minta Nomor Surat Keterangan Tidak Mampu \n\nData\nPerihal = untuk administrasi kampus politeknik amamapare timika\nNama Pemohon = Syafruddin4435\nNIK Pemohon = 910901078740007\nTTL = Ralla, 07-08-1974\nAgama = Islam\nJenis Kelamin = Laki-Laki\nStatus Perkawinan = KAWIN\nPekerjaan = Petani/Pekebun\nAlamat Pemohon = Wania\nNomor Hp = 6285230047347\nLink Perent Folder SKTM User = https://drive.google.com/drive/data/1SsstSazrh2-TRubp02Wt47j5d72ASgBe\n",
+            "System Message": "Wajib Gunakan \"Read SKTM Nawaripi\" Untuk Melihat Nomor Surat Terakhir \nKemudian\nWajib Gunakan \"Add SKTM Nawaripi\" Untuk Menambahkan Data Baru dan Nomor Surat Baru\n\nFormat Nomor Surat\nNomor Induk / Nomor Urut / KI / DW / Tahun Sekarang\nNomor Induk / Nomor Urut / KMJ / DW / Tahun Sekarang\nNomor Induk / Nomor Urut / KN / DW / Tahun Sekarang\n\nNomor Induk Berdasarkan Perihal \nPerihal BPJS maka gunakan = 400.2.1\nPerihal Biaya Pendidikan = 400.3.2.1\n\nNomor Urut Tambahkan +1\n\nKI & DW Tidak Berubah\n\ngunakan waktu ini 2025-11-30T20:05:40.452-05:00\n\nRespon Hanya Berikan Nomor Surat"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/c1295e63-4283-4cd4-a95b-c757424bc9af",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "9ed8cc91-f8a0-489b-bf94-c97c9a59be5a",
+  "activeVersionId": "9ed8cc91-f8a0-489b-bf94-c97c9a59be5a",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-15T01:43:06.987Z",
+      "createdAt": "2025-11-15T01:43:06.987Z",
+      "role": "workflow:owner",
+      "workflowId": "wY4n6zJKNfJ5PD0W",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-28T05:26:33.535Z",
+    "createdAt": "2025-12-28T05:26:33.535Z",
+    "versionId": "9ed8cc91-f8a0-489b-bf94-c97c9a59be5a",
+    "workflowId": "wY4n6zJKNfJ5PD0W",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "## Sub AI Agent Nomor Surat Pengaduan",
+          "height": 80,
+          "width": 272
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1872,
+          432
+        ],
+        "typeVersion": 1,
+        "id": "9d0cd89b-d404-4d71-83e5-99e7ee0dbdaf",
+        "name": "Sticky Note3"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 416,
+          "width": 272
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1872,
+          432
+        ],
+        "typeVersion": 1,
+        "id": "4ec8ecb8-ef5b-4f16-9302-4b9deef8e2ac",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -1856,
+          672
+        ],
+        "id": "d1db3f26-18b6-406b-82a8-c8bebe01c0cb",
+        "name": "AI-D",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "value": "1L4yTVhmi0zssME0eXOusxHMRTDQUDjLfoSfXQbmnQYc",
+            "mode": "list",
+            "cachedResultName": "Surat Pengaduan",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1L4yTVhmi0zssME0eXOusxHMRTDQUDjLfoSfXQbmnQYc/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Sheet1",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1L4yTVhmi0zssME0eXOusxHMRTDQUDjLfoSfXQbmnQYc/edit#gid=0"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheetsTool",
+        "typeVersion": 4.7,
+        "position": [
+          -1712,
+          656
+        ],
+        "id": "7042b87d-c4a7-4af7-823e-d0de28cde782",
+        "name": "Tool-D",
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "7VY1hRGS2jrWPehL",
+            "name": "Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "Route = Surat Pengaduan\nGunakan Ini Hanya Untuk Surat Pengaduan",
+          "text": "=Kerjakan Ini\n{{ JSON.stringify($json.body) }}\n{{ JSON.stringify($json.query) }}",
+          "options": {
+            "systemMessage": "=Berikan Nomor Surat Baru \n\nGunakan Tool \"Tool-D\" untuk melihat nomor surat Terakhir dan Buat Nomor Surat Baru Menggunakan\nFormat nomor surat menggunakan pola: 400.x/SPD/DW/[ROMAWI_BULAN]/[TAHUN].\nAngka 400.x meningkat +1 untuk setiap laporan baru.\nSPD adalah kode jenis surat (Surat Pengaduan), DW adalah kode Distrik Wania,\nsedangkan bulan ditulis dalam angka Romawi dan tahun mengikuti tahun berjalan.\n\nGunakan Data Waktu Ini \n{{ $now }}\n\nHanya Berikan Hasil Nomor Surat\nJangan Menambahkan Text Apapun!!!"
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -1856,
+          544
+        ],
+        "id": "28f24569-c07c-44af-a0de-8b7f278af611",
+        "name": "AI Agent D"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk RT Nawaripi",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          -3008,
+          160
+        ],
+        "id": "f9e8acca-7e04-420f-8341-d0a3479f10c0",
+        "name": "AI Agent SPRT Nawaripi",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk RT Mawokau Jaya",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          -2752,
+          160
+        ],
+        "id": "13e5d40e-c293-4023-bfb0-26ef861fe57a",
+        "name": "AI Agent SPRT Mawokau Jaya",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 720,
+          "width": 1744
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -3152,
+          -384
+        ],
+        "typeVersion": 1,
+        "id": "f3a45908-e94d-40d1-b5ef-8b45efd10083",
+        "name": "Sticky Note5"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -2704,
+          -352
+        ],
+        "typeVersion": 1,
+        "id": "8d92edfd-cae3-4d4f-a00e-e441df9fafab",
+        "name": "Sticky Note19"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Nomor Surat Pengantar RT\n\n\n\n\n\n\n\n### ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -2464,
+          -352
+        ],
+        "typeVersion": 1,
+        "id": "50470fc3-f84a-438c-aec0-7f09e1373d4b",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -2064,
+          -352
+        ],
+        "typeVersion": 1,
+        "id": "5e606e43-0547-415f-b645-c5167ff80ebf",
+        "name": "Sticky Note37"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -2592,
+          -128
+        ],
+        "typeVersion": 1,
+        "id": "b58a9098-fef5-48ed-88a5-c1b2840466db",
+        "name": "Sticky Note42"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Nomor Surat  RT Nawaripi\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/FQMH2RcO0Vy28zwN",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -3120,
+          96
+        ],
+        "typeVersion": 1,
+        "id": "fe204605-3f9d-4e27-aaf2-6c11401e729a",
+        "name": "Sticky Note43"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Nomor Surat  RT Mawokau Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/TisUnKM9U4QXtBFZ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -2880,
+          96
+        ],
+        "typeVersion": 1,
+        "id": "d9d55014-2b53-4f4a-b38d-7bcff6ede570",
+        "name": "Sticky Note44"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Nomor Surat  RT Mandiri Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/AJkTU6AuWDBz6qip",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -2640,
+          96
+        ],
+        "typeVersion": 1,
+        "id": "3fb58cd6-9e63-4d3a-b7f3-ee69dfb031e5",
+        "name": "Sticky Note45"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Nomor Surat  RT Kadun Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/tLFp47zhiNKkGbPQ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -2400,
+          96
+        ],
+        "typeVersion": 1,
+        "id": "7a60d6d4-838d-43d0-b360-0c5f1f083852",
+        "name": "Sticky Note46"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Nomor Surat  RT Wonosari Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/NqB6ClvauosnNljQ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -2160,
+          96
+        ],
+        "typeVersion": 1,
+        "id": "d78948ff-955e-4a43-81bd-177c15dd6708",
+        "name": "Sticky Note47"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Nomor Surat  RT Kamoro Jaya\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/xYV20YqTRVt9slae",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1920,
+          96
+        ],
+        "typeVersion": 1,
+        "id": "5c57aa02-6e31-4877-9b44-b9d88f819dc7",
+        "name": "Sticky Note48"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Nomor Surat  RT Inauga\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Zy1yhXLJkfTyUE0S",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1680,
+          96
+        ],
+        "typeVersion": 1,
+        "id": "d820ef86-1794-40f7-bf57-0f037d7dbc6d",
+        "name": "Sticky Note49"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "c1295e63-4283-4cd4-a95b-c757424bc9af",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -2640,
+          -304
+        ],
+        "id": "ecbfe411-1c4a-43c6-9da3-1ddd67672aa1",
+        "name": "WI-SPRT",
+        "webhookId": "c1295e63-4283-4cd4-a95b-c757424bc9af"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          -2384,
+          -304
+        ],
+        "id": "7cabb26c-eec7-429e-b64e-7ce48c57b6ca",
+        "name": "AI Agent SPRT"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -2032,
+          -304
+        ],
+        "id": "bc5d4cb3-56cb-40a5-97c6-f8d024dbca3d",
+        "name": "WR-SPRT"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -2528,
+          -48
+        ],
+        "id": "a139cca6-5149-4646-acf3-3bdb3a83694c",
+        "name": "AI-SPRT",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk RT Mandiri Jaya",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          -2512,
+          160
+        ],
+        "id": "cfec853c-ac23-491c-9f42-1893b42aac97",
+        "name": "AI Agent SPRT Mandiri Jaya",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk RT Kadun Jaya",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          -2272,
+          160
+        ],
+        "id": "e43ce9bd-c075-4e98-8271-9ce21c22005b",
+        "name": "AI Agent SPRT Kadun Jaya",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk RT Wonosari Jaya",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          -2032,
+          160
+        ],
+        "id": "792ba4b4-9d3f-4ebe-aadb-7395570d3cbb",
+        "name": "AI Agent SPRT Wonosari Jaya",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk RT Kamoro Jaya",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          -1792,
+          160
+        ],
+        "id": "c90a23f0-ecd6-46b4-b24b-f96f9832ad09",
+        "name": "AI Agent SPRT Kamoro Jaya",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk RT Inauga",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/dca6738a-b78b-4d54-b211-c1ddb4c937f1",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          -1552,
+          160
+        ],
+        "id": "b3f499cd-fc11-4acf-b050-8b27b96f0acf",
+        "name": "AI Agent SPRT Inauga",
+        "notesInFlow": true
+      }
+    ],
+    "connections": {
+      "AI-D": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent D",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool-D": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent D",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent D": {
+        "ai_tool": [
+          []
+        ]
+      },
+      "AI Agent SPRT Nawaripi": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent SPRT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent SPRT Mawokau Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent SPRT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "WI-SPRT": {
+        "main": [
+          [
+            {
+              "node": "AI Agent SPRT",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent SPRT": {
+        "main": [
+          [
+            {
+              "node": "WR-SPRT",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-SPRT": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent SPRT",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent SPRT Mandiri Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent SPRT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent SPRT Kadun Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent SPRT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent SPRT Wonosari Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent SPRT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent SPRT Kamoro Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent SPRT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent SPRT Inauga": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent SPRT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
