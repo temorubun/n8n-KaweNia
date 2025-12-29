@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-23T04:28:17.000Z",
+  "createdAt": "2025-08-22T18:53:51.905Z",
+  "id": "2RZ1XlegCa9bvw5G",
+  "name": "Save File",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "0d6ed1bd-5d9a-45ed-8ef2-166c7852e2eb",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-22T18:53:51.908Z",
+      "createdAt": "2025-08-22T18:53:51.908Z",
+      "role": "workflow:owner",
+      "workflowId": "2RZ1XlegCa9bvw5G",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
