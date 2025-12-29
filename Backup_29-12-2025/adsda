@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-11-12T08:30:04.000Z",
+  "createdAt": "2025-11-12T07:28:56.659Z",
+  "id": "Mk5G1x1umIGwD9Sa",
+  "name": "adsda",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "e481b9b1-f3db-4859-911f-b20441b3fdfd",
+  "activeVersionId": null,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-12T07:28:56.661Z",
+      "createdAt": "2025-11-12T07:28:56.661Z",
+      "role": "workflow:owner",
+      "workflowId": "Mk5G1x1umIGwD9Sa",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
