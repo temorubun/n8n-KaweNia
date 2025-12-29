@@ -1,0 +1,37 @@
+{
+  "updatedAt": "2025-11-05T04:05:30.000Z",
+  "createdAt": "2025-10-10T02:13:40.272Z",
+  "id": "vemT6JYqWHWP1bCf",
+  "name": "Create Surat Keterangan Tidak Mampu",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "lT9zrVlXfUlXokva"
+  },
+  "staticData": {
+    "node:G1": {
+      "recurrenceRules": []
+    }
+  },
+  "meta": null,
+  "pinData": {},
+  "versionId": "9aad2a92-cbd1-4be3-95ee-ff0f4a2be31e",
+  "activeVersionId": null,
+  "triggerCount": 3,
+  "shared": [
+    {
+      "updatedAt": "2025-10-10T02:13:40.275Z",
+      "createdAt": "2025-10-10T02:13:40.275Z",
+      "role": "workflow:owner",
+      "workflowId": "vemT6JYqWHWP1bCf",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
