@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-08-26T01:48:38.000Z",
+  "createdAt": "2025-08-14T06:06:12.609Z",
+  "id": "WewbmvxamZ0UEsqp",
+  "name": "My Sub-Workflow 1",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "9d4e28cd-dcb6-42ec-88fd-d6fa556fc156",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-14T06:06:12.612Z",
+      "createdAt": "2025-08-14T06:06:12.612Z",
+      "role": "workflow:owner",
+      "workflowId": "WewbmvxamZ0UEsqp",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
