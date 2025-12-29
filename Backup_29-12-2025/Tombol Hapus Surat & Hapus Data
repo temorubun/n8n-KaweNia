@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-26T01:46:45.000Z",
+  "createdAt": "2025-08-22T02:37:11.088Z",
+  "id": "M9KqU0F3TJIpUL5J",
+  "name": "Tombol Hapus Surat & Hapus Data",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "e214dd7b-5600-4605-b54f-1426542f9b56",
+  "activeVersionId": null,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-08-22T02:37:11.090Z",
+      "createdAt": "2025-08-22T02:37:11.090Z",
+      "role": "workflow:owner",
+      "workflowId": "M9KqU0F3TJIpUL5J",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
