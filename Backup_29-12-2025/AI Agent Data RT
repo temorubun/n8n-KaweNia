@@ -1,0 +1,740 @@
+{
+  "updatedAt": "2025-11-24T11:01:29.000Z",
+  "createdAt": "2025-11-15T12:01:33.320Z",
+  "id": "f1hHGhfuqEIa3UTq",
+  "name": "AI Agent Data RT",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "90d299d9-b4c9-4d38-9dc9-6fc0ca50117c",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        2464,
+        64
+      ],
+      "id": "b88d38e2-85f0-4377-bab2-45968dfbd790",
+      "name": "Input",
+      "webhookId": "90d299d9-b4c9-4d38-9dc9-6fc0ca50117c"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body['System Message'] }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        2672,
+        64
+      ],
+      "id": "430c75ec-a830-4cb9-a7d7-3782ad328a8c",
+      "name": "AI Agent Data RT"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        3024,
+        64
+      ],
+      "id": "a7716442-6a16-4760-b8ba-83f119852b91",
+      "name": "Output"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2672,
+        272
+      ],
+      "id": "1e2d728f-703e-483a-946a-c5ed26f9c6a8",
+      "name": "AI",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "svuNtTsEvPstfqMq",
+          "mode": "list",
+          "cachedResultName": "Data RT Kampung Nawaripi",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/svuNtTsEvPstfqMq"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        2336,
+        608
+      ],
+      "id": "0d39ad1b-b69e-4803-b4f2-d207a4d91a91",
+      "name": "Data Nawaripi"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "ot4SLE2h0cAexcox",
+          "mode": "list",
+          "cachedResultName": "Data RT Kampung Mawokau Jaya",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/ot4SLE2h0cAexcox"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        2496,
+        608
+      ],
+      "id": "862b473f-4994-4cfd-aef2-eb6daa905fc8",
+      "name": "Data Mawokau Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "STgjmrfuys6BLt77",
+          "mode": "list",
+          "cachedResultName": "Data RT Kampung Mandiri Jaya",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/STgjmrfuys6BLt77"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        2848,
+        608
+      ],
+      "id": "d308cee4-850e-4ae5-ad30-e2b7ab4a6f71",
+      "name": "Data Mandiri Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "cvcHSck6TYGnJgip",
+          "mode": "list",
+          "cachedResultName": "Data RT Kampung Kadun Jaya",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/cvcHSck6TYGnJgip"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        2672,
+        608
+      ],
+      "id": "5d31499a-4ec8-4cb4-9fd6-965bbb85246e",
+      "name": "Data Kadun Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "3gUx9BvrMWhT5Lzt",
+          "mode": "list",
+          "cachedResultName": "Data RT Kelurahan Wonosari Jaya",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/3gUx9BvrMWhT5Lzt"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        3024,
+        608
+      ],
+      "id": "8e5a378b-0622-4a5b-af05-937406b8ea3e",
+      "name": "Data Wonosari Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "PLLAMlcVz8iaZiZy",
+          "mode": "list",
+          "cachedResultName": "Data RT Kelurahan Kamoro Jaya",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/PLLAMlcVz8iaZiZy"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        3200,
+        608
+      ],
+      "id": "7efbaad3-0f53-4af7-ba60-0bcf376814c7",
+      "name": "Data Kamoro Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "76jHxvU8cLr4lJ57",
+          "mode": "list",
+          "cachedResultName": "Data RT Kelurahan Inauga",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/76jHxvU8cLr4lJ57"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        3344,
+        608
+      ],
+      "id": "d4676fbc-add3-4b9a-b631-fc6b1b163c71",
+      "name": "Data Inauga"
+    }
+  ],
+  "connections": {
+    "Input": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Data RT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Data RT": {
+      "main": [
+        [
+          {
+            "node": "Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Data RT",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Nawaripi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Mawokau Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Mandiri Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Kadun Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Wonosari Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Kamoro Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Inauga": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Input": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "33",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9a27a5f618affdac-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.70.208.129",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.70.208.129"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "System Message": "",
+            "Prompt": ""
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/90d299d9-b4c9-4d38-9dc9-6fc0ca50117c",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "ca4e41ab-1683-4e60-a343-9aea5344512a",
+  "activeVersionId": "ca4e41ab-1683-4e60-a343-9aea5344512a",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-15T12:01:33.321Z",
+      "createdAt": "2025-11-15T12:01:33.321Z",
+      "role": "workflow:owner",
+      "workflowId": "f1hHGhfuqEIa3UTq",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-11-27T06:24:38.693Z",
+    "createdAt": "2025-11-27T06:24:38.693Z",
+    "versionId": "ca4e41ab-1683-4e60-a343-9aea5344512a",
+    "workflowId": "f1hHGhfuqEIa3UTq",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "90d299d9-b4c9-4d38-9dc9-6fc0ca50117c",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          2464,
+          64
+        ],
+        "id": "b88d38e2-85f0-4377-bab2-45968dfbd790",
+        "name": "Input",
+        "webhookId": "90d299d9-b4c9-4d38-9dc9-6fc0ca50117c"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body['System Message'] }}"
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          2672,
+          64
+        ],
+        "id": "430c75ec-a830-4cb9-a7d7-3782ad328a8c",
+        "name": "AI Agent Data RT"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          3024,
+          64
+        ],
+        "id": "a7716442-6a16-4760-b8ba-83f119852b91",
+        "name": "Output"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-mini",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          2672,
+          272
+        ],
+        "id": "1e2d728f-703e-483a-946a-c5ed26f9c6a8",
+        "name": "AI",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "svuNtTsEvPstfqMq",
+            "mode": "list",
+            "cachedResultName": "Data RT Kampung Nawaripi",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/svuNtTsEvPstfqMq"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          2336,
+          608
+        ],
+        "id": "0d39ad1b-b69e-4803-b4f2-d207a4d91a91",
+        "name": "Data Nawaripi"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "ot4SLE2h0cAexcox",
+            "mode": "list",
+            "cachedResultName": "Data RT Kampung Mawokau Jaya",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/ot4SLE2h0cAexcox"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          2496,
+          608
+        ],
+        "id": "862b473f-4994-4cfd-aef2-eb6daa905fc8",
+        "name": "Data Mawokau Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "STgjmrfuys6BLt77",
+            "mode": "list",
+            "cachedResultName": "Data RT Kampung Mandiri Jaya",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/STgjmrfuys6BLt77"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          2848,
+          608
+        ],
+        "id": "d308cee4-850e-4ae5-ad30-e2b7ab4a6f71",
+        "name": "Data Mandiri Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "cvcHSck6TYGnJgip",
+            "mode": "list",
+            "cachedResultName": "Data RT Kampung Kadun Jaya",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/cvcHSck6TYGnJgip"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          2672,
+          608
+        ],
+        "id": "5d31499a-4ec8-4cb4-9fd6-965bbb85246e",
+        "name": "Data Kadun Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "3gUx9BvrMWhT5Lzt",
+            "mode": "list",
+            "cachedResultName": "Data RT Kelurahan Wonosari Jaya",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/3gUx9BvrMWhT5Lzt"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          3024,
+          608
+        ],
+        "id": "8e5a378b-0622-4a5b-af05-937406b8ea3e",
+        "name": "Data Wonosari Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "PLLAMlcVz8iaZiZy",
+            "mode": "list",
+            "cachedResultName": "Data RT Kelurahan Kamoro Jaya",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/PLLAMlcVz8iaZiZy"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          3200,
+          608
+        ],
+        "id": "7efbaad3-0f53-4af7-ba60-0bcf376814c7",
+        "name": "Data Kamoro Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "76jHxvU8cLr4lJ57",
+            "mode": "list",
+            "cachedResultName": "Data RT Kelurahan Inauga",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/76jHxvU8cLr4lJ57"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          3344,
+          608
+        ],
+        "id": "d4676fbc-add3-4b9a-b631-fc6b1b163c71",
+        "name": "Data Inauga"
+      }
+    ],
+    "connections": {
+      "Input": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Data RT",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Data RT": {
+        "main": [
+          [
+            {
+              "node": "Output",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Data RT",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Nawaripi": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Mawokau Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Mandiri Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Kadun Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Wonosari Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Kamoro Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Inauga": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "system migration",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
