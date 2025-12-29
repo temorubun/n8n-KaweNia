@@ -1,0 +1,1321 @@
+{
+  "updatedAt": "2025-12-23T06:52:24.391Z",
+  "createdAt": "2025-11-18T09:34:51.831Z",
+  "id": "m26iXk3EPtsefvLz",
+  "name": "Tool Json Web",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 320,
+        "width": 1264
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1520,
+        416
+      ],
+      "typeVersion": 1,
+      "id": "317eb381-5936-4259-ae93-c5c5353119ca",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "\n## Uploud Json",
+        "height": 80,
+        "width": 182
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -976,
+        432
+      ],
+      "typeVersion": 1,
+      "id": "ec99919f-b0f6-40ec-a63a-b0ed1a482b15",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "\n## UpdateJson",
+        "height": 80,
+        "width": 176
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -976,
+        752
+      ],
+      "typeVersion": 1,
+      "id": "0d101fde-bdca-4923-a5d8-f4bb22f3b707",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input Uploud Json",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1488,
+        528
+      ],
+      "typeVersion": 1,
+      "id": "f85ce651-3e43-459e-8e78-c1cae9eafe5c",
+      "name": "Sticky Note32"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input Update Json",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1488,
+        848
+      ],
+      "typeVersion": 1,
+      "id": "0ab0cac8-4be9-4e8e-afaa-5357e63ea447",
+      "name": "Sticky Note33"
+    },
+    {
+      "parameters": {
+        "content": "### Format Json Uploud",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1248,
+        528
+      ],
+      "typeVersion": 1,
+      "id": "d15edd0e-e7cd-435c-b204-b4e337c93f38",
+      "name": "Sticky Note34"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "0b03dc2d-0d53-4066-a82b-5828946439cb-uploud-json",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1424,
+        576
+      ],
+      "id": "2fbe0f81-80b7-4964-987b-4d0645ca278b",
+      "name": "a",
+      "webhookId": "0b03dc2d-0d53-4066-a82b-5828946439cb"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ JSON.stringify($json.body,null,2) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1168,
+        576
+      ],
+      "id": "5613a5c2-37e0-441a-ac2f-e1bab0171dab",
+      "name": "a1",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "mode": "each",
+        "options": {
+          "fileName": "={{ $('a').item.json.query[\"Nama File\"] }}"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -944,
+        576
+      ],
+      "id": "8641ccf8-7b0e-4480-90fd-a99d1428c1de",
+      "name": "a2",
+      "executeOnce": false,
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "name": "={{ $('a').item.json.query['Nama File'] }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('a').item.json.query[\"Lokasi File\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -704,
+        576
+      ],
+      "id": "f6046311-ccd9-47ef-9848-7f82b70d2ad3",
+      "name": "a3",
+      "executeOnce": false,
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -480,
+        576
+      ],
+      "id": "9cc396e1-088b-497d-997b-0f4e73e9513d",
+      "name": "a4"
+    },
+    {
+      "parameters": {
+        "content": "### Covert Json To File",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1008,
+        528
+      ],
+      "typeVersion": 1,
+      "id": "dfc00fad-5224-4889-b213-6c0c4168268d",
+      "name": "Sticky Note35"
+    },
+    {
+      "parameters": {
+        "content": "### Uploud File Json",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -768,
+        528
+      ],
+      "typeVersion": 1,
+      "id": "aa2189d3-6cb2-4911-ac02-1b1e7d5b0a26",
+      "name": "Sticky Note36"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon Uploud Json",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -528,
+        528
+      ],
+      "typeVersion": 1,
+      "id": "ca311d3d-d2e3-4ee5-bcfb-5ed4775978f0",
+      "name": "Sticky Note37"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "0b03dc2d-0d53-4066-a82b-5828946439cb-update-json",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1408,
+        896
+      ],
+      "id": "339ce74c-2980-44c9-ba2d-e0d0f8551ed6",
+      "name": "b",
+      "webhookId": "0b03dc2d-0d53-4066-a82b-5828946439cb"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ JSON.stringify($json.body,null,2) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1168,
+        896
+      ],
+      "id": "e4fefc17-b87f-412c-9bf3-f4582c29de20",
+      "name": "b1",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "mode": "each",
+        "options": {
+          "fileName": "={{ $('b').item.json.query[\"Nama File\"] }}"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -944,
+        896
+      ],
+      "id": "92bb7005-d9cc-4e3e-ad40-3fb8602f8b46",
+      "name": "b2",
+      "executeOnce": false,
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('b').item.json.query[\"Id File\"] }}",
+          "mode": "id"
+        },
+        "changeFileContent": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -704,
+        896
+      ],
+      "id": "e120611d-0540-4bfc-b6a0-452a121c7dbd",
+      "name": "b3",
+      "executeOnce": false,
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -480,
+        896
+      ],
+      "id": "6f5afd8e-8fbb-415d-927a-7098e5d6dead",
+      "name": "b4"
+    },
+    {
+      "parameters": {
+        "content": "### Format Json Update",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1248,
+        848
+      ],
+      "typeVersion": 1,
+      "id": "ae9daba6-0548-43d1-aea7-178484ee6208",
+      "name": "Sticky Note38"
+    },
+    {
+      "parameters": {
+        "content": "### Covert Json To File",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1008,
+        848
+      ],
+      "typeVersion": 1,
+      "id": "1b296480-d5d5-4f71-85bd-ecc2f3407c63",
+      "name": "Sticky Note39"
+    },
+    {
+      "parameters": {
+        "content": "### Uploud File Json",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -768,
+        848
+      ],
+      "typeVersion": 1,
+      "id": "49932dcb-9c78-434f-b4be-a2628524c39d",
+      "name": "Sticky Note40"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon Update Json",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -528,
+        848
+      ],
+      "typeVersion": 1,
+      "id": "d0424143-6876-4587-956c-7c34b3d8ad35",
+      "name": "Sticky Note41"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 320,
+        "width": 1264
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1520,
+        736
+      ],
+      "typeVersion": 1,
+      "id": "f3990c01-d97a-4bb8-8a80-e28dbf55d825",
+      "name": "Sticky Note4"
+    }
+  ],
+  "connections": {
+    "a": {
+      "main": [
+        [
+          {
+            "node": "a1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a1": {
+      "main": [
+        [
+          {
+            "node": "a2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a2": {
+      "main": [
+        [
+          {
+            "node": "a3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a3": {
+      "main": [
+        [
+          {
+            "node": "a4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b": {
+      "main": [
+        [
+          {
+            "node": "b1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b1": {
+      "main": [
+        [
+          {
+            "node": "b2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b2": {
+      "main": [
+        [
+          {
+            "node": "b3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b3": {
+      "main": [
+        [
+          {
+            "node": "b4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "a": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "3894",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9afd9fd98ec7ca12-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 104.23.175.82",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "104.23.175.82"
+          },
+          "params": {},
+          "query": {
+            "Nama File": "18_12_2025_18_27_26_SYAFRUDDIN_910901078740007",
+            "Lokasi File": "1TqWXsHVH-snBHvQoQApDo9U6Qm1zUo1f"
+          },
+          "body": {
+            "data_web": {
+              "user": {
+                "status": "",
+                "tanggal": "25 November 2025",
+                "id": {
+                  "json": "",
+                  "html": "",
+                  "css": "",
+                  "javascript": "",
+                  "folder": "1TqWXsHVH-snBHvQoQApDo9U6Qm1zUo1f"
+                },
+                "data_surat": {
+                  "pemohon": {
+                    "nama": "Syafruddin",
+                    "nik": "910901078740007",
+                    "ttl": "Ralla, 07-08-1974",
+                    "agama": "Islam",
+                    "jenis_kelamin": "Laki-laki",
+                    "status_perkawinan": "Kawin",
+                    "pekerjaan": "Petani/Pekebun",
+                    "alamat": "Wania",
+                    "kampung_kelurahan": "Nawaripi",
+                    "nomor_rt": "10",
+                    "kecamatan": "Wania",
+                    "kota_kabupaten": "Mimika",
+                    "provinsi": "Papua Tengah",
+                    "nomor_hp": "6285230047347"
+                  },
+                  "perihal": "untuk administrasi kampus politeknik amamapare timika",
+                  "dokumen": [
+                    {
+                      "nama": "KTP - Syafruddin",
+                      "tipe": "image/jpeg",
+                      "id": "1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU",
+                      "size": "88330",
+                      "view": "https://drive.google.com/file/d/1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU&export=download"
+                    },
+                    {
+                      "nama": "Kartu Keluarga - Syafruddin",
+                      "tipe": "image/jpeg",
+                      "id": "1acIfBcH3Za7vPRpcum36INWQFjIEYNPw",
+                      "size": "137745",
+                      "view": "https://drive.google.com/file/d/1acIfBcH3Za7vPRpcum36INWQFjIEYNPw/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1acIfBcH3Za7vPRpcum36INWQFjIEYNPw&export=download"
+                    },
+                    {
+                      "nama": "Surat Pengantar RT - Syafruddin",
+                      "tipe": "pdf",
+                      "id": "1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw",
+                      "size": "187745",
+                      "view": "https://drive.google.com/file/d/1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw&export=download"
+                    }
+                  ]
+                },
+                "whatsapp": {
+                  "session": "KaweNia",
+                  "chat_id": "6285230047347@c.us"
+                },
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lambang_Kabupaten_Mimika.jpg/500px-Lambang_Kabupaten_Mimika.jpg",
+                "tombol": {
+                  "kirim_surat": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/67db2099-31bd-4954-86d2-d3ae33521d63",
+                  "edit_data": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/c451ac17-c90c-4993-b7ea-4f56e81f2b82",
+                  "kirim_file": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/5e414b13-f018-40f4-bb3b-4f2135787cd9",
+                  "hapus_file": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/86f330e8-889f-4859-83c1-65a82293ef6c",
+                  "hapus_surat": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/67223375-6592-4e5d-92a3-46b8760b79e2"
+                }
+              },
+              "admin2": {
+                "status": "",
+                "tanggal": "",
+                "nomor_surat": "400.3.2.1/025/DW/2025",
+                "id": {
+                  "json": "",
+                  "html": "",
+                  "css": "",
+                  "javascript": "",
+                  "folder": ""
+                },
+                "data_surat": {
+                  "kop": {
+                    "pemerintah_kabupaten": "Pemerintah Kabupaten Mimika",
+                    "provinsi": "Papua Tengah",
+                    "distrik": "Distrik Wania",
+                    "alamat": "Jln. Cendrawasih SP4",
+                    "kode_pos": "99910",
+                    "email": "mimikawania@gmail.com"
+                  },
+                  "admin": {
+                    "nama": "Merlyn Temorubun",
+                    "jabatan": "Kepala Distrik",
+                    "nip": "19740110 200605 1 003",
+                    "id_tanda_tangan": "1i2KWvYMsHuS86LTfb5ncMPtBClSLAya4",
+                    "nomor_hp": "6285230047347"
+                  },
+                  "keterangan_sktm": {
+                    "keterangan_1": "Yang bertanda tangan dibawah ini Kepala Distrik Wania menerangkan dengan sesungguhnya bahwa : ",
+                    "keterangan_2": "Tersebut namanya di atas adalah benar-benar penduduk Distrik Wania.",
+                    "keterangan_3": "Tersebut namanya di atas adalah benar-berstatus ekonomi lemah yang tidak mampu menebus atau membayar biaya administrasi kampus politeknik amamapare timika.",
+                    "keterangan_4": "Mohon surat keterangan ini digunakan sebagaimana mestinya.",
+                    "keterangan_5": "Demikian surat keterangan tidak mampu ini, kami buat untuk dapat digunakan sebagaimana  mestinya."
+                  },
+                  "dokumen": null
+                },
+                "whatsapp": {
+                  "session": "KaweNia",
+                  "chat_id": "6285230047347@c.us"
+                },
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lambang_Kabupaten_Mimika.jpg/500px-Lambang_Kabupaten_Mimika.jpg",
+                "tombol": {
+                  "kirim_surat": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/a3097a07-a075-4069-91ea-ccc8c5f1930d",
+                  "hapus_surat": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/92f2382d-d8fd-4f62-a37a-5f635f0fb55c",
+                  "kirim_pesan": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/130edf04-ab5d-4855-8197-18538b0d9cb5"
+                }
+              }
+            }
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/0b03dc2d-0d53-4066-a82b-5828946439cb-uploud-json",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "b": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "3712",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9ad609749f11fd96-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.70.208.128",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.70.208.128"
+          },
+          "params": {},
+          "query": {
+            "Lokasi File": "1r8LoyY8FiH5E9khYoqZaDyeOCa1lew9G",
+            "Nama File": "13_12_2025_23_09_02_SYAFRUDDIN_910901078740007",
+            "Id File": "1VZllhiWdxjew2TvaXEN5XJSH1u-dCFoZ"
+          },
+          "body": {
+            "data_web": {
+              "user": {
+                "status": "",
+                "tanggal": "25 November 2025",
+                "id": {
+                  "json": "1VZllhiWdxjew2TvaXEN5XJSH1u-dCFoZ",
+                  "html": "1LdZtrh4RYndIS1AOUhOIEKcBuUyKH7Qm",
+                  "css": "1XjJtpKOV9rRtEPesEdocCZd8zoK2H8Ca",
+                  "javascript": "1C9TDgIYdWJcnb9-PEeGWkui78EFcqCo6",
+                  "folder": "1r8LoyY8FiH5E9khYoqZaDyeOCa1lew9G"
+                },
+                "data_surat": {
+                  "pemohon": {
+                    "nama": "Syafruddin",
+                    "nik": "910901078740007",
+                    "ttl": "Ralla, 07-08-1974",
+                    "agama": "Islam",
+                    "jenis_kelamin": "Laki-laki",
+                    "status_perkawinan": "Kawin",
+                    "pekerjaan": "Petani/Pekebun",
+                    "alamat": "Wania",
+                    "kampung_kelurahan": "Nawaripi",
+                    "nomor_rt": "10",
+                    "kecamatan": "Wania",
+                    "kota_kabupaten": "Mimika",
+                    "provinsi": "Papua Tengah",
+                    "nomor_hp": "6285230047347"
+                  },
+                  "perihal": "untuk administrasi kampus politeknik amamapare timika",
+                  "dokumen": [
+                    {
+                      "nama": "KTP - Syafruddin",
+                      "tipe": "image/jpeg",
+                      "id": "1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU",
+                      "size": "88330",
+                      "view": "https://drive.google.com/file/d/1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU&export=download"
+                    },
+                    {
+                      "nama": "Kartu Keluarga - Syafruddin",
+                      "tipe": "image/jpeg",
+                      "id": "1acIfBcH3Za7vPRpcum36INWQFjIEYNPw",
+                      "size": "137745",
+                      "view": "https://drive.google.com/file/d/1acIfBcH3Za7vPRpcum36INWQFjIEYNPw/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1acIfBcH3Za7vPRpcum36INWQFjIEYNPw&export=download"
+                    },
+                    {
+                      "nama": "Surat Pengantar RT - Syafruddin",
+                      "tipe": "pdf",
+                      "id": "1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw",
+                      "size": "187745",
+                      "view": "https://drive.google.com/file/d/1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw&export=download"
+                    }
+                  ]
+                },
+                "whatsapp": {
+                  "session": "KaweNia",
+                  "chat_id": "6285230047347@c.us"
+                },
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lambang_Kabupaten_Mimika.jpg/500px-Lambang_Kabupaten_Mimika.jpg",
+                "tombol": {
+                  "kirim_surat": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/67db2099-31bd-4954-86d2-d3ae33521d63",
+                  "edit_data": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/c451ac17-c90c-4993-b7ea-4f56e81f2b82",
+                  "kirim_file": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/5e414b13-f018-40f4-bb3b-4f2135787cd9",
+                  "hapus_file": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/86f330e8-889f-4859-83c1-65a82293ef6c",
+                  "hapus_surat": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/67223375-6592-4e5d-92a3-46b8760b79e2"
+                }
+              },
+              "admin2": {
+                "status": "",
+                "tanggal": "",
+                "nomor_surat": "400.2.1/044/DW/2025",
+                "id": {
+                  "json": "",
+                  "html": "",
+                  "css": "",
+                  "javascript": "",
+                  "folder": ""
+                },
+                "data_surat": {
+                  "kop": {
+                    "pemerintah_kabupaten": "Pemerintah Kabupaten Mimika",
+                    "provinsi": "Papua Tengah",
+                    "distrik": "Distrik Wania",
+                    "alamat": "Jln. Cendrawasih SP4",
+                    "kode_pos": "99910",
+                    "email": "mimikawania@gmail.com"
+                  },
+                  "admin": {
+                    "nama": "Merlyn Temorubun",
+                    "jabatan": "Kepala Distrik",
+                    "nip": "19740110 200605 1 003",
+                    "id_tanda_tangan": "1i2KWvYMsHuS86LTfb5ncMPtBClSLAya4",
+                    "nomor_hp": "6285230047347"
+                  },
+                  "keterangan_sktm": {
+                    "keterangan_1": "Yang bertanda tangan dibawah ini Kepala Distrik Wania menerangkan dengan sesungguhnya bahwa : ",
+                    "keterangan_2": "Tersebut namanya di atas adalah benar-benar penduduk Distrik Wania.",
+                    "keterangan_3": "Tersebut namanya di atas adalah benar-berstatus ekonomi lemah yang tidak mampu menebus atau membayar biaya ",
+                    "keterangan_4": "Mohon surat keterangan ini digunakan sebagaimana mestinya.",
+                    "keterangan_5": "Demikian surat keterangan tidak mampu ini, kami buat untuk dapat digunakan sebagaimana  mestinya."
+                  },
+                  "dokumen": null
+                },
+                "whatsapp": {
+                  "session": "KaweNia",
+                  "chat_id": "6285230047347@c.us"
+                },
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lambang_Kabupaten_Mimika.jpg/500px-Lambang_Kabupaten_Mimika.jpg",
+                "tombol": {
+                  "kirim_surat": "",
+                  "hapus_surat": "",
+                  "kirim_pesan": ""
+                }
+              }
+            }
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/0b03dc2d-0d53-4066-a82b-5828946439cb-update-json",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "c7c4fb99-cb00-4e41-88c8-4c25d20d9001",
+  "activeVersionId": "c7c4fb99-cb00-4e41-88c8-4c25d20d9001",
+  "triggerCount": 2,
+  "shared": [
+    {
+      "updatedAt": "2025-11-18T09:34:51.835Z",
+      "createdAt": "2025-11-18T09:34:51.835Z",
+      "role": "workflow:owner",
+      "workflowId": "m26iXk3EPtsefvLz",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-23T06:52:24.392Z",
+    "createdAt": "2025-12-23T06:52:24.392Z",
+    "versionId": "c7c4fb99-cb00-4e41-88c8-4c25d20d9001",
+    "workflowId": "m26iXk3EPtsefvLz",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 320,
+          "width": 1264
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1520,
+          416
+        ],
+        "typeVersion": 1,
+        "id": "317eb381-5936-4259-ae93-c5c5353119ca",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "\n## Uploud Json",
+          "height": 80,
+          "width": 182
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -976,
+          432
+        ],
+        "typeVersion": 1,
+        "id": "ec99919f-b0f6-40ec-a63a-b0ed1a482b15",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "content": "\n## UpdateJson",
+          "height": 80,
+          "width": 176
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -976,
+          752
+        ],
+        "typeVersion": 1,
+        "id": "0d101fde-bdca-4923-a5d8-f4bb22f3b707",
+        "name": "Sticky Note3"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input Uploud Json",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1488,
+          528
+        ],
+        "typeVersion": 1,
+        "id": "f85ce651-3e43-459e-8e78-c1cae9eafe5c",
+        "name": "Sticky Note32"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input Update Json",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1488,
+          848
+        ],
+        "typeVersion": 1,
+        "id": "0ab0cac8-4be9-4e8e-afaa-5357e63ea447",
+        "name": "Sticky Note33"
+      },
+      {
+        "parameters": {
+          "content": "### Format Json Uploud",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1248,
+          528
+        ],
+        "typeVersion": 1,
+        "id": "d15edd0e-e7cd-435c-b204-b4e337c93f38",
+        "name": "Sticky Note34"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "0b03dc2d-0d53-4066-a82b-5828946439cb-uploud-json",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -1424,
+          576
+        ],
+        "id": "2fbe0f81-80b7-4964-987b-4d0645ca278b",
+        "name": "a",
+        "webhookId": "0b03dc2d-0d53-4066-a82b-5828946439cb"
+      },
+      {
+        "parameters": {
+          "mode": "raw",
+          "jsonOutput": "={{ JSON.stringify($json.body,null,2) }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -1168,
+          576
+        ],
+        "id": "5613a5c2-37e0-441a-ac2f-e1bab0171dab",
+        "name": "a1",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "operation": "toJson",
+          "mode": "each",
+          "options": {
+            "fileName": "={{ $('a').item.json.query[\"Nama File\"] }}"
+          }
+        },
+        "type": "n8n-nodes-base.convertToFile",
+        "typeVersion": 1.1,
+        "position": [
+          -944,
+          576
+        ],
+        "id": "8641ccf8-7b0e-4480-90fd-a99d1428c1de",
+        "name": "a2",
+        "executeOnce": false,
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "name": "={{ $('a').item.json.query['Nama File'] }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $('a').item.json.query[\"Lokasi File\"] }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          -704,
+          576
+        ],
+        "id": "f6046311-ccd9-47ef-9848-7f82b70d2ad3",
+        "name": "a3",
+        "executeOnce": false,
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        },
+        "onError": "continueRegularOutput"
+      },
+      {
+        "parameters": {
+          "respondWith": "text",
+          "responseBody": "={{ $json.id }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -480,
+          576
+        ],
+        "id": "9cc396e1-088b-497d-997b-0f4e73e9513d",
+        "name": "a4"
+      },
+      {
+        "parameters": {
+          "content": "### Covert Json To File",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1008,
+          528
+        ],
+        "typeVersion": 1,
+        "id": "dfc00fad-5224-4889-b213-6c0c4168268d",
+        "name": "Sticky Note35"
+      },
+      {
+        "parameters": {
+          "content": "### Uploud File Json",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -768,
+          528
+        ],
+        "typeVersion": 1,
+        "id": "aa2189d3-6cb2-4911-ac02-1b1e7d5b0a26",
+        "name": "Sticky Note36"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon Uploud Json",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -528,
+          528
+        ],
+        "typeVersion": 1,
+        "id": "ca311d3d-d2e3-4ee5-bcfb-5ed4775978f0",
+        "name": "Sticky Note37"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "0b03dc2d-0d53-4066-a82b-5828946439cb-update-json",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -1408,
+          896
+        ],
+        "id": "339ce74c-2980-44c9-ba2d-e0d0f8551ed6",
+        "name": "b",
+        "webhookId": "0b03dc2d-0d53-4066-a82b-5828946439cb"
+      },
+      {
+        "parameters": {
+          "mode": "raw",
+          "jsonOutput": "={{ JSON.stringify($json.body,null,2) }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -1168,
+          896
+        ],
+        "id": "e4fefc17-b87f-412c-9bf3-f4582c29de20",
+        "name": "b1",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "operation": "toJson",
+          "mode": "each",
+          "options": {
+            "fileName": "={{ $('b').item.json.query[\"Nama File\"] }}"
+          }
+        },
+        "type": "n8n-nodes-base.convertToFile",
+        "typeVersion": 1.1,
+        "position": [
+          -944,
+          896
+        ],
+        "id": "92bb7005-d9cc-4e3e-ad40-3fb8602f8b46",
+        "name": "b2",
+        "executeOnce": false,
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "operation": "update",
+          "fileId": {
+            "__rl": true,
+            "value": "={{ $('b').item.json.query[\"Id File\"] }}",
+            "mode": "id"
+          },
+          "changeFileContent": true,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          -704,
+          896
+        ],
+        "id": "e120611d-0540-4bfc-b6a0-452a121c7dbd",
+        "name": "b3",
+        "executeOnce": false,
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        },
+        "onError": "continueRegularOutput"
+      },
+      {
+        "parameters": {
+          "respondWith": "text",
+          "responseBody": "={{ $json.id }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -480,
+          896
+        ],
+        "id": "6f5afd8e-8fbb-415d-927a-7098e5d6dead",
+        "name": "b4"
+      },
+      {
+        "parameters": {
+          "content": "### Format Json Update",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1248,
+          848
+        ],
+        "typeVersion": 1,
+        "id": "ae9daba6-0548-43d1-aea7-178484ee6208",
+        "name": "Sticky Note38"
+      },
+      {
+        "parameters": {
+          "content": "### Covert Json To File",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1008,
+          848
+        ],
+        "typeVersion": 1,
+        "id": "1b296480-d5d5-4f71-85bd-ecc2f3407c63",
+        "name": "Sticky Note39"
+      },
+      {
+        "parameters": {
+          "content": "### Uploud File Json",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -768,
+          848
+        ],
+        "typeVersion": 1,
+        "id": "49932dcb-9c78-434f-b4be-a2628524c39d",
+        "name": "Sticky Note40"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon Update Json",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -528,
+          848
+        ],
+        "typeVersion": 1,
+        "id": "d0424143-6876-4587-956c-7c34b3d8ad35",
+        "name": "Sticky Note41"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 320,
+          "width": 1264
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1520,
+          736
+        ],
+        "typeVersion": 1,
+        "id": "f3990c01-d97a-4bb8-8a80-e28dbf55d825",
+        "name": "Sticky Note4"
+      }
+    ],
+    "connections": {
+      "a": {
+        "main": [
+          [
+            {
+              "node": "a1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a1": {
+        "main": [
+          [
+            {
+              "node": "a2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a2": {
+        "main": [
+          [
+            {
+              "node": "a3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a3": {
+        "main": [
+          [
+            {
+              "node": "a4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b": {
+        "main": [
+          [
+            {
+              "node": "b1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b1": {
+        "main": [
+          [
+            {
+              "node": "b2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b2": {
+        "main": [
+          [
+            {
+              "node": "b3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b3": {
+        "main": [
+          [
+            {
+              "node": "b4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
