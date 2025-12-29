@@ -1,0 +1,248 @@
+{
+  "updatedAt": "2025-12-23T03:54:21.898Z",
+  "createdAt": "2025-12-06T01:24:54.255Z",
+  "id": "E8iZdbdhS2CYNmio",
+  "name": "Tool Data Id",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "171d0fcd-ad15-460f-ba01-b578e31d45c9",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c356826a-c583-4606-8377-b043de86b947",
+      "name": "Webhook",
+      "webhookId": "171d0fcd-ad15-460f-ba01-b578e31d45c9"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "6W3on0nN3Gmmij5S",
+          "mode": "list",
+          "cachedResultName": "Data Id",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Short_Id",
+              "keyValue": "={{ $json.body.id }}"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "881e006a-d092-449f-b45c-4080b579c5e7",
+      "name": "Get row(s)"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.Full_Id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        400,
+        0
+      ],
+      "id": "76b5ff64-7ecb-4cf0-ab5a-1036a23eff67",
+      "name": "Output"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get row(s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)": {
+      "main": [
+        [
+          {
+            "node": "Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "content-length": "102",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=2; subreqs=2",
+            "cf-connecting-ip": "2a06:98c0:3600::103",
+            "cf-ew-via": "14",
+            "cf-ipcountry": "SG",
+            "cf-ray": "9a981924f5805f9d-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "cf-worker": "distrikwania.com",
+            "content-type": "application/json",
+            "x-forwarded-for": "2a06:98c0:3600::103, 172.69.165.66",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.69.165.66"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "id": "1-QHFh",
+            "type": "js",
+            "url": "https://distrikwania.com/js/1-QHFh",
+            "ts": "2025-12-06T01:44:27.675Z"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/171d0fcd-ad15-460f-ba01-b578e31d45c9",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "82541b9c-4789-4cb0-888d-aec60f65491e",
+  "activeVersionId": "82541b9c-4789-4cb0-888d-aec60f65491e",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-06T01:24:54.257Z",
+      "createdAt": "2025-12-06T01:24:54.257Z",
+      "role": "workflow:owner",
+      "workflowId": "E8iZdbdhS2CYNmio",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-23T01:46:37.482Z",
+    "createdAt": "2025-12-23T01:46:37.482Z",
+    "versionId": "82541b9c-4789-4cb0-888d-aec60f65491e",
+    "workflowId": "E8iZdbdhS2CYNmio",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "171d0fcd-ad15-460f-ba01-b578e31d45c9",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "c356826a-c583-4606-8377-b043de86b947",
+        "name": "Webhook",
+        "webhookId": "171d0fcd-ad15-460f-ba01-b578e31d45c9"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "6W3on0nN3Gmmij5S",
+            "mode": "list",
+            "cachedResultName": "Data Id",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Short_Id",
+                "keyValue": "={{ $json.body.id }}"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1,
+        "position": [
+          208,
+          0
+        ],
+        "id": "881e006a-d092-449f-b45c-4080b579c5e7",
+        "name": "Get row(s)"
+      },
+      {
+        "parameters": {
+          "respondWith": "text",
+          "responseBody": "={{ $json.Full_Id }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          400,
+          0
+        ],
+        "id": "76b5ff64-7ecb-4cf0-ab5a-1036a23eff67",
+        "name": "Output"
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "Get row(s)",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get row(s)": {
+        "main": [
+          [
+            {
+              "node": "Output",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
