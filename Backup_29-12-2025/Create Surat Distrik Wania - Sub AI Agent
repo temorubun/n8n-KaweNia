@@ -1,0 +1,556 @@
+{
+  "updatedAt": "2025-12-29T05:46:09.254Z",
+  "createdAt": "2025-12-28T07:43:22.060Z",
+  "id": "E8Gp0ZHZzWrADNpe",
+  "name": "Create Surat Distrik Wania - Sub AI Agent",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 464,
+        "width": 1008
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -304,
+        64
+      ],
+      "typeVersion": 1,
+      "id": "c366d754-6bd6-4dea-b493-c6fc1ae88b10",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -240,
+        80
+      ],
+      "typeVersion": 1,
+      "id": "1013795e-3366-440d-95c4-b35158735ad1",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "### Sub AI Agent Create Surat",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        80
+      ],
+      "typeVersion": 1,
+      "id": "a5d89075-c1da-4629-81fd-19c42b8ee26a",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        400,
+        80
+      ],
+      "typeVersion": 1,
+      "id": "0cc68569-2e1f-4d59-a5b8-f4345981b82d",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -64,
+        320
+      ],
+      "typeVersion": 1,
+      "id": "96c54f98-b83d-4879-ad82-d6d8e70d11d3",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### [Tool Create Surat](https://drive.google.com/file/d/1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM/view)\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        208,
+        320
+      ],
+      "typeVersion": 1,
+      "id": "0aec163e-8bde-4748-885a-521940b4063b",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ad03fdb3-a2b7-407e-a98a-617fabb03897",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -160,
+        144
+      ],
+      "id": "9f3cced7-3860-450f-8cc9-cc1b25ba317c",
+      "name": "WI-Surat",
+      "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        432,
+        144
+      ],
+      "id": "5c39782e-4d26-4d0f-b2db-00252cd982ed",
+      "name": "WR-Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        384
+      ],
+      "id": "1f274018-937e-4f74-9b51-ef7558aba435",
+      "name": "AI-Surat",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Folder\n### **[Create Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/EGNbiL4dDoPys27W)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Distrik Wania](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/2W8Bm3HjnAjYTdVX/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/4r9jT3nmf5PrHFp6/workflows) / [Create Surat Distrik Wania - Sub AI Agent]()** \n\n",
+        "height": 112,
+        "width": 1008
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -304,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "81e6b87d-d427-4d3e-a250-922540a90f88",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM",
+          "mode": "id"
+        },
+        "name": "={{ $json.body['File Name'] }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.body['Parent Folder'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        288,
+        368
+      ],
+      "id": "6d85aba4-d991-428c-845d-28383d4afdb2",
+      "name": "Surat SKTM Distrik Wania",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body[\"System Message\"] }}",
+          "maxIterations": 3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        64,
+        144
+      ],
+      "id": "9375b899-bdb7-41e9-9b53-fdfae5915cf0",
+      "name": "Sub AI Agent Create Surat"
+    }
+  ],
+  "connections": {
+    "WI-Surat": {
+      "main": [
+        [
+          {
+            "node": "Sub AI Agent Create Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Surat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sub AI Agent Create Surat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat SKTM Distrik Wania": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sub AI Agent Create Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sub AI Agent Create Surat": {
+      "main": [
+        [
+          {
+            "node": "WR-Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "324dc032-a559-4361-9b91-7853fb3a3a05",
+  "activeVersionId": "324dc032-a559-4361-9b91-7853fb3a3a05",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-28T07:43:22.062Z",
+      "createdAt": "2025-12-28T07:43:22.062Z",
+      "role": "workflow:owner",
+      "workflowId": "E8Gp0ZHZzWrADNpe",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-29T05:46:09.255Z",
+    "createdAt": "2025-12-29T05:46:09.255Z",
+    "versionId": "324dc032-a559-4361-9b91-7853fb3a3a05",
+    "workflowId": "E8Gp0ZHZzWrADNpe",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 464,
+          "width": 1008
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -304,
+          64
+        ],
+        "typeVersion": 1,
+        "id": "c366d754-6bd6-4dea-b493-c6fc1ae88b10",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -240,
+          80
+        ],
+        "typeVersion": 1,
+        "id": "1013795e-3366-440d-95c4-b35158735ad1",
+        "name": "Sticky Note17"
+      },
+      {
+        "parameters": {
+          "content": "### Sub AI Agent Create Surat",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          0,
+          80
+        ],
+        "typeVersion": 1,
+        "id": "a5d89075-c1da-4629-81fd-19c42b8ee26a",
+        "name": "Sticky Note28"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          400,
+          80
+        ],
+        "typeVersion": 1,
+        "id": "0cc68569-2e1f-4d59-a5b8-f4345981b82d",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -64,
+          320
+        ],
+        "typeVersion": 1,
+        "id": "96c54f98-b83d-4879-ad82-d6d8e70d11d3",
+        "name": "Sticky Note27"
+      },
+      {
+        "parameters": {
+          "content": "### [Tool Create Surat](https://drive.google.com/file/d/1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM/view)\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          208,
+          320
+        ],
+        "typeVersion": 1,
+        "id": "0aec163e-8bde-4748-885a-521940b4063b",
+        "name": "Sticky Note25"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "ad03fdb3-a2b7-407e-a98a-617fabb03897",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -160,
+          144
+        ],
+        "id": "9f3cced7-3860-450f-8cc9-cc1b25ba317c",
+        "name": "WI-Surat",
+        "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          432,
+          144
+        ],
+        "id": "5c39782e-4d26-4d0f-b2db-00252cd982ed",
+        "name": "WR-Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          0,
+          384
+        ],
+        "id": "1f274018-937e-4f74-9b51-ef7558aba435",
+        "name": "AI-Surat",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Folder\n### **[Create Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/EGNbiL4dDoPys27W)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Distrik Wania](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/2W8Bm3HjnAjYTdVX/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/4r9jT3nmf5PrHFp6/workflows) / [Create Surat Distrik Wania - Sub AI Agent]()** \n\n",
+          "height": 112,
+          "width": 1008
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -304,
+          -48
+        ],
+        "typeVersion": 1,
+        "id": "81e6b87d-d427-4d3e-a250-922540a90f88",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "operation": "copy",
+          "fileId": {
+            "__rl": true,
+            "value": "1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM",
+            "mode": "id"
+          },
+          "name": "={{ $json.body['File Name'] }}",
+          "sameFolder": false,
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.body['Parent Folder'] }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          288,
+          368
+        ],
+        "id": "6d85aba4-d991-428c-845d-28383d4afdb2",
+        "name": "Surat SKTM Distrik Wania",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body[\"System Message\"] }}",
+            "maxIterations": 3
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3,
+        "position": [
+          64,
+          144
+        ],
+        "id": "9375b899-bdb7-41e9-9b53-fdfae5915cf0",
+        "name": "Sub AI Agent Create Surat"
+      }
+    ],
+    "connections": {
+      "WI-Surat": {
+        "main": [
+          [
+            {
+              "node": "Sub AI Agent Create Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Surat": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Sub AI Agent Create Surat",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat SKTM Distrik Wania": {
+        "ai_tool": [
+          [
+            {
+              "node": "Sub AI Agent Create Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Sub AI Agent Create Surat": {
+        "main": [
+          [
+            {
+              "node": "WR-Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
