@@ -1,0 +1,780 @@
+{
+  "updatedAt": "2025-12-28T08:31:57.374Z",
+  "createdAt": "2025-11-05T04:12:22.046Z",
+  "id": "K22vgEKk0A53tBSh",
+  "name": "AI Agent Routing",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 688,
+        "width": 976
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -9376,
+        2080
+      ],
+      "typeVersion": 1,
+      "id": "e24949e9-c689-4140-b541-b912c1b037b3",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "# AI Agent Routing SKTM\n\n",
+        "height": 80,
+        "width": 416
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -9088,
+        2160
+      ],
+      "typeVersion": 1,
+      "id": "89e9c916-22cf-4a50-af0f-465d82e55b7d",
+      "name": "Sticky Note23"
+    },
+    {
+      "parameters": {
+        "content": "### [AI Agent Surat Pengantar RT](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/PbmMFEuTKNaLfhUT)",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -9040,
+        2528
+      ],
+      "typeVersion": 1,
+      "id": "f5cfbc86-025b-4a38-94dd-0e1a486c0c9a",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {
+        "content": "### [Tool Create Web SKTM User](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/24ErbbIFOB6hZ0mS) ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -8800,
+        2528
+      ],
+      "typeVersion": 1,
+      "id": "c4e4cca8-dc96-4ffb-9c72-7781a5e34fc8",
+      "name": "Sticky Note26"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -9280,
+        2528
+      ],
+      "typeVersion": 1,
+      "id": "9dd3b4ba-4c15-47c3-93ca-9a832769b02c",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Routing SKTM\n\n\n\n\n\n\n\n### ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -9088,
+        2288
+      ],
+      "typeVersion": 1,
+      "id": "9d4bff9e-4572-42d5-958e-dff7c734b93a",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -9328,
+        2288
+      ],
+      "typeVersion": 1,
+      "id": "db24a3c1-7eb8-45c6-bb18-8b39d1098b68",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon SKTM User\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -8688,
+        2288
+      ],
+      "typeVersion": 1,
+      "id": "49850fba-8eb6-43e5-b212-3fb3bf4a7a94",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan ini untuk membuat Web SKTM Surat Keterangan Tidak Mampu",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/5d7b4004-1933-4a49-a361-19967b790736-web-sktm",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($('WI-Routing').item.json.body,null,2) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -8736,
+        2592
+      ],
+      "id": "91e587f6-7295-4c1d-822c-58c06b81ff98",
+      "name": "Tool SKTM",
+      "notesInFlow": true,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "sJXgZq72GcirQDnl",
+          "name": "Besic Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "39545cde-ff17-47db-a5e6-62c2d7025d0f-sktm-warga",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -9264,
+        2336
+      ],
+      "id": "a28719cc-568a-4321-8c60-841639f6fb6f",
+      "name": "WI-Routing",
+      "webhookId": "39545cde-ff17-47db-a5e6-62c2d7025d0f",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Bantu user membuat WEB Surat Keterangan Tidak Mampu (SKTM).\n\nJika user belum memiliki ID Lampiran Surat Pengantar RT, maka:\n1. Gunakan \"Tool Create Surat Pengantar RT\" untuk membuat Surat Pengantar RT terlebih dahulu.\n2. Setelah selesai, minta user mengirim kembali Lampiran Surat Pengantar RT.\n\nJika user sudah memiliki ID Lampiran Surat Pengantar RT dan datanya lengkap, maka:\n1. Lanjutkan proses pembuatan Web SKTM menggunakan \"Tool Create Web SKTM\".\n2. Jangan membuat ulang Surat Pengantar RT.\n\nPastikan untuk selalu memeriksa kelengkapan data sebelum melanjutkan ke tahap berikutnya.\n{{ JSON.stringify($json.body.data_web.user.data_surat.dokumen, null, 2) }}\n\n\nWajib Selalu Rapikan Respon Sebelum Kirim Ke User\n",
+        "options": {
+          "maxIterations": 2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -9008,
+        2336
+      ],
+      "id": "62fdeafb-2ceb-4545-996e-4fd4937ac26b",
+      "name": "AI Agent Routing",
+      "executeOnce": false,
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -8640,
+        2336
+      ],
+      "id": "e31ae2f6-5e6e-4729-8f8e-be890be8a911",
+      "name": "WR-Routing",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "id",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -9216,
+        2592
+      ],
+      "id": "9dc55124-a7ad-44b2-bbc9-26eb0731374c",
+      "name": "AI-Routing",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Membuat Surat Pengantar RT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/bd9e0f77-76c3-4ace-a919-6e4c6f2b38d2-sprt",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Buat Surat Pengantar RT\n\nData\n\"pemohon\":{{ JSON.stringify($('WI-Routing').item.json.body.data_web.user.data_surat.pemohon,null,2) }}\n\"perihal\":\"Pembuatan Surat Keterangan Tidak Mampu SKTM\"\n\"whatsapp\":{{ JSON.stringify($('WI-Routing').item.json.body.data_web.user.whatsapp,null,2) }}\n"
+            },
+            {
+              "name": "System Message",
+              "value": "=Alur Kerja \"Wajib Jalankan Satu Persatu Semuanya Sesuai Urutan\"\n\n1. Gunakan \"Create Folder\" Untuk Mendapatkan ID Folder Surat Pengantar RT\n\n2. Gunakan \"Create Surat\" Untuk Mendapatkan Id Surat Pengantar RT\n\n3. Gunakan \"Create Nomor Surat\" Untuk Mendapatkan Nomor Surat Pengantar RT\n\n4. Gunakan \"Data RT\" Untuk Mendapatkan Data Lengkap Ketua RT\n\n5. Gunakan \"Data Kampung Kelurahan\" Untuk Mendapatkan Data Lengkap Kampung Kelurahan\n\n6. Gunakan \"Edit Surat\" Untuk Edit Surat Pengantar RT\n\n7. Gunakan \"Tanda Tangan Surat\" Untuk Tanda Tangan Ketua RT\n\n8. Gunakan \"Send Pesan RT\" Untuk Kirim Pesan Ke Ketua RT\n\n9. Gunakan \"Send Surat RT\" Untuk Kirim Surat Pengantar RT\n\n10. Gunakan \"Send Pesan Pemohon\" Untuk Kirim Pesan ke Pemohon\n\n10. Gunakan \"Arsip Surat\" Untuk Membuat Arsip Surat Pengantar RT\n\nCatatan\nPesan Jika Berhasil = Surat Pengantar RT Sudah Selesai di buat dan Di Tanda Tangan Oleh Ketua RT Silahkan Minta Surat Pengantar RT Di Ketua RT dan Kemudian Kirim Kembali Untuk Melanjutkan.\n\nPesan Jika Gagal = Surat Pengantar RT Belum Dapat Dibuat Karena Ada Kesalahan Teknis, Mohon Maaf Untuk Saat Ini Belum dapat Membuat SKTM"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -8960,
+        2592
+      ],
+      "id": "c3d190ec-16ce-491e-a3d8-bef534635358",
+      "name": "Tool SPRT",
+      "notesInFlow": true,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "sJXgZq72GcirQDnl",
+          "name": "Besic Auth"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Tool SKTM": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Routing",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WI-Routing": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Routing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Routing": {
+      "main": [
+        [
+          {
+            "node": "WR-Routing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Routing": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Routing",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool SPRT": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Routing",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:G1": {
+      "recurrenceRules": []
+    },
+    "node:Google Drive Trigger": {
+      "lastTimeChecked": "2025-11-08T23:54:33Z"
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "WI-Routing": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "1415",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "authorization": "Basic TWltaWthV2FuaWE6UGFzc3dvcmRNaW1pa2FXYW5pYUAxMjM=",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9a3fb2e6caa5fd9e-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.70.208.128",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.70.208.128"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "data_web": {
+              "user": {
+                "data_surat": {
+                  "pemohon": {
+                    "nama": "Syafruddin",
+                    "nik": "910901078740007",
+                    "ttl": "Ralla, 07-08-1974",
+                    "agama": "Islam",
+                    "jenis_kelamin": "Laki-laki",
+                    "status_perkawinan": "Kawin",
+                    "pekerjaan": "Petani/Pekebun",
+                    "alamat": "Wania",
+                    "kampung_kelurahan": "Nawaripi",
+                    "nomor_rt": "10",
+                    "kecamatan": "Wania",
+                    "kota_kabupaten": "Mimika",
+                    "provinsi": "Papua Tengah",
+                    "nomor_hp": "6285230047347"
+                  },
+                  "perihal": "untuk administrasi kampus politeknik amamapare timika",
+                  "dokumen": [
+                    {
+                      "nama": "KTP - Syafruddin",
+                      "tipe": "image/jpeg",
+                      "id": "1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU",
+                      "size": "88330",
+                      "view": "https://drive.google.com/file/d/1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1JJUFX1bEqDmt0_Qh-kfjM3Ynm17p00AU&export=download"
+                    },
+                    {
+                      "nama": "Kartu Keluarga - Syafruddin",
+                      "tipe": "image/jpeg",
+                      "id": "1acIfBcH3Za7vPRpcum36INWQFjIEYNPw",
+                      "size": "137745",
+                      "view": "https://drive.google.com/file/d/1acIfBcH3Za7vPRpcum36INWQFjIEYNPw/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1acIfBcH3Za7vPRpcum36INWQFjIEYNPw&export=download"
+                    },
+                    {
+                      "nama": "Surat Pengantar RT - Syafruddin",
+                      "tipe": "pdf",
+                      "id": "1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw",
+                      "size": "187745",
+                      "view": "https://drive.google.com/file/d/1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw/view?usp=drivesdk",
+                      "download": "https://drive.google.com/uc?id=1Y_kANnz8gjulF3nD8BK6UgjdRpz3G5jp8gFVBL4E3Zw&export=download"
+                    }
+                  ]
+                },
+                "whatsapp": {
+                  "session": "KaweNia",
+                  "chat_id": "6285230047347@c.us"
+                },
+                "status": "",
+                "tanggal": "25 November 2025",
+                "id": {
+                  "json": "",
+                  "html": "",
+                  "css": "",
+                  "javascript": "",
+                  "folder": ""
+                },
+                "logo": "",
+                "tombol": {
+                  "kirim_surat": "",
+                  "edit_data": "",
+                  "kirim_file": "",
+                  "hapus_file": "",
+                  "hapus_surat": ""
+                }
+              },
+              "admin1": "",
+              "admin2": ""
+            }
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/39545cde-ff17-47db-a5e6-62c2d7025d0f-sktm-warga",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "4f259fea-34d1-4d0f-b45a-faabe7a94e25",
+  "activeVersionId": "4f259fea-34d1-4d0f-b45a-faabe7a94e25",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-05T04:12:22.049Z",
+      "createdAt": "2025-11-05T04:12:22.049Z",
+      "role": "workflow:owner",
+      "workflowId": "K22vgEKk0A53tBSh",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-28T08:31:38.701Z",
+    "createdAt": "2025-12-28T08:31:38.701Z",
+    "versionId": "4f259fea-34d1-4d0f-b45a-faabe7a94e25",
+    "workflowId": "K22vgEKk0A53tBSh",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 688,
+          "width": 976
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -9376,
+          2080
+        ],
+        "typeVersion": 1,
+        "id": "e24949e9-c689-4140-b541-b912c1b037b3",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "content": "# AI Agent Routing SKTM\n\n",
+          "height": 80,
+          "width": 416
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -9088,
+          2160
+        ],
+        "typeVersion": 1,
+        "id": "89e9c916-22cf-4a50-af0f-465d82e55b7d",
+        "name": "Sticky Note23"
+      },
+      {
+        "parameters": {
+          "content": "### [AI Agent Surat Pengantar RT](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/PbmMFEuTKNaLfhUT)",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -9040,
+          2528
+        ],
+        "typeVersion": 1,
+        "id": "f5cfbc86-025b-4a38-94dd-0e1a486c0c9a",
+        "name": "Sticky Note25"
+      },
+      {
+        "parameters": {
+          "content": "### [Tool Create Web SKTM User](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/24ErbbIFOB6hZ0mS) ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -8800,
+          2528
+        ],
+        "typeVersion": 1,
+        "id": "c4e4cca8-dc96-4ffb-9c72-7781a5e34fc8",
+        "name": "Sticky Note26"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -9280,
+          2528
+        ],
+        "typeVersion": 1,
+        "id": "9dd3b4ba-4c15-47c3-93ca-9a832769b02c",
+        "name": "Sticky Note27"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Routing SKTM\n\n\n\n\n\n\n\n### ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -9088,
+          2288
+        ],
+        "typeVersion": 1,
+        "id": "9d4bff9e-4572-42d5-958e-dff7c734b93a",
+        "name": "Sticky Note28"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -9328,
+          2288
+        ],
+        "typeVersion": 1,
+        "id": "db24a3c1-7eb8-45c6-bb18-8b39d1098b68",
+        "name": "Sticky Note29"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon SKTM User\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -8688,
+          2288
+        ],
+        "typeVersion": 1,
+        "id": "49850fba-8eb6-43e5-b212-3fb3bf4a7a94",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan ini untuk membuat Web SKTM Surat Keterangan Tidak Mampu",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/5d7b4004-1933-4a49-a361-19967b790736-web-sktm",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBasicAuth",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ JSON.stringify($('WI-Routing').item.json.body,null,2) }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          -8736,
+          2592
+        ],
+        "id": "91e587f6-7295-4c1d-822c-58c06b81ff98",
+        "name": "Tool SKTM",
+        "notesInFlow": true,
+        "credentials": {
+          "httpBasicAuth": {
+            "id": "sJXgZq72GcirQDnl",
+            "name": "Besic Auth"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "39545cde-ff17-47db-a5e6-62c2d7025d0f-sktm-warga",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -9264,
+          2336
+        ],
+        "id": "a28719cc-568a-4321-8c60-841639f6fb6f",
+        "name": "WI-Routing",
+        "webhookId": "39545cde-ff17-47db-a5e6-62c2d7025d0f",
+        "executeOnce": true
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Bantu user membuat WEB Surat Keterangan Tidak Mampu (SKTM).\n\nJika user belum memiliki ID Lampiran Surat Pengantar RT, maka:\n1. Gunakan \"Tool Create Surat Pengantar RT\" untuk membuat Surat Pengantar RT terlebih dahulu.\n2. Setelah selesai, minta user mengirim kembali Lampiran Surat Pengantar RT.\n\nJika user sudah memiliki ID Lampiran Surat Pengantar RT dan datanya lengkap, maka:\n1. Lanjutkan proses pembuatan Web SKTM menggunakan \"Tool Create Web SKTM\".\n2. Jangan membuat ulang Surat Pengantar RT.\n\nPastikan untuk selalu memeriksa kelengkapan data sebelum melanjutkan ke tahap berikutnya.\n{{ JSON.stringify($json.body.data_web.user.data_surat.dokumen, null, 2) }}\n\n\nWajib Selalu Rapikan Respon Sebelum Kirim Ke User\n",
+          "options": {
+            "maxIterations": 2
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          -9008,
+          2336
+        ],
+        "id": "62fdeafb-2ceb-4545-996e-4fd4937ac26b",
+        "name": "AI Agent Routing",
+        "executeOnce": false,
+        "alwaysOutputData": false
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -8640,
+          2336
+        ],
+        "id": "e31ae2f6-5e6e-4729-8f8e-be890be8a911",
+        "name": "WR-Routing",
+        "executeOnce": false
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "id",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -9216,
+          2592
+        ],
+        "id": "9dc55124-a7ad-44b2-bbc9-26eb0731374c",
+        "name": "AI-Routing",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Membuat Surat Pengantar RT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/bd9e0f77-76c3-4ace-a919-6e4c6f2b38d2-sprt",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpBasicAuth",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Buat Surat Pengantar RT\n\nData\n\"pemohon\":{{ JSON.stringify($('WI-Routing').item.json.body.data_web.user.data_surat.pemohon,null,2) }}\n\"perihal\":\"Pembuatan Surat Keterangan Tidak Mampu SKTM\"\n\"whatsapp\":{{ JSON.stringify($('WI-Routing').item.json.body.data_web.user.whatsapp,null,2) }}\n"
+              },
+              {
+                "name": "System Message",
+                "value": "=Alur Kerja \"Wajib Jalankan Satu Persatu Semuanya Sesuai Urutan\"\n\n1. Gunakan \"Create Folder\" Untuk Mendapatkan ID Folder Surat Pengantar RT\n\n2. Gunakan \"Create Surat\" Untuk Mendapatkan Id Surat Pengantar RT\n\n3. Gunakan \"Create Nomor Surat\" Untuk Mendapatkan Nomor Surat Pengantar RT\n\n4. Gunakan \"Data RT\" Untuk Mendapatkan Data Lengkap Ketua RT\n\n5. Gunakan \"Data Kampung Kelurahan\" Untuk Mendapatkan Data Lengkap Kampung Kelurahan\n\n6. Gunakan \"Edit Surat\" Untuk Edit Surat Pengantar RT\n\n7. Gunakan \"Tanda Tangan Surat\" Untuk Tanda Tangan Ketua RT\n\n8. Gunakan \"Send Pesan RT\" Untuk Kirim Pesan Ke Ketua RT\n\n9. Gunakan \"Send Surat RT\" Untuk Kirim Surat Pengantar RT\n\n10. Gunakan \"Send Pesan Pemohon\" Untuk Kirim Pesan ke Pemohon\n\n10. Gunakan \"Arsip Surat\" Untuk Membuat Arsip Surat Pengantar RT\n\nCatatan\nPesan Jika Berhasil = Surat Pengantar RT Sudah Selesai di buat dan Di Tanda Tangan Oleh Ketua RT Silahkan Minta Surat Pengantar RT Di Ketua RT dan Kemudian Kirim Kembali Untuk Melanjutkan.\n\nPesan Jika Gagal = Surat Pengantar RT Belum Dapat Dibuat Karena Ada Kesalahan Teknis, Mohon Maaf Untuk Saat Ini Belum dapat Membuat SKTM"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          -8960,
+          2592
+        ],
+        "id": "c3d190ec-16ce-491e-a3d8-bef534635358",
+        "name": "Tool SPRT",
+        "notesInFlow": true,
+        "credentials": {
+          "httpBasicAuth": {
+            "id": "sJXgZq72GcirQDnl",
+            "name": "Besic Auth"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Tool SKTM": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Routing",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "WI-Routing": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Routing",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Routing": {
+        "main": [
+          [
+            {
+              "node": "WR-Routing",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Routing": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Routing",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool SPRT": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Routing",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
