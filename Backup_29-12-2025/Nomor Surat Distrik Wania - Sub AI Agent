@@ -1,0 +1,992 @@
+{
+  "updatedAt": "2025-12-29T05:43:00.255Z",
+  "createdAt": "2025-12-23T02:52:07.901Z",
+  "id": "FT33FpXxS7sTVnlT",
+  "name": "Nomor Surat Distrik Wania - Sub AI Agent",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s",
+          "mode": "list",
+          "cachedResultName": "Surat Keterangan Tidak Mampu Distrik Wania",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 949020275,
+          "mode": "list",
+          "cachedResultName": "Distrik Wania - SKTM Keluar",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit#gid=949020275"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        352,
+        224
+      ],
+      "id": "d46d8ee3-7588-4949-a3e9-c0d70b5d7ae6",
+      "name": "Read SKTM Distrik Wania",
+      "notesInFlow": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7VY1hRGS2jrWPehL",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s",
+          "mode": "list",
+          "cachedResultName": "Surat Keterangan Tidak Mampu Distrik Wania",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 949020275,
+          "mode": "list",
+          "cachedResultName": "Distrik Wania - SKTM Keluar",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit#gid=949020275"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Nomor Surat": "={{ $fromAI('Nomor_Surat_Baru', `Nomor Surat Baru`, 'string') }}",
+            "Tanggal Surat": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}",
+            "Perihal": "={{ $('WI-SKTM').item.json.body.perihal }}",
+            "Nama": "={{ $('WI-SKTM').item.json.body.nama_pemohon }}",
+            "Nik": "={{ $('WI-SKTM').item.json.body.nik_pemohon }}",
+            "TTL": "={{ $('WI-SKTM').item.json.body.ttl }}",
+            "Agama": "={{ $('WI-SKTM').item.json.body.agama }}",
+            "Jenis Kelamin": "={{ $('WI-SKTM').item.json.body.jenis_kelamin }}",
+            "Status Perkawinan": "={{ $('WI-SKTM').item.json.body.status_perkawinan }}",
+            "Pekerjaan": "={{ $('WI-SKTM').item.json.body.pekerjaan }}",
+            "Alamat": "={{ $('WI-SKTM').item.json.body.alamat_pemohon }}",
+            "Nomor Hp": "={{ $('WI-SKTM').item.json.body.nomor_hp }}",
+            "Link File": "={{ $('WI-SKTM').item.json.body.link_perent_folder_sktm_user }}",
+            "Keterangan": "Belum Selesai"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Tanggal Surat",
+              "displayName": "Tanggal Surat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nomor Surat",
+              "displayName": "Nomor Surat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Perihal",
+              "displayName": "Perihal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama",
+              "displayName": "Nama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nik",
+              "displayName": "Nik",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TTL",
+              "displayName": "TTL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Agama",
+              "displayName": "Agama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Jenis Kelamin",
+              "displayName": "Jenis Kelamin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status Perkawinan",
+              "displayName": "Status Perkawinan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Pekerjaan",
+              "displayName": "Pekerjaan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alamat",
+              "displayName": "Alamat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nomor Hp",
+              "displayName": "Nomor Hp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Keterangan",
+              "displayName": "Keterangan",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Link File",
+              "displayName": "Link File",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        592,
+        224
+      ],
+      "id": "79c2d003-01d5-48d2-945b-d6ac8b27488b",
+      "name": "Add SKTM Distrik Wania",
+      "notesInFlow": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7VY1hRGS2jrWPehL",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Folder\n### **[Nomor Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/3WoVksBGSKUyFqf7)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Distrik Wania](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/2W8Bm3HjnAjYTdVX/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/4r9jT3nmf5PrHFp6/workflows) / [Nomor Surat Distrik Wania - Sub AI Agent]()** ",
+        "height": 112,
+        "width": 1008
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -176,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "c3332cf5-672b-4f9c-b81f-3f782662943a",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 496,
+        "width": 1008
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -176,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "7b810024-16e3-4455-bf67-48287444fcb2",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -112,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "29c71bcb-708d-420f-afbc-64c5c8c34794",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "### Sub AI Agent Nomor Surat",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        128,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "223b2be4-0beb-46cf-a62e-22e5cdafb3c0",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        528,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "71312276-6622-4482-a837-7fd015215b2f",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "ca811881-59c7-43d0-8670-eaacb627755c",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### [Tool Read Nomor Surat](https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?gid=0#gid=0)",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        240,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "a5ce3534-c52f-47a8-a1d8-cf7a396c9f57",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {
+        "content": "### [Tool Save New Nomor Surat](https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?gid=0#gid=0)",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        480,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "c02c0bd1-612c-4c9d-9dc3-837859079e4c",
+      "name": "Sticky Note26"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        576,
+        16
+      ],
+      "id": "f1ff1dc0-d97e-4d1b-812c-181fb5fdfb03",
+      "name": "WR-Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        240
+      ],
+      "id": "98da49c2-8b06-4663-8047-bb51a3fee780",
+      "name": "AI-Surat",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "343fac39-89b4-48f4-ba44-b3c34d2d4273",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -48,
+        16
+      ],
+      "id": "d2e43937-3866-48b5-8fd3-43cf3ba9a881",
+      "name": "WI-Surat",
+      "webhookId": "dca6738a-b78b-4d54-b211-c1dda4c937f8"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body[\"System Message\"] }}",
+          "maxIterations": 3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        208,
+        16
+      ],
+      "id": "ab1ff7b3-6ad9-48ed-9e21-e0d0b6298121",
+      "name": "Sub AI Agent Nomor Surat"
+    }
+  ],
+  "connections": {
+    "Add SKTM Distrik Wania": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sub AI Agent Nomor Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read SKTM Distrik Wania": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sub AI Agent Nomor Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Surat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sub AI Agent Nomor Surat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WI-Surat": {
+      "main": [
+        [
+          {
+            "node": "Sub AI Agent Nomor Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sub AI Agent Nomor Surat": {
+      "main": [
+        [
+          {
+            "node": "WR-Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "e52c2e53-d9ca-4d7f-ad2a-6b2acd0fe509",
+  "activeVersionId": "e52c2e53-d9ca-4d7f-ad2a-6b2acd0fe509",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-23T02:52:07.904Z",
+      "createdAt": "2025-12-23T02:52:07.904Z",
+      "role": "workflow:owner",
+      "workflowId": "FT33FpXxS7sTVnlT",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-29T05:43:00.256Z",
+    "createdAt": "2025-12-29T05:43:00.256Z",
+    "versionId": "e52c2e53-d9ca-4d7f-ad2a-6b2acd0fe509",
+    "workflowId": "FT33FpXxS7sTVnlT",
+    "nodes": [
+      {
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "value": "13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s",
+            "mode": "list",
+            "cachedResultName": "Surat Keterangan Tidak Mampu Distrik Wania",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": 949020275,
+            "mode": "list",
+            "cachedResultName": "Distrik Wania - SKTM Keluar",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit#gid=949020275"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheetsTool",
+        "typeVersion": 4.7,
+        "position": [
+          352,
+          224
+        ],
+        "id": "d46d8ee3-7588-4949-a3e9-c0d70b5d7ae6",
+        "name": "Read SKTM Distrik Wania",
+        "notesInFlow": true,
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "7VY1hRGS2jrWPehL",
+            "name": "Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "append",
+          "documentId": {
+            "__rl": true,
+            "value": "13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s",
+            "mode": "list",
+            "cachedResultName": "Surat Keterangan Tidak Mampu Distrik Wania",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": 949020275,
+            "mode": "list",
+            "cachedResultName": "Distrik Wania - SKTM Keluar",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit#gid=949020275"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Nomor Surat": "={{ $fromAI('Nomor_Surat_Baru', `Nomor Surat Baru`, 'string') }}",
+              "Tanggal Surat": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}",
+              "Perihal": "={{ $('WI-SKTM').item.json.body.perihal }}",
+              "Nama": "={{ $('WI-SKTM').item.json.body.nama_pemohon }}",
+              "Nik": "={{ $('WI-SKTM').item.json.body.nik_pemohon }}",
+              "TTL": "={{ $('WI-SKTM').item.json.body.ttl }}",
+              "Agama": "={{ $('WI-SKTM').item.json.body.agama }}",
+              "Jenis Kelamin": "={{ $('WI-SKTM').item.json.body.jenis_kelamin }}",
+              "Status Perkawinan": "={{ $('WI-SKTM').item.json.body.status_perkawinan }}",
+              "Pekerjaan": "={{ $('WI-SKTM').item.json.body.pekerjaan }}",
+              "Alamat": "={{ $('WI-SKTM').item.json.body.alamat_pemohon }}",
+              "Nomor Hp": "={{ $('WI-SKTM').item.json.body.nomor_hp }}",
+              "Link File": "={{ $('WI-SKTM').item.json.body.link_perent_folder_sktm_user }}",
+              "Keterangan": "Belum Selesai"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "Tanggal Surat",
+                "displayName": "Tanggal Surat",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "Nomor Surat",
+                "displayName": "Nomor Surat",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "Perihal",
+                "displayName": "Perihal",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nama",
+                "displayName": "Nama",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nik",
+                "displayName": "Nik",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "TTL",
+                "displayName": "TTL",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Agama",
+                "displayName": "Agama",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Jenis Kelamin",
+                "displayName": "Jenis Kelamin",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Status Perkawinan",
+                "displayName": "Status Perkawinan",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Pekerjaan",
+                "displayName": "Pekerjaan",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Alamat",
+                "displayName": "Alamat",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nomor Hp",
+                "displayName": "Nomor Hp",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Keterangan",
+                "displayName": "Keterangan",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Link File",
+                "displayName": "Link File",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheetsTool",
+        "typeVersion": 4.7,
+        "position": [
+          592,
+          224
+        ],
+        "id": "79c2d003-01d5-48d2-945b-d6ac8b27488b",
+        "name": "Add SKTM Distrik Wania",
+        "notesInFlow": true,
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "7VY1hRGS2jrWPehL",
+            "name": "Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Folder\n### **[Nomor Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/3WoVksBGSKUyFqf7)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Distrik Wania](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/2W8Bm3HjnAjYTdVX/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/4r9jT3nmf5PrHFp6/workflows) / [Nomor Surat Distrik Wania - Sub AI Agent]()** ",
+          "height": 112,
+          "width": 1008
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -176,
+          -192
+        ],
+        "typeVersion": 1,
+        "id": "c3332cf5-672b-4f9c-b81f-3f782662943a",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 496,
+          "width": 1008
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -176,
+          -80
+        ],
+        "typeVersion": 1,
+        "id": "7b810024-16e3-4455-bf67-48287444fcb2",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -112,
+          -48
+        ],
+        "typeVersion": 1,
+        "id": "29c71bcb-708d-420f-afbc-64c5c8c34794",
+        "name": "Sticky Note17"
+      },
+      {
+        "parameters": {
+          "content": "### Sub AI Agent Nomor Surat",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          128,
+          -48
+        ],
+        "typeVersion": 1,
+        "id": "223b2be4-0beb-46cf-a62e-22e5cdafb3c0",
+        "name": "Sticky Note28"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          528,
+          -48
+        ],
+        "typeVersion": 1,
+        "id": "71312276-6622-4482-a837-7fd015215b2f",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          0,
+          176
+        ],
+        "typeVersion": 1,
+        "id": "ca811881-59c7-43d0-8670-eaacb627755c",
+        "name": "Sticky Note27"
+      },
+      {
+        "parameters": {
+          "content": "### [Tool Read Nomor Surat](https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?gid=0#gid=0)",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          240,
+          176
+        ],
+        "typeVersion": 1,
+        "id": "a5ce3534-c52f-47a8-a1d8-cf7a396c9f57",
+        "name": "Sticky Note25"
+      },
+      {
+        "parameters": {
+          "content": "### [Tool Save New Nomor Surat](https://docs.google.com/spreadsheets/d/13W_q4DvTZcd1nwsf4RYquLaCPDBlcSqGTXa6NehBz6s/edit?gid=0#gid=0)",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          480,
+          176
+        ],
+        "typeVersion": 1,
+        "id": "c02c0bd1-612c-4c9d-9dc3-837859079e4c",
+        "name": "Sticky Note26"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          576,
+          16
+        ],
+        "id": "f1ff1dc0-d97e-4d1b-812c-181fb5fdfb03",
+        "name": "WR-Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          80,
+          240
+        ],
+        "id": "98da49c2-8b06-4663-8047-bb51a3fee780",
+        "name": "AI-Surat",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "343fac39-89b4-48f4-ba44-b3c34d2d4273",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -48,
+          16
+        ],
+        "id": "d2e43937-3866-48b5-8fd3-43cf3ba9a881",
+        "name": "WI-Surat",
+        "webhookId": "dca6738a-b78b-4d54-b211-c1dda4c937f8"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body[\"System Message\"] }}",
+            "maxIterations": 3
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3,
+        "position": [
+          208,
+          16
+        ],
+        "id": "ab1ff7b3-6ad9-48ed-9e21-e0d0b6298121",
+        "name": "Sub AI Agent Nomor Surat"
+      }
+    ],
+    "connections": {
+      "Add SKTM Distrik Wania": {
+        "ai_tool": [
+          [
+            {
+              "node": "Sub AI Agent Nomor Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Read SKTM Distrik Wania": {
+        "ai_tool": [
+          [
+            {
+              "node": "Sub AI Agent Nomor Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Surat": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Sub AI Agent Nomor Surat",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "WI-Surat": {
+        "main": [
+          [
+            {
+              "node": "Sub AI Agent Nomor Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Sub AI Agent Nomor Surat": {
+        "main": [
+          [
+            {
+              "node": "WR-Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
