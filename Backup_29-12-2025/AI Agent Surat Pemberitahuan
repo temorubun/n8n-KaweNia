@@ -1,0 +1,4231 @@
+{
+  "updatedAt": "2025-12-05T04:36:00.000Z",
+  "createdAt": "2025-11-10T08:52:45.717Z",
+  "id": "NsNsGuEVenv187FX",
+  "name": "AI Agent Surat Pemberitahuan",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -160,
+        -32
+      ],
+      "id": "58b75958-7f27-4c65-bf90-8cd6c9ea5d21",
+      "name": "Webhook1",
+      "webhookId": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Buatkan Surat Ini dan Kirimkan Surat ini\n{{ $json.body['Isi Surat'] }}",
+        "options": {
+          "systemMessage": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Nomor Surat Pemberitahuan\" untuk mendapatkan nomor Surat Pemberitahuan.\n\n2. Gunakan \"Tool Copy Surat Pemberitahuan\" untuk membuat Surat Pemberitahuan.\n\n3. Gunakan \"Tool Edit Surat Pemberitahuan\" untuk edit surat pemberitahuan.\n\n4. Gunakan \"Tool Kirim Surat Pemberitahuan\" untuk kirim Surat Pemberitahuan menggunakan id \"Tool Copy Surat Pemberitahuan\"dari "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        48,
+        -32
+      ],
+      "id": "341a0872-0751-4d25-a3a0-6d7960e6f20f",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        48,
+        128
+      ],
+      "id": "898e41b7-9c11-4397-a01f-6f92ccf466fd",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "=12TYd90LU8WSlgHwsxl47mdb2yP3wjBhgIhfdfFGbcsI",
+          "mode": "id"
+        },
+        "name": "Surat Pemberitahuan",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1ZIqZrH3U_oUFgl-ps40bSUoc4tMvaBIq",
+          "mode": "list",
+          "cachedResultName": "Distrik Wania",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1ZIqZrH3U_oUFgl-ps40bSUoc4tMvaBIq"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        368,
+        336
+      ],
+      "id": "03659257-a2dc-4f5f-856e-60f04c944969",
+      "name": "Tool Copy Surat Pemberitahuan",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Doc_ID_or_URL', `Id Document dari \"Tool Copy Surat Pemberitahuan\"`, 'string') }}",
+        "simple": false,
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{waktu_surat_pemberitahuan}",
+              "replaceText": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{nomor_surat_pemberitahuan}",
+              "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields1_New_Text', `Nomor Surat Gunkan \"Nomor Surat Pemberitahuan\"\nBERIKAN HANYA NOMOR SURAT`, 'string') }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{isi_surat_pemberitahuan}",
+              "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields2_New_Text', `Isi Surat Pemberitahuan\n`, 'string') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        512,
+        336
+      ],
+      "id": "5a48c274-bea2-46e1-a32d-32788efc6121",
+      "name": "Tool Edit Surat Pemberitahuan",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini untuk kirim surat pemberitahuan",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/d93e1db2-6851-48d8-a3b8-dff77ac4bcd2",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Id Surat Pemberitahuan",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', `Id Surat Pemberitahuan dari \"Tool Copy Surat Pemberitahuan\"`, 'string') }}"
+            },
+            {
+              "name": "Session WhastApp",
+              "value": "KaweNia"
+            },
+            {
+              "name": "Nomor Hp",
+              "value": "6285230047347@c.us"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        672,
+        336
+      ],
+      "id": "1ae2e28a-08a1-4121-b7e4-7e016410af46",
+      "name": "Tool Kirim Surat Pemberitahuan"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "d93e1db2-6851-48d8-a3b8-dff77ac4bcd2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        912,
+        -32
+      ],
+      "id": "785f8bc3-3c16-48cd-8b58-3f03be523582",
+      "name": "Webhook2",
+      "webhookId": "d93e1db2-6851-48d8-a3b8-dff77ac4bcd2"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.body['Id Surat Pemberitahuan'] }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf",
+              "drawingsToFormat": "application/pdf",
+              "slidesToFormat": "application/pdf",
+              "sheetsToFormat": "application/pdf"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1088,
+        -32
+      ],
+      "id": "f106629f-5841-467e-9ef5-163fe4b8d26d",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1296,
+        -32
+      ],
+      "id": "e1a37f4b-874a-47d0-a69c-65eef4474e00",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send File",
+        "session": "={{ $('Webhook2').item.json.body[\"Session WhastApp\"] }}",
+        "chatId": "={{ $('Webhook2').item.json.body[\"Nomor Hp\"] }}",
+        "file": "={\n  \"mimetype\": \"application/pdf\",\n  \"filename\": \"Surat Pemberitahuan.pdf\",\n  \"data\": \"{{ $json.data }}\"\n}\n",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        1456,
+        -32
+      ],
+      "id": "e0e5823e-1e41-4fb7-b2b4-c49fec7666ab",
+      "name": "Send File to Ketua RT",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        848,
+        336
+      ],
+      "id": "a2364b83-c279-401c-bad1-291d689e85a5",
+      "name": "Tool Arsip Surat Pemberitahuan"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        400,
+        -32
+      ],
+      "id": "fa92e106-92db-4954-b3bc-6c8b6bbb1b50",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!\n\nKeterangan:\n\n400.x = Nomor urut surat pemberitahuan\n\n/NWRP/INAG/KMRJ/etc. = Kode singkatan kampung/kelurahan\n\n/DW/ = Distrik Wania\n\n/XI/2025 = Bulan November (XI) Tahun 2025",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -2400,
+        -272
+      ],
+      "id": "90296d8d-4e4d-49c8-a53f-b98dc3a9881b",
+      "name": "AI Agent Id Folder Surat Pemberitahuan"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -3456,
+        256
+      ],
+      "id": "704403db-febd-4a3f-bf98-ed74114359c2",
+      "name": "AI-A1",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A1\"`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -3376,
+        320
+      ],
+      "id": "5dc16ac9-cc7a-4e5b-9456-77e45b2d7d4a",
+      "name": "Drive-A1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "TkmaSKQC1gWtu4Vq",
+          "mode": "list",
+          "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kampung Nawaripi"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -3264,
+        320
+      ],
+      "id": "3213165d-ca1d-48a4-9e5d-44b704239df2",
+      "name": "Data-A1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -3152,
+        256
+      ],
+      "id": "8c4b0878-4c22-4d0a-bb07-e9e5ce99d568",
+      "name": "AI-A2",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A2\"`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -3056,
+        320
+      ],
+      "id": "d7bfc110-d856-49fc-94b7-ba0e99db829d",
+      "name": "Drive-A2",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "TkmaSKQC1gWtu4Vq",
+          "mode": "list",
+          "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kampung Mawokau Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -2944,
+        320
+      ],
+      "id": "a0a01150-3aa6-4444-b011-7619e0f4f3b7",
+      "name": "Data-A2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2832,
+        256
+      ],
+      "id": "5b0a2a5b-7c5b-441f-aa85-aa76a7ec8b01",
+      "name": "AI-A3",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A3\"`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -2736,
+        320
+      ],
+      "id": "5d18e178-5c21-4504-99dc-d49918bb70e1",
+      "name": "Drive-A3",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "TkmaSKQC1gWtu4Vq",
+          "mode": "list",
+          "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kampung Mandiri Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -2624,
+        320
+      ],
+      "id": "fd44ad92-c9d7-44ae-b477-4ade76193c86",
+      "name": "Data-A3"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2512,
+        256
+      ],
+      "id": "90af4fe8-6b91-4f68-b147-6bf08dc0f555",
+      "name": "AI-A4",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A4\"`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -2416,
+        320
+      ],
+      "id": "118b3bfc-bce5-4708-a103-72f16525788b",
+      "name": "Drive-A4",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "TkmaSKQC1gWtu4Vq",
+          "mode": "list",
+          "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kampung Kadun Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -2304,
+        320
+      ],
+      "id": "dad43e6e-e4fc-4343-9316-22d1b7afa350",
+      "name": "Data-A4"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2192,
+        256
+      ],
+      "id": "c1a635a4-d608-46a5-954a-96c72c324c3e",
+      "name": "AI-A5",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A5\"`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -2096,
+        320
+      ],
+      "id": "030a7a88-a7bf-41d3-ad6d-c774c321638d",
+      "name": "Drive-A5",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "TkmaSKQC1gWtu4Vq",
+          "mode": "list",
+          "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kelurahan Wonosari Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -1984,
+        320
+      ],
+      "id": "ed9bb65f-a6ca-414a-97c5-859ff4726b08",
+      "name": "Data-A5"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1872,
+        256
+      ],
+      "id": "dc7061d1-190a-4d57-822b-4a44ae6d64cc",
+      "name": "AI-A6",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A6\"`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -1776,
+        320
+      ],
+      "id": "71effd41-ec6e-4848-9a62-5d36ca6f72b1",
+      "name": "Drive-A6",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "TkmaSKQC1gWtu4Vq",
+          "mode": "list",
+          "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kelurahan Kamoro Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -1664,
+        320
+      ],
+      "id": "2127b360-9a2d-4a69-92ba-65dd968d94da",
+      "name": "Data-A6"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1552,
+        256
+      ],
+      "id": "abf9685a-e4a3-464c-826a-0a98c15ec935",
+      "name": "AI-A7",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A7\"`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -1456,
+        320
+      ],
+      "id": "16f3db1c-4f46-465f-8f57-055ec8537b45",
+      "name": "Drive-A7",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "TkmaSKQC1gWtu4Vq",
+          "mode": "list",
+          "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kelurahan Inauga"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -1344,
+        320
+      ],
+      "id": "9e566aba-d558-47ef-a7d8-38dfb717f52f",
+      "name": "Data-A7"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1232,
+        256
+      ],
+      "id": "2552cf99-b352-4824-87f6-5de08f9bd798",
+      "name": "AI-A8",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A8\"`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -1136,
+        320
+      ],
+      "id": "eb9ee0f3-bc74-444c-86d1-235bf885d66e",
+      "name": "Drive-A8",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "TkmaSKQC1gWtu4Vq",
+          "mode": "list",
+          "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Distrik Wania"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -1024,
+        320
+      ],
+      "id": "131a4995-75ef-4cec-9f9b-35879fb8f3b8",
+      "name": "Data-A8"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7-nomor-surat-pemberitahun",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2576,
+        -272
+      ],
+      "id": "1cbc6a32-5e3b-43fe-bedf-284c05ab95f2",
+      "name": "WI-A",
+      "webhookId": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -2064,
+        -272
+      ],
+      "id": "6d6e128a-78d9-40c7-8bba-4e7735ba442b",
+      "name": "WR-A"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2400,
+        -112
+      ],
+      "id": "0c795915-57eb-4c9d-b397-358104ef4186",
+      "name": "AI-A",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan ini untuk Nomor Surat Pemberitahuan",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7-nomor-surat-pemberitahun",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "=Nama Pemohon",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', `Nama Pemohon`, 'string') }}"
+            },
+            {
+              "name": "NIK Pemohon",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', `NIK Pemohon`, 'string') }}"
+            },
+            {
+              "name": "Nama Wilayah",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', `Nama Wilayah\nNama Kampung Atau Nama Kelurahan Atau Nama Distrik`, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -272,
+        368
+      ],
+      "id": "bfd7d39c-8cab-4878-8c9f-6a06de19efd8",
+      "name": "Nomor Surat Pemberitahuan1"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan ini untuk Perent Folder Surat Pemberitahuan",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7-nomor-surat-pemberitahun",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "=Nama Pemohon",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', `Nama Pemohon`, 'string') }}"
+            },
+            {
+              "name": "NIK Pemohon",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', `NIK Pemohon`, 'string') }}"
+            },
+            {
+              "name": "Nama Wilayah",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', `Nama Wilayah\nNama Kampung Atau Nama Kelurahan Atau Nama Distrik`, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -464,
+        352
+      ],
+      "id": "31d66f33-718f-4d64-b60f-d93d066455cf",
+      "name": "Tool-B1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2560,
+        816
+      ],
+      "id": "66c299c0-9165-4ba0-9c42-42963835ae05",
+      "name": "Webhook",
+      "webhookId": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Buatkan Surat Ini dan Kirimkan Surat ini\n{{ $json.body['Isi Surat'] }}",
+        "options": {
+          "systemMessage": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Nomor Surat Pemberitahuan\" untuk mendapatkan nomor Surat Pemberitahuan.\n\n2. Gunakan \"Tool Copy Surat Pemberitahuan\" untuk membuat Surat Pemberitahuan.\n\n3. Gunakan \"Tool Edit Surat Pemberitahuan\" untuk edit surat pemberitahuan.\n\n4. Gunakan \"Tool Kirim Surat Pemberitahuan\" untuk kirim Surat Pemberitahuan menggunakan id \"Tool Copy Surat Pemberitahuan\"dari "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -2336,
+        816
+      ],
+      "id": "c147649f-d646-41f6-977c-b4ecaee460f9",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2336,
+        976
+      ],
+      "id": "22a9ce28-3e4c-4967-ba3b-050749d63f45",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -1984,
+        816
+      ],
+      "id": "c2951523-be11-4398-ac4a-30b8124abab5",
+      "name": "Respond to Webhook1"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kampung Nawaripi",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!\n\nKeterangan:\n\n400.x = Nomor urut surat pemberitahuan\n\n/NWRP/INAG/KMRJ/etc. = Kode singkatan kampung/kelurahan\n\n/DW/ = Distrik Wania\n\n/XI/2025 = Bulan November (XI) Tahun 2025",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -3456,
+        128
+      ],
+      "id": "52c52d1b-8a32-437c-8fbd-34c5a21d1c37",
+      "name": "Kampung Nawaripi - A"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kampung Mawokau Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!\n\nKeterangan:\n\n400.x = Nomor urut surat pemberitahuan\n\n/NWRP/INAG/KMRJ/etc. = Kode singkatan kampung/kelurahan\n\n/DW/ = Distrik Wania\n\n/XI/2025 = Bulan November (XI) Tahun 2025",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -3152,
+        128
+      ],
+      "id": "c041092d-f2d1-4a15-a31a-ec5e14f8ceab",
+      "name": "Kampung Mawokau Jaya - A"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kampung Mandiri Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!\n\nKeterangan:\n\n400.x = Nomor urut surat pemberitahuan\n\n/NWRP/INAG/KMRJ/etc. = Kode singkatan kampung/kelurahan\n\n/DW/ = Distrik Wania\n\n/XI/2025 = Bulan November (XI) Tahun 2025",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -2832,
+        128
+      ],
+      "id": "f251302e-baef-429f-8f05-d662b3ca63b1",
+      "name": "Kampung Mandiri Jaya - A"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kampung Kadun Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -2512,
+        128
+      ],
+      "id": "5405cb4d-7e6d-4f4a-a77a-c622f556e1d6",
+      "name": "Kampung Kadun Jaya - A"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kelurahan Wonosari Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -2192,
+        128
+      ],
+      "id": "f15fe61e-3d10-4aaa-8742-62b96e196e39",
+      "name": "Kelurahan Wonosari Jaya - A"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kelurahan Kamoro Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -1872,
+        128
+      ],
+      "id": "7fbf0d22-c297-42c5-96fb-722b3d001c0b",
+      "name": "Kelurahan Kamoro Jaya - A"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kelurahan Inauga",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -1552,
+        128
+      ],
+      "id": "4282dd58-4f5b-4b62-ab31-00da463f8446",
+      "name": "Kelurahan Inauga - A"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Distrik Wania",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -1232,
+        128
+      ],
+      "id": "b5354749-4696-42cc-8d09-91bd8ca09153",
+      "name": "Distrik Wania - A"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kampung Nawaripi",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -3216,
+        1216
+      ],
+      "id": "0625f00c-2d4d-4426-9f92-7dde2f1e6d64",
+      "name": "Kampung Nawaripi - B"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kampung Mawokau Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -2912,
+        1216
+      ],
+      "id": "cd6414fb-0a06-43f3-b9f0-4be7f309e92d",
+      "name": "Kampung Mawokau Jaya - B"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kampung Mandiri Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -2592,
+        1216
+      ],
+      "id": "b4491441-b8bd-4a13-b5ca-50f040f60ea0",
+      "name": "Kampung Mandiri Jaya - B"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kampung Kadun Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -2272,
+        1216
+      ],
+      "id": "8ee9229e-0666-48e5-86da-cc249feae225",
+      "name": "Kampung Kadun Jaya - B"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kelurahan Wonosari Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -1952,
+        1216
+      ],
+      "id": "21e29c32-533b-4b5c-aee3-a3c8bbd1c47c",
+      "name": "Kelurahan Wonosari Jaya - B"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kelurahan Kamoro Jaya",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -1632,
+        1216
+      ],
+      "id": "deb4ee99-b34b-4961-984e-5303d5f941f4",
+      "name": "Kelurahan Kamoro Jaya - B"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Kelurahan Inauga",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -1312,
+        1216
+      ],
+      "id": "8c62c607-231b-464f-a0e3-6aef8c5af38a",
+      "name": "Kelurahan Inauga - B"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Distrik Wania",
+        "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 2.2,
+      "position": [
+        -992,
+        1216
+      ],
+      "id": "8bd371c7-7687-4249-b16a-6a4dd0f36049",
+      "name": "Distrik Wania - B"
+    }
+  ],
+  "connections": {
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool Copy Surat Pemberitahuan": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool Edit Surat Pemberitahuan": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool Kirim Surat Pemberitahuan": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook2": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Send File to Ketua RT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool Arsip Surat Pemberitahuan": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Id Folder Surat Pemberitahuan": {
+      "main": [
+        []
+      ]
+    },
+    "Data-A1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kampung Nawaripi - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive-A1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kampung Nawaripi - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Kampung Nawaripi - A",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data-A2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kampung Mawokau Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive-A2": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kampung Mawokau Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Kampung Mawokau Jaya - A",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Kampung Mandiri Jaya - A",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive-A3": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kampung Mandiri Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data-A3": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kampung Mandiri Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Kampung Kadun Jaya - A",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive-A4": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kampung Kadun Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data-A4": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kampung Kadun Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Kelurahan Wonosari Jaya - A",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive-A5": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kelurahan Wonosari Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data-A5": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kelurahan Wonosari Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Kelurahan Kamoro Jaya - A",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive-A6": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kelurahan Kamoro Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data-A6": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kelurahan Kamoro Jaya - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Kelurahan Inauga - A",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data-A7": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kelurahan Inauga - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive-A7": {
+      "ai_tool": [
+        [
+          {
+            "node": "Kelurahan Inauga - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Distrik Wania - A",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive-A8": {
+      "ai_tool": [
+        [
+          {
+            "node": "Distrik Wania - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data-A8": {
+      "ai_tool": [
+        [
+          {
+            "node": "Distrik Wania - A",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WI-A": {
+      "main": [
+        [
+          {
+            "node": "WR-A",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Id Folder Surat Pemberitahuan",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool-B1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kampung Nawaripi - A": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Id Folder Surat Pemberitahuan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kampung Mawokau Jaya - A": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Id Folder Surat Pemberitahuan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kampung Mandiri Jaya - A": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Id Folder Surat Pemberitahuan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kampung Kadun Jaya - A": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Id Folder Surat Pemberitahuan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kelurahan Wonosari Jaya - A": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Id Folder Surat Pemberitahuan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kelurahan Kamoro Jaya - A": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Id Folder Surat Pemberitahuan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kelurahan Inauga - A": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Id Folder Surat Pemberitahuan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Distrik Wania - A": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Id Folder Surat Pemberitahuan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kampung Nawaripi - B": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kampung Mawokau Jaya - B": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kampung Mandiri Jaya - B": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kampung Kadun Jaya - B": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kelurahan Wonosari Jaya - B": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kelurahan Kamoro Jaya - B": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kelurahan Inauga - B": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Distrik Wania - B": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Webhook1": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "761",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "99c3a921faea5fc3-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 162.158.163.195",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "162.158.163.195"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Isi Surat": "Kepada Yth.\nIbu Kepala Distrik Wania 🌸\ndi Tempat\n\nDengan hormat,\n\nDisampaikan bahwa warga Kampung Nawaripi atas nama:\nNama Pemohon: SYAFRUDDIN\nNomor KTP: 910901078740007\nNomor Kontak: 6285230047347\nKeperluan: Untuk BPJS\nNomor Surat: 461/11/SKTM/NWRP/XI/2025\n\nTelah ditolak ❌ oleh Bapak Norman Ditubun,\nJabatan: Kepala Kampung Nawaripi\nNomor Kontak: 6285230047347\n\nAlasan penolakan:\n📝 “ok”\n\nDengan demikian, surat tersebut tidak dapat dilanjutkan ke tingkat distrik untuk proses persetujuan lebih lanjut.\n\nAtas perhatian dan kerja sama Ibu, disampaikan terima kasih.\nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu.\n\nHormat kami,\nKawe Nia 🤝\nAsisten Digital Distrik Wania"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Webhook2": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "133",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "99c3adeb1d65d9ca-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 104.23.175.82",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "104.23.175.82"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Id Surat Pemberitahuan": "1lzpBD2htOshE8GKZNvR4XYP7AVBRqJFhI9pnXRN9clo",
+            "Session WhastApp": "KaweNia",
+            "Nomor Hp": "62530047347.@c.us"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/d93e1db2-6851-48d8-a3b8-dff77ac4bcd2",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "WI-A": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "761",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "99c3a921faea5fc3-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 162.158.163.195",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "162.158.163.195"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Isi Surat": "Kepada Yth.\nIbu Kepala Distrik Wania 🌸\ndi Tempat\n\nDengan hormat,\n\nDisampaikan bahwa warga Kampung Nawaripi atas nama:\nNama Pemohon: SYAFRUDDIN\nNomor KTP: 910901078740007\nNomor Kontak: 6285230047347\nKeperluan: Untuk BPJS\nNomor Surat: 461/11/SKTM/NWRP/XI/2025\n\nTelah ditolak ❌ oleh Bapak Norman Ditubun,\nJabatan: Kepala Kampung Nawaripi\nNomor Kontak: 6285230047347\n\nAlasan penolakan:\n📝 “ok”\n\nDengan demikian, surat tersebut tidak dapat dilanjutkan ke tingkat distrik untuk proses persetujuan lebih lanjut.\n\nAtas perhatian dan kerja sama Ibu, disampaikan terima kasih.\nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu.\n\nHormat kami,\nKawe Nia 🤝\nAsisten Digital Distrik Wania"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "761",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "99c3a921faea5fc3-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 162.158.163.195",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "162.158.163.195"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Isi Surat": "Kepada Yth.\nIbu Kepala Distrik Wania 🌸\ndi Tempat\n\nDengan hormat,\n\nDisampaikan bahwa warga Kampung Nawaripi atas nama:\nNama Pemohon: SYAFRUDDIN\nNomor KTP: 910901078740007\nNomor Kontak: 6285230047347\nKeperluan: Untuk BPJS\nNomor Surat: 461/11/SKTM/NWRP/XI/2025\n\nTelah ditolak ❌ oleh Bapak Norman Ditubun,\nJabatan: Kepala Kampung Nawaripi\nNomor Kontak: 6285230047347\n\nAlasan penolakan:\n📝 “ok”\n\nDengan demikian, surat tersebut tidak dapat dilanjutkan ke tingkat distrik untuk proses persetujuan lebih lanjut.\n\nAtas perhatian dan kerja sama Ibu, disampaikan terima kasih.\nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu.\n\nHormat kami,\nKawe Nia 🤝\nAsisten Digital Distrik Wania"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "5c497152-02e1-4ab4-988c-430661f4b4a8",
+  "activeVersionId": "5c497152-02e1-4ab4-988c-430661f4b4a8",
+  "triggerCount": 4,
+  "shared": [
+    {
+      "updatedAt": "2025-11-10T08:52:45.720Z",
+      "createdAt": "2025-11-10T08:52:45.720Z",
+      "role": "workflow:owner",
+      "workflowId": "NsNsGuEVenv187FX",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-11-27T06:24:38.693Z",
+    "createdAt": "2025-11-27T06:24:38.693Z",
+    "versionId": "5c497152-02e1-4ab4-988c-430661f4b4a8",
+    "workflowId": "NsNsGuEVenv187FX",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -160,
+          -32
+        ],
+        "id": "58b75958-7f27-4c65-bf90-8cd6c9ea5d21",
+        "name": "Webhook1",
+        "webhookId": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Buatkan Surat Ini dan Kirimkan Surat ini\n{{ $json.body['Isi Surat'] }}",
+          "options": {
+            "systemMessage": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Nomor Surat Pemberitahuan\" untuk mendapatkan nomor Surat Pemberitahuan.\n\n2. Gunakan \"Tool Copy Surat Pemberitahuan\" untuk membuat Surat Pemberitahuan.\n\n3. Gunakan \"Tool Edit Surat Pemberitahuan\" untuk edit surat pemberitahuan.\n\n4. Gunakan \"Tool Kirim Surat Pemberitahuan\" untuk kirim Surat Pemberitahuan menggunakan id \"Tool Copy Surat Pemberitahuan\"dari "
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          48,
+          -32
+        ],
+        "id": "341a0872-0751-4d25-a3a0-6d7960e6f20f",
+        "name": "AI Agent1"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          48,
+          128
+        ],
+        "id": "898e41b7-9c11-4397-a01f-6f92ccf466fd",
+        "name": "OpenAI Chat Model1",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "copy",
+          "fileId": {
+            "__rl": true,
+            "value": "=12TYd90LU8WSlgHwsxl47mdb2yP3wjBhgIhfdfFGbcsI",
+            "mode": "id"
+          },
+          "name": "Surat Pemberitahuan",
+          "sameFolder": false,
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "1ZIqZrH3U_oUFgl-ps40bSUoc4tMvaBIq",
+            "mode": "list",
+            "cachedResultName": "Distrik Wania",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1ZIqZrH3U_oUFgl-ps40bSUoc4tMvaBIq"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          368,
+          336
+        ],
+        "id": "03659257-a2dc-4f5f-856e-60f04c944969",
+        "name": "Tool Copy Surat Pemberitahuan",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "update",
+          "documentURL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Doc_ID_or_URL', `Id Document dari \"Tool Copy Surat Pemberitahuan\"`, 'string') }}",
+          "simple": false,
+          "actionsUi": {
+            "actionFields": [
+              {
+                "action": "replaceAll",
+                "text": "{waktu_surat_pemberitahuan}",
+                "replaceText": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{nomor_surat_pemberitahuan}",
+                "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields1_New_Text', `Nomor Surat Gunkan \"Nomor Surat Pemberitahuan\"\nBERIKAN HANYA NOMOR SURAT`, 'string') }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{isi_surat_pemberitahuan}",
+                "replaceText": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('actionFields2_New_Text', `Isi Surat Pemberitahuan\n`, 'string') }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.googleDocsTool",
+        "typeVersion": 2,
+        "position": [
+          512,
+          336
+        ],
+        "id": "5a48c274-bea2-46e1-a32d-32788efc6121",
+        "name": "Tool Edit Surat Pemberitahuan",
+        "credentials": {
+          "googleDocsOAuth2Api": {
+            "id": "et8bSa0Nlnpparmf",
+            "name": "Google Docs account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini untuk kirim surat pemberitahuan",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/d93e1db2-6851-48d8-a3b8-dff77ac4bcd2",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Id Surat Pemberitahuan",
+                "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', `Id Surat Pemberitahuan dari \"Tool Copy Surat Pemberitahuan\"`, 'string') }}"
+              },
+              {
+                "name": "Session WhastApp",
+                "value": "KaweNia"
+              },
+              {
+                "name": "Nomor Hp",
+                "value": "6285230047347@c.us"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          672,
+          336
+        ],
+        "id": "1ae2e28a-08a1-4121-b7e4-7e016410af46",
+        "name": "Tool Kirim Surat Pemberitahuan"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "d93e1db2-6851-48d8-a3b8-dff77ac4bcd2",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          912,
+          -32
+        ],
+        "id": "785f8bc3-3c16-48cd-8b58-3f03be523582",
+        "name": "Webhook2",
+        "webhookId": "d93e1db2-6851-48d8-a3b8-dff77ac4bcd2"
+      },
+      {
+        "parameters": {
+          "operation": "download",
+          "fileId": {
+            "__rl": true,
+            "value": "={{ $json.body['Id Surat Pemberitahuan'] }}",
+            "mode": "id"
+          },
+          "options": {
+            "googleFileConversion": {
+              "conversion": {
+                "docsToFormat": "application/pdf",
+                "drawingsToFormat": "application/pdf",
+                "slidesToFormat": "application/pdf",
+                "sheetsToFormat": "application/pdf"
+              }
+            }
+          }
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          1088,
+          -32
+        ],
+        "id": "f106629f-5841-467e-9ef5-163fe4b8d26d",
+        "name": "Download file",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "binaryToPropery",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.extractFromFile",
+        "typeVersion": 1,
+        "position": [
+          1296,
+          -32
+        ],
+        "id": "e1a37f4b-874a-47d0-a69c-65eef4474e00",
+        "name": "Extract from File"
+      },
+      {
+        "parameters": {
+          "resource": "Chatting",
+          "operation": "Send File",
+          "session": "={{ $('Webhook2').item.json.body[\"Session WhastApp\"] }}",
+          "chatId": "={{ $('Webhook2').item.json.body[\"Nomor Hp\"] }}",
+          "file": "={\n  \"mimetype\": \"application/pdf\",\n  \"filename\": \"Surat Pemberitahuan.pdf\",\n  \"data\": \"{{ $json.data }}\"\n}\n",
+          "requestOptions": {}
+        },
+        "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+        "typeVersion": 202502,
+        "position": [
+          1456,
+          -32
+        ],
+        "id": "e0e5823e-1e41-4fb7-b2b4-c49fec7666ab",
+        "name": "Send File to Ketua RT",
+        "credentials": {
+          "wahaApi": {
+            "id": "uivlaHVGkUY1vyJT",
+            "name": "WAHA account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          848,
+          336
+        ],
+        "id": "a2364b83-c279-401c-bad1-291d689e85a5",
+        "name": "Tool Arsip Surat Pemberitahuan"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          400,
+          -32
+        ],
+        "id": "fa92e106-92db-4954-b3bc-6c8b6bbb1b50",
+        "name": "Respond to Webhook"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!\n\nKeterangan:\n\n400.x = Nomor urut surat pemberitahuan\n\n/NWRP/INAG/KMRJ/etc. = Kode singkatan kampung/kelurahan\n\n/DW/ = Distrik Wania\n\n/XI/2025 = Bulan November (XI) Tahun 2025",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          -2400,
+          -272
+        ],
+        "id": "90296d8d-4e4d-49c8-a53f-b98dc3a9881b",
+        "name": "AI Agent Id Folder Surat Pemberitahuan"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -3456,
+          256
+        ],
+        "id": "704403db-febd-4a3f-bf98-ed74114359c2",
+        "name": "AI-A1",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "folder",
+          "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A1\"`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -3376,
+          320
+        ],
+        "id": "5dc16ac9-cc7a-4e5b-9456-77e45b2d7d4a",
+        "name": "Drive-A1",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "TkmaSKQC1gWtu4Vq",
+            "mode": "list",
+            "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kampung Nawaripi"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -3264,
+          320
+        ],
+        "id": "3213165d-ca1d-48a4-9e5d-44b704239df2",
+        "name": "Data-A1"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -3152,
+          256
+        ],
+        "id": "8c4b0878-4c22-4d0a-bb07-e9e5ce99d568",
+        "name": "AI-A2",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "folder",
+          "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A2\"`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -3056,
+          320
+        ],
+        "id": "d7bfc110-d856-49fc-94b7-ba0e99db829d",
+        "name": "Drive-A2",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "TkmaSKQC1gWtu4Vq",
+            "mode": "list",
+            "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kampung Mawokau Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -2944,
+          320
+        ],
+        "id": "a0a01150-3aa6-4444-b011-7619e0f4f3b7",
+        "name": "Data-A2"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -2832,
+          256
+        ],
+        "id": "5b0a2a5b-7c5b-441f-aa85-aa76a7ec8b01",
+        "name": "AI-A3",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "folder",
+          "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A3\"`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -2736,
+          320
+        ],
+        "id": "5d18e178-5c21-4504-99dc-d49918bb70e1",
+        "name": "Drive-A3",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "TkmaSKQC1gWtu4Vq",
+            "mode": "list",
+            "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kampung Mandiri Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -2624,
+          320
+        ],
+        "id": "fd44ad92-c9d7-44ae-b477-4ade76193c86",
+        "name": "Data-A3"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -2512,
+          256
+        ],
+        "id": "90af4fe8-6b91-4f68-b147-6bf08dc0f555",
+        "name": "AI-A4",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "folder",
+          "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A4\"`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -2416,
+          320
+        ],
+        "id": "118b3bfc-bce5-4708-a103-72f16525788b",
+        "name": "Drive-A4",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "TkmaSKQC1gWtu4Vq",
+            "mode": "list",
+            "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kampung Kadun Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -2304,
+          320
+        ],
+        "id": "dad43e6e-e4fc-4343-9316-22d1b7afa350",
+        "name": "Data-A4"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -2192,
+          256
+        ],
+        "id": "c1a635a4-d608-46a5-954a-96c72c324c3e",
+        "name": "AI-A5",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "folder",
+          "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A5\"`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -2096,
+          320
+        ],
+        "id": "030a7a88-a7bf-41d3-ad6d-c774c321638d",
+        "name": "Drive-A5",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "TkmaSKQC1gWtu4Vq",
+            "mode": "list",
+            "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kelurahan Wonosari Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -1984,
+          320
+        ],
+        "id": "ed9bb65f-a6ca-414a-97c5-859ff4726b08",
+        "name": "Data-A5"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -1872,
+          256
+        ],
+        "id": "dc7061d1-190a-4d57-822b-4a44ae6d64cc",
+        "name": "AI-A6",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "folder",
+          "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A6\"`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -1776,
+          320
+        ],
+        "id": "71effd41-ec6e-4848-9a62-5d36ca6f72b1",
+        "name": "Drive-A6",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "TkmaSKQC1gWtu4Vq",
+            "mode": "list",
+            "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kelurahan Kamoro Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -1664,
+          320
+        ],
+        "id": "2127b360-9a2d-4a69-92ba-65dd968d94da",
+        "name": "Data-A6"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -1552,
+          256
+        ],
+        "id": "abf9685a-e4a3-464c-826a-0a98c15ec935",
+        "name": "AI-A7",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "folder",
+          "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A7\"`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -1456,
+          320
+        ],
+        "id": "16f3db1c-4f46-465f-8f57-055ec8537b45",
+        "name": "Drive-A7",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "TkmaSKQC1gWtu4Vq",
+            "mode": "list",
+            "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kelurahan Inauga"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -1344,
+          320
+        ],
+        "id": "9e566aba-d558-47ef-a7d8-38dfb717f52f",
+        "name": "Data-A7"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -1232,
+          256
+        ],
+        "id": "2552cf99-b352-4824-87f6-5de08f9bd798",
+        "name": "AI-A8",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "folder",
+          "name": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd_MM_yyyy_HH_mm_ss') + '_' + ($fromAI('Nama_Pemohon', ``, 'string')).trim().replace(/\\s+/g,'-').toUpperCase() + '_' + ($fromAI('NIK_Pemohon', ``, 'string')) }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Gunakan Id Folder Surat Pemberitahun dari \"Data-A8\"`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -1136,
+          320
+        ],
+        "id": "eb9ee0f3-bc74-444c-86d1-235bf885d66e",
+        "name": "Drive-A8",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "TkmaSKQC1gWtu4Vq",
+            "mode": "list",
+            "cachedResultName": "Data Kampung Kelurahan Distrik Wania",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/TkmaSKQC1gWtu4Vq"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Distrik Wania"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -1024,
+          320
+        ],
+        "id": "131a4995-75ef-4cec-9f9b-35879fb8f3b8",
+        "name": "Data-A8"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7-nomor-surat-pemberitahun",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -2576,
+          -272
+        ],
+        "id": "1cbc6a32-5e3b-43fe-bedf-284c05ab95f2",
+        "name": "WI-A",
+        "webhookId": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -2064,
+          -272
+        ],
+        "id": "6d6e128a-78d9-40c7-8bba-4e7735ba442b",
+        "name": "WR-A"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -2400,
+          -112
+        ],
+        "id": "0c795915-57eb-4c9d-b397-358104ef4186",
+        "name": "AI-A",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan ini untuk Nomor Surat Pemberitahuan",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7-nomor-surat-pemberitahun",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "=Nama Pemohon",
+                "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', `Nama Pemohon`, 'string') }}"
+              },
+              {
+                "name": "NIK Pemohon",
+                "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', `NIK Pemohon`, 'string') }}"
+              },
+              {
+                "name": "Nama Wilayah",
+                "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', `Nama Wilayah\nNama Kampung Atau Nama Kelurahan Atau Nama Distrik`, 'string') }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          -272,
+          368
+        ],
+        "id": "bfd7d39c-8cab-4878-8c9f-6a06de19efd8",
+        "name": "Nomor Surat Pemberitahuan1"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan ini untuk Perent Folder Surat Pemberitahuan",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7-nomor-surat-pemberitahun",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "=Nama Pemohon",
+                "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', `Nama Pemohon`, 'string') }}"
+              },
+              {
+                "name": "NIK Pemohon",
+                "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', `NIK Pemohon`, 'string') }}"
+              },
+              {
+                "name": "Nama Wilayah",
+                "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', `Nama Wilayah\nNama Kampung Atau Nama Kelurahan Atau Nama Distrik`, 'string') }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          -464,
+          352
+        ],
+        "id": "31d66f33-718f-4d64-b60f-d93d066455cf",
+        "name": "Tool-B1"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -2560,
+          816
+        ],
+        "id": "66c299c0-9165-4ba0-9c42-42963835ae05",
+        "name": "Webhook",
+        "webhookId": "f21a3bba-dcfb-48ef-a5d2-b86fc0c354e7"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Buatkan Surat Ini dan Kirimkan Surat ini\n{{ $json.body['Isi Surat'] }}",
+          "options": {
+            "systemMessage": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Nomor Surat Pemberitahuan\" untuk mendapatkan nomor Surat Pemberitahuan.\n\n2. Gunakan \"Tool Copy Surat Pemberitahuan\" untuk membuat Surat Pemberitahuan.\n\n3. Gunakan \"Tool Edit Surat Pemberitahuan\" untuk edit surat pemberitahuan.\n\n4. Gunakan \"Tool Kirim Surat Pemberitahuan\" untuk kirim Surat Pemberitahuan menggunakan id \"Tool Copy Surat Pemberitahuan\"dari "
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          -2336,
+          816
+        ],
+        "id": "c147649f-d646-41f6-977c-b4ecaee460f9",
+        "name": "AI Agent"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -2336,
+          976
+        ],
+        "id": "22a9ce28-3e4c-4967-ba3b-050749d63f45",
+        "name": "OpenAI Chat Model",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -1984,
+          816
+        ],
+        "id": "c2951523-be11-4398-ac4a-30b8124abab5",
+        "name": "Respond to Webhook1"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kampung Nawaripi",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!\n\nKeterangan:\n\n400.x = Nomor urut surat pemberitahuan\n\n/NWRP/INAG/KMRJ/etc. = Kode singkatan kampung/kelurahan\n\n/DW/ = Distrik Wania\n\n/XI/2025 = Bulan November (XI) Tahun 2025",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -3456,
+          128
+        ],
+        "id": "52c52d1b-8a32-437c-8fbd-34c5a21d1c37",
+        "name": "Kampung Nawaripi - A"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kampung Mawokau Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!\n\nKeterangan:\n\n400.x = Nomor urut surat pemberitahuan\n\n/NWRP/INAG/KMRJ/etc. = Kode singkatan kampung/kelurahan\n\n/DW/ = Distrik Wania\n\n/XI/2025 = Bulan November (XI) Tahun 2025",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -3152,
+          128
+        ],
+        "id": "c041092d-f2d1-4a15-a31a-ec5e14f8ceab",
+        "name": "Kampung Mawokau Jaya - A"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kampung Mandiri Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!\n\nKeterangan:\n\n400.x = Nomor urut surat pemberitahuan\n\n/NWRP/INAG/KMRJ/etc. = Kode singkatan kampung/kelurahan\n\n/DW/ = Distrik Wania\n\n/XI/2025 = Bulan November (XI) Tahun 2025",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -2832,
+          128
+        ],
+        "id": "f251302e-baef-429f-8f05-d662b3ca63b1",
+        "name": "Kampung Mandiri Jaya - A"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kampung Kadun Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -2512,
+          128
+        ],
+        "id": "5405cb4d-7e6d-4f4a-a77a-c622f556e1d6",
+        "name": "Kampung Kadun Jaya - A"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kelurahan Wonosari Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -2192,
+          128
+        ],
+        "id": "f15fe61e-3d10-4aaa-8742-62b96e196e39",
+        "name": "Kelurahan Wonosari Jaya - A"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kelurahan Kamoro Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -1872,
+          128
+        ],
+        "id": "7fbf0d22-c297-42c5-96fb-722b3d001c0b",
+        "name": "Kelurahan Kamoro Jaya - A"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kelurahan Inauga",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -1552,
+          128
+        ],
+        "id": "4282dd58-4f5b-4b62-ab31-00da463f8446",
+        "name": "Kelurahan Inauga - A"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Distrik Wania",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -1232,
+          128
+        ],
+        "id": "b5354749-4696-42cc-8d09-91bd8ca09153",
+        "name": "Distrik Wania - A"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kampung Nawaripi",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -3216,
+          1216
+        ],
+        "id": "0625f00c-2d4d-4426-9f92-7dde2f1e6d64",
+        "name": "Kampung Nawaripi - B"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kampung Mawokau Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -2912,
+          1216
+        ],
+        "id": "cd6414fb-0a06-43f3-b9f0-4be7f309e92d",
+        "name": "Kampung Mawokau Jaya - B"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kampung Mandiri Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -2592,
+          1216
+        ],
+        "id": "b4491441-b8bd-4a13-b5ca-50f040f60ea0",
+        "name": "Kampung Mandiri Jaya - B"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kampung Kadun Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -2272,
+          1216
+        ],
+        "id": "8ee9229e-0666-48e5-86da-cc249feae225",
+        "name": "Kampung Kadun Jaya - B"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kelurahan Wonosari Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -1952,
+          1216
+        ],
+        "id": "21e29c32-533b-4b5c-aee3-a3c8bbd1c47c",
+        "name": "Kelurahan Wonosari Jaya - B"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kelurahan Kamoro Jaya",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -1632,
+          1216
+        ],
+        "id": "deb4ee99-b34b-4961-984e-5303d5f941f4",
+        "name": "Kelurahan Kamoro Jaya - B"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Kelurahan Inauga",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -1312,
+          1216
+        ],
+        "id": "8c62c607-231b-464f-a0e3-6aef8c5af38a",
+        "name": "Kelurahan Inauga - B"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Distrik Wania",
+          "text": "=Wajib Ikuti Semua Langkah Langkah ini!!!.\n1. Gunakan \"Data\" Untuk mendapatkan Perent Folder Surat Pemberitahuan.\n\n2. Gunakan \"Drive\" untuk membuat Child Folder Untuk User.\n\n3. Hanya Kirim ID Folder dari \"Drive\" tanpa menambahkan apapun!",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agentTool",
+        "typeVersion": 2.2,
+        "position": [
+          -992,
+          1216
+        ],
+        "id": "8bd371c7-7687-4249-b16a-6a4dd0f36049",
+        "name": "Distrik Wania - B"
+      }
+    ],
+    "connections": {
+      "Webhook1": {
+        "main": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool Copy Surat Pemberitahuan": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool Edit Surat Pemberitahuan": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool Kirim Surat Pemberitahuan": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Webhook2": {
+        "main": [
+          [
+            {
+              "node": "Download file",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Download file": {
+        "main": [
+          [
+            {
+              "node": "Extract from File",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Extract from File": {
+        "main": [
+          [
+            {
+              "node": "Send File to Ketua RT",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool Arsip Surat Pemberitahuan": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent1": {
+        "main": [
+          [
+            {
+              "node": "Respond to Webhook",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Id Folder Surat Pemberitahuan": {
+        "main": [
+          []
+        ]
+      },
+      "Data-A1": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kampung Nawaripi - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive-A1": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kampung Nawaripi - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Kampung Nawaripi - A",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data-A2": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kampung Mawokau Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive-A2": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kampung Mawokau Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A2": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Kampung Mawokau Jaya - A",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A3": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Kampung Mandiri Jaya - A",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive-A3": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kampung Mandiri Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data-A3": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kampung Mandiri Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A4": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Kampung Kadun Jaya - A",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive-A4": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kampung Kadun Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data-A4": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kampung Kadun Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A5": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Kelurahan Wonosari Jaya - A",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive-A5": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kelurahan Wonosari Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data-A5": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kelurahan Wonosari Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A6": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Kelurahan Kamoro Jaya - A",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive-A6": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kelurahan Kamoro Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data-A6": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kelurahan Kamoro Jaya - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A7": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Kelurahan Inauga - A",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data-A7": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kelurahan Inauga - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive-A7": {
+        "ai_tool": [
+          [
+            {
+              "node": "Kelurahan Inauga - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A8": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Distrik Wania - A",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive-A8": {
+        "ai_tool": [
+          [
+            {
+              "node": "Distrik Wania - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data-A8": {
+        "ai_tool": [
+          [
+            {
+              "node": "Distrik Wania - A",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "WI-A": {
+        "main": [
+          [
+            {
+              "node": "WR-A",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Id Folder Surat Pemberitahuan",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool-B1": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent": {
+        "main": [
+          [
+            {
+              "node": "Respond to Webhook1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kampung Nawaripi - A": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Id Folder Surat Pemberitahuan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kampung Mawokau Jaya - A": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Id Folder Surat Pemberitahuan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kampung Mandiri Jaya - A": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Id Folder Surat Pemberitahuan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kampung Kadun Jaya - A": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Id Folder Surat Pemberitahuan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kelurahan Wonosari Jaya - A": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Id Folder Surat Pemberitahuan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kelurahan Kamoro Jaya - A": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Id Folder Surat Pemberitahuan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kelurahan Inauga - A": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Id Folder Surat Pemberitahuan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Distrik Wania - A": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Id Folder Surat Pemberitahuan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kampung Nawaripi - B": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kampung Mawokau Jaya - B": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kampung Mandiri Jaya - B": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kampung Kadun Jaya - B": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kelurahan Wonosari Jaya - B": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kelurahan Kamoro Jaya - B": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Kelurahan Inauga - B": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Distrik Wania - B": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "system migration",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
