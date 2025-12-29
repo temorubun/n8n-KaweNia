@@ -1,0 +1,33 @@
+{
+  "updatedAt": "2025-12-28T08:23:56.000Z",
+  "createdAt": "2025-11-16T22:04:36.089Z",
+  "id": "sKrLOmNtRlDNCKH9",
+  "name": "dasd",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "0428df67-d72d-437a-a6c4-37ecdf3fa532",
+  "activeVersionId": null,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-16T22:04:36.092Z",
+      "createdAt": "2025-11-16T22:04:36.092Z",
+      "role": "workflow:owner",
+      "workflowId": "sKrLOmNtRlDNCKH9",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
