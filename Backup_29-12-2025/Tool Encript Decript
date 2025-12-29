@@ -1,0 +1,1332 @@
+{
+  "updatedAt": "2025-12-23T07:58:41.692Z",
+  "createdAt": "2025-12-02T07:48:28.333Z",
+  "id": "bkujltHTudpMwHrU",
+  "name": "Tool Encript Decript",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 352,
+        "width": 752
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -384,
+        -256
+      ],
+      "typeVersion": 1,
+      "id": "643bc5d8-5aee-48e7-afe6-edb06daf2ba6",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Encript Private Key To Public Key",
+        "height": 80
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -128,
+        -224
+      ],
+      "typeVersion": 1,
+      "id": "17d8d40d-aa75-45f7-aaa5-6fb0d6657e2a",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Decript Public Key To Private Key",
+        "height": 80
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        640,
+        -224
+      ],
+      "typeVersion": 1,
+      "id": "8661683a-f64e-43fb-be0e-0f461e931780",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Encript Data Use Key",
+        "height": 80,
+        "width": 272
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        256,
+        144
+      ],
+      "typeVersion": 1,
+      "id": "a946d863-a17f-46bb-9298-fe263f0aaeb1",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## Decript Data Use Key",
+        "height": 80,
+        "width": 272
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        272,
+        512
+      ],
+      "typeVersion": 1,
+      "id": "ce6995e7-a9b4-44ef-bd4a-1716253ce14d",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -368,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "491f3f9b-e4e7-4a42-b807-3cfc40cec614",
+      "name": "Sticky Note32"
+    },
+    {
+      "parameters": {
+        "content": "### Script  Encript.Js\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -128,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "8237dbc5-2179-4a54-8857-f2d61a30b664",
+      "name": "Sticky Note33"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        112,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "c275c442-81a5-46aa-995f-8c056b3cb2d9",
+      "name": "Sticky Note34"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "3bb4e66e-e354-415c-87d8-25631fd005a5-encript-privat-key",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -256,
+        -64
+      ],
+      "id": "a006a4e3-02e3-43a8-9fa5-5ab30f6698e2",
+      "name": "a",
+      "webhookId": "3bb4e66e-e354-415c-87d8-25631fd005a5"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = items[0].json.body.key;  \n\n// Pastikan data dalam bentuk string\nlet base = Buffer.from(JSON.stringify(data), \"utf8\").toString(\"base64\");\n\n// Tambahkan noise dan encoding\nconst noise = (Math.random() + 1).toString(36).substring(2, 8);\nconst encrypted = noise + \"_\" + base;  // Hanya menambahkan noise ke base64 data\n\nreturn [{\n  json: {            \n    publicKey: encrypted,  // Output hasil enkripsi dengan noise\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        -64
+      ],
+      "id": "544ed8bd-57fe-4f8d-91df-08a3c98ea25b",
+      "name": "a1"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        144,
+        -64
+      ],
+      "id": "e55623a2-f8ba-48c7-9dc0-5e13a7a5e4f9",
+      "name": "a2"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 352,
+        "width": 752
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        112
+      ],
+      "typeVersion": 1,
+      "id": "552017cd-7246-4463-a6e1-98de01a02726",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        16,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "ac7d856c-b0fb-4384-9dad-b40345aa52ff",
+      "name": "Sticky Note35"
+    },
+    {
+      "parameters": {
+        "content": "### Script  Encript.Js\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        256,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "e6432568-bb57-4f02-8710-e5fe79a0f8a2",
+      "name": "Sticky Note36"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        496,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "081efa58-7007-43fc-98c5-1b707e1081ad",
+      "name": "Sticky Note37"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        80,
+        304
+      ],
+      "id": "5bee281a-262a-4264-9936-129c56a8edb9",
+      "name": "c",
+      "webhookId": "3bb4e66e-e354-415c-87d8-25631fd005a5"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = items[0].json.body.data;  \nconst key = items[0].json.body.key;   \n\n// Pastikan data dalam bentuk string\nlet base = Buffer.from(JSON.stringify(data), \"utf8\").toString(\"base64\");\n\nlet xorResult = [];\nfor (let i = 0; i < base.length; i++) {\n  let charCode = base.charCodeAt(i);\n  let keyCharCode = key.charCodeAt(i % key.length); \n  xorResult.push(charCode ^ keyCharCode);\n}\n\nlet hex = xorResult.map(v => v.toString(16).padStart(2, \"0\")).join(\"\");\n\n// Tambahkan noise dan encoding\nconst noise = (Math.random() + 1).toString(36).substring(2, 8);\nconst encrypted = noise + \"_\" + key.length.toString(16) + \"_\" + hex;\n\nreturn [{\n  json: {            \n    data: encrypted,  \n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        336,
+        304
+      ],
+      "id": "8d3c414b-dd3b-446d-bc9c-6a0429363e37",
+      "name": "c1"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        560,
+        304
+      ],
+      "id": "6e55b020-a369-47dc-b21f-561bd96e78a0",
+      "name": "c2"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 352,
+        "width": 752
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        384,
+        -256
+      ],
+      "typeVersion": 1,
+      "id": "26fcc2ef-2789-435d-90ed-1eab9063ca0b",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        400,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "e5fd4da6-3981-46ed-9458-a255150180fa",
+      "name": "Sticky Note38"
+    },
+    {
+      "parameters": {
+        "content": "### Script  Decript.Js\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        640,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "2d9aed75-41a1-4fb8-90f1-731e33a57649",
+      "name": "Sticky Note39"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        880,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "74bcdb06-e4e8-4de6-b25f-d00c36304e76",
+      "name": "Sticky Note40"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "3bb4e66e-e354-415c-87d8-25631fd005a5-decript-publik-key",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        464,
+        -64
+      ],
+      "id": "7568734a-96cd-4f13-b1b3-7ddbfe0f5ddb",
+      "name": "b",
+      "webhookId": "3bb4e66e-e354-415c-87d8-25631fd005a5"
+    },
+    {
+      "parameters": {
+        "jsCode": "const encrypted = items[0].json.body.publicKey;  // Ambil data terenkripsi dari input JSON\n\n// Step 1: Pisahkan noise dari bagian data yang terenkripsi\nconst parts = encrypted.split('_');\nconst noise = parts[0];  // Noise acak, tidak digunakan dalam dekripsi\nconst base64Data = parts.slice(1).join('_');  // Gabungkan bagian yang tersisa (mungkin ada lebih dari 1 '_')\n\n// Step 2: Decode Base64 untuk mendapatkan data asli\nlet decodedData = Buffer.from(base64Data, 'base64').toString('utf8');\n\n// Step 3: Coba untuk mengonversi kembali ke objek atau array jika itu adalah format JSON\nlet originalData;\ntry {\n  originalData = JSON.parse(decodedData);  // Mengonversi string JSON kembali menjadi objek atau array\n} catch (e) {\n  originalData = decodedData;  // Jika gagal, tetap gunakan string biasa\n}\n\n// Output JSON dengan data yang didekripsi\nreturn [{\n  json: {\n    privateKey: originalData  // Output hasil dekripsi (data asli)\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        -64
+      ],
+      "id": "1c14f71c-ad36-4f01-a979-c26d01daebf1",
+      "name": "b1"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        944,
+        -64
+      ],
+      "id": "34ccd1b5-f3d5-485d-81f5-7dbe23595aee",
+      "name": "b2"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 352,
+        "width": 1248
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -208,
+        480
+      ],
+      "typeVersion": 1,
+      "id": "cf6f83cf-5e61-4604-939a-83f489a748ea",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -192,
+        624
+      ],
+      "typeVersion": 1,
+      "id": "1d87fe83-79a4-406b-8d39-4acd1d711f2d",
+      "name": "Sticky Note41"
+    },
+    {
+      "parameters": {
+        "content": "### Script  Decript.Js\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        48,
+        624
+      ],
+      "typeVersion": 1,
+      "id": "facc13f8-1de7-42d3-af5f-73a407523238",
+      "name": "Sticky Note42"
+    },
+    {
+      "parameters": {
+        "content": "### Script  Decript.Js\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        288,
+        624
+      ],
+      "typeVersion": 1,
+      "id": "dcdd1a46-6df4-4d58-895a-57767e50d37a",
+      "name": "Sticky Note43"
+    },
+    {
+      "parameters": {
+        "content": "### Script  Decript.Js\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        528,
+        624
+      ],
+      "typeVersion": 1,
+      "id": "7c69e66c-5a89-4127-960f-6dee723e1066",
+      "name": "Sticky Note44"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        768,
+        624
+      ],
+      "typeVersion": 1,
+      "id": "0b61f76d-94e6-4b73-90ed-10dc5f895dcc",
+      "name": "Sticky Note45"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "3bb4e66e-e354-415c-87d8-25631fd005a5-decript-data",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -128,
+        672
+      ],
+      "id": "b7fa1495-bfff-4fa2-bfbe-37b5eca62d46",
+      "name": "d",
+      "webhookId": "3bb4e66e-e354-415c-87d8-25631fd005a5"
+    },
+    {
+      "parameters": {
+        "jsCode": "const encrypted = items[0].json.body.key;  // Ambil data terenkripsi dari input JSON\n\n// Step 1: Pisahkan noise dari bagian data yang terenkripsi\nconst parts = encrypted.split('_');\nconst noise = parts[0];  // Noise acak, tidak digunakan dalam dekripsi\nconst base64Data = parts.slice(1).join('_');  // Gabungkan bagian yang tersisa (mungkin ada lebih dari 1 '_')\n\n// Step 2: Decode Base64 untuk mendapatkan data asli\nlet decodedData = Buffer.from(base64Data, 'base64').toString('utf8');\n\n// Step 3: Coba untuk mengonversi kembali ke objek atau array jika itu adalah format JSON\nlet originalData;\ntry {\n  originalData = JSON.parse(decodedData);  // Mengonversi string JSON kembali menjadi objek atau array\n} catch (e) {\n  originalData = decodedData;  // Jika gagal, tetap gunakan string biasa\n}\n\n// Output JSON dengan data yang didekripsi\nreturn [{\n  json: {\n    key: originalData  // Output hasil dekripsi (data asli)\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        128,
+        672
+      ],
+      "id": "8e644d86-8197-43b1-b62a-ef3022ff3ea3",
+      "name": "d1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b44e1db0-a696-4822-8ef9-e6b3a2a9e01e",
+              "name": "data",
+              "value": "={{ $('d').item.json.body.data }}",
+              "type": "string"
+            },
+            {
+              "id": "326afa67-65dd-4d1c-9f9e-55c517f87022",
+              "name": "key",
+              "value": "={{ $json.key }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        352,
+        672
+      ],
+      "id": "e65b958a-163a-4638-a6ff-510a217a5ca0",
+      "name": "d2",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Ambil data yang terenkripsi dan key dari input JSON\nconst encrypted = items[0].json.data;  // Ambil data terenkripsi dari input JSON\nconst key = items[0].json.key;         // Ambil key dari input JSON\n\n// Step 1: Pisahkan noise acak dan bagian yang terenkripsi\nconst parts = encrypted.split('_');\nconst noise = parts[0];               // Noise acak (tidak digunakan dalam dekripsi)\nconst keyLengthHex = parts[1];        // Panjang key dalam format hexadecimal (juga tidak digunakan dalam dekripsi)\nconst hexEncrypted = parts[2];        // Bagian terenkripsi dalam format hexadecimal\n\n// Step 2: Convert hex kembali ke array XOR\nlet xorResult = [];\nfor (let i = 0; i < hexEncrypted.length; i += 2) {\n  xorResult.push(parseInt(hexEncrypted.substr(i, 2), 16));\n}\n\n// Step 3: XOR balik untuk mendapatkan Base64\nlet baseDecoded = '';\nfor (let i = 0; i < xorResult.length; i++) {\n  let keyCharCode = key.charCodeAt(i % key.length);  // Gunakan key secara berulang\n  let charCode = xorResult[i] ^ keyCharCode;         // XOR balik untuk mendapatkan char asli\n  baseDecoded += String.fromCharCode(charCode);      // Gabungkan hasil menjadi string\n}\n\n// Step 4: Base64 decode untuk mendapatkan data asli (URL atau objek/array)\nlet decodedData = Buffer.from(baseDecoded, 'base64').toString('utf8');\n\n// Step 5: Cek apakah data yang didekode adalah objek atau array, dan kembalikan sesuai format\nlet originalData;\ntry {\n  originalData = JSON.parse(decodedData);  // Mengonversi string ke objek atau array jika bisa\n} catch (e) {\n  originalData = decodedData;  // Jika gagal (bukan JSON), kembalikan sebagai string biasa\n}\n\n// Output JSON dengan data yang didekripsi\nreturn [{\n  json: {\n    data: originalData  // Output hasil dekripsi (data asli)\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        592,
+        672
+      ],
+      "id": "1df5ff14-9c08-4522-b90c-17bb4135af8e",
+      "name": "d3"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        800,
+        672
+      ],
+      "id": "d17bffb8-a3b0-4306-95d4-8150f2057711",
+      "name": "d4"
+    }
+  ],
+  "connections": {
+    "a": {
+      "main": [
+        [
+          {
+            "node": "a1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "a1": {
+      "main": [
+        [
+          {
+            "node": "a2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c": {
+      "main": [
+        [
+          {
+            "node": "c1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c1": {
+      "main": [
+        [
+          {
+            "node": "c2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b": {
+      "main": [
+        [
+          {
+            "node": "b1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "b1": {
+      "main": [
+        [
+          {
+            "node": "b2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "d": {
+      "main": [
+        [
+          {
+            "node": "d1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "d1": {
+      "main": [
+        [
+          {
+            "node": "d2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "d2": {
+      "main": [
+        [
+          {
+            "node": "d3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "d3": {
+      "main": [
+        [
+          {
+            "node": "d4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "5698dab2-453e-4d85-8b77-9e02dfc7e6d2",
+  "activeVersionId": "5698dab2-453e-4d85-8b77-9e02dfc7e6d2",
+  "triggerCount": 4,
+  "shared": [
+    {
+      "updatedAt": "2025-12-02T07:48:28.337Z",
+      "createdAt": "2025-12-02T07:48:28.337Z",
+      "role": "workflow:owner",
+      "workflowId": "bkujltHTudpMwHrU",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-23T07:58:41.692Z",
+    "createdAt": "2025-12-23T07:58:41.692Z",
+    "versionId": "5698dab2-453e-4d85-8b77-9e02dfc7e6d2",
+    "workflowId": "bkujltHTudpMwHrU",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 352,
+          "width": 752
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -384,
+          -256
+        ],
+        "typeVersion": 1,
+        "id": "643bc5d8-5aee-48e7-afe6-edb06daf2ba6",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "## Encript Private Key To Public Key",
+          "height": 80
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -128,
+          -224
+        ],
+        "typeVersion": 1,
+        "id": "17d8d40d-aa75-45f7-aaa5-6fb0d6657e2a",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "content": "## Decript Public Key To Private Key",
+          "height": 80
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          640,
+          -224
+        ],
+        "typeVersion": 1,
+        "id": "8661683a-f64e-43fb-be0e-0f461e931780",
+        "name": "Sticky Note3"
+      },
+      {
+        "parameters": {
+          "content": "## Encript Data Use Key",
+          "height": 80,
+          "width": 272
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          256,
+          144
+        ],
+        "typeVersion": 1,
+        "id": "a946d863-a17f-46bb-9298-fe263f0aaeb1",
+        "name": "Sticky Note5"
+      },
+      {
+        "parameters": {
+          "content": "## Decript Data Use Key",
+          "height": 80,
+          "width": 272
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          272,
+          512
+        ],
+        "typeVersion": 1,
+        "id": "ce6995e7-a9b4-44ef-bd4a-1716253ce14d",
+        "name": "Sticky Note7"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -368,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "491f3f9b-e4e7-4a42-b807-3cfc40cec614",
+        "name": "Sticky Note32"
+      },
+      {
+        "parameters": {
+          "content": "### Script  Encript.Js\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -128,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "8237dbc5-2179-4a54-8857-f2d61a30b664",
+        "name": "Sticky Note33"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          112,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "c275c442-81a5-46aa-995f-8c056b3cb2d9",
+        "name": "Sticky Note34"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "3bb4e66e-e354-415c-87d8-25631fd005a5-encript-privat-key",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -256,
+          -64
+        ],
+        "id": "a006a4e3-02e3-43a8-9fa5-5ab30f6698e2",
+        "name": "a",
+        "webhookId": "3bb4e66e-e354-415c-87d8-25631fd005a5"
+      },
+      {
+        "parameters": {
+          "jsCode": "const data = items[0].json.body.key;  \n\n// Pastikan data dalam bentuk string\nlet base = Buffer.from(JSON.stringify(data), \"utf8\").toString(\"base64\");\n\n// Tambahkan noise dan encoding\nconst noise = (Math.random() + 1).toString(36).substring(2, 8);\nconst encrypted = noise + \"_\" + base;  // Hanya menambahkan noise ke base64 data\n\nreturn [{\n  json: {            \n    publicKey: encrypted,  // Output hasil enkripsi dengan noise\n  }\n}];\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -48,
+          -64
+        ],
+        "id": "544ed8bd-57fe-4f8d-91df-08a3c98ea25b",
+        "name": "a1"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          144,
+          -64
+        ],
+        "id": "e55623a2-f8ba-48c7-9dc0-5e13a7a5e4f9",
+        "name": "a2"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 352,
+          "width": 752
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          0,
+          112
+        ],
+        "typeVersion": 1,
+        "id": "552017cd-7246-4463-a6e1-98de01a02726",
+        "name": "Sticky Note4"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          16,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "ac7d856c-b0fb-4384-9dad-b40345aa52ff",
+        "name": "Sticky Note35"
+      },
+      {
+        "parameters": {
+          "content": "### Script  Encript.Js\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          256,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "e6432568-bb57-4f02-8710-e5fe79a0f8a2",
+        "name": "Sticky Note36"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          496,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "081efa58-7007-43fc-98c5-1b707e1081ad",
+        "name": "Sticky Note37"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          80,
+          304
+        ],
+        "id": "5bee281a-262a-4264-9936-129c56a8edb9",
+        "name": "c",
+        "webhookId": "3bb4e66e-e354-415c-87d8-25631fd005a5"
+      },
+      {
+        "parameters": {
+          "jsCode": "const data = items[0].json.body.data;  \nconst key = items[0].json.body.key;   \n\n// Pastikan data dalam bentuk string\nlet base = Buffer.from(JSON.stringify(data), \"utf8\").toString(\"base64\");\n\nlet xorResult = [];\nfor (let i = 0; i < base.length; i++) {\n  let charCode = base.charCodeAt(i);\n  let keyCharCode = key.charCodeAt(i % key.length); \n  xorResult.push(charCode ^ keyCharCode);\n}\n\nlet hex = xorResult.map(v => v.toString(16).padStart(2, \"0\")).join(\"\");\n\n// Tambahkan noise dan encoding\nconst noise = (Math.random() + 1).toString(36).substring(2, 8);\nconst encrypted = noise + \"_\" + key.length.toString(16) + \"_\" + hex;\n\nreturn [{\n  json: {            \n    data: encrypted,  \n  }\n}];\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          336,
+          304
+        ],
+        "id": "8d3c414b-dd3b-446d-bc9c-6a0429363e37",
+        "name": "c1"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          560,
+          304
+        ],
+        "id": "6e55b020-a369-47dc-b21f-561bd96e78a0",
+        "name": "c2"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 352,
+          "width": 752
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          384,
+          -256
+        ],
+        "typeVersion": 1,
+        "id": "26fcc2ef-2789-435d-90ed-1eab9063ca0b",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          400,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "e5fd4da6-3981-46ed-9458-a255150180fa",
+        "name": "Sticky Note38"
+      },
+      {
+        "parameters": {
+          "content": "### Script  Decript.Js\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          640,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "2d9aed75-41a1-4fb8-90f1-731e33a57649",
+        "name": "Sticky Note39"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          880,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "74bcdb06-e4e8-4de6-b25f-d00c36304e76",
+        "name": "Sticky Note40"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "3bb4e66e-e354-415c-87d8-25631fd005a5-decript-publik-key",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          464,
+          -64
+        ],
+        "id": "7568734a-96cd-4f13-b1b3-7ddbfe0f5ddb",
+        "name": "b",
+        "webhookId": "3bb4e66e-e354-415c-87d8-25631fd005a5"
+      },
+      {
+        "parameters": {
+          "jsCode": "const encrypted = items[0].json.body.publicKey;  // Ambil data terenkripsi dari input JSON\n\n// Step 1: Pisahkan noise dari bagian data yang terenkripsi\nconst parts = encrypted.split('_');\nconst noise = parts[0];  // Noise acak, tidak digunakan dalam dekripsi\nconst base64Data = parts.slice(1).join('_');  // Gabungkan bagian yang tersisa (mungkin ada lebih dari 1 '_')\n\n// Step 2: Decode Base64 untuk mendapatkan data asli\nlet decodedData = Buffer.from(base64Data, 'base64').toString('utf8');\n\n// Step 3: Coba untuk mengonversi kembali ke objek atau array jika itu adalah format JSON\nlet originalData;\ntry {\n  originalData = JSON.parse(decodedData);  // Mengonversi string JSON kembali menjadi objek atau array\n} catch (e) {\n  originalData = decodedData;  // Jika gagal, tetap gunakan string biasa\n}\n\n// Output JSON dengan data yang didekripsi\nreturn [{\n  json: {\n    privateKey: originalData  // Output hasil dekripsi (data asli)\n  }\n}];\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          720,
+          -64
+        ],
+        "id": "1c14f71c-ad36-4f01-a979-c26d01daebf1",
+        "name": "b1"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          944,
+          -64
+        ],
+        "id": "34ccd1b5-f3d5-485d-81f5-7dbe23595aee",
+        "name": "b2"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 352,
+          "width": 1248
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -208,
+          480
+        ],
+        "typeVersion": 1,
+        "id": "cf6f83cf-5e61-4604-939a-83f489a748ea",
+        "name": "Sticky Note6"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -192,
+          624
+        ],
+        "typeVersion": 1,
+        "id": "1d87fe83-79a4-406b-8d39-4acd1d711f2d",
+        "name": "Sticky Note41"
+      },
+      {
+        "parameters": {
+          "content": "### Script  Decript.Js\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          48,
+          624
+        ],
+        "typeVersion": 1,
+        "id": "facc13f8-1de7-42d3-af5f-73a407523238",
+        "name": "Sticky Note42"
+      },
+      {
+        "parameters": {
+          "content": "### Script  Decript.Js\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          288,
+          624
+        ],
+        "typeVersion": 1,
+        "id": "dcdd1a46-6df4-4d58-895a-57767e50d37a",
+        "name": "Sticky Note43"
+      },
+      {
+        "parameters": {
+          "content": "### Script  Decript.Js\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          528,
+          624
+        ],
+        "typeVersion": 1,
+        "id": "7c69e66c-5a89-4127-960f-6dee723e1066",
+        "name": "Sticky Note44"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          768,
+          624
+        ],
+        "typeVersion": 1,
+        "id": "0b61f76d-94e6-4b73-90ed-10dc5f895dcc",
+        "name": "Sticky Note45"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "3bb4e66e-e354-415c-87d8-25631fd005a5-decript-data",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -128,
+          672
+        ],
+        "id": "b7fa1495-bfff-4fa2-bfbe-37b5eca62d46",
+        "name": "d",
+        "webhookId": "3bb4e66e-e354-415c-87d8-25631fd005a5"
+      },
+      {
+        "parameters": {
+          "jsCode": "const encrypted = items[0].json.body.key;  // Ambil data terenkripsi dari input JSON\n\n// Step 1: Pisahkan noise dari bagian data yang terenkripsi\nconst parts = encrypted.split('_');\nconst noise = parts[0];  // Noise acak, tidak digunakan dalam dekripsi\nconst base64Data = parts.slice(1).join('_');  // Gabungkan bagian yang tersisa (mungkin ada lebih dari 1 '_')\n\n// Step 2: Decode Base64 untuk mendapatkan data asli\nlet decodedData = Buffer.from(base64Data, 'base64').toString('utf8');\n\n// Step 3: Coba untuk mengonversi kembali ke objek atau array jika itu adalah format JSON\nlet originalData;\ntry {\n  originalData = JSON.parse(decodedData);  // Mengonversi string JSON kembali menjadi objek atau array\n} catch (e) {\n  originalData = decodedData;  // Jika gagal, tetap gunakan string biasa\n}\n\n// Output JSON dengan data yang didekripsi\nreturn [{\n  json: {\n    key: originalData  // Output hasil dekripsi (data asli)\n  }\n}];\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          128,
+          672
+        ],
+        "id": "8e644d86-8197-43b1-b62a-ef3022ff3ea3",
+        "name": "d1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "b44e1db0-a696-4822-8ef9-e6b3a2a9e01e",
+                "name": "data",
+                "value": "={{ $('d').item.json.body.data }}",
+                "type": "string"
+              },
+              {
+                "id": "326afa67-65dd-4d1c-9f9e-55c517f87022",
+                "name": "key",
+                "value": "={{ $json.key }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          352,
+          672
+        ],
+        "id": "e65b958a-163a-4638-a6ff-510a217a5ca0",
+        "name": "d2",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "jsCode": "// Ambil data yang terenkripsi dan key dari input JSON\nconst encrypted = items[0].json.data;  // Ambil data terenkripsi dari input JSON\nconst key = items[0].json.key;         // Ambil key dari input JSON\n\n// Step 1: Pisahkan noise acak dan bagian yang terenkripsi\nconst parts = encrypted.split('_');\nconst noise = parts[0];               // Noise acak (tidak digunakan dalam dekripsi)\nconst keyLengthHex = parts[1];        // Panjang key dalam format hexadecimal (juga tidak digunakan dalam dekripsi)\nconst hexEncrypted = parts[2];        // Bagian terenkripsi dalam format hexadecimal\n\n// Step 2: Convert hex kembali ke array XOR\nlet xorResult = [];\nfor (let i = 0; i < hexEncrypted.length; i += 2) {\n  xorResult.push(parseInt(hexEncrypted.substr(i, 2), 16));\n}\n\n// Step 3: XOR balik untuk mendapatkan Base64\nlet baseDecoded = '';\nfor (let i = 0; i < xorResult.length; i++) {\n  let keyCharCode = key.charCodeAt(i % key.length);  // Gunakan key secara berulang\n  let charCode = xorResult[i] ^ keyCharCode;         // XOR balik untuk mendapatkan char asli\n  baseDecoded += String.fromCharCode(charCode);      // Gabungkan hasil menjadi string\n}\n\n// Step 4: Base64 decode untuk mendapatkan data asli (URL atau objek/array)\nlet decodedData = Buffer.from(baseDecoded, 'base64').toString('utf8');\n\n// Step 5: Cek apakah data yang didekode adalah objek atau array, dan kembalikan sesuai format\nlet originalData;\ntry {\n  originalData = JSON.parse(decodedData);  // Mengonversi string ke objek atau array jika bisa\n} catch (e) {\n  originalData = decodedData;  // Jika gagal (bukan JSON), kembalikan sebagai string biasa\n}\n\n// Output JSON dengan data yang didekripsi\nreturn [{\n  json: {\n    data: originalData  // Output hasil dekripsi (data asli)\n  }\n}];\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          592,
+          672
+        ],
+        "id": "1df5ff14-9c08-4522-b90c-17bb4135af8e",
+        "name": "d3"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          800,
+          672
+        ],
+        "id": "d17bffb8-a3b0-4306-95d4-8150f2057711",
+        "name": "d4"
+      }
+    ],
+    "connections": {
+      "a": {
+        "main": [
+          [
+            {
+              "node": "a1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "a1": {
+        "main": [
+          [
+            {
+              "node": "a2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c": {
+        "main": [
+          [
+            {
+              "node": "c1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c1": {
+        "main": [
+          [
+            {
+              "node": "c2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b": {
+        "main": [
+          [
+            {
+              "node": "b1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "b1": {
+        "main": [
+          [
+            {
+              "node": "b2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "d": {
+        "main": [
+          [
+            {
+              "node": "d1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "d1": {
+        "main": [
+          [
+            {
+              "node": "d2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "d2": {
+        "main": [
+          [
+            {
+              "node": "d3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "d3": {
+        "main": [
+          [
+            {
+              "node": "d4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
