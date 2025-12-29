@@ -1,0 +1,592 @@
+{
+  "updatedAt": "2025-12-29T05:44:17.675Z",
+  "createdAt": "2025-12-28T06:37:05.206Z",
+  "id": "MvnUK2IZynDnF0yl",
+  "name": "Create Surat Mawokau Jaya - Sub AI Agent",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 496,
+        "width": 1040
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -256,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "8ec864d3-2961-4015-b57d-5e33966f73e4",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -176,
+        -16
+      ],
+      "typeVersion": 1,
+      "id": "2bff8acd-052b-429a-aab4-b5f7d1b98413",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "### Sub AI Agent Create Surat",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        64,
+        -16
+      ],
+      "typeVersion": 1,
+      "id": "11f02b32-08cc-4620-bb96-064bd7621f57",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        464,
+        -16
+      ],
+      "typeVersion": 1,
+      "id": "6a98850a-c9e8-4a93-a11c-4c81d39f936a",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        224
+      ],
+      "typeVersion": 1,
+      "id": "a3a6aef6-ba4a-4f50-853c-2ecf5064f521",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### [Tool Create Surat](https://drive.google.com/file/d/1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM/view)\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        272,
+        224
+      ],
+      "typeVersion": 1,
+      "id": "ad1156eb-dc84-4a80-8bc0-52c11388bce7",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "85f2f218-4e59-4043-b67c-c6e6a0143910",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -96,
+        48
+      ],
+      "id": "1e875f6d-026c-4da9-9640-c62a981d08d4",
+      "name": "WI-Surat",
+      "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        496,
+        48
+      ],
+      "id": "c110193b-3dec-45cb-b497-37008f5fe5cb",
+      "name": "WR-Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        64,
+        288
+      ],
+      "id": "72297942-a24b-45f3-acd7-9b66e6f69229",
+      "name": "AI-Surat",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM",
+          "mode": "id"
+        },
+        "name": "={{ $json.body['File Name'] }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.body['Parent Folder'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        352,
+        272
+      ],
+      "id": "02245326-1d4a-4117-a45e-9f4b93e4e62b",
+      "name": "Surat SKTM Mawokau Jaya",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Folder\n### **[Create Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/EGNbiL4dDoPys27W)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Kampung Mawokau Jaya](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/QA3wakPu2e2t1Wsc/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/l5O9uhHHxLl30Szw/workflows) / [Create Surat Mawokau Jaya - Sub AI Agent]()** \n\n",
+        "height": 112,
+        "width": 1040
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -256,
+        -160
+      ],
+      "typeVersion": 1,
+      "id": "14983708-99c0-4c77-93c5-a1c52935eb98",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body[\"System Message\"] }}",
+          "maxIterations": 3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        128,
+        48
+      ],
+      "id": "d0cb1ebd-74b8-4f1f-a2dd-2ce8fc1e4db1",
+      "name": "Sub AI Agent Create Surat"
+    }
+  ],
+  "connections": {
+    "WI-Surat": {
+      "main": [
+        [
+          {
+            "node": "Sub AI Agent Create Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Surat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sub AI Agent Create Surat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat SKTM Mawokau Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sub AI Agent Create Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sub AI Agent Create Surat": {
+      "main": [
+        [
+          {
+            "node": "WR-Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "WI-Surat": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "282",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9b28e0872edff928-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.68.164.166",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.68.164.166"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Prompt": "Saya Minta Id Surat SKTM Kampung Nawaripi\nRespon Hanya berikan Id Tanpa Menambahkan Apapun",
+            "System Message": "Gunakan \"Surat SKTM Kampung Nawaripi\" Untuk Mendapatkan Id Yang Di Minta",
+            "File Name": "SKTM - Syafruddin",
+            "Parent Folder": "1YreC0asR3oJqtyEWiat7XtlePgaD6mZe"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "5c14ef50-635e-4aab-80bb-b503b46721bb",
+  "activeVersionId": "5c14ef50-635e-4aab-80bb-b503b46721bb",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-28T06:37:05.209Z",
+      "createdAt": "2025-12-28T06:37:05.209Z",
+      "role": "workflow:owner",
+      "workflowId": "MvnUK2IZynDnF0yl",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-29T05:44:17.675Z",
+    "createdAt": "2025-12-29T05:44:17.675Z",
+    "versionId": "5c14ef50-635e-4aab-80bb-b503b46721bb",
+    "workflowId": "MvnUK2IZynDnF0yl",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 496,
+          "width": 1040
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -256,
+          -48
+        ],
+        "typeVersion": 1,
+        "id": "8ec864d3-2961-4015-b57d-5e33966f73e4",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -176,
+          -16
+        ],
+        "typeVersion": 1,
+        "id": "2bff8acd-052b-429a-aab4-b5f7d1b98413",
+        "name": "Sticky Note17"
+      },
+      {
+        "parameters": {
+          "content": "### Sub AI Agent Create Surat",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          64,
+          -16
+        ],
+        "typeVersion": 1,
+        "id": "11f02b32-08cc-4620-bb96-064bd7621f57",
+        "name": "Sticky Note28"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          464,
+          -16
+        ],
+        "typeVersion": 1,
+        "id": "6a98850a-c9e8-4a93-a11c-4c81d39f936a",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          0,
+          224
+        ],
+        "typeVersion": 1,
+        "id": "a3a6aef6-ba4a-4f50-853c-2ecf5064f521",
+        "name": "Sticky Note27"
+      },
+      {
+        "parameters": {
+          "content": "### [Tool Create Surat](https://drive.google.com/file/d/1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM/view)\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          272,
+          224
+        ],
+        "typeVersion": 1,
+        "id": "ad1156eb-dc84-4a80-8bc0-52c11388bce7",
+        "name": "Sticky Note25"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "85f2f218-4e59-4043-b67c-c6e6a0143910",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -96,
+          48
+        ],
+        "id": "1e875f6d-026c-4da9-9640-c62a981d08d4",
+        "name": "WI-Surat",
+        "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          496,
+          48
+        ],
+        "id": "c110193b-3dec-45cb-b497-37008f5fe5cb",
+        "name": "WR-Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          64,
+          288
+        ],
+        "id": "72297942-a24b-45f3-acd7-9b66e6f69229",
+        "name": "AI-Surat",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "copy",
+          "fileId": {
+            "__rl": true,
+            "value": "1hIUu5sswUdP9jlh4Ze3pfqZ_8IXSmE6hThv-xnLe5XM",
+            "mode": "id"
+          },
+          "name": "={{ $json.body['File Name'] }}",
+          "sameFolder": false,
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.body['Parent Folder'] }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          352,
+          272
+        ],
+        "id": "02245326-1d4a-4117-a45e-9f4b93e4e62b",
+        "name": "Surat SKTM Mawokau Jaya",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Folder\n### **[Create Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/EGNbiL4dDoPys27W)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Kampung Mawokau Jaya](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/QA3wakPu2e2t1Wsc/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/l5O9uhHHxLl30Szw/workflows) / [Create Surat Mawokau Jaya - Sub AI Agent]()** \n\n",
+          "height": 112,
+          "width": 1040
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -256,
+          -160
+        ],
+        "typeVersion": 1,
+        "id": "14983708-99c0-4c77-93c5-a1c52935eb98",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body[\"System Message\"] }}",
+            "maxIterations": 3
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3,
+        "position": [
+          128,
+          48
+        ],
+        "id": "d0cb1ebd-74b8-4f1f-a2dd-2ce8fc1e4db1",
+        "name": "Sub AI Agent Create Surat"
+      }
+    ],
+    "connections": {
+      "WI-Surat": {
+        "main": [
+          [
+            {
+              "node": "Sub AI Agent Create Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Surat": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Sub AI Agent Create Surat",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat SKTM Mawokau Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "Sub AI Agent Create Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Sub AI Agent Create Surat": {
+        "main": [
+          [
+            {
+              "node": "WR-Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
