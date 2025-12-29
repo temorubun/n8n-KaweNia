@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-12-28T08:22:40.000Z",
+  "createdAt": "2025-12-01T08:50:32.039Z",
+  "id": "z9m309EzTLCKLzBX",
+  "name": "dfdsfs",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "d8047353-3774-41bb-b551-0a0a95405dca",
+  "activeVersionId": null,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-01T08:50:32.044Z",
+      "createdAt": "2025-12-01T08:50:32.044Z",
+      "role": "workflow:owner",
+      "workflowId": "z9m309EzTLCKLzBX",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
