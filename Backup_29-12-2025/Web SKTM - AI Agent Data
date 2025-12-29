@@ -1,0 +1,1379 @@
+{
+  "updatedAt": "2025-12-28T08:39:00.365Z",
+  "createdAt": "2025-11-16T05:55:24.569Z",
+  "id": "MUvsV7i1WkFokBze",
+  "name": "Web SKTM - AI Agent Data",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "fUTlW2k4iFZCRbar",
+          "mode": "list",
+          "cachedResultName": "Data Web SKTM",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kampung Nawaripi"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -512,
+        -416
+      ],
+      "id": "bc7ef80a-60e0-43c3-b4c6-bb21ca0b1ee5",
+      "name": "Data Nawaripi"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "fUTlW2k4iFZCRbar",
+          "mode": "list",
+          "cachedResultName": "Data Web SKTM",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kampung Mawokau Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        -416
+      ],
+      "id": "c7e7080a-d894-4f45-95b7-ace9ea247c68",
+      "name": "Data Mawokau Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "fUTlW2k4iFZCRbar",
+          "mode": "list",
+          "cachedResultName": "Data Web SKTM",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kampung Mandiri Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        -416
+      ],
+      "id": "46cf6bb9-d681-44c6-8b2c-da873c93787f",
+      "name": "Data Mandiri Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "fUTlW2k4iFZCRbar",
+          "mode": "list",
+          "cachedResultName": "Data Web SKTM",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kampung Kadun Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        208,
+        -416
+      ],
+      "id": "844b1c9d-a25e-4f0b-8db2-9624a931d1f1",
+      "name": "Data Kadun Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "fUTlW2k4iFZCRbar",
+          "mode": "list",
+          "cachedResultName": "Data Web SKTM",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kelurahan Wonosari Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        464,
+        -416
+      ],
+      "id": "374174b5-463d-420b-9f3e-91ba794c1a09",
+      "name": "Data Wonosari Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "fUTlW2k4iFZCRbar",
+          "mode": "list",
+          "cachedResultName": "Data Web SKTM",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kelurahan Kamoro Jaya"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        704,
+        -416
+      ],
+      "id": "ecd361e6-f5ff-455e-8453-2fea431fef44",
+      "name": "Data Kamoro Jaya"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "fUTlW2k4iFZCRbar",
+          "mode": "list",
+          "cachedResultName": "Data Web SKTM",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Kelurahan Inauga"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        928,
+        -416
+      ],
+      "id": "63c4cde6-3d1b-4ec4-b374-9484c450ffc3",
+      "name": "Data Inauga"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "fUTlW2k4iFZCRbar",
+          "mode": "list",
+          "cachedResultName": "Data Web SKTM",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Distrik Wania"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        1184,
+        -416
+      ],
+      "id": "27e2dd7d-a6eb-4f56-abf7-960a131996a5",
+      "name": "Data Distrik Wania"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $json.body['System Message'] }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        272,
+        -880
+      ],
+      "id": "461a396d-6248-4dc8-82ac-6f1eb2418452",
+      "name": "AI Agent Data Web"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 720,
+        "width": 1984
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -608,
+        -960
+      ],
+      "typeVersion": 1,
+      "id": "9a9c14b9-e325-4c5c-bcbe-62c5526c263c",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -64,
+        -928
+      ],
+      "typeVersion": 1,
+      "id": "21999e5f-a434-403a-80f5-c5b27c612f00",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Data Web SKTM\n\n\n\n\n\n\n\n### ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        176,
+        -928
+      ],
+      "typeVersion": 1,
+      "id": "f9527e89-d208-4b4f-93e1-408b97390bf3",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        576,
+        -928
+      ],
+      "typeVersion": 1,
+      "id": "56542c73-defe-45f3-9d8f-6d90b7878f8d",
+      "name": "Sticky Note31"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        48,
+        -704
+      ],
+      "typeVersion": 1,
+      "id": "cf28ea99-2581-4f16-b5d0-d613435e6b16",
+      "name": "Sticky Note32"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Data Nawaripi\n\n\n\n\n\n\n\n\n\n                                \n                                      \n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -576,
+        -480
+      ],
+      "typeVersion": 1,
+      "id": "9288de1d-87be-46ab-a45f-d0f2e1e6335c",
+      "name": "Sticky Note33"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Data Mawokau Jaya\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -336,
+        -480
+      ],
+      "typeVersion": 1,
+      "id": "2d25d685-5b40-4030-a02e-c38d4a989879",
+      "name": "Sticky Note34"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Data Mandiri Jaya\n\n\n\n\n\n\n\n###  ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -96,
+        -480
+      ],
+      "typeVersion": 1,
+      "id": "6f680eda-7702-440a-bceb-d245a3714495",
+      "name": "Sticky Note35"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Data Kadun Jaya\n\n\n\n\n\n\n\n###  ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        144,
+        -480
+      ],
+      "typeVersion": 1,
+      "id": "0a917f6e-89df-4447-8dd9-ee7f0bd0aff0",
+      "name": "Sticky Note36"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Data Wonosari Jaya\n\n\n\n\n\n\n\n###  ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        384,
+        -480
+      ],
+      "typeVersion": 1,
+      "id": "bd935968-8c9e-4493-83f6-6e1dd76473de",
+      "name": "Sticky Note38"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Data Kamoro Jaya\n\n\n\n\n\n\n\n###  ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        624,
+        -480
+      ],
+      "typeVersion": 1,
+      "id": "b812b86a-da94-42fc-ba9d-7153b14f477a",
+      "name": "Sticky Note39"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Data Inauga\n\n\n\n\n\n\n\n###  ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        864,
+        -480
+      ],
+      "typeVersion": 1,
+      "id": "99e8feba-0347-4fa4-925a-23485f0fc3bd",
+      "name": "Sticky Note40"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Data Distrik Wania\n\n\n\n\n\n\n\n###  ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1104,
+        -480
+      ],
+      "typeVersion": 1,
+      "id": "af9455d3-2e70-49d3-8501-110829263b9c",
+      "name": "Sticky Note41"
+    },
+    {
+      "parameters": {
+        "content": "### Format Respon\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        560,
+        -704
+      ],
+      "typeVersion": 1,
+      "id": "ea153ad7-4578-4259-8f17-9e44eca5cb92",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "6944c1da-bb3d-455e-aa09-4e1e0a192a84",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        -880
+      ],
+      "id": "5e80c7c7-150e-4e7e-aa1c-50ae3fa7370d",
+      "name": "WI-Data",
+      "webhookId": "6944c1da-bb3d-455e-aa09-4e1e0a192a84"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        624,
+        -880
+      ],
+      "id": "efb01ad2-5c3b-4b6d-925b-419d8350a821",
+      "name": "WR-Data"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        112,
+        -624
+      ],
+      "id": "3e11f219-631b-48b2-adb3-5dc48e5ee0a5",
+      "name": "AI-Data",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"Nama\": \"\",\n  \"Tombol_Kirim_Surat_SKTM_User\": \"\",\n  \"Tombol_Edit_Data_SKTM_User\": \"\",\n  \"Tombol_Hapus_File_SKTM_User\": \"\",\n  \"Tombol_Kirim_File_SKTM_User\": \"\",\n  \"Tombol_Hapus_Surat_SKTM_User\": \"\",\n  \"Tombol_Kirim_Surat_SKTM_Admin_1\": \"\",\n  \"Tombol_Kirim_Pesan_SKTM_Admin_1\": \"\",\n  \"Tombol_Hapus_Surat_SKTM_Admin_1\": \"\",  \n  \"Tombol_Kirim_Surat_SKTM_Admin_2\": \"\",\n  \"Tombol_Kirim_Pesan_SKTM_Admin_2\": \"\",\n  \"Tombol_Hapus_Surat_SKTM_Admin_2\": \"\",  \n  \"Keterangan_SKTM\": {\n    \"keterangan_1\": \"\",\n    \"keterangan_2\": \"\",\n    \"keterangan_3\": \"\",\n    \"keterangan_4\": \"\",\n    \"keterangan_5\": \"\"\n  },\n  \"Logo\": \"\"\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        640,
+        -624
+      ],
+      "id": "789cd732-c028-4dad-a81a-a1872cdf7e16",
+      "name": "Format Respon"
+    }
+  ],
+  "connections": {
+    "Data Nawaripi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Mawokau Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Mandiri Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Kadun Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Wonosari Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Kamoro Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Inauga": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Distrik Wania": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Data Web": {
+      "main": [
+        [
+          {
+            "node": "WR-Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WI-Data": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Data": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Respon": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent Data Web",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "WI-Data": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "594",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9afcdf78997dc211-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.70.92.230",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.70.92.230"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Prompt": "Saya Minta Data\n\nketerangan_1 dari keterangan sktm nomor 1\nketerangan_2 dari keterangan sktm nomor 2\nketerangan_3 dari keterangan sktm nomor 3\nketerangan_4 dari keterangan sktm nomor 4\nketerangan_5 dari keterangan sktm nomor 5\nlogo dari logo\nkirim_surat dari tombol kirim surat admin1\nhapus_surat dari tombol hapus surat admin1\n\n",
+            "System Message": "Wajib Gunakan \"Data Kampung Nawaripi\" Untuk Mendapatkan Semua Data Yang Di Minta\nuntuk keterangan sktm nomor 3 lakukan edit pada bagian biaya yang sesuai dengan untuk administrasi kampus politeknik amamapare timika\n\n"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/6944c1da-bb3d-455e-aa09-4e1e0a192a84",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "de698f9b-dcd1-42a7-a328-0451fa678385",
+  "activeVersionId": "de698f9b-dcd1-42a7-a328-0451fa678385",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-16T05:55:24.573Z",
+      "createdAt": "2025-11-16T05:55:24.573Z",
+      "role": "workflow:owner",
+      "workflowId": "MUvsV7i1WkFokBze",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-28T08:39:00.365Z",
+    "createdAt": "2025-12-28T08:39:00.365Z",
+    "versionId": "de698f9b-dcd1-42a7-a328-0451fa678385",
+    "workflowId": "MUvsV7i1WkFokBze",
+    "nodes": [
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "fUTlW2k4iFZCRbar",
+            "mode": "list",
+            "cachedResultName": "Data Web SKTM",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kampung Nawaripi"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -512,
+          -416
+        ],
+        "id": "bc7ef80a-60e0-43c3-b4c6-bb21ca0b1ee5",
+        "name": "Data Nawaripi"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "fUTlW2k4iFZCRbar",
+            "mode": "list",
+            "cachedResultName": "Data Web SKTM",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kampung Mawokau Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -256,
+          -416
+        ],
+        "id": "c7e7080a-d894-4f45-95b7-ace9ea247c68",
+        "name": "Data Mawokau Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "fUTlW2k4iFZCRbar",
+            "mode": "list",
+            "cachedResultName": "Data Web SKTM",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kampung Mandiri Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -16,
+          -416
+        ],
+        "id": "46cf6bb9-d681-44c6-8b2c-da873c93787f",
+        "name": "Data Mandiri Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "fUTlW2k4iFZCRbar",
+            "mode": "list",
+            "cachedResultName": "Data Web SKTM",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kampung Kadun Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          208,
+          -416
+        ],
+        "id": "844b1c9d-a25e-4f0b-8db2-9624a931d1f1",
+        "name": "Data Kadun Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "fUTlW2k4iFZCRbar",
+            "mode": "list",
+            "cachedResultName": "Data Web SKTM",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kelurahan Wonosari Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          464,
+          -416
+        ],
+        "id": "374174b5-463d-420b-9f3e-91ba794c1a09",
+        "name": "Data Wonosari Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "fUTlW2k4iFZCRbar",
+            "mode": "list",
+            "cachedResultName": "Data Web SKTM",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kelurahan Kamoro Jaya"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          704,
+          -416
+        ],
+        "id": "ecd361e6-f5ff-455e-8453-2fea431fef44",
+        "name": "Data Kamoro Jaya"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "fUTlW2k4iFZCRbar",
+            "mode": "list",
+            "cachedResultName": "Data Web SKTM",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Kelurahan Inauga"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          928,
+          -416
+        ],
+        "id": "63c4cde6-3d1b-4ec4-b374-9484c450ffc3",
+        "name": "Data Inauga"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "fUTlW2k4iFZCRbar",
+            "mode": "list",
+            "cachedResultName": "Data Web SKTM",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/fUTlW2k4iFZCRbar"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Distrik Wania"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          1184,
+          -416
+        ],
+        "id": "27e2dd7d-a6eb-4f56-abf7-960a131996a5",
+        "name": "Data Distrik Wania"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "hasOutputParser": true,
+          "options": {
+            "systemMessage": "={{ $json.body['System Message'] }}"
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          272,
+          -880
+        ],
+        "id": "461a396d-6248-4dc8-82ac-6f1eb2418452",
+        "name": "AI Agent Data Web"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 720,
+          "width": 1984
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -608,
+          -960
+        ],
+        "typeVersion": 1,
+        "id": "9a9c14b9-e325-4c5c-bcbe-62c5526c263c",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -64,
+          -928
+        ],
+        "typeVersion": 1,
+        "id": "21999e5f-a434-403a-80f5-c5b27c612f00",
+        "name": "Sticky Note18"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Data Web SKTM\n\n\n\n\n\n\n\n### ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          176,
+          -928
+        ],
+        "typeVersion": 1,
+        "id": "f9527e89-d208-4b4f-93e1-408b97390bf3",
+        "name": "Sticky Note29"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          576,
+          -928
+        ],
+        "typeVersion": 1,
+        "id": "56542c73-defe-45f3-9d8f-6d90b7878f8d",
+        "name": "Sticky Note31"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          48,
+          -704
+        ],
+        "typeVersion": 1,
+        "id": "cf28ea99-2581-4f16-b5d0-d613435e6b16",
+        "name": "Sticky Note32"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Data Nawaripi\n\n\n\n\n\n\n\n\n\n                                \n                                      \n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -576,
+          -480
+        ],
+        "typeVersion": 1,
+        "id": "9288de1d-87be-46ab-a45f-d0f2e1e6335c",
+        "name": "Sticky Note33"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Data Mawokau Jaya\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -336,
+          -480
+        ],
+        "typeVersion": 1,
+        "id": "2d25d685-5b40-4030-a02e-c38d4a989879",
+        "name": "Sticky Note34"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Data Mandiri Jaya\n\n\n\n\n\n\n\n###  ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -96,
+          -480
+        ],
+        "typeVersion": 1,
+        "id": "6f680eda-7702-440a-bceb-d245a3714495",
+        "name": "Sticky Note35"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Data Kadun Jaya\n\n\n\n\n\n\n\n###  ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          144,
+          -480
+        ],
+        "typeVersion": 1,
+        "id": "0a917f6e-89df-4447-8dd9-ee7f0bd0aff0",
+        "name": "Sticky Note36"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Data Wonosari Jaya\n\n\n\n\n\n\n\n###  ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          384,
+          -480
+        ],
+        "typeVersion": 1,
+        "id": "bd935968-8c9e-4493-83f6-6e1dd76473de",
+        "name": "Sticky Note38"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Data Kamoro Jaya\n\n\n\n\n\n\n\n###  ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          624,
+          -480
+        ],
+        "typeVersion": 1,
+        "id": "b812b86a-da94-42fc-ba9d-7153b14f477a",
+        "name": "Sticky Note39"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Data Inauga\n\n\n\n\n\n\n\n###  ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          864,
+          -480
+        ],
+        "typeVersion": 1,
+        "id": "99e8feba-0347-4fa4-925a-23485f0fc3bd",
+        "name": "Sticky Note40"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Data Distrik Wania\n\n\n\n\n\n\n\n###  ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1104,
+          -480
+        ],
+        "typeVersion": 1,
+        "id": "af9455d3-2e70-49d3-8501-110829263b9c",
+        "name": "Sticky Note41"
+      },
+      {
+        "parameters": {
+          "content": "### Format Respon\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          560,
+          -704
+        ],
+        "typeVersion": 1,
+        "id": "ea153ad7-4578-4259-8f17-9e44eca5cb92",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "6944c1da-bb3d-455e-aa09-4e1e0a192a84",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          0,
+          -880
+        ],
+        "id": "5e80c7c7-150e-4e7e-aa1c-50ae3fa7370d",
+        "name": "WI-Data",
+        "webhookId": "6944c1da-bb3d-455e-aa09-4e1e0a192a84"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          624,
+          -880
+        ],
+        "id": "efb01ad2-5c3b-4b6d-925b-419d8350a821",
+        "name": "WR-Data"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          112,
+          -624
+        ],
+        "id": "3e11f219-631b-48b2-adb3-5dc48e5ee0a5",
+        "name": "AI-Data",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsonSchemaExample": "{\n  \"Nama\": \"\",\n  \"Tombol_Kirim_Surat_SKTM_User\": \"\",\n  \"Tombol_Edit_Data_SKTM_User\": \"\",\n  \"Tombol_Hapus_File_SKTM_User\": \"\",\n  \"Tombol_Kirim_File_SKTM_User\": \"\",\n  \"Tombol_Hapus_Surat_SKTM_User\": \"\",\n  \"Tombol_Kirim_Surat_SKTM_Admin_1\": \"\",\n  \"Tombol_Kirim_Pesan_SKTM_Admin_1\": \"\",\n  \"Tombol_Hapus_Surat_SKTM_Admin_1\": \"\",  \n  \"Tombol_Kirim_Surat_SKTM_Admin_2\": \"\",\n  \"Tombol_Kirim_Pesan_SKTM_Admin_2\": \"\",\n  \"Tombol_Hapus_Surat_SKTM_Admin_2\": \"\",  \n  \"Keterangan_SKTM\": {\n    \"keterangan_1\": \"\",\n    \"keterangan_2\": \"\",\n    \"keterangan_3\": \"\",\n    \"keterangan_4\": \"\",\n    \"keterangan_5\": \"\"\n  },\n  \"Logo\": \"\"\n}\n"
+        },
+        "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "typeVersion": 1.3,
+        "position": [
+          640,
+          -624
+        ],
+        "id": "789cd732-c028-4dad-a81a-a1872cdf7e16",
+        "name": "Format Respon"
+      }
+    ],
+    "connections": {
+      "Data Nawaripi": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Mawokau Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Mandiri Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Kadun Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Wonosari Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Kamoro Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Inauga": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Distrik Wania": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Data Web": {
+        "main": [
+          [
+            {
+              "node": "WR-Data",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "WI-Data": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Data": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Format Respon": {
+        "ai_outputParser": [
+          [
+            {
+              "node": "AI Agent Data Web",
+              "type": "ai_outputParser",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
