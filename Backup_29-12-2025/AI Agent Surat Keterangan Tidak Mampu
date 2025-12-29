@@ -1,0 +1,1867 @@
+{
+  "updatedAt": "2025-12-05T04:36:03.000Z",
+  "createdAt": "2025-11-05T09:45:31.075Z",
+  "id": "eVMhiuyWwdzN5BTe",
+  "name": "AI Agent Surat Keterangan Tidak Mampu",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "a5a8514e-475d-44fb-888f-56ccc0cde395",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -4176,
+        804
+      ],
+      "id": "237eaf10-a434-43e0-9e60-c2271e4b246a",
+      "name": "F1",
+      "webhookId": "a5a8514e-475d-44fb-888f-56ccc0cde395"
+    },
+    {
+      "parameters": {
+        "name": "={{ $json.query.name_file }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "11yThSbItNHYQqwWQdhf1nzvG6tcXCY96",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -3952,
+        488
+      ],
+      "id": "5b1bb9cb-eaf2-456a-a2d4-d5fa1d17b220",
+      "name": "F2",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.query.id_user }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -3952,
+        1604
+      ],
+      "id": "d22bd710-ae74-4e38-9831-0401c6a5128e",
+      "name": "F3",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.qrserver.com/v1/create-qr-code/?size=600x600&format=png&data=https://distrikwania.com/data/{{ $json.id }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -3728,
+        320
+      ],
+      "id": "abc16097-85dc-4d51-a1ba-da1bdae54667",
+      "name": "F4"
+    },
+    {
+      "parameters": {
+        "operation": "fromJson",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -3728,
+        1604
+      ],
+      "id": "30b0c677-d5f8-4aae-8a38-cd5d37cc1013",
+      "name": "F5"
+    },
+    {
+      "parameters": {
+        "jsCode": "for (const item of items) {\n  if (item.binary && item.binary.data) {\n    item.binary.qr = item.binary.data;          // rename \"data\" → \"qr\"\n    item.binary.qr.fileName = 'qrcode.png';\n    item.binary.qr.mimeType = 'image/png';\n    delete item.binary.data;\n  }\n}\nreturn items;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3504,
+        320
+      ],
+      "id": "2455edfa-f91f-41ca-9485-ee4262df3eaa",
+      "name": "F6"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * n8n Code Node — Extract data[0] + hapus properti\n * Input : items (array dari JSON masuk)\n * Output: items baru berupa isi data[0] tanpa send_to, status_web_user, status_web_admin1\n */\n\nreturn items.map(item => {\n  const j = item.json ?? {};\n  const data0 = Array.isArray(j.data) ? { ...j.data[0] } : {};\n\n  // hapus properti di level data0\n  delete data0.send_to;\n  delete data0.status_web_user;\n  delete data0.status_web_admin1;\n\n  return { json: data0 };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3504,
+        1604
+      ],
+      "id": "d2e507f7-22bd-44ce-bf55-b5941ff5adfa",
+      "name": "F7",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "qr",
+        "name": "={{$binary.qr.fileName}}\n",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1yk6no_NZmOnHcEcgV3OEjO8OODYQ3yRO",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -3280,
+        320
+      ],
+      "id": "e39553ea-58a4-4141-b3da-74f3a3d303ce",
+      "name": "F8",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1OTqCNl2gs3eMJrjl8W9hwbqvjC5MYJHJ8GG1K3qFh3M",
+          "mode": "list",
+          "cachedResultName": "Surat Keterangan Tidak Mampu",
+          "cachedResultUrl": "https://docs.google.com/document/d/1OTqCNl2gs3eMJrjl8W9hwbqvjC5MYJHJ8GG1K3qFh3M/edit?usp=drivesdk"
+        },
+        "name": "=SKTM-{{ $json.pemohon.nama }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1S28BDSqb-I_vNYRtCI3w8mUfRXQYL1Rj",
+          "mode": "list",
+          "cachedResultName": "SAVE_SURAT_KETERANGAN_TIDAK_MAMPU",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1S28BDSqb-I_vNYRtCI3w8mUfRXQYL1Rj"
+        },
+        "options": {
+          "copyRequiresWriterPermission": false
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -3280,
+        1796
+      ],
+      "id": "a54cea7e-2ffb-4df4-a692-957fa1026e6d",
+      "name": "F9",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -3056,
+        224
+      ],
+      "id": "78ad12f1-a945-4cdf-9cb8-857a999ddaac",
+      "name": "F10",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bc7a42a4-74ed-4bad-ba45-76c7a672468f",
+              "name": "id_qrcode",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3056,
+        416
+      ],
+      "id": "ae6e1e8f-8c9d-4e3c-8499-1b587aea96f3",
+      "name": "F11"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bc7a42a4-74ed-4bad-ba45-76c7a672468f",
+              "name": "id_surat",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3056,
+        1724
+      ],
+      "id": "3c197f7c-1348-4130-afc8-fd0b4f041d35",
+      "name": "F12"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -2832,
+        416
+      ],
+      "id": "ca951665-4dc5-44dc-9f19-726e936c5f97",
+      "name": "F13",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "url": "=https://docs.googleapis.com/v1/documents/{{ $json.id_surat }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2608,
+        924
+      ],
+      "id": "8f0ecfaa-e2b8-42c9-80e2-b37043f6d9b2",
+      "name": "F14",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        },
+        "googleOAuth2Api": {
+          "id": "jXbDn3iYmSleWrn8",
+          "name": "Google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -2384,
+        416
+      ],
+      "id": "848db55b-53b4-4c1c-8e29-3ee028b05cc0",
+      "name": "F15",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript)\n// Input: items[] dengan struktur seperti:\n// {\n//   \"id_qrcode\": \"1DzXiphTXKMB0P6vUtPuKzeQPLWmkR08h\",\n//   \"id_surat\": \"1vmA2VuC8p5Jdevvt1vN4yQgsFj3YRIgUjM1mg7oagFg\",\n//   \"title\": \"SKTM-Karen Narwadan\",\n//   \"body\": { \"content\": [ ... ] }\n// }\n\nfunction findQrPlaceholder(content, target = \"{QR}\") {\n  let start = null, end = null;\n\n  function walk(elements) {\n    for (const el of elements || []) {\n      // paragraph\n      if (el.paragraph?.elements) {\n        for (const pe of el.paragraph.elements) {\n          const text = pe.textRun?.content || \"\";\n          const i = text.indexOf(target);\n          if (i !== -1) {\n            // Google Docs indices berada pada level element (startIndex di element)\n            // Kita hitung posisi absolut dengan offset i\n            start = pe.startIndex + i;\n            end   = start + target.length;\n            return true;\n          }\n        }\n      }\n\n      // table\n      if (el.table?.tableRows) {\n        for (const r of el.table.tableRows) {\n          for (const c of r.tableCells) {\n            if (walk(c.content)) return true;\n          }\n        }\n      }\n\n      // daftar isi / konten lain opsional\n      if (el.tableOfContents?.content) {\n        if (walk(el.tableOfContents.content)) return true;\n      }\n    }\n    return false;\n  }\n\n  if (!walk(content)) {\n    return null;\n  }\n  return { start, end };\n}\n\nconst out = [];\n\nconst items = $input.all(); // ambil seluruh items dari node sebelumnya\nitems.forEach((item, idx) => {\n  const data = item.json || {};\n\n  const docId   = data.id_surat;   // gunakan id_surat sebagai documentId\n  const qrFileId = data.id_qrcode; // gunakan id_qrcode sebagai fileId gambar QR\n  const content = data.body?.content;\n\n  if (!docId) {\n    throw new Error(`[Item ${idx}] \"id_surat\" tidak ditemukan pada input.`);\n  }\n  if (!qrFileId) {\n    throw new Error(`[Item ${idx}] \"id_qrcode\" tidak ditemukan pada input.`);\n  }\n  if (!Array.isArray(content)) {\n    throw new Error(`[Item ${idx}] Struktur dokumen tidak valid: body.content tidak tersedia.`);\n  }\n\n  const pos = findQrPlaceholder(content, \"{QR}\");\n  if (!pos) {\n    throw new Error(`[Item ${idx}] Placeholder {QR} tidak ditemukan di dokumen. Pastikan teks {QR} ada di template.`);\n  }\n\n  out.push({\n    json: {\n      docId,                 // = id_surat\n      startIndex: pos.start, // posisi awal placeholder\n      endIndex: pos.end,     // posisi akhir placeholder\n      qrFileId               // = id_qrcode (fileId gambar QR di Drive)\n    }\n  });\n});\n\nreturn out;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2160,
+        416
+      ],
+      "id": "6dffb79e-6fdb-42c7-b979-c2f70a49d87e",
+      "name": "F16"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://docs.googleapis.com/v1/documents/{{ $json.docId }}:batchUpdate\n",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleOAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"requests\": [\n    {\n      \"deleteContentRange\": {\n        \"range\": {\n          \"startIndex\": {{ $json.startIndex }},\n          \"endIndex\": {{ $json.endIndex }}\n        }\n      }\n    },\n    {\n      \"insertInlineImage\": {\n        \"location\": { \"index\": {{ $json.startIndex }} },\n        \"uri\": \"https://drive.google.com/uc?id={{ $json.qrFileId }}\",\n        \"objectSize\": {\n          \"width\":  { \"magnitude\": 35, \"unit\": \"PT\" },\n          \"height\": { \"magnitude\": 35, \"unit\": \"PT\" }\n        }\n      }\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1936,
+        416
+      ],
+      "id": "7c3e2f9f-7e1c-44d0-a981-068762d58586",
+      "name": "F17",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        },
+        "googleOAuth2Api": {
+          "id": "jXbDn3iYmSleWrn8",
+          "name": "Google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1712,
+        416
+      ],
+      "id": "69b08319-d8ec-4c7f-b594-ee9868130a0c",
+      "name": "F18",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{NAMA}",
+              "replaceText": "={{ $('F7').item.json.pemohon.nama }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{NIK}",
+              "replaceText": "={{ $('F7').item.json.pemohon.nik }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{TTL}",
+              "replaceText": "={{ $('F7').item.json.pemohon.ttl }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{AGAMA}",
+              "replaceText": "={{ $('F7').item.json.pemohon.agama }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{JENISKELAMIN}",
+              "replaceText": "={{ $('F7').item.json.pemohon.jenis_kelamin }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{STATUSPERNIKAHAN}",
+              "replaceText": "={{ $('F7').item.json.pemohon.status_perkawinan }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{PEKERJAAN}",
+              "replaceText": "={{ $('F7').item.json.pemohon.pekerjaan }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{ALAMAT}",
+              "replaceText": "={{ $('F7').item.json.pemohon.alamat }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{KELURAHAN}",
+              "replaceText": "={{ $('F7').item.json.pemohon[\"kelurahan/kampung\"] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{TANGGALSURAT}",
+              "replaceText": "={{ DateTime.now().setZone('Asia/Tokyo').setLocale('id').toFormat('dd MMMM yyyy') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        -1488,
+        416
+      ],
+      "id": "ef79f6ac-3700-498b-bfc1-504ab36ec876",
+      "name": "F19",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.documentId }}",
+          "mode": "id"
+        },
+        "options": {
+          "binaryPropertyName": "data",
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1264,
+        416
+      ],
+      "id": "96b87f0f-d338-4db6-8092-8d9c512b8429",
+      "name": "F20",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -976,
+        756
+      ],
+      "id": "1507df58-ada9-4952-88ce-37d63f6f1f71",
+      "name": "F21"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -688,
+        564
+      ],
+      "id": "2aa9261d-4e32-46ea-ac91-e1b6ed5ce877",
+      "name": "F22",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -688,
+        756
+      ],
+      "id": "dc810689-7df8-4a20-909c-a33e5e64358d",
+      "name": "F23",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -688,
+        948
+      ],
+      "id": "79310a59-7987-4baa-a7cc-298686857d8e",
+      "name": "F24",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send File",
+        "session": "={{ $('F7').item.json.WAHA_Trigger_session }}",
+        "chatId": "={{ $('F7').item.json.WAHA_Trigger_payload_from_user }}",
+        "file": "={\n  \"mimetype\": \"application/pdf\",\n  \"filename\": \"Surat Keterangan Tidak Mampu {{ $('F7').item.json.pemohon.nama }}.pdf\",\n  \"data\": \"{{ $json.data }}\"\n}\n",
+        "caption": "=",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        -464,
+        660
+      ],
+      "id": "65b82363-ff7a-4b31-8e4e-a8ac47ded389",
+      "name": "F25",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send File",
+        "session": "={{ $('F7').item.json.WAHA_Trigger_session }}",
+        "chatId": "={{ $('F7').item.json.WAHA_Trigger_payload_from_admin1 }}",
+        "file": "={\n  \"mimetype\": \"application/pdf\",\n  \"filename\": \"Surat Keterangan Tidak Mampu {{ $('F7').item.json.pemohon.nama }}.pdf\",\n  \"data\": \"{{ $json.data }}\"\n}\n",
+        "caption": "=",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        -464,
+        852
+      ],
+      "id": "30464690-773d-49a2-b80a-0348ffe37088",
+      "name": "F26",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send File",
+        "session": "={{ $('F7').item.json.WAHA_Trigger_session }}",
+        "chatId": "={{ $('F7').item.json.WAHA_Trigger_payload_from_admin2 }}",
+        "file": "={\n  \"mimetype\": \"application/pdf\",\n  \"filename\": \"Surat Keterangan Tidak Mampu {{ $('F7').item.json.pemohon.nama }}.pdf\",\n  \"data\": \"{{ $json.data }}\"\n}\n",
+        "caption": "=",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        -464,
+        1044
+      ],
+      "id": "c5e21956-0fc7-4311-b464-6a5772018a98",
+      "name": "F27",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "={{ $('F7').item.json.WAHA_Trigger_session }}",
+        "chatId": "={{ $('F7').item.json.WAHA_Trigger_payload_from_user }}",
+        "text": "={{ $('F22').item.json.output }}",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        -176,
+        660
+      ],
+      "id": "5e1984c1-b025-4894-9bf2-4be8d2d34ecb",
+      "name": "F28",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "={{ $('F7').item.json.WAHA_Trigger_session }}",
+        "chatId": "={{ $('F7').item.json.WAHA_Trigger_payload_from_admin1 }}",
+        "text": "={{ $('F23').item.json.output }}",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        -176,
+        852
+      ],
+      "id": "c8edf2e2-4df6-4c5c-8ae7-853d547df614",
+      "name": "F29",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "={{ $('F7').item.json.WAHA_Trigger_session }}",
+        "chatId": "={{ $('F7').item.json.WAHA_Trigger_payload_from_admin2 }}",
+        "text": "={{ $('F24').item.json.output }}",
+        "requestOptions": {}
+      },
+      "type": "@devlikeapro/n8n-nodes-waha.WAHA",
+      "typeVersion": 202502,
+      "position": [
+        -176,
+        1044
+      ],
+      "id": "6832c70b-0e67-4e33-8e53-4863fef2f52a",
+      "name": "F30",
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Apakah Surat Keterangan Tidak Mampu Sudah Berhasil Di buat ?\nAtas Nama {{ $json.pemohon.nama }}\ndengan Nik {{ $json.pemohon.nik }}\n?",
+        "options": {
+          "systemMessage": "=📌 GAYA BAHASA\nGunakan sapaan sesuai budaya: Bapa / Mama / Saudara / Nona / Ade\nhindari panggilan kami, saya (karena Kawe Nia berbicara sebagai pribadi).\nGunakan kalimat positif, menenangkan, dan penuh empati.\nTambahkan emotikon hangat \nAkhiri dengan ucapan berkat: “Tuhan memberkati” \nTambahkan emotikon hangat "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        -1040,
+        1484
+      ],
+      "id": "617199bd-bbbf-425d-9ab2-70c81a43089b",
+      "name": "KaweNia-F1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -968,
+        1708
+      ],
+      "id": "f654ee03-2089-41e7-ad37-a7eacfeb450e",
+      "name": "AI-F1",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Buatkan surat untuk: \nKepada Yth.\nBapak Kepala {{ $json.pemohon[\"kelurahan/kampung\"] }} 🌿\n\nDengan hormat,\n\nDisampaikan bahwa Surat Keterangan Tidak Mampu (SKTM) atas nama:\n\nNama Pemohon : {{ $json.pemohon.nama }}\nNomor KTP : {{ $json.pemohon.nik }}\n\ntelah selesai dibuat ✅.\n\nAtas perhatian Bapak, disampaikan terima kasih 🙏🏻.\nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Bapak ✨.\n\nSalam hormat,\nKawe Nia 🤝\nAsisten Digital Distrik Wania",
+        "options": {
+          "systemMessage": "=📌 GAYA BAHASA\nGunakan sapaan sesuai budaya: Bapa / Mama / Saudara / Nona / Ade\nhindari panggilan kami, saya (karena Kawe Nia berbicara sebagai pribadi).\nGunakan kalimat positif, menenangkan, dan penuh empati.\nTambahkan emotikon hangat \nAkhiri dengan ucapan berkat: “Tuhan memberkati” \nTambahkan emotikon hangat "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        -1040,
+        1956
+      ],
+      "id": "a88a6425-b8cc-4d3f-b8a4-6c38c3c28498",
+      "name": "KaweNia-F2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -968,
+        2180
+      ],
+      "id": "9621af33-e5a0-405e-82e5-a03b15ed960c",
+      "name": "AI-F2",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Buatkan surat untuk: \nKepada Yth.\nIbu Kepala Distrik Wania 🌸\n\nDengan hormat,\n\nDisampaikan bahwa Surat Keterangan Tidak Mampu (SKTM) atas nama:\n\nNama Pemohon : {{ $json.pemohon.nama }}\nNomor KTP : {{ $json.pemohon.nik }}\n\ntelah selesai dibuat ✅.\n\nAtas perhatian Ibu, disampaikan terima kasih 🙏🏻.\nSemoga Tuhan Yang Maha Kuasa senantiasa memberkati setiap tugas dan pelayanan Ibu ✨.\n\nSalam hormat,\nKawe Nia 🤝\nAsisten Digital Distrik Wania",
+        "options": {
+          "systemMessage": "=📌 GAYA BAHASA\nGunakan sapaan sesuai budaya: Bapa / Mama / Saudara / Nona / Ade\nhindari panggilan kami, saya (karena Kawe Nia berbicara sebagai pribadi).\nGunakan kalimat positif, menenangkan, dan penuh empati.\nTambahkan emotikon hangat \nAkhiri dengan ucapan berkat: “Tuhan memberkati” \nTambahkan emotikon hangat "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        -1040,
+        2460
+      ],
+      "id": "c36f2b43-3df5-4a94-b9c1-b4f274effe9b",
+      "name": "KaweNia-F3"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -968,
+        2684
+      ],
+      "id": "635a19a5-5ad7-4aa2-acee-d71b477f4ee0",
+      "name": "AI-F3",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1CLv9MBUvM85Jcpieo-Y9V5e6PG3qOkMV",
+          "mode": "list",
+          "cachedResultName": "SAVE_PDF_SURAT_KETERANGAN_TIDAK_MAMPU",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1CLv9MBUvM85Jcpieo-Y9V5e6PG3qOkMV"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -976,
+        128
+      ],
+      "id": "cb0b335d-31b8-47b5-8524-61e59f605890",
+      "name": "F33",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -688,
+        128
+      ],
+      "id": "c5dd0db0-743a-4fe7-a85f-54cfdf3920f7",
+      "name": "F34",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -688,
+        -64
+      ],
+      "id": "edb68501-158e-4732-b29e-ce48c6181ef1",
+      "name": "F35",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "39ae7f2d-73c1-40e1-8345-4a3abad6f2e2",
+              "name": "timestamp",
+              "value": "={{ $now.toLocaleString(\"id-ID\", { timeZone: \"Asia/Tokyo\" }) }}",
+              "type": "string"
+            },
+            {
+              "id": "2c531a31-5e15-43a7-9000-375ebbc46606",
+              "name": "Nama",
+              "value": "={{ $json.pemohon.nama }}",
+              "type": "string"
+            },
+            {
+              "id": "ff462bf2-f302-4a5b-8833-c03d2e3d6e3e",
+              "name": "NIK",
+              "value": "={{ $json.pemohon.nik }}",
+              "type": "string"
+            },
+            {
+              "id": "e3f64a4f-73cc-4a53-9737-67e55cbe029c",
+              "name": "Nomor Hp",
+              "value": "={{ $json.WAHA_Trigger_payload_from_user.split(\"@\")[0] }}\n",
+              "type": "string"
+            },
+            {
+              "id": "1458f628-098a-4006-959d-5aa862174793",
+              "name": "File",
+              "value": "={{ $json.webViewLink }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -464,
+        -160
+      ],
+      "id": "cc81d9a5-ae9b-4b19-a14b-7a0395c2d033",
+      "name": "F31"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "15mfPuVEtRAlm6SMQzJDi5103Ii7ZaBqURuU9W4gI7Lk",
+          "mode": "list",
+          "cachedResultName": "Jumlah Surat SKTM Yang Di Ajukan Oleh Warga",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15mfPuVEtRAlm6SMQzJDi5103Ii7ZaBqURuU9W4gI7Lk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15mfPuVEtRAlm6SMQzJDi5103Ii7ZaBqURuU9W4gI7Lk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nama",
+              "displayName": "Nama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "NIK",
+              "displayName": "NIK",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nomor Hp",
+              "displayName": "Nomor Hp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Link",
+              "displayName": "Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -176,
+        -160
+      ],
+      "id": "50002f9d-76c6-459e-a469-969717f75aff",
+      "name": "F32",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7VY1hRGS2jrWPehL",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nreturn items.map(({ json }) => {\n  const pemohon = json.pemohon || {};\n  const webViewLink = json.webViewLink || '-';\n  const tanggalSurat = json.date || (json.createdTime ? json.createdTime.slice(0, 10) : '-');\n  const wahaFrom = (json.WAHA_Trigger_payload_from_user || '').split('@')[0] || '-';\n\n  // Narasi untuk embedding vektor\n  const vector_prompt = `\n=== KARTU PENGETAHUAN DOKUMEN RESMI ===\nJenis Dokumen: SKTM\nPenerbit Resmi: Pemerintah Kabupaten Mimika – Distrik Wania\nJudul/Nama File: ${json.name || '-'}\nTanggal Penerbitan: ${tanggalSurat}\nIdentitas Pemohon: Nama=${pemohon.nama || '-'}; NIK=${pemohon.nik || '-'}\nBukti Digital (Google Drive – pratinjau): ${webViewLink}\nKlaim Keaslian: Dokumen ini tercatat sebagai keluaran resmi Distrik Wania.\nInstruksi Verifikasi: 1) Buka tautan Drive; 2) Cocokkan judul, tanggal, dan nama pemohon.\nKonteks Integrasi (WA): ${wahaFrom}\n`.trim();\n\n  // Metadata ringkas untuk filter/pencarian cepat\n  const vector_doc = {\n    jenis: 'SKTM',\n    penerbit: 'Pemerintah Kabupaten Mimika – Distrik Wania',\n    tanggal_penerbitan: tanggalSurat,\n    judul: json.name || null,\n    web_view_link: webViewLink || null,\n    pemohon_nama: pemohon.nama || null,\n    pemohon_nik: pemohon.nik || null,\n    lokasi_terbit: 'Timika, Papua Tengah',\n    waha_from: wahaFrom || null,\n    vector_tags: ['Dokumen Resmi', 'Distrik Wania', 'SKTM', 'Verifikasi']\n  };\n\n  return { json: { vector_prompt, vector_doc } };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -464,
+        32
+      ],
+      "id": "3536c2ff-cf81-4310-8bcc-2e5152cc8a02",
+      "name": "F36"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bc7a42a4-74ed-4bad-ba45-76c7a672468f",
+              "name": "id_surat_veritifikasi",
+              "value": "=https://distrikwania.com/data/{{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3504,
+        1092
+      ],
+      "id": "20fbad11-b0cb-4db2-854b-b01baa4acd23",
+      "name": "F37"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -3280,
+        1092
+      ],
+      "id": "37a210b3-60a5-40bd-b93b-f5affe511ac6",
+      "name": "F38",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b510a197-331d-46ea-8231-b29d4af0b6e1",
+              "name": "file",
+              "value": "={{ $json.webViewLink }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -688,
+        320
+      ],
+      "id": "7b5f099d-6bbc-4bfb-bbf3-1f6066888208",
+      "name": "F39"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -464,
+        364
+      ],
+      "id": "8a4a5344-d7e9-42f8-939c-92dad79c9c5b",
+      "name": "F40",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=buatkan surat resmi untuk di kirim ke dinas sosial \n\nKepada Yth.\nKepala Dinas Sosial\ndi Tempat\n\nPerihal: Pengantar Surat Keterangan Tidak Mampu (SKTM)\natas nama {{ $json.pemohon.nama }}\n\nDengan hormat,\n\nBersama surat ini kami mengantar Surat Keterangan Tidak Mampu (SKTM) atas nama:\n\nNama : {{ $json.pemohon.nama }}\nTempat/Tgl Lahir : {{ $json.pemohon.ttl }}\nAlamat : {{ $json.pemohon.alamat }}\nKontak : {{ $json.WAHA_Trigger_payload_from_user.split(\"@\")[0] }}\n\nAdapun maksud pengantar ini adalah agar Dinas Sosial berkenan melakukan verifikasi dan proses administrasi sesuai ketentuan yang berlaku.\n\nSebagai bahan pendukung, berikut kami lampirkan:\n\nFile SKTM (dapat dilihat terlampir).\n🔗{{ $json.file }}\n\nLink verifikasi keaslian surat:\n🔗{{ $json.id_surat_veritifikasi }}\n\nLink formulir pendaftaran/user form:\n🔗{{ $json.id_surat }}\n\nDemikian surat pengantar ini kami sampaikan. Atas perhatian dan kerja samanya, kami ucapkan terima kasih.\n\nSalam hormat,\nKawe Nia 🤝\nAsisten Digital Distrik Wania",
+        "options": {
+          "systemMessage": "=Anda adalah Agent_Pengantar_SKTM_Dinsos, asisten penulis surat resmi untuk mengantar Surat Keterangan Tidak Mampu (SKTM) ke Dinas Sosial dalam gaya bahasa Indonesia yang formal, ringkas, dan rapi.\n\ntugas \nMenyusun teks final surat pengantar SKTM siap kirim/cetak.\nMemastikan struktur, tanggal, ejaan, dan penutup sesuai standar yang telah ditetapkan.\nMenyisipkan tautan wajib\n\nFormat Output:\n\nKepada Yth.\nKepala Dinas Sosial\ndi Tempat\n\nPerihal: Pengantar Surat Keterangan Tidak Mampu (SKTM)\natas nama {{ $json.pemohon.nama }}\n\nDengan hormat,\n\nBersama surat ini kami mengantar Surat Keterangan Tidak Mampu (SKTM) atas nama:\n\nNama : {{ $json.pemohon.nama }}\nTempat/Tgl Lahir : {{ $json.pemohon.ttl }}\nAlamat : {{ $json.pemohon.alamat }}\nKontak : {{ $json.WAHA_Trigger_payload_from_user.split(\"@\")[0] }}\n\nAdapun maksud pengantar ini adalah agar Dinas Sosial berkenan melakukan verifikasi dan proses administrasi sesuai ketentuan yang berlaku.\n\nSebagai bahan pendukung, berikut kami lampirkan:\n\nFile SKTM (dapat dilihat terlampir).\n🔗{{ $json.file }}\n\nLink verifikasi keaslian surat:\n🔗{{ $json.id_surat_veritifikasi }}\n\nLink formulir pendaftaran/user form:\n🔗{{ $json.id_surat }}\n\nDemikian surat pengantar ini kami sampaikan. Atas perhatian dan kerja samanya, kami ucapkan terima kasih.\n\nSalam hormat,\nKawe Nia 🤝\nAsisten Digital Distrik Wania"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -240,
+        260
+      ],
+      "id": "61066b94-ce89-40c1-9673-4b5474a1f307",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -168,
+        484
+      ],
+      "id": "d03d7041-637e-4b4b-860e-b3b6b5b2d6d3",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "kkchanmartin@gmail.com",
+        "subject": "hallo",
+        "emailType": "text",
+        "message": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        112,
+        364
+      ],
+      "id": "55f39ee0-858d-445f-9acc-81629dbe56ab",
+      "name": "F41",
+      "webhookId": "7a434516-d224-4661-96be-80052fd5d7bc",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "1aPzqo5Q5DyzjRZG",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "writer",
+            "type": "user",
+            "emailAddress": "kawenia@wania-467902.iam.gserviceaccount.com"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -3056,
+        1916
+      ],
+      "id": "e1cdd5b7-d558-4688-819b-aef62cdde992",
+      "name": "Share file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "F1": {
+      "main": [
+        [
+          {
+            "node": "F2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F2": {
+      "main": [
+        [
+          {
+            "node": "F4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F37",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F3": {
+      "main": [
+        [
+          {
+            "node": "F5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F4": {
+      "main": [
+        [
+          {
+            "node": "F6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F5": {
+      "main": [
+        [
+          {
+            "node": "F7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F6": {
+      "main": [
+        [
+          {
+            "node": "F8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F7": {
+      "main": [
+        [
+          {
+            "node": "F9",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "KaweNia-F1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "KaweNia-F2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "KaweNia-F3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F35",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "F38",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "F8": {
+      "main": [
+        [
+          {
+            "node": "F10",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F9": {
+      "main": [
+        [
+          {
+            "node": "F12",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F18",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Share file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F11": {
+      "main": [
+        [
+          {
+            "node": "F13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F12": {
+      "main": [
+        [
+          {
+            "node": "F13",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "F13": {
+      "main": [
+        [
+          {
+            "node": "F14",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F14": {
+      "main": [
+        [
+          {
+            "node": "F15",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "F15": {
+      "main": [
+        [
+          {
+            "node": "F16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F16": {
+      "main": [
+        [
+          {
+            "node": "F17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F17": {
+      "main": [
+        [
+          {
+            "node": "F18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F18": {
+      "main": [
+        [
+          {
+            "node": "F19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F19": {
+      "main": [
+        [
+          {
+            "node": "F20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F20": {
+      "main": [
+        [
+          {
+            "node": "F21",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F33",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F21": {
+      "main": [
+        [
+          {
+            "node": "F22",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "F23",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "F24",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "F22": {
+      "main": [
+        [
+          {
+            "node": "F25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F23": {
+      "main": [
+        [
+          {
+            "node": "F26",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F24": {
+      "main": [
+        [
+          {
+            "node": "F27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F25": {
+      "main": [
+        [
+          {
+            "node": "F28",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F26": {
+      "main": [
+        [
+          {
+            "node": "F29",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F27": {
+      "main": [
+        [
+          {
+            "node": "F30",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "KaweNia-F1": {
+      "main": [
+        [
+          {
+            "node": "F22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-F1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "KaweNia-F1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "KaweNia-F2": {
+      "main": [
+        [
+          {
+            "node": "F23",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-F2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "KaweNia-F2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "KaweNia-F3": {
+      "main": [
+        [
+          {
+            "node": "F24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-F3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "KaweNia-F3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F33": {
+      "main": [
+        [
+          {
+            "node": "F34",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F35",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F39",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F35": {
+      "main": [
+        [
+          {
+            "node": "F31",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "F36",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F31": {
+      "main": [
+        [
+          {
+            "node": "F32",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F37": {
+      "main": [
+        [
+          {
+            "node": "F38",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F38": {
+      "main": [
+        [
+          {
+            "node": "F40",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "F39": {
+      "main": [
+        [
+          {
+            "node": "F40",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F40": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "F41",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "F1": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.8.3",
+            "content-length": "38719",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "986c16624d71fd17-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "text/html; charset=utf-8",
+            "x-forwarded-for": "8.215.39.173, 162.158.108.46",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "162.158.108.46"
+          },
+          "params": {},
+          "query": {
+            "name_file": "MG57MN1TVSD3\n",
+            "session_waha": "KaweNia",
+            "id_waha": "6285230047347@c.us",
+            "Nama": "Agung Hendi Temorubun",
+            "NIK": "9109010807030004",
+            "id_folder": "11yThSbItNHYQqwWQdhf1nzvG6tcXCY96",
+            "id_user": "13vBH5vubW-PDoDRoUmRpTK3pljH9l5oc"
+          },
+          "body": {},
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/a5a8514e-475d-44fb-888f-56ccc0cde395",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "80c10072-097d-4ed6-bef4-6f1ec023d724",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-11-05T09:45:31.077Z",
+      "createdAt": "2025-11-05T09:45:31.077Z",
+      "role": "workflow:owner",
+      "workflowId": "eVMhiuyWwdzN5BTe",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
