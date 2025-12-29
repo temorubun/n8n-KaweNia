@@ -1,0 +1,1197 @@
+{
+  "updatedAt": "2025-12-28T08:42:24.379Z",
+  "createdAt": "2025-11-05T04:15:09.781Z",
+  "id": "PbmMFEuTKNaLfhUT",
+  "name": "AI Agent Surat Pengantar RT",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body['System Message'] }}",
+          "maxIterations": 20
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        3280,
+        368
+      ],
+      "id": "05f132ba-27cd-4a66-801b-8394a432e917",
+      "name": "AI Agent Surat Pengantar RT",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "bd9e0f77-76c3-4ace-a919-6e4c6f2b38d2-sprt",
+        "authentication": "basicAuth",
+        "options": {
+          "responseData": "=Terimkasih\nMohon Tunggu Proses Pembuatan Surat Pengantar RT"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        3072,
+        368
+      ],
+      "id": "6d53fc76-e885-4c9d-a3e7-4d29577730e3",
+      "name": "WI-A",
+      "webhookId": "bd9e0f77-76c3-4ace-a919-6e4c6f2b38d2",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "sJXgZq72GcirQDnl",
+          "name": "Besic Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2448,
+        880
+      ],
+      "id": "086eb120-d99a-4780-9774-78d76ca07ae8",
+      "name": "AI-A",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk ID Folder Surat Pengantar RT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/570dd45a-b961-4940-929a-97573b3dce0b",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Saya Minta Id Folder Surat Pengantar RT\n\nData\nNomor RT Pemohon = {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\nNama Pemohon = {{ $fromAI('Nama_Pemohon', ``, 'string') }}\nNIK Pemohon = {{ $fromAI('NIK_Pemohon', ``, 'string') }}\n\nRespon \nHanya Berikan Id Folder Baru Tanpa Menambahkan Apapun!"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Data {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Mendapatkan Perent Folder\n\nWajib gunakan \"Drive {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Membuat Folder Baru\n\nRespon Hanya Id Folder Baru Tanpa Menambahakan Apapun!"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        2592,
+        960
+      ],
+      "id": "dd4692fd-d979-455e-a65a-7fc78d0eb0e4",
+      "name": "Create Folder",
+      "notesInFlow": true,
+      "notes": "AI Agent Folder Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/cEw9xBahqSZKc2b9"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Id Surat Pengantar RT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/b58bfd84-a22c-43e8-9f1f-65543e4e0356",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Saya Minta Id Surat\n\nData\nNama = {{ $fromAI('Nama_Pemohon', ``, 'string') }}\nId Perent Folder = {{ $fromAI('Id_Perent_Folder', `Perent ID Folder Surat Pengantar RT`, 'string') }}\n\nRespon\nHanya berikan Id Surat Tanpa Menambahkan Apapan!"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Surat Pengantar RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan', `Nama Kampung Atau Nama Kelurahan Pemohon`, 'string') }}\" Untuk Mendapatkan ID Surat\n\nRespon Hanya Berikan Id Surat Tanpa Menambahkan Apapun!"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        2768,
+        960
+      ],
+      "id": "1ba75561-277c-48c7-b4ec-81596c73b77c",
+      "name": "Create Surat",
+      "notesInFlow": true,
+      "notes": "AI Agent Copy Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/EGNbiL4dDoPys27W"
+    },
+    {
+      "parameters": {
+        "toolDescription": "=Gunakan Ini Untuk Nomor Surat Pengantar RT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/c1295e63-4283-4cd4-a95b-c757424bc9af",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Saya Minta Nomor Surat Pengantar RT\n\nData\nNomor RT Pemohon = {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\nNama Pemohon = {{ $fromAI('Nama_Pemohon', ``, 'string') }}\nNIK Pemohon = {{ $fromAI('NIK_Pemohon', ``, 'string') }}\nNomor HP Pemohon = {{ $fromAI('Nomor_HP_Pemohon', ``, 'string') }}\nAlamat Pemohon = {{ $fromAI('Alamat_Pemohon', ``, 'string') }}\n\nRespon\nHanya Berikan Nomor Surat Baru Tanpa Menambahkan Apapun!"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Read RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Melihat Nomor Surat Terakhir \nKemudian\nWajib Gunakan \"Add RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Menambahkan Data Baru Dan Nomor Surat Baru \n\nFormat Nomor Surat\nNomor Urut Tambahkan +1 /RT Tidak Di Ubah/RW Tidak Di Ubah/NWRP Tidak Di Ubah/Nomor Bulan Saat ini Menggunakan Angka Romawi/Tahun Saat Ini.\n\ngunakan waktu ini {{ $now }}\n\nWajib Menambahkan Data Baru dan Nomor Surat Baru Menggunakan \"Add RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\"\n\n\nRespon Hanya Berikan Nomor Surat Baru Tanpa Menambahkan Apapun!"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        2960,
+        960
+      ],
+      "id": "fc592caa-49a9-4973-b7ef-ccb405126cb6",
+      "name": "Create Nomor Surat",
+      "notesInFlow": true,
+      "notes": "AI Agent Nomor Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/wY4n6zJKNfJ5PD0W"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Data Lengkap Ketua RT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/90d299d9-b4c9-4d38-9dc9-6fc0ca50117c",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Saya Minta Data Ketua RT Lengkap Dan Detail\n\nData\nNomor RT Pemohon = {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\n\nRespon\nBerikan Semua Data Lengkap dan Detail RT {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\n"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Data {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Mendapatkan Data Lengkap Ketua RT\n\nRespon \nHanya Berikan Data Lengkap Dan Detail Dari Nomor RT Yang di berikan"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        3136,
+        960
+      ],
+      "id": "71d95407-bd44-4f96-b676-c23d7d4c4a5b",
+      "name": "Data RT",
+      "notesInFlow": true,
+      "notes": "AI Agent Data RT\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/f1hHGhfuqEIa3UTq"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Data Lengkap Kampung Kelurahan",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/b37234f8-9fb4-47ee-a42c-0deeddac2e68",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Saya Minta Semua Data Lengkap Dan Detail Kampung Kelurahan\n\nData\n{{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\n\nRespon\nBerikan Semua Data Lengkap Dan Detail"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Data {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Mendapatkan Data Lengkap dan Detail Kampung Kelurahan\n\nRespon\nBerikan Semua Data Lengkap Dan Detail"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        3328,
+        960
+      ],
+      "id": "cb72b4b1-02d0-4148-8344-5c31124c9664",
+      "name": "Data Kampung Kelurahan",
+      "notesInFlow": true,
+      "notes": "AI Agent Data Kepala Kampung Kelurahan Distrik\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Y7V5eVu80aorUx60"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Edit Surat Pengantar RT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/964f9e9d-8a03-47e9-b097-1284c8665bf1",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "=Prompt",
+              "value": "=Buat Surat Pengantar RT \n\nData\nId Surat Pengantar RT = {{ $fromAI('Id_Surat_Pengantar_RT', ``, 'string') }}\nNama Kampung / Nama Kelurahan = {{ $fromAI('Kampung_Kelurahan', `Nama Kampung Kelurahan`, 'string') }}\nNomor RT = {{ $fromAI('Nomor_RT', `Nomor RT`, 'string') }}\nAlamat Kampung Kelurahan = {{ $fromAI('Jln', `Alamat Kampung Kelurahan`, 'string') }}\nNomor Surat RT = {{ $fromAI('Nomor_Surat_RT', `Nomor Surat Pengantar RT Kampung Nawaripi`, 'string') }}\nNama Pemohon = {{ $fromAI('Nama_Pemohon', `Nama Pemohon Menggunakan Huruf Capital`, 'string') }}\nTempat Tanggal Lahir Pemohon = {{ $fromAI('Tempat_Tanggal_Lahir', `Tempat Tanggal Lahir Pemohon \ngunakan Format \nNamaTempat, Tanggal-Bulan-Tahun\nNamaTempat menggunakan Huruf Capital \nTanggal-Bulan-Tahun menggunakan Angka \n`, 'string') }}\nJenis Kelamin Pemohon = {{ $fromAI('Jenis_Kelamin', `Jenis Kelamin Pemohon Gunakan Huruf capital`, 'string') }}\nPekerjaan Pemohon = {{ $fromAI('Pekerjaan', `Pekerjaan Pemohon Gunakan Huruf Capital`, 'string') }}\nAlamat Pemohon = {{ $fromAI('Alamat', `Alamat Pemohon Menggunakan Huruf Capital`, 'string') }}\nNik Pemohon = {{ $fromAI('NIK_Pemohon', `Nomor NIK Pemohon`, 'string') }}\nKeperluan Pemohon = {{ $fromAI('Keperluan_Pemohon', `Keperluan Pemohon Buat Surat Pengantar RT`, 'string') }}\nNama RT = {{ $fromAI('Nama_Ketua_RT', `Nama RT\nNama Orang \nBukan Status RT`, 'string') }}\nKode Pos = {{ $fromAI('NomorPos', `Nomor Kode Pos`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Surat Pengantar RT {{ $fromAI('Kampung_Kelurahan', `Nama Kampung Kelurahan`, 'string') }}\" Untuk Mmembuat Surat Pengantar RT\n\nRespon Hanya\nBerhasil Atau Gagal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        3504,
+        960
+      ],
+      "id": "45dbc59e-dffc-4e8b-a987-78bb1800eb9c",
+      "name": "Edit Surat",
+      "notesInFlow": true,
+      "notes": "AI Agent Create Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/PRByDVbDdX8sYu1E"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Tanda Tangan Ketua RT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ad21f111-38bc-4ec1-bb28-51dcd4e55588",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Tanda Tangan Surat Pengantar RT\n\nData\nID Tanda Tangan = {{ $fromAI('ID_Tanda_Tangan_RT', `ID tanda Tangan`, 'string') }}\nId Surat = {{ $fromAI('Id_Surat_RT', `Id surat`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Tool Tanda Tangan\" Untuk Tanda Tangan Surat Pengantar RT\n\nRespon \nHanya Berhasil Atau Gagal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        3712,
+        960
+      ],
+      "id": "8bd005b3-6ef8-4e67-8279-5928fa76ab13",
+      "name": "Tanda Tangan Surat",
+      "notesInFlow": true,
+      "notes": "AI Agent Tanda Tangan Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/OZOZkTQhSCn3AIgj"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Kirim Pesan Ke Ketua RT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Kirim Pesan Ke Ketua RT\n\nKepada Yth. \nKetua RT {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }} {{ $fromAI('Nama_Kampung_Kelurahan', ``, 'string') }}, \n{{ $fromAI('Nama_Lengkap_Ketua_RT', ``, 'string') }}, \n\nSaya Ingin Menyampaikan bahwa Warga RT {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }} {{ $fromAI('Nama_Kampung_Kelurahan', ``, 'string') }} Atas Nama {{ $fromAI('Nama_Pemohon', ``, 'string') }} meminta Surat Pengantar RT untuk keperluan {{ $fromAI('Keperluan_Pemohon', ``, 'string') }}\nbisakah bapak {{ $fromAI('Nama_Lengkap_Ketua_RT', ``, 'string') }} mengirim surat pengantar ini ke Nomor {{ $fromAI('Nama_Pemohon', ``, 'string') }} {{ $fromAI('Nomor_Hp_Pemohon', `Wajib Gunakan Format 628xxxxxxxx@c.us`, 'string') }}\n\nSalam hormat,  \nKawe Nia 🤝  \nAsisten Digital Distrik Wania\n\nGunakan Data Ini Untuk Kirim Pesan\nsession = {{ $fromAI('Session_WhatsApp_Ketua_RT', ``, 'string') }}\nchatId = {{ $fromAI('ChatId_WhatsApp_Ketua_RT', ` Wajib Gunakan Format 628xxxxx@c.us`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan Kepada Ketua RT\n\nRespon Hanya\nBerhasil Atau Gagal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        3904,
+        960
+      ],
+      "id": "660da1ef-f985-4fa8-a116-8e04ddc504fd",
+      "name": "Send Pesan RT",
+      "notesInFlow": true,
+      "notes": "AI Agent Pesan Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Kirim Surat",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/892872d5-d89b-45c1-a249-d8f9a1d91fd8",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Kirim Surat Ke Ketua RT\n\nData\nId Surat = {{ $fromAI('Id_Surat_Pengantar_RT', ``, 'string') }}\nNama Surat = {{ $fromAI('Nama_Surat_Pengantar_RT', `Gunakan Format Ini, Surat Pengantar RT Nomor RT - Nama Pemohon`, 'string') }}\n\nNama Tujuan = {{ $fromAI('Nama_Lengkap_Ketua_RT', ``, 'string') }}\nNomor Hp tujuan = {{ $fromAI('Id_Chat_WhatsApp_Ketua_RT', `Wajib Gunakan Format 628xxxxxxxx@c.us`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal\n"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Tool Kirim Surat\" Untuk Kirim Surat Kepada Ketua RT\n\nRespon Hanya\nBerhasil Atau Gagal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        4096,
+        960
+      ],
+      "id": "ccfc5e37-24c9-4c00-a171-6e2242abce84",
+      "name": "Send Surat RT",
+      "notesInFlow": true,
+      "notes": "AI Agent Kirim Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/rHlkBTCXxLOt2Zu6"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Kirim Pesan ke Pemohon",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Kirim Pesan \nberitahu kepada Pemohon Bahwa \n\n{{ $fromAI('Nama_Pemohon', ``, 'string') }} dapat langsung mengambil Surat Pengantar RT untuk {{ $fromAI('Alasan_Pemohon', ``, 'string') }} di Ketua RT {{ $fromAI('Nomor_RT', ``, 'string') }} {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan', ``, 'string') }}, {{ $fromAI('Nama_Lengkap_Ketua_RT', ``, 'string') }}. Silakan menghubungi beliau melalui WhatsApp di nomor {{ $fromAI('Nomor_HP_Ketua_RT', ``, 'string') }} untuk meminta surat pengantar tersebut.\n\nSalam hormat,  \nKawe Nia 🤝  \nAsisten Digital Distrik Wania\n\nGunakan Data Ini Untuk Kirim Pesan\nsession = {{ $fromAI('Session_WhatsApp_Pemohon', ``, 'string') }}\nchatId = {{ $fromAI('ChatId_WhatsApp_Pemohon', `Wajib Gunakan Format 628xxxxxxxx@c.us`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan Kepada Pemohon\n\nRespon Hanya\nBerhasil Atau Gagal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        4304,
+        944
+      ],
+      "id": "9383ce05-4b21-4d6d-a3b4-4803d906ad98",
+      "name": "Send Pesan Pemohon",
+      "notesInFlow": true,
+      "notes": "AI Agent Pesan Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Arsip Surat Pengantar RT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f849dac9-c102-4b8a-b71d-1bc131904ccb",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "Prompt",
+              "value": "=Buat Arsip Surat Pengantar RT\n\nData\nNama Kampung / Nama Kelurahan  = {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\nNomor RT Pemohon = {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\nNama Pemohon = {{ $fromAI('Nama_Pemohon', ``, 'string') }}\nNIK Pemohon = {{ $fromAI('NIK_Pemohon', ``, 'string') }}\nNomor HP Pemohon = {{ $fromAI('Nomor_HP_Pemohon', ``, 'string') }}\nAlamat Pemohon = {{ $fromAI('Alamat_Pemohon', ``, 'string') }}\nNama Ketua RT = {{ $fromAI('Nama_Ketua_RT', `Nama Ketua RT`, 'string') }}\nNomor Hp Ketua RT = {{ $fromAI('Nomor_Hp_Ketua_RT', `Nomor Hp Ketua RT`, 'string') }}\nLink Surat = {{ $fromAI('Link_Surat', `Link Surat\nWajib Gunakan Format \nhttps://docs.google.com/document/d/ID_SURAT_PENGANTAR_RT/export?format=pdf`, 'string') }}\nNomor Surat Pengantar RT = {{ $fromAI('Nomor_Surat_Pengantar_RT', ``, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+            },
+            {
+              "name": "System Message",
+              "value": "=Wajib Gunakan \"Arsip RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Membuat Arsip Surat Pengantar RT\n\nRespon Hanya\nBerhasil Atau Gagal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        4512,
+        960
+      ],
+      "id": "7a100631-33be-4a57-975f-ca033eab46ea",
+      "name": "Arsip Surat",
+      "notesInFlow": true,
+      "notes": "AI Agent Arsip Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/tJuSqAoXyuJIpcB9"
+    }
+  ],
+  "connections": {
+    "AI Agent Surat Pengantar RT": {
+      "main": [
+        []
+      ]
+    },
+    "WI-A": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-A": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Folder": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Surat": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Nomor Surat": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data RT": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Kampung Kelurahan": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Surat": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tanda Tangan Surat": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Pesan RT": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Surat RT": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Pesan Pemohon": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Arsip Surat": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat Pengantar RT",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "WI-A": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "1867",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "authorization": "Basic TWltaWthV2FuaWE6UGFzc3dvcmRNaW1pa2FXYW5pYUAxMjM=",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9a4066e69ab39fc7-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 162.158.170.88",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "162.158.170.88"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Prompt": "Buat Surat Pengantar RT\n\n\"pemohon\":{\n  \"nama\": \"Syafruddin\",\n  \"nik\": \"910901078740007\",\n  \"ttl\": \"Ralla, 07-08-1974\",\n  \"agama\": \"Islam\",\n  \"jenis_kelamin\": \"Laki-laki\",\n  \"status_perkawinan\": \"Kawin\",\n  \"pekerjaan\": \"Petani/Pekebun\",\n  \"alamat\": \"Wania\",\n  \"kampung_kelurahan\": \"Nawaripi\",\n  \"nomor_rt\": \"10\",\n  \"kecamatan\": \"Wania\",\n  \"kota_kabupaten\": \"Mimika\",\n  \"provinsi\": \"Papua Tengah\",\n  \"nomor_hp\": \"6285230047347\"\n}\n\n\"perihal\":\"Pembuatan Surat Keterangan Tidak Mampu SKTM\"\n\n\"whatsapp\":{\n  \"session\": \"KaweNia\",\n  \"chat_id\": \"6285230047347@c.us\"\n}\n",
+            "System Message": "Alur Kerja \"Wajib Jalankan Satu Persatu Semuanya Sesuai Urutan\"\n\n1. Gunakan \"Create Folder\" Untuk Mendapatkan ID Folder Surat Pengantar RT\n\n2. Gunakan \"Create Surat\" Untuk Mendapatkan Id Surat Pengantar RT\n\n3. Gunakan \"Create Nomor Surat\" Untuk Mendapatkan Nomor Surat Pengantar RT\n\n4. Gunakan \"Data RT\" Untuk Mendapatkan Data Lengkap Ketua RT\n\n5. Gunakan \"Data Kampung Kelurahan\" Untuk Mendapatkan Data Lengkap Kampung Kelurahan\n\n6. Gunakan \"Edit Surat\" Untuk Edit Surat Pengantar RT\n\n7. Gunakan \"Tanda Tangan Surat\" Untuk Tanda Tangan Ketua RT\n\n8. Gunakan \"Send Pesan RT\" Untuk Kirim Pesan Ke Ketua RT\n\n9. Gunakan \"Send Surat RT\" Untuk Kirim Surat Pengantar RT\n\n10. Gunakan \"Send Pesan Pemohon\" Untuk Kirim Pesan ke Pemohon\n\n10. Gunakan \"Arsip Surat\" Untuk Membuat Arsip Surat Pengantar RT\n\nCatatan\nPesan Jika Berhasil = Surat Pengantar RT Sudah Selesai di buat dan Di Tanda Tangan Oleh Ketua RT Silahkan Minta Surat Pengantar RT Di Ketua RT dan Kemudian Kirim Kembali Untuk Melanjutkan.\n\nPesan Jika Gagal = Surat Pengantar RT Belum Dapat Dibuat Karena Ada Kesalahan Teknis, Mohon Maaf Untuk Saat Ini Belum dapat Membuat SKTM"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/bd9e0f77-76c3-4ace-a919-6e4c6f2b38d2-sprt",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "121e7b81-9e6d-4eba-9759-d1f8ea7fb8fa",
+  "activeVersionId": "121e7b81-9e6d-4eba-9759-d1f8ea7fb8fa",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-05T04:15:09.783Z",
+      "createdAt": "2025-11-05T04:15:09.783Z",
+      "role": "workflow:owner",
+      "workflowId": "PbmMFEuTKNaLfhUT",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-11-27T06:24:38.693Z",
+    "createdAt": "2025-11-27T06:24:38.693Z",
+    "versionId": "121e7b81-9e6d-4eba-9759-d1f8ea7fb8fa",
+    "workflowId": "PbmMFEuTKNaLfhUT",
+    "nodes": [
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body['System Message'] }}",
+            "maxIterations": 20
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          3280,
+          368
+        ],
+        "id": "05f132ba-27cd-4a66-801b-8394a432e917",
+        "name": "AI Agent Surat Pengantar RT",
+        "executeOnce": false
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "bd9e0f77-76c3-4ace-a919-6e4c6f2b38d2-sprt",
+          "authentication": "basicAuth",
+          "options": {
+            "responseData": "=Terimkasih\nMohon Tunggu Proses Pembuatan Surat Pengantar RT"
+          }
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          3072,
+          368
+        ],
+        "id": "6d53fc76-e885-4c9d-a3e7-4d29577730e3",
+        "name": "WI-A",
+        "webhookId": "bd9e0f77-76c3-4ace-a919-6e4c6f2b38d2",
+        "credentials": {
+          "httpBasicAuth": {
+            "id": "sJXgZq72GcirQDnl",
+            "name": "Besic Auth"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-mini",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          2448,
+          880
+        ],
+        "id": "086eb120-d99a-4780-9774-78d76ca07ae8",
+        "name": "AI-A",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk ID Folder Surat Pengantar RT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/570dd45a-b961-4940-929a-97573b3dce0b",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Saya Minta Id Folder Surat Pengantar RT\n\nData\nNomor RT Pemohon = {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\nNama Pemohon = {{ $fromAI('Nama_Pemohon', ``, 'string') }}\nNIK Pemohon = {{ $fromAI('NIK_Pemohon', ``, 'string') }}\n\nRespon \nHanya Berikan Id Folder Baru Tanpa Menambahkan Apapun!"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Data {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Mendapatkan Perent Folder\n\nWajib gunakan \"Drive {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Membuat Folder Baru\n\nRespon Hanya Id Folder Baru Tanpa Menambahakan Apapun!"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          2592,
+          960
+        ],
+        "id": "dd4692fd-d979-455e-a65a-7fc78d0eb0e4",
+        "name": "Create Folder",
+        "notesInFlow": true,
+        "notes": "AI Agent Folder Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/cEw9xBahqSZKc2b9"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Id Surat Pengantar RT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/b58bfd84-a22c-43e8-9f1f-65543e4e0356",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Saya Minta Id Surat\n\nData\nNama = {{ $fromAI('Nama_Pemohon', ``, 'string') }}\nId Perent Folder = {{ $fromAI('Id_Perent_Folder', `Perent ID Folder Surat Pengantar RT`, 'string') }}\n\nRespon\nHanya berikan Id Surat Tanpa Menambahkan Apapan!"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Surat Pengantar RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan', `Nama Kampung Atau Nama Kelurahan Pemohon`, 'string') }}\" Untuk Mendapatkan ID Surat\n\nRespon Hanya Berikan Id Surat Tanpa Menambahkan Apapun!"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          2768,
+          960
+        ],
+        "id": "1ba75561-277c-48c7-b4ec-81596c73b77c",
+        "name": "Create Surat",
+        "notesInFlow": true,
+        "notes": "AI Agent Copy Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/EGNbiL4dDoPys27W"
+      },
+      {
+        "parameters": {
+          "toolDescription": "=Gunakan Ini Untuk Nomor Surat Pengantar RT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/c1295e63-4283-4cd4-a95b-c757424bc9af",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Saya Minta Nomor Surat Pengantar RT\n\nData\nNomor RT Pemohon = {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\nNama Pemohon = {{ $fromAI('Nama_Pemohon', ``, 'string') }}\nNIK Pemohon = {{ $fromAI('NIK_Pemohon', ``, 'string') }}\nNomor HP Pemohon = {{ $fromAI('Nomor_HP_Pemohon', ``, 'string') }}\nAlamat Pemohon = {{ $fromAI('Alamat_Pemohon', ``, 'string') }}\n\nRespon\nHanya Berikan Nomor Surat Baru Tanpa Menambahkan Apapun!"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Read RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Melihat Nomor Surat Terakhir \nKemudian\nWajib Gunakan \"Add RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Menambahkan Data Baru Dan Nomor Surat Baru \n\nFormat Nomor Surat\nNomor Urut Tambahkan +1 /RT Tidak Di Ubah/RW Tidak Di Ubah/NWRP Tidak Di Ubah/Nomor Bulan Saat ini Menggunakan Angka Romawi/Tahun Saat Ini.\n\ngunakan waktu ini {{ $now }}\n\nWajib Menambahkan Data Baru dan Nomor Surat Baru Menggunakan \"Add RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\"\n\n\nRespon Hanya Berikan Nomor Surat Baru Tanpa Menambahkan Apapun!"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          2960,
+          960
+        ],
+        "id": "fc592caa-49a9-4973-b7ef-ccb405126cb6",
+        "name": "Create Nomor Surat",
+        "notesInFlow": true,
+        "notes": "AI Agent Nomor Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/wY4n6zJKNfJ5PD0W"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Data Lengkap Ketua RT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/90d299d9-b4c9-4d38-9dc9-6fc0ca50117c",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Saya Minta Data Ketua RT Lengkap Dan Detail\n\nData\nNomor RT Pemohon = {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\n\nRespon\nBerikan Semua Data Lengkap dan Detail RT {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\n"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Data {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Mendapatkan Data Lengkap Ketua RT\n\nRespon \nHanya Berikan Data Lengkap Dan Detail Dari Nomor RT Yang di berikan"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          3136,
+          960
+        ],
+        "id": "71d95407-bd44-4f96-b676-c23d7d4c4a5b",
+        "name": "Data RT",
+        "notesInFlow": true,
+        "notes": "AI Agent Data RT\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/f1hHGhfuqEIa3UTq"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Data Lengkap Kampung Kelurahan",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/b37234f8-9fb4-47ee-a42c-0deeddac2e68",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Saya Minta Semua Data Lengkap Dan Detail Kampung Kelurahan\n\nData\n{{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\n\nRespon\nBerikan Semua Data Lengkap Dan Detail"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Data {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Mendapatkan Data Lengkap dan Detail Kampung Kelurahan\n\nRespon\nBerikan Semua Data Lengkap Dan Detail"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          3328,
+          960
+        ],
+        "id": "cb72b4b1-02d0-4148-8344-5c31124c9664",
+        "name": "Data Kampung Kelurahan",
+        "notesInFlow": true,
+        "notes": "AI Agent Data Kepala Kampung Kelurahan Distrik\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Y7V5eVu80aorUx60"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Edit Surat Pengantar RT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/964f9e9d-8a03-47e9-b097-1284c8665bf1",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "=Prompt",
+                "value": "=Buat Surat Pengantar RT \n\nData\nId Surat Pengantar RT = {{ $fromAI('Id_Surat_Pengantar_RT', ``, 'string') }}\nNama Kampung / Nama Kelurahan = {{ $fromAI('Kampung_Kelurahan', `Nama Kampung Kelurahan`, 'string') }}\nNomor RT = {{ $fromAI('Nomor_RT', `Nomor RT`, 'string') }}\nAlamat Kampung Kelurahan = {{ $fromAI('Jln', `Alamat Kampung Kelurahan`, 'string') }}\nNomor Surat RT = {{ $fromAI('Nomor_Surat_RT', `Nomor Surat Pengantar RT Kampung Nawaripi`, 'string') }}\nNama Pemohon = {{ $fromAI('Nama_Pemohon', `Nama Pemohon Menggunakan Huruf Capital`, 'string') }}\nTempat Tanggal Lahir Pemohon = {{ $fromAI('Tempat_Tanggal_Lahir', `Tempat Tanggal Lahir Pemohon \ngunakan Format \nNamaTempat, Tanggal-Bulan-Tahun\nNamaTempat menggunakan Huruf Capital \nTanggal-Bulan-Tahun menggunakan Angka \n`, 'string') }}\nJenis Kelamin Pemohon = {{ $fromAI('Jenis_Kelamin', `Jenis Kelamin Pemohon Gunakan Huruf capital`, 'string') }}\nPekerjaan Pemohon = {{ $fromAI('Pekerjaan', `Pekerjaan Pemohon Gunakan Huruf Capital`, 'string') }}\nAlamat Pemohon = {{ $fromAI('Alamat', `Alamat Pemohon Menggunakan Huruf Capital`, 'string') }}\nNik Pemohon = {{ $fromAI('NIK_Pemohon', `Nomor NIK Pemohon`, 'string') }}\nKeperluan Pemohon = {{ $fromAI('Keperluan_Pemohon', `Keperluan Pemohon Buat Surat Pengantar RT`, 'string') }}\nNama RT = {{ $fromAI('Nama_Ketua_RT', `Nama RT\nNama Orang \nBukan Status RT`, 'string') }}\nKode Pos = {{ $fromAI('NomorPos', `Nomor Kode Pos`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Surat Pengantar RT {{ $fromAI('Kampung_Kelurahan', `Nama Kampung Kelurahan`, 'string') }}\" Untuk Mmembuat Surat Pengantar RT\n\nRespon Hanya\nBerhasil Atau Gagal"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          3504,
+          960
+        ],
+        "id": "45dbc59e-dffc-4e8b-a987-78bb1800eb9c",
+        "name": "Edit Surat",
+        "notesInFlow": true,
+        "notes": "AI Agent Create Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/PRByDVbDdX8sYu1E"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Tanda Tangan Ketua RT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ad21f111-38bc-4ec1-bb28-51dcd4e55588",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Tanda Tangan Surat Pengantar RT\n\nData\nID Tanda Tangan = {{ $fromAI('ID_Tanda_Tangan_RT', `ID tanda Tangan`, 'string') }}\nId Surat = {{ $fromAI('Id_Surat_RT', `Id surat`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Tool Tanda Tangan\" Untuk Tanda Tangan Surat Pengantar RT\n\nRespon \nHanya Berhasil Atau Gagal"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          3712,
+          960
+        ],
+        "id": "8bd005b3-6ef8-4e67-8279-5928fa76ab13",
+        "name": "Tanda Tangan Surat",
+        "notesInFlow": true,
+        "notes": "AI Agent Tanda Tangan Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/OZOZkTQhSCn3AIgj"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Kirim Pesan Ke Ketua RT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Kirim Pesan Ke Ketua RT\n\nKepada Yth. \nKetua RT {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }} {{ $fromAI('Nama_Kampung_Kelurahan', ``, 'string') }}, \n{{ $fromAI('Nama_Lengkap_Ketua_RT', ``, 'string') }}, \n\nSaya Ingin Menyampaikan bahwa Warga RT {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }} {{ $fromAI('Nama_Kampung_Kelurahan', ``, 'string') }} Atas Nama {{ $fromAI('Nama_Pemohon', ``, 'string') }} meminta Surat Pengantar RT untuk keperluan {{ $fromAI('Keperluan_Pemohon', ``, 'string') }}\nbisakah bapak {{ $fromAI('Nama_Lengkap_Ketua_RT', ``, 'string') }} mengirim surat pengantar ini ke Nomor {{ $fromAI('Nama_Pemohon', ``, 'string') }} {{ $fromAI('Nomor_Hp_Pemohon', `Wajib Gunakan Format 628xxxxxxxx@c.us`, 'string') }}\n\nSalam hormat,  \nKawe Nia 🤝  \nAsisten Digital Distrik Wania\n\nGunakan Data Ini Untuk Kirim Pesan\nsession = {{ $fromAI('Session_WhatsApp_Ketua_RT', ``, 'string') }}\nchatId = {{ $fromAI('ChatId_WhatsApp_Ketua_RT', ` Wajib Gunakan Format 628xxxxx@c.us`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan Kepada Ketua RT\n\nRespon Hanya\nBerhasil Atau Gagal"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          3904,
+          960
+        ],
+        "id": "660da1ef-f985-4fa8-a116-8e04ddc504fd",
+        "name": "Send Pesan RT",
+        "notesInFlow": true,
+        "notes": "AI Agent Pesan Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Kirim Surat",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/892872d5-d89b-45c1-a249-d8f9a1d91fd8",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Kirim Surat Ke Ketua RT\n\nData\nId Surat = {{ $fromAI('Id_Surat_Pengantar_RT', ``, 'string') }}\nNama Surat = {{ $fromAI('Nama_Surat_Pengantar_RT', `Gunakan Format Ini, Surat Pengantar RT Nomor RT - Nama Pemohon`, 'string') }}\n\nNama Tujuan = {{ $fromAI('Nama_Lengkap_Ketua_RT', ``, 'string') }}\nNomor Hp tujuan = {{ $fromAI('Id_Chat_WhatsApp_Ketua_RT', `Wajib Gunakan Format 628xxxxxxxx@c.us`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal\n"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Tool Kirim Surat\" Untuk Kirim Surat Kepada Ketua RT\n\nRespon Hanya\nBerhasil Atau Gagal"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          4096,
+          960
+        ],
+        "id": "ccfc5e37-24c9-4c00-a171-6e2242abce84",
+        "name": "Send Surat RT",
+        "notesInFlow": true,
+        "notes": "AI Agent Kirim Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/rHlkBTCXxLOt2Zu6"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Kirim Pesan ke Pemohon",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Kirim Pesan \nberitahu kepada Pemohon Bahwa \n\n{{ $fromAI('Nama_Pemohon', ``, 'string') }} dapat langsung mengambil Surat Pengantar RT untuk {{ $fromAI('Alasan_Pemohon', ``, 'string') }} di Ketua RT {{ $fromAI('Nomor_RT', ``, 'string') }} {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan', ``, 'string') }}, {{ $fromAI('Nama_Lengkap_Ketua_RT', ``, 'string') }}. Silakan menghubungi beliau melalui WhatsApp di nomor {{ $fromAI('Nomor_HP_Ketua_RT', ``, 'string') }} untuk meminta surat pengantar tersebut.\n\nSalam hormat,  \nKawe Nia 🤝  \nAsisten Digital Distrik Wania\n\nGunakan Data Ini Untuk Kirim Pesan\nsession = {{ $fromAI('Session_WhatsApp_Pemohon', ``, 'string') }}\nchatId = {{ $fromAI('ChatId_WhatsApp_Pemohon', `Wajib Gunakan Format 628xxxxxxxx@c.us`, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Tool Pesan\" Untuk Kirim Pesan Kepada Pemohon\n\nRespon Hanya\nBerhasil Atau Gagal"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          4304,
+          944
+        ],
+        "id": "9383ce05-4b21-4d6d-a3b4-4803d906ad98",
+        "name": "Send Pesan Pemohon",
+        "notesInFlow": true,
+        "notes": "AI Agent Pesan Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/Jbrrovhpr14NZBcM"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Arsip Surat Pengantar RT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f849dac9-c102-4b8a-b71d-1bc131904ccb",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "Prompt",
+                "value": "=Buat Arsip Surat Pengantar RT\n\nData\nNama Kampung / Nama Kelurahan  = {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\nNomor RT Pemohon = {{ $fromAI('Nomor_RT_Pemohon', ``, 'string') }}\nNama Pemohon = {{ $fromAI('Nama_Pemohon', ``, 'string') }}\nNIK Pemohon = {{ $fromAI('NIK_Pemohon', ``, 'string') }}\nNomor HP Pemohon = {{ $fromAI('Nomor_HP_Pemohon', ``, 'string') }}\nAlamat Pemohon = {{ $fromAI('Alamat_Pemohon', ``, 'string') }}\nNama Ketua RT = {{ $fromAI('Nama_Ketua_RT', `Nama Ketua RT`, 'string') }}\nNomor Hp Ketua RT = {{ $fromAI('Nomor_Hp_Ketua_RT', `Nomor Hp Ketua RT`, 'string') }}\nLink Surat = {{ $fromAI('Link_Surat', `Link Surat\nWajib Gunakan Format \nhttps://docs.google.com/document/d/ID_SURAT_PENGANTAR_RT/export?format=pdf`, 'string') }}\nNomor Surat Pengantar RT = {{ $fromAI('Nomor_Surat_Pengantar_RT', ``, 'string') }}\n\nRespon Hanya\nBerhasil Atau Gagal"
+              },
+              {
+                "name": "System Message",
+                "value": "=Wajib Gunakan \"Arsip RT {{ $fromAI('Nama_Kampung_Atau_Nama_Kelurahan_Pemohon', ``, 'string') }}\" Untuk Membuat Arsip Surat Pengantar RT\n\nRespon Hanya\nBerhasil Atau Gagal"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          4512,
+          960
+        ],
+        "id": "7a100631-33be-4a57-975f-ca033eab46ea",
+        "name": "Arsip Surat",
+        "notesInFlow": true,
+        "notes": "AI Agent Arsip Surat\nhttps://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/tJuSqAoXyuJIpcB9"
+      }
+    ],
+    "connections": {
+      "AI Agent Surat Pengantar RT": {
+        "main": [
+          []
+        ]
+      },
+      "WI-A": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-A": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Folder": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Surat": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create Nomor Surat": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data RT": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Data Kampung Kelurahan": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Surat": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tanda Tangan Surat": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Send Pesan RT": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Send Surat RT": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Send Pesan Pemohon": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Arsip Surat": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat Pengantar RT",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "system migration",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
