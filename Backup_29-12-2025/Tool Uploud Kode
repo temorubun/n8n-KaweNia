@@ -1,0 +1,362 @@
+{
+  "updatedAt": "2025-12-23T07:50:20.645Z",
+  "createdAt": "2025-12-15T16:43:46.530Z",
+  "id": "CRuVbFdsuDvupK2i",
+  "name": "Tool Uploud Kode",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "### Webhook Input ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -608,
+        -224
+      ],
+      "typeVersion": 1,
+      "id": "545d3fd8-912e-46c9-b85c-d14d78e332f8",
+      "name": "Sticky Note32"
+    },
+    {
+      "parameters": {
+        "content": "### Drive Uploud File",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -368,
+        -224
+      ],
+      "typeVersion": 1,
+      "id": "80aabfc0-30d0-413b-8835-b15253454586",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -128,
+        -224
+      ],
+      "typeVersion": 1,
+      "id": "18b7c00a-5d89-4972-aaf4-e2a09f04e7db",
+      "name": "Sticky Note33"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -560,
+        -176
+      ],
+      "id": "186faeb0-579d-45a0-ab3c-f4812ec7d8a7",
+      "name": "WI",
+      "webhookId": "ea1611aa-ed6e-474c-8a9c-4fd32f460241"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -80,
+        -176
+      ],
+      "id": "1967c419-9f4d-4bb4-a057-a0ef5d880fde",
+      "name": "WR"
+    },
+    {
+      "parameters": {
+        "name": "={{ $json.query[\"File Name\"] }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.query[\"Parent Folder\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -304,
+        -176
+      ],
+      "id": "37eb2a5f-7413-4369-adab-e02005c31951",
+      "name": "Drive Uploud File",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 256,
+        "width": 800
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -656,
+        -256
+      ],
+      "typeVersion": 1,
+      "id": "f09e11fc-8d83-43ca-8dd5-18a19d0ddfff",
+      "name": "Sticky Note2"
+    }
+  ],
+  "connections": {
+    "WI": {
+      "main": [
+        [
+          {
+            "node": "Drive Uploud File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive Uploud File": {
+      "main": [
+        [
+          {
+            "node": "WR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "WI": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "9611",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9a9ce1bccfb440a6-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "text/css; charset=utf-8",
+            "x-forwarded-for": "8.215.39.173, 162.158.106.253",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "162.158.106.253"
+          },
+          "params": {},
+          "query": {
+            "Nama File": "Style.css",
+            "Lokasi File": "1xY8C78DQfv75LBG3-P0C3be_IpNXD3qO"
+          },
+          "body": {},
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "1a0272cb-1aba-4a4c-b69d-cca4e35bb708",
+  "activeVersionId": "1a0272cb-1aba-4a4c-b69d-cca4e35bb708",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-15T16:43:46.534Z",
+      "createdAt": "2025-12-15T16:43:46.534Z",
+      "role": "workflow:owner",
+      "workflowId": "CRuVbFdsuDvupK2i",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-23T07:50:20.646Z",
+    "createdAt": "2025-12-23T07:50:20.646Z",
+    "versionId": "1a0272cb-1aba-4a4c-b69d-cca4e35bb708",
+    "workflowId": "CRuVbFdsuDvupK2i",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "### Webhook Input ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -608,
+          -224
+        ],
+        "typeVersion": 1,
+        "id": "545d3fd8-912e-46c9-b85c-d14d78e332f8",
+        "name": "Sticky Note32"
+      },
+      {
+        "parameters": {
+          "content": "### Drive Uploud File",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -368,
+          -224
+        ],
+        "typeVersion": 1,
+        "id": "80aabfc0-30d0-413b-8835-b15253454586",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -128,
+          -224
+        ],
+        "typeVersion": 1,
+        "id": "18b7c00a-5d89-4972-aaf4-e2a09f04e7db",
+        "name": "Sticky Note33"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -560,
+          -176
+        ],
+        "id": "186faeb0-579d-45a0-ab3c-f4812ec7d8a7",
+        "name": "WI",
+        "webhookId": "ea1611aa-ed6e-474c-8a9c-4fd32f460241"
+      },
+      {
+        "parameters": {
+          "respondWith": "text",
+          "responseBody": "={{ $json.id }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -80,
+          -176
+        ],
+        "id": "1967c419-9f4d-4bb4-a057-a0ef5d880fde",
+        "name": "WR"
+      },
+      {
+        "parameters": {
+          "name": "={{ $json.query[\"File Name\"] }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.query[\"Parent Folder\"] }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          -304,
+          -176
+        ],
+        "id": "37eb2a5f-7413-4369-adab-e02005c31951",
+        "name": "Drive Uploud File",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 256,
+          "width": 800
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -656,
+          -256
+        ],
+        "typeVersion": 1,
+        "id": "f09e11fc-8d83-43ca-8dd5-18a19d0ddfff",
+        "name": "Sticky Note2"
+      }
+    ],
+    "connections": {
+      "WI": {
+        "main": [
+          [
+            {
+              "node": "Drive Uploud File",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive Uploud File": {
+        "main": [
+          [
+            {
+              "node": "WR",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
