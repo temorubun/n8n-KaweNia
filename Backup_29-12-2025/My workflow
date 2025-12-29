@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-03T21:44:17.000Z",
+  "createdAt": "2025-08-03T21:42:50.208Z",
+  "id": "ULP6pJA0yDNQJPOB",
+  "name": "My workflow",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "0560560f-2729-4114-80ed-59d681f66828",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-03T21:42:50.212Z",
+      "createdAt": "2025-08-03T21:42:50.212Z",
+      "role": "workflow:owner",
+      "workflowId": "ULP6pJA0yDNQJPOB",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
