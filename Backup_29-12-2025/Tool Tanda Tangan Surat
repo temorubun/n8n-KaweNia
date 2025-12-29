@@ -1,0 +1,716 @@
+{
+  "updatedAt": "2025-12-23T03:55:01.766Z",
+  "createdAt": "2025-11-16T07:10:58.000Z",
+  "id": "OZOZkTQhSCn3AIgj",
+  "name": "Tool Tanda Tangan Surat",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "e3999d1d-c184-41a0-be1b-79a6c11d34e6",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        448,
+        960
+      ],
+      "id": "c15393ad-294f-4d17-8185-7f6bd732e56d",
+      "name": "WI-B",
+      "webhookId": "e3999d1d-c184-41a0-be1b-79a6c11d34e6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dd489832-eeb3-422e-97d2-9eb41aa079cb",
+              "name": "Id Tanda Tangan",
+              "value": "={{ $json.body[\"ID Tanda Tangan\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "b6068e9a-abfc-4e0c-ae3e-b1b392d8c155",
+              "name": "Id Surat",
+              "value": "={{ $json.body[\"Id Surat\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        608,
+        960
+      ],
+      "id": "2becd29f-7e65-4344-b559-756245c33632",
+      "name": "Tool-B1"
+    },
+    {
+      "parameters": {
+        "url": "=https://docs.googleapis.com/v1/documents/{{ $json[\"Id Surat\"] }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        768,
+        960
+      ],
+      "id": "e462b775-7b5a-4c89-96a4-1209d5ae41d9",
+      "name": "Tool-B2",
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "jXbDn3iYmSleWrn8",
+          "name": "Google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst TARGET = \"{Tanda_Tangan}\";\nconst items = $input.all();\n\nfunction findSignatureIndex(content) {\n  for (const el of content || []) {\n    // Cek di paragraf\n    if (el.paragraph?.elements) {\n      for (const e of el.paragraph.elements) {\n        const text = e.textRun?.content || \"\";\n        const i = text.indexOf(TARGET);\n        if (i !== -1) {\n          return {\n            startIndex: e.startIndex + i,\n            endIndex: e.startIndex + i + TARGET.length\n          };\n        }\n      }\n    }\n    // Rekursif di tabel dan daftar isi\n    if (el.table?.tableRows) {\n      for (const row of el.table.tableRows)\n        for (const cell of row.tableCells) {\n          const found = findSignatureIndex(cell.content);\n          if (found) return found;\n        }\n    }\n    if (el.tableOfContents?.content) {\n      const found = findSignatureIndex(el.tableOfContents.content);\n      if (found) return found;\n    }\n  }\n  return null;\n}\n\n// Proses semua item\nreturn items.map((item, idx) => {\n  const data = item.json;\n  const content = data.body?.content;\n\n  if (!Array.isArray(content))\n    throw new Error(`[Item ${idx}] body.content tidak valid`);\n\n  const pos = findSignatureIndex(content);\n  if (!pos)\n    throw new Error(`[Item ${idx}] Placeholder ${TARGET} tidak ditemukan`);\n\n  return {\n    json: {\n      startIndex: pos.startIndex,\n      endIndex: pos.endIndex,\n      qrFileId: data.id_qrcode\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        928,
+        960
+      ],
+      "id": "7baadc2f-3998-4528-8500-d11c3d17a629",
+      "name": "Tool-B3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://docs.googleapis.com/v1/documents/{{ $('Tool-B1').item.json[\"Id Surat\"] }}:batchUpdate\n",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleOAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"requests\": [\n    {\n      \"deleteContentRange\": {\n        \"range\": {\n          \"startIndex\": {{ $json.startIndex }},\n          \"endIndex\": {{ $json.endIndex }}\n        }\n      }\n    },\n    {\n      \"insertInlineImage\": {\n        \"location\": { \"index\": {{ $json.startIndex }} },\n        \"uri\": \"https://drive.google.com/uc?id={{ $('Tool-B1').item.json['Id Tanda Tangan'] }}\",\n        \"objectSize\": {\n          \"width\":  { \"magnitude\": 80, \"unit\": \"PT\" },\n          \"height\": { \"magnitude\": 70, \"unit\": \"PT\" }\n        }\n      }\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1088,
+        960
+      ],
+      "id": "d3746508-8728-4832-bfa6-9a8280d715a3",
+      "name": "Tool-B4",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        },
+        "googleOAuth2Api": {
+          "id": "jXbDn3iYmSleWrn8",
+          "name": "Google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "Surat Berhasil Di Tanda Tangan",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1248,
+        960
+      ],
+      "id": "b01bcabd-18cd-4a76-96e0-be00bd43ba3d",
+      "name": "WR-B"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Tanda Tanga Surat",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/e3999d1d-c184-41a0-be1b-79a6c11d34e6",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "ID Tanda Tangan",
+              "value": "={{ $fromAI('ID_Tanda_Tangan', `ID tanda Tangan`, 'string') }}"
+            },
+            {
+              "name": "Id Surat",
+              "value": "={{ $fromAI('Id_Surat', `Id surat`, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        848,
+        720
+      ],
+      "id": "3791ccd6-60de-48ad-9513-4a57491da21f",
+      "name": "Tool Tanda Tangan"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ad21f111-38bc-4ec1-bb28-51dcd4e55588",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        512,
+        416
+      ],
+      "id": "eaffabeb-b165-4281-9e0d-ed2bb1f03e4d",
+      "name": "Input",
+      "webhookId": "ad21f111-38bc-4ec1-bb28-51dcd4e55588"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body['System Message'] }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        704,
+        416
+      ],
+      "id": "2f31fbe8-8c15-447a-a00e-a78e11b55793",
+      "name": "AI Agent Tanda Tangan Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        704,
+        608
+      ],
+      "id": "a97a7238-3f25-40bf-b4cd-f3f99587bf4d",
+      "name": "AI",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1008,
+        416
+      ],
+      "id": "53c1890b-4c69-40a5-978a-b6eb15f4bac6",
+      "name": "Output"
+    }
+  ],
+  "connections": {
+    "WI-B": {
+      "main": [
+        [
+          {
+            "node": "Tool-B1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool-B1": {
+      "main": [
+        [
+          {
+            "node": "Tool-B2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool-B2": {
+      "main": [
+        [
+          {
+            "node": "Tool-B3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool-B3": {
+      "main": [
+        [
+          {
+            "node": "Tool-B4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool-B4": {
+      "main": [
+        [
+          {
+            "node": "WR-B",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool Tanda Tangan": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Tanda Tangan Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Tanda Tangan Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Tanda Tangan Surat": {
+      "main": [
+        [
+          {
+            "node": "Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Tanda Tangan Surat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "ed8db9af-a5a6-40ec-b217-e54beee6d96d",
+  "activeVersionId": "ed8db9af-a5a6-40ec-b217-e54beee6d96d",
+  "triggerCount": 2,
+  "shared": [
+    {
+      "updatedAt": "2025-11-16T07:10:58.003Z",
+      "createdAt": "2025-11-16T07:10:58.003Z",
+      "role": "workflow:owner",
+      "workflowId": "OZOZkTQhSCn3AIgj",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-23T01:43:45.270Z",
+    "createdAt": "2025-12-23T01:43:45.270Z",
+    "versionId": "ed8db9af-a5a6-40ec-b217-e54beee6d96d",
+    "workflowId": "OZOZkTQhSCn3AIgj",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "e3999d1d-c184-41a0-be1b-79a6c11d34e6",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          448,
+          960
+        ],
+        "id": "c15393ad-294f-4d17-8185-7f6bd732e56d",
+        "name": "WI-B",
+        "webhookId": "e3999d1d-c184-41a0-be1b-79a6c11d34e6"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "dd489832-eeb3-422e-97d2-9eb41aa079cb",
+                "name": "Id Tanda Tangan",
+                "value": "={{ $json.body[\"ID Tanda Tangan\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "b6068e9a-abfc-4e0c-ae3e-b1b392d8c155",
+                "name": "Id Surat",
+                "value": "={{ $json.body[\"Id Surat\"] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          608,
+          960
+        ],
+        "id": "2becd29f-7e65-4344-b559-756245c33632",
+        "name": "Tool-B1"
+      },
+      {
+        "parameters": {
+          "url": "=https://docs.googleapis.com/v1/documents/{{ $json[\"Id Surat\"] }}",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "googleOAuth2Api",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          768,
+          960
+        ],
+        "id": "e462b775-7b5a-4c89-96a4-1209d5ae41d9",
+        "name": "Tool-B2",
+        "credentials": {
+          "googleOAuth2Api": {
+            "id": "jXbDn3iYmSleWrn8",
+            "name": "Google account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst TARGET = \"{Tanda_Tangan}\";\nconst items = $input.all();\n\nfunction findSignatureIndex(content) {\n  for (const el of content || []) {\n    // Cek di paragraf\n    if (el.paragraph?.elements) {\n      for (const e of el.paragraph.elements) {\n        const text = e.textRun?.content || \"\";\n        const i = text.indexOf(TARGET);\n        if (i !== -1) {\n          return {\n            startIndex: e.startIndex + i,\n            endIndex: e.startIndex + i + TARGET.length\n          };\n        }\n      }\n    }\n    // Rekursif di tabel dan daftar isi\n    if (el.table?.tableRows) {\n      for (const row of el.table.tableRows)\n        for (const cell of row.tableCells) {\n          const found = findSignatureIndex(cell.content);\n          if (found) return found;\n        }\n    }\n    if (el.tableOfContents?.content) {\n      const found = findSignatureIndex(el.tableOfContents.content);\n      if (found) return found;\n    }\n  }\n  return null;\n}\n\n// Proses semua item\nreturn items.map((item, idx) => {\n  const data = item.json;\n  const content = data.body?.content;\n\n  if (!Array.isArray(content))\n    throw new Error(`[Item ${idx}] body.content tidak valid`);\n\n  const pos = findSignatureIndex(content);\n  if (!pos)\n    throw new Error(`[Item ${idx}] Placeholder ${TARGET} tidak ditemukan`);\n\n  return {\n    json: {\n      startIndex: pos.startIndex,\n      endIndex: pos.endIndex,\n      qrFileId: data.id_qrcode\n    }\n  };\n});\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          928,
+          960
+        ],
+        "id": "7baadc2f-3998-4528-8500-d11c3d17a629",
+        "name": "Tool-B3"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://docs.googleapis.com/v1/documents/{{ $('Tool-B1').item.json[\"Id Surat\"] }}:batchUpdate\n",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "googleOAuth2Api",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={\n  \"requests\": [\n    {\n      \"deleteContentRange\": {\n        \"range\": {\n          \"startIndex\": {{ $json.startIndex }},\n          \"endIndex\": {{ $json.endIndex }}\n        }\n      }\n    },\n    {\n      \"insertInlineImage\": {\n        \"location\": { \"index\": {{ $json.startIndex }} },\n        \"uri\": \"https://drive.google.com/uc?id={{ $('Tool-B1').item.json['Id Tanda Tangan'] }}\",\n        \"objectSize\": {\n          \"width\":  { \"magnitude\": 80, \"unit\": \"PT\" },\n          \"height\": { \"magnitude\": 70, \"unit\": \"PT\" }\n        }\n      }\n    }\n  ]\n}\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          1088,
+          960
+        ],
+        "id": "d3746508-8728-4832-bfa6-9a8280d715a3",
+        "name": "Tool-B4",
+        "credentials": {
+          "googleDocsOAuth2Api": {
+            "id": "et8bSa0Nlnpparmf",
+            "name": "Google Docs account"
+          },
+          "googleOAuth2Api": {
+            "id": "jXbDn3iYmSleWrn8",
+            "name": "Google account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "respondWith": "text",
+          "responseBody": "Surat Berhasil Di Tanda Tangan",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          1248,
+          960
+        ],
+        "id": "b01bcabd-18cd-4a76-96e0-be00bd43ba3d",
+        "name": "WR-B"
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Tanda Tanga Surat",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/e3999d1d-c184-41a0-be1b-79a6c11d34e6",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "ID Tanda Tangan",
+                "value": "={{ $fromAI('ID_Tanda_Tangan', `ID tanda Tangan`, 'string') }}"
+              },
+              {
+                "name": "Id Surat",
+                "value": "={{ $fromAI('Id_Surat', `Id surat`, 'string') }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          848,
+          720
+        ],
+        "id": "3791ccd6-60de-48ad-9513-4a57491da21f",
+        "name": "Tool Tanda Tangan"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "ad21f111-38bc-4ec1-bb28-51dcd4e55588",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          512,
+          416
+        ],
+        "id": "eaffabeb-b165-4281-9e0d-ed2bb1f03e4d",
+        "name": "Input",
+        "webhookId": "ad21f111-38bc-4ec1-bb28-51dcd4e55588"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body['System Message'] }}"
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          704,
+          416
+        ],
+        "id": "2f31fbe8-8c15-447a-a00e-a78e11b55793",
+        "name": "AI Agent Tanda Tangan Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          704,
+          608
+        ],
+        "id": "a97a7238-3f25-40bf-b4cd-f3f99587bf4d",
+        "name": "AI",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          1008,
+          416
+        ],
+        "id": "53c1890b-4c69-40a5-978a-b6eb15f4bac6",
+        "name": "Output"
+      }
+    ],
+    "connections": {
+      "WI-B": {
+        "main": [
+          [
+            {
+              "node": "Tool-B1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool-B1": {
+        "main": [
+          [
+            {
+              "node": "Tool-B2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool-B2": {
+        "main": [
+          [
+            {
+              "node": "Tool-B3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool-B3": {
+        "main": [
+          [
+            {
+              "node": "Tool-B4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool-B4": {
+        "main": [
+          [
+            {
+              "node": "WR-B",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool Tanda Tangan": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Tanda Tangan Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Input": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Tanda Tangan Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Tanda Tangan Surat": {
+        "main": [
+          [
+            {
+              "node": "Output",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Tanda Tangan Surat",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
