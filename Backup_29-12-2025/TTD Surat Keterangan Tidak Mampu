@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-08-26T01:47:40.000Z",
+  "createdAt": "2025-08-22T02:51:13.739Z",
+  "id": "eIPtAVtt7oRx9erG",
+  "name": "TTD Surat Keterangan Tidak Mampu",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "6c32a297-71a1-4134-a4b3-83aa972a136b",
+  "activeVersionId": null,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-08-22T02:51:13.742Z",
+      "createdAt": "2025-08-22T02:51:13.742Z",
+      "role": "workflow:owner",
+      "workflowId": "eIPtAVtt7oRx9erG",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
