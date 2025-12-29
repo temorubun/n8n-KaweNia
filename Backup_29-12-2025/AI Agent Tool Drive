@@ -1,0 +1,1089 @@
+{
+  "updatedAt": "2025-12-23T07:36:42.382Z",
+  "createdAt": "2025-11-19T03:26:35.016Z",
+  "id": "hwnouNROjm5sQB61",
+  "name": "AI Agent Tool Drive",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1856,
+        336
+      ],
+      "id": "23aa117b-cd80-484e-88b5-9060277d37e3",
+      "name": "AI",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('File', ``, 'string') }}",
+          "mode": "id"
+        },
+        "name": "={{ $fromAI('Nama_File_Document', `Nama File Document`, 'string') }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.body['Parent Folder'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -1376,
+        336
+      ],
+      "id": "89357878-bfb8-4d6a-a714-42c2c00e665c",
+      "name": "Drive Copy File",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "share",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('File', `Id Document`, 'string') }}",
+          "mode": "id"
+        },
+        "permissionsUi": {
+          "permissionsValues": {
+            "role": "reader",
+            "type": "anyone"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -1136,
+        336
+      ],
+      "id": "74652042-d684-4c3c-b450-f40ce19830fb",
+      "name": "Drive Share File",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('File', `Id Dokumen`, 'string') }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.body['Parent Folder'] }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -880,
+        336
+      ],
+      "id": "d1fb29c2-8825-4a1d-8bd9-0627520ca906",
+      "name": "Drive Move File",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $json.body['Folder Name'] }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.body['Parent Folder'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -1600,
+        336
+      ],
+      "id": "f69c284e-fb1c-4f66-a572-9de2e9ff7c6d",
+      "name": "Drive Create Folder",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Hapus Dockumen",
+        "method": "DELETE",
+        "url": "=https://www.googleapis.com/drive/v3/files/{{ $fromAI('Id_Yang_Ingin_Di_Hapus', `Berikan Satu Persatu`, 'string') }}?supportsAllDrives=true",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -624,
+        320
+      ],
+      "id": "e5327aad-85cd-41c0-a92c-cf138fc42d4d",
+      "name": "Drive Delete File/Folder",
+      "notesInFlow": true,
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "jXbDn3iYmSleWrn8",
+          "name": "Google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"dokumen\": [\n    {\n      \"nama\": \"\",\n      \"id\": \"\",\n      \"tipe\": \"\",\n      \"size\": \"\",\n      \"view\": \"\",\n      \"download\": \"\"\n    },\n    {\n      \"nama\": \"\",\n      \"id\": \"\",\n      \"tipe\": \"\",\n      \"size\": \"\",\n      \"view\": \"\",\n      \"download\": \"\"\n    },\n    {\n      \"nama\": \"\",\n      \"id\": \"\",\n      \"tipe\": \"\",\n      \"size\": \"\",\n      \"view\": \"\",\n      \"download\": \"\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -416,
+        320
+      ],
+      "id": "52002da3-7681-468e-9673-02e88b5ad2c2",
+      "name": "Format Output"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1568,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "f6af73c4-fe8f-4bd3-85b6-17fc4909c1fd",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Tool Drive\n\n\n\n\n\n\n\n### ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1312,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "c260647c-b20b-48e6-8775-4a46822c6183",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -912,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "f7a79919-c90e-463e-9fda-e164005b64ba",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1920,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "ffbb11c8-5998-4dc6-99c1-2f62bb74fdd1",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Drive Create Folder",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1680,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "f726415e-2a5b-4967-a013-0a775998dab4",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 576,
+        "width": 1712
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1936,
+        -96
+      ],
+      "typeVersion": 1,
+      "id": "7c0e7e1f-ea0b-45bb-8b12-8d76efe55b7d",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "654dcf1e-f849-479d-8b3a-85246d75c1d2",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1488,
+        0
+      ],
+      "id": "e3958d96-5cc2-46a9-a4f3-d6ea9b226544",
+      "name": "WI",
+      "webhookId": "654dcf1e-f849-479d-8b3a-85246d75c1d2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -864,
+        0
+      ],
+      "id": "b6147260-a02d-4978-bfbc-b383c945cb26",
+      "name": "WR"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $json.body['System Message'] }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -1232,
+        0
+      ],
+      "id": "a1954a70-e6bc-4541-84fb-155d380398fc",
+      "name": "AI Agent Drive"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Drive Copy File",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1440,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "92b1ec76-5269-43a2-b635-331995ae4654",
+      "name": "Sticky Note31"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Drive Share File",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1200,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "e4f8a350-3dec-47d0-a4d4-c38006af9fdf",
+      "name": "Sticky Note32"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Drive Move File",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -960,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "1366e8d6-c721-47ae-8cb7-68b3c4c46ec3",
+      "name": "Sticky Note33"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Drive Delete File/Folder",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -720,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "455b1deb-abc4-4081-b097-7adf253dbe5b",
+      "name": "Sticky Note34"
+    },
+    {
+      "parameters": {
+        "content": "### Respon Format\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -480,
+        256
+      ],
+      "typeVersion": 1,
+      "id": "b6ad657e-8fc4-4f47-9646-53a2be4f1b37",
+      "name": "Sticky Note35"
+    }
+  ],
+  "connections": {
+    "AI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Drive",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive Copy File": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Drive",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive Share File": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Drive",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive Move File": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Drive",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive Create Folder": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Drive",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Drive Delete File/Folder": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Drive",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent Drive",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WI": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Drive": {
+      "main": [
+        [
+          {
+            "node": "WR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "WI": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "227",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9b256e030e95ef74-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.69.165.36",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.69.165.36"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Prompt": "Buat Folder Baru Dan Berikan saya Hanya Id Folder Baru ",
+            "System Message": "Gunakan \"Drive Create Folder\" Untuk Membbuat Folder Baru",
+            "Folder Name": "Agung Folder",
+            "Parent Folder": "1nuUwCCsg4fOHJi9Y7V6Hlg5iFF5YghOv"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/654dcf1e-f849-479d-8b3a-85246d75c1d2",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "4c931099-aa8e-49d8-a114-1b62e4ad5fe6",
+  "activeVersionId": "4c931099-aa8e-49d8-a114-1b62e4ad5fe6",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-19T03:26:35.019Z",
+      "createdAt": "2025-11-19T03:26:35.019Z",
+      "role": "workflow:owner",
+      "workflowId": "hwnouNROjm5sQB61",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-23T07:36:42.383Z",
+    "createdAt": "2025-12-23T07:36:42.383Z",
+    "versionId": "4c931099-aa8e-49d8-a114-1b62e4ad5fe6",
+    "workflowId": "hwnouNROjm5sQB61",
+    "nodes": [
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -1856,
+          336
+        ],
+        "id": "23aa117b-cd80-484e-88b5-9060277d37e3",
+        "name": "AI",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "copy",
+          "fileId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('File', ``, 'string') }}",
+            "mode": "id"
+          },
+          "name": "={{ $fromAI('Nama_File_Document', `Nama File Document`, 'string') }}",
+          "sameFolder": false,
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.body['Parent Folder'] }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -1376,
+          336
+        ],
+        "id": "89357878-bfb8-4d6a-a714-42c2c00e665c",
+        "name": "Drive Copy File",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "share",
+          "fileId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('File', `Id Document`, 'string') }}",
+            "mode": "id"
+          },
+          "permissionsUi": {
+            "permissionsValues": {
+              "role": "reader",
+              "type": "anyone"
+            }
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -1136,
+          336
+        ],
+        "id": "74652042-d684-4c3c-b450-f40ce19830fb",
+        "name": "Drive Share File",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "move",
+          "fileId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('File', `Id Dokumen`, 'string') }}",
+            "mode": "id"
+          },
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.body['Parent Folder'] }}",
+            "mode": "id"
+          }
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -880,
+          336
+        ],
+        "id": "d1fb29c2-8825-4a1d-8bd9-0627520ca906",
+        "name": "Drive Move File",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "folder",
+          "name": "={{ $json.body['Folder Name'] }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.body['Parent Folder'] }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -1600,
+          336
+        ],
+        "id": "f69c284e-fb1c-4f66-a572-9de2e9ff7c6d",
+        "name": "Drive Create Folder",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Hapus Dockumen",
+          "method": "DELETE",
+          "url": "=https://www.googleapis.com/drive/v3/files/{{ $fromAI('Id_Yang_Ingin_Di_Hapus', `Berikan Satu Persatu`, 'string') }}?supportsAllDrives=true",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "googleOAuth2Api",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          -624,
+          320
+        ],
+        "id": "e5327aad-85cd-41c0-a92c-cf138fc42d4d",
+        "name": "Drive Delete File/Folder",
+        "notesInFlow": true,
+        "credentials": {
+          "googleOAuth2Api": {
+            "id": "jXbDn3iYmSleWrn8",
+            "name": "Google account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsonSchemaExample": "{\n  \"dokumen\": [\n    {\n      \"nama\": \"\",\n      \"id\": \"\",\n      \"tipe\": \"\",\n      \"size\": \"\",\n      \"view\": \"\",\n      \"download\": \"\"\n    },\n    {\n      \"nama\": \"\",\n      \"id\": \"\",\n      \"tipe\": \"\",\n      \"size\": \"\",\n      \"view\": \"\",\n      \"download\": \"\"\n    },\n    {\n      \"nama\": \"\",\n      \"id\": \"\",\n      \"tipe\": \"\",\n      \"size\": \"\",\n      \"view\": \"\",\n      \"download\": \"\"\n    }\n  ]\n}"
+        },
+        "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+        "typeVersion": 1.3,
+        "position": [
+          -416,
+          320
+        ],
+        "id": "52002da3-7681-468e-9673-02e88b5ad2c2",
+        "name": "Format Output"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1568,
+          -48
+        ],
+        "typeVersion": 1,
+        "id": "f6af73c4-fe8f-4bd3-85b6-17fc4909c1fd",
+        "name": "Sticky Note17"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Tool Drive\n\n\n\n\n\n\n\n### ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1312,
+          -48
+        ],
+        "typeVersion": 1,
+        "id": "c260647c-b20b-48e6-8775-4a46822c6183",
+        "name": "Sticky Note28"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -912,
+          -48
+        ],
+        "typeVersion": 1,
+        "id": "f7a79919-c90e-463e-9fda-e164005b64ba",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1920,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "ffbb11c8-5998-4dc6-99c1-2f62bb74fdd1",
+        "name": "Sticky Note27"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Drive Create Folder",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1680,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "f726415e-2a5b-4967-a013-0a775998dab4",
+        "name": "Sticky Note29"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 576,
+          "width": 1712
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1936,
+          -96
+        ],
+        "typeVersion": 1,
+        "id": "7c0e7e1f-ea0b-45bb-8b12-8d76efe55b7d",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "654dcf1e-f849-479d-8b3a-85246d75c1d2",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -1488,
+          0
+        ],
+        "id": "e3958d96-5cc2-46a9-a4f3-d6ea9b226544",
+        "name": "WI",
+        "webhookId": "654dcf1e-f849-479d-8b3a-85246d75c1d2"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -864,
+          0
+        ],
+        "id": "b6147260-a02d-4978-bfbc-b383c945cb26",
+        "name": "WR"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "hasOutputParser": true,
+          "options": {
+            "systemMessage": "={{ $json.body['System Message'] }}"
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          -1232,
+          0
+        ],
+        "id": "a1954a70-e6bc-4541-84fb-155d380398fc",
+        "name": "AI Agent Drive"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Drive Copy File",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1440,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "92b1ec76-5269-43a2-b635-331995ae4654",
+        "name": "Sticky Note31"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Drive Share File",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1200,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "e4f8a350-3dec-47d0-a4d4-c38006af9fdf",
+        "name": "Sticky Note32"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Drive Move File",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -960,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "1366e8d6-c721-47ae-8cb7-68b3c4c46ec3",
+        "name": "Sticky Note33"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Drive Delete File/Folder",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -720,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "455b1deb-abc4-4081-b097-7adf253dbe5b",
+        "name": "Sticky Note34"
+      },
+      {
+        "parameters": {
+          "content": "### Respon Format\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -480,
+          256
+        ],
+        "typeVersion": 1,
+        "id": "b6ad657e-8fc4-4f47-9646-53a2be4f1b37",
+        "name": "Sticky Note35"
+      }
+    ],
+    "connections": {
+      "AI": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Drive",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive Copy File": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Drive",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive Share File": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Drive",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive Move File": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Drive",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive Create Folder": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Drive",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Drive Delete File/Folder": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Drive",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Format Output": {
+        "ai_outputParser": [
+          [
+            {
+              "node": "AI Agent Drive",
+              "type": "ai_outputParser",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "WI": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Drive",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Drive": {
+        "main": [
+          [
+            {
+              "node": "WR",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
