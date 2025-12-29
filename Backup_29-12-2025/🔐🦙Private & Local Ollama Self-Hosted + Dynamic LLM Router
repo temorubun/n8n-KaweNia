@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-08-03T21:52:39.000Z",
+  "createdAt": "2025-08-03T21:35:31.758Z",
+  "id": "grOA5Swf5mtTy1CA",
+  "name": "🔐🦙Private & Local Ollama Self-Hosted + Dynamic LLM Router",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {},
+  "staticData": null,
+  "meta": {
+    "templateId": "3139"
+  },
+  "pinData": {},
+  "versionId": "5d54e994-987d-4bd8-8cea-9c30affc8f05",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-03T21:35:31.761Z",
+      "createdAt": "2025-08-03T21:35:31.761Z",
+      "role": "workflow:owner",
+      "workflowId": "grOA5Swf5mtTy1CA",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
