@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-11-07T09:53:12.000Z",
+  "createdAt": "2025-11-05T06:29:58.470Z",
+  "id": "8Bt6yIeuu6hXhhEN",
+  "name": "31231",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "2b6152af-7759-4f76-b25d-0bf1863c0c6d",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-11-05T06:29:58.474Z",
+      "createdAt": "2025-11-05T06:29:58.474Z",
+      "role": "workflow:owner",
+      "workflowId": "8Bt6yIeuu6hXhhEN",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
