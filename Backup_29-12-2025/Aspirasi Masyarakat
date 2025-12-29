@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-10-10T02:11:04.000Z",
+  "createdAt": "2025-09-19T20:40:48.474Z",
+  "id": "bcWWrEF2l77GkY5y",
+  "name": "Aspirasi Masyarakat",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "e499542c-224c-4eb0-b04e-0031ef22ac40",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-09-19T20:40:48.476Z",
+      "createdAt": "2025-09-19T20:40:48.476Z",
+      "role": "workflow:owner",
+      "workflowId": "bcWWrEF2l77GkY5y",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
