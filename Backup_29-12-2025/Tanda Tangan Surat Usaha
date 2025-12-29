@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-08-26T01:48:15.000Z",
+  "createdAt": "2025-08-13T07:16:41.341Z",
+  "id": "Ggib0KYY1GMCVIpw",
+  "name": "Tanda Tangan Surat Usaha",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "0fe87793-8163-41fa-91c2-a23822cc967a",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-13T07:16:41.343Z",
+      "createdAt": "2025-08-13T07:16:41.343Z",
+      "role": "workflow:owner",
+      "workflowId": "Ggib0KYY1GMCVIpw",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
