@@ -1,0 +1,940 @@
+{
+  "updatedAt": "2025-12-28T07:24:02.023Z",
+  "createdAt": "2025-12-24T00:49:41.629Z",
+  "id": "1VdZCw2gjSqQowDW",
+  "name": "AI Agent Create Surat",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 704,
+        "width": 992
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -304,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "6fb4cdf3-ce8d-4851-8866-92c84c7e47ba",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -256,
+        -176
+      ],
+      "typeVersion": 1,
+      "id": "e83579bd-9e2c-4f83-b44d-37801079b5f8",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Create Surat Kadun Jaya\n\n\n\n\n\n\n\n### ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -16,
+        -176
+      ],
+      "typeVersion": 1,
+      "id": "47f80ebc-d164-4ead-be20-052c2216932e",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        384,
+        -176
+      ],
+      "typeVersion": 1,
+      "id": "30443c30-5d98-413f-93fb-777d8afef3e1",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -144,
+        48
+      ],
+      "typeVersion": 1,
+      "id": "95c8a44e-c8d6-4a26-8862-3ca8bd818c31",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Create SKTM\n\n\n\n\n\n\n\n### https://drive.google.com/file/d/1OTqCNl2gs3eMJrjl8W9hwbqvjC5MYJHJ8GG1K3qFh3M/view",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        272
+      ],
+      "typeVersion": 1,
+      "id": "7573488a-733f-4222-84d9-c2f18c7009b3",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "72894738-5647-48d1-9e7e-c84f3a37fe0f",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -176,
+        -128
+      ],
+      "id": "0bb47b1e-7776-4800-99bc-d8ce97ec0539",
+      "name": "WI-Surat",
+      "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body[\"System Message\"] }}",
+          "maxIterations": 3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        48,
+        -128
+      ],
+      "id": "f006c2a5-44f2-49cb-a623-30930782cc80",
+      "name": "AI Agent Surat"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        416,
+        -128
+      ],
+      "id": "42e2022b-daaf-4330-9ac1-caf2fde3dabf",
+      "name": "WR-Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -64,
+        144
+      ],
+      "id": "3bb802d7-b999-4a0c-96ab-9d00f88bcf35",
+      "name": "AI-Surat",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "### Tool Create SPRT\n\n\n\n\n\n\n\n### https://drive.google.com/file/d/1-kb2aMCcm9x7AfqgblQvru8Tr079M-_Adgb98-9Kb-c/view",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -48,
+        272
+      ],
+      "typeVersion": 1,
+      "id": "972473fb-7256-4b57-8f27-1a10d6055b5f",
+      "name": "Sticky Note26"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Create Pemberitahuan\n\n\n\n\n\n\n\n### https://drive.google.com/file/d/1aR0cGJSrujzeggJXaayq9mXD7wiyjes6btF2CRgTWoY/view",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        192,
+        272
+      ],
+      "typeVersion": 1,
+      "id": "9c93b3a5-9b08-4442-9b54-cea283678e0a",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Create Pengaduan\n\n\n\n\n\n\n\n### https://drive.google.com/file/d/1aR0cGJSrujzeggJXaayq9mXD7wiyjes6btF2CRgTWoY/view",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        432,
+        272
+      ],
+      "typeVersion": 1,
+      "id": "129a734c-1e51-4976-8630-a35697064afe",
+      "name": "Sticky Note31"
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1OTqCNl2gs3eMJrjl8W9hwbqvjC5MYJHJ8GG1K3qFh3M",
+          "mode": "id"
+        },
+        "name": "={{ $json.body['File Name'] }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.body['Parent Folder'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        -208,
+        320
+      ],
+      "id": "504ae539-ebb0-4d4a-9462-5a4ab76412ad",
+      "name": "Surat SKTM Kadun Jaya",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1-kb2aMCcm9x7AfqgblQvru8Tr079M-_Adgb98-9Kb-c",
+          "mode": "id"
+        },
+        "name": "=Surat Pengantar RT-{{ $fromAI('Nama_Pemohon', ``, 'string') }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $fromAI('Id_Perent_Folder', `Perent ID Folder Surat Pengantar RT`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        32,
+        320
+      ],
+      "id": "8180324a-4005-4d3a-80c7-ddda9edc2742",
+      "name": "Surat Pengantar RT Kadun Jaya",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "=1aR0cGJSrujzeggJXaayq9mXD7wiyjes6btF2CRgTWoY",
+          "mode": "id"
+        },
+        "name": "=Surat Pengaduan {{ $fromAI('Nama_Pelapor', ``, 'string') }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Perent ID Folder Surat Pengaduan`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        272,
+        320
+      ],
+      "id": "bc82edb9-9e63-4307-bd0f-6735e4da80f0",
+      "name": "Surat Pemberitahuan Kadun Jaya",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "=1aR0cGJSrujzeggJXaayq9mXD7wiyjes6btF2CRgTWoY",
+          "mode": "id"
+        },
+        "name": "=Surat Pengaduan {{ $fromAI('Nama_Pelapor', ``, 'string') }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Perent ID Folder Surat Pengaduan`, 'string') }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTool",
+      "typeVersion": 3,
+      "position": [
+        512,
+        320
+      ],
+      "id": "0066f092-5829-4944-9644-d20358f5f3ed",
+      "name": "Surat Pengaduan Kadun Jaya",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "WI-Surat": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Surat": {
+      "main": [
+        [
+          {
+            "node": "WR-Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Surat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat SKTM Kadun Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat Pengantar RT Kadun Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat Pemberitahuan Kadun Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat Pengaduan Kadun Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "WI-Surat": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "282",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9b28e0872edff928-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.68.164.166",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.68.164.166"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Prompt": "Saya Minta Id Surat SKTM Kampung Nawaripi\nRespon Hanya berikan Id Tanpa Menambahkan Apapun",
+            "System Message": "Gunakan \"Surat SKTM Kampung Nawaripi\" Untuk Mendapatkan Id Yang Di Minta",
+            "File Name": "SKTM - Syafruddin",
+            "Parent Folder": "1YreC0asR3oJqtyEWiat7XtlePgaD6mZe"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "582a4f3d-6641-4ce2-97a9-41660114e1b0",
+  "activeVersionId": "582a4f3d-6641-4ce2-97a9-41660114e1b0",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-24T00:49:41.633Z",
+      "createdAt": "2025-12-24T00:49:41.633Z",
+      "role": "workflow:owner",
+      "workflowId": "1VdZCw2gjSqQowDW",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-24T01:20:43.218Z",
+    "createdAt": "2025-12-24T01:20:43.218Z",
+    "versionId": "582a4f3d-6641-4ce2-97a9-41660114e1b0",
+    "workflowId": "1VdZCw2gjSqQowDW",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 704,
+          "width": 992
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -304,
+          -192
+        ],
+        "typeVersion": 1,
+        "id": "6fb4cdf3-ce8d-4851-8866-92c84c7e47ba",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -256,
+          -176
+        ],
+        "typeVersion": 1,
+        "id": "e83579bd-9e2c-4f83-b44d-37801079b5f8",
+        "name": "Sticky Note17"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Create Surat Kadun Jaya\n\n\n\n\n\n\n\n### ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -16,
+          -176
+        ],
+        "typeVersion": 1,
+        "id": "47f80ebc-d164-4ead-be20-052c2216932e",
+        "name": "Sticky Note28"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          384,
+          -176
+        ],
+        "typeVersion": 1,
+        "id": "30443c30-5d98-413f-93fb-777d8afef3e1",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -144,
+          48
+        ],
+        "typeVersion": 1,
+        "id": "95c8a44e-c8d6-4a26-8862-3ca8bd818c31",
+        "name": "Sticky Note27"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Create SKTM\n\n\n\n\n\n\n\n### https://drive.google.com/file/d/1OTqCNl2gs3eMJrjl8W9hwbqvjC5MYJHJ8GG1K3qFh3M/view",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -288,
+          272
+        ],
+        "typeVersion": 1,
+        "id": "7573488a-733f-4222-84d9-c2f18c7009b3",
+        "name": "Sticky Note25"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "72894738-5647-48d1-9e7e-c84f3a37fe0f",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -176,
+          -128
+        ],
+        "id": "0bb47b1e-7776-4800-99bc-d8ce97ec0539",
+        "name": "WI-Surat",
+        "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body[\"System Message\"] }}",
+            "maxIterations": 3
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3,
+        "position": [
+          48,
+          -128
+        ],
+        "id": "f006c2a5-44f2-49cb-a623-30930782cc80",
+        "name": "AI Agent Surat"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          416,
+          -128
+        ],
+        "id": "42e2022b-daaf-4330-9ac1-caf2fde3dabf",
+        "name": "WR-Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          -64,
+          144
+        ],
+        "id": "3bb802d7-b999-4a0c-96ab-9d00f88bcf35",
+        "name": "AI-Surat",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "### Tool Create SPRT\n\n\n\n\n\n\n\n### https://drive.google.com/file/d/1-kb2aMCcm9x7AfqgblQvru8Tr079M-_Adgb98-9Kb-c/view",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -48,
+          272
+        ],
+        "typeVersion": 1,
+        "id": "972473fb-7256-4b57-8f27-1a10d6055b5f",
+        "name": "Sticky Note26"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Create Pemberitahuan\n\n\n\n\n\n\n\n### https://drive.google.com/file/d/1aR0cGJSrujzeggJXaayq9mXD7wiyjes6btF2CRgTWoY/view",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          192,
+          272
+        ],
+        "typeVersion": 1,
+        "id": "9c93b3a5-9b08-4442-9b54-cea283678e0a",
+        "name": "Sticky Note29"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Create Pengaduan\n\n\n\n\n\n\n\n### https://drive.google.com/file/d/1aR0cGJSrujzeggJXaayq9mXD7wiyjes6btF2CRgTWoY/view",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          432,
+          272
+        ],
+        "typeVersion": 1,
+        "id": "129a734c-1e51-4976-8630-a35697064afe",
+        "name": "Sticky Note31"
+      },
+      {
+        "parameters": {
+          "operation": "copy",
+          "fileId": {
+            "__rl": true,
+            "value": "1OTqCNl2gs3eMJrjl8W9hwbqvjC5MYJHJ8GG1K3qFh3M",
+            "mode": "id"
+          },
+          "name": "={{ $json.body['File Name'] }}",
+          "sameFolder": false,
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.body['Parent Folder'] }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          -208,
+          320
+        ],
+        "id": "504ae539-ebb0-4d4a-9462-5a4ab76412ad",
+        "name": "Surat SKTM Kadun Jaya",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "copy",
+          "fileId": {
+            "__rl": true,
+            "value": "1-kb2aMCcm9x7AfqgblQvru8Tr079M-_Adgb98-9Kb-c",
+            "mode": "id"
+          },
+          "name": "=Surat Pengantar RT-{{ $fromAI('Nama_Pemohon', ``, 'string') }}",
+          "sameFolder": false,
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $fromAI('Id_Perent_Folder', `Perent ID Folder Surat Pengantar RT`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          32,
+          320
+        ],
+        "id": "8180324a-4005-4d3a-80c7-ddda9edc2742",
+        "name": "Surat Pengantar RT Kadun Jaya",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "copy",
+          "fileId": {
+            "__rl": true,
+            "value": "=1aR0cGJSrujzeggJXaayq9mXD7wiyjes6btF2CRgTWoY",
+            "mode": "id"
+          },
+          "name": "=Surat Pengaduan {{ $fromAI('Nama_Pelapor', ``, 'string') }}",
+          "sameFolder": false,
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Perent ID Folder Surat Pengaduan`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          272,
+          320
+        ],
+        "id": "bc82edb9-9e63-4307-bd0f-6735e4da80f0",
+        "name": "Surat Pemberitahuan Kadun Jaya",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "copy",
+          "fileId": {
+            "__rl": true,
+            "value": "=1aR0cGJSrujzeggJXaayq9mXD7wiyjes6btF2CRgTWoY",
+            "mode": "id"
+          },
+          "name": "=Surat Pengaduan {{ $fromAI('Nama_Pelapor', ``, 'string') }}",
+          "sameFolder": false,
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Parent_Folder', `Perent ID Folder Surat Pengaduan`, 'string') }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTool",
+        "typeVersion": 3,
+        "position": [
+          512,
+          320
+        ],
+        "id": "0066f092-5829-4944-9644-d20358f5f3ed",
+        "name": "Surat Pengaduan Kadun Jaya",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "WI-Surat": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Surat": {
+        "main": [
+          [
+            {
+              "node": "WR-Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Surat": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat SKTM Kadun Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat Pengantar RT Kadun Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat Pemberitahuan Kadun Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat Pengaduan Kadun Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
