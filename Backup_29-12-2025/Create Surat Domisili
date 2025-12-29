@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-26T01:50:29.000Z",
+  "createdAt": "2025-08-03T00:09:51.427Z",
+  "id": "eL00TJ7GAG8Mqb0g",
+  "name": "Create Surat Domisili",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "5aa4eaa1-fa67-4490-908c-b1be5bc270b3",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-03T00:09:51.431Z",
+      "createdAt": "2025-08-03T00:09:51.431Z",
+      "role": "workflow:owner",
+      "workflowId": "eL00TJ7GAG8Mqb0g",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
