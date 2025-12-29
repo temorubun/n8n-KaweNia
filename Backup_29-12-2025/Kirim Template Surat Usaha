@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-26T01:49:41.000Z",
+  "createdAt": "2025-08-13T02:36:56.961Z",
+  "id": "O7K43ALEll452dNH",
+  "name": "Kirim Template Surat Usaha",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "a02492b5-393c-428e-8910-578ac6f4857f",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-13T02:36:56.964Z",
+      "createdAt": "2025-08-13T02:36:56.964Z",
+      "role": "workflow:owner",
+      "workflowId": "O7K43ALEll452dNH",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
