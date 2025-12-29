@@ -1,0 +1,811 @@
+{
+  "updatedAt": "2025-12-28T05:32:22.399Z",
+  "createdAt": "2025-12-24T02:11:56.887Z",
+  "id": "cNnjAm2LdhCp1dCn",
+  "name": "AI Agent Arsip Surat",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 720,
+        "width": 1024
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        272,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "6baf4ee3-65b2-4d01-b293-2363405e0c57",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        352,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "ee75d04b-5d96-41ac-8ab7-fcfa1a2c585c",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Arsip Surat Nawaripi\n\n\n\n\n\n\n\n### ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        592,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "129b12dd-e61e-4cb1-8a1f-0d1c285e68c2",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        992,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "b5b2980e-01c7-4f06-a08d-97b225211b46",
+      "name": "Sticky Note31"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        464,
+        144
+      ],
+      "typeVersion": 1,
+      "id": "d011e538-a53e-4fca-8cec-6222bb3be04f",
+      "name": "Sticky Note32"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Arsip Surat Keterangan Tidak Mampu\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/mTT196vfVcf5IIV6",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        304,
+        368
+      ],
+      "typeVersion": 1,
+      "id": "4d4efe10-1a15-4fed-b12e-2276009bd752",
+      "name": "Sticky Note33"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Arsip Surat Pengantar RT\n\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/M6srK7ZM5q7Jgyv9",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        544,
+        368
+      ],
+      "typeVersion": 1,
+      "id": "369267ed-5c52-4555-bcf5-79ecec95f5f9",
+      "name": "Sticky Note34"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Arsip Surat Pemberitahuan\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/tPgVO28Jt5m907Bi",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        784,
+        368
+      ],
+      "typeVersion": 1,
+      "id": "2ef7ea1c-6cc3-4928-95b3-544041cc40b7",
+      "name": "Sticky Note35"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Surat Pengaduan\n\n\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/IkIhShgzOwFk4QkH",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1024,
+        368
+      ],
+      "typeVersion": 1,
+      "id": "01b85917-50a5-4c9a-9b50-4a9c83f336ec",
+      "name": "Sticky Note36"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "bd55b2b4-f5be-4a77-a620-cab8e92d441a",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        464,
+        -32
+      ],
+      "id": "6e80cca2-1893-4af7-8a23-651a007c104c",
+      "name": "WI-Surat",
+      "webhookId": "964f9e9d-8a03-47e9-b097-1284c8665bf1"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1024,
+        -32
+      ],
+      "id": "e1906249-924b-4912-9d55-848120671a87",
+      "name": "WR-Surat"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        672,
+        -32
+      ],
+      "id": "d85215d6-eff5-4740-838a-4f9323d03ea5",
+      "name": "AI Agent Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        576,
+        224
+      ],
+      "id": "2584012d-7900-4cb3-8617-53af98ff31bb",
+      "name": "AI-Surat",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk Arsip SKTM - Surat Keterangan Tidak Mampu",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/b13d8b3c-085a-495b-8344-8433dc69cc39",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        432,
+        432
+      ],
+      "id": "68751ad5-86fd-4649-87c3-539b95d22d9e",
+      "name": "Surat SKTM Nawaripi",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk Arsip SPRT",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/fbf0bef8-f7ac-451b-beb5-0a5379472fcd",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        672,
+        432
+      ],
+      "id": "805c166a-6846-4c8c-bba8-d29e9ab76859",
+      "name": "Surat Pengantar RT Nawaripi",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk Surat Pemberitahuan",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f68aa442-fa27-4017-90f1-2afd3375a7e4",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        912,
+        432
+      ],
+      "id": "5c97e977-5a94-42c0-a355-9c9e4ac35ce6",
+      "name": "Surat Pemberitahuan Nawaripi",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Hanya Untuk Surat Kadun Jaya",
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/4c191d45-805c-46e4-a5bf-83af9b63125e",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        1152,
+        432
+      ],
+      "id": "3f213d23-a574-4631-99e5-63fadb1cc1d8",
+      "name": "Surat Pengaduan Nawaripi",
+      "notesInFlow": true
+    }
+  ],
+  "connections": {
+    "WI-Surat": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Surat": {
+      "main": [
+        [
+          {
+            "node": "WR-Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Surat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat SKTM Nawaripi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat Pengantar RT Nawaripi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat Pemberitahuan Nawaripi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Surat Pengaduan Nawaripi": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Surat",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "WI-Surat": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "axios/1.12.0",
+            "content-length": "1413",
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "8.215.39.173",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9b0dc123cf1ffdbb-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "8.215.39.173, 172.70.208.128",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "172.70.208.128"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "Prompt": "Buatkan Surat SKTM  Kampung Nawaripi\nRespon Hanya Berhasil Atau Gagal",
+            "System Message": "Wajib Gunakan \"Surat SKTM  Kampung Nawaripi\" Untuk Membuat Surat SKTM",
+            "Id Surat SKTM": "1q0ekUfSoy_PsIj5nzvulbSNwWrWM25pmqgdoL9hFoww",
+            "Tanggal Surat": "20 Desember 2025",
+            "Pemerintah Kabupaten": "Pemerintah Kabupaten Mimika",
+            "Distrik": "Distrik Wania",
+            "Kampung Kelurahan": "Kampung Nawaripi",
+            "Alamat Kantor": "Jln. Yohanes Aikawe",
+            "Provinsi": "Papua Tengah",
+            "Kode Pos": "99963",
+            "Email": "nawaripi@gmail.com",
+            "Nomor Surat": "400.2.1/24/KI/DW/2025",
+            "Keterangan SKTM Nomor 1": "Yang bertanda tangan dibawah ini Kepala Kampung Nawaripi menerangkan dengan sesungguhnya bahwa :",
+            "Keterangan SKTM Nomor 2": "Tersebut namanya di atas adalah benar-benar penduduk Kampung Nawaripi.",
+            "Keterangan SKTM Nomor 3": "Tersebut namanya di atas adalah benar-berstatus ekonomi lemah yang tidak mampu menebus atau membayar biaya administrasi kampus Politeknik Amamapare Timika.",
+            "Keterangan SKTM Nomor 4": "Mohon surat keterangan ini digunakan sebagaimana mestinya.",
+            "Keterangan SKTM Nomor 5": "Demikian surat keterangan tidak mampu ini, kami buat untuk dapat digunakan sebagaimana  mestinya.",
+            "Nama Pemohon": "Syafruddin",
+            "NIK Pemohon": "910901078740007",
+            "TTL Pemohon": "Ralla, 07-08-1974",
+            "Agama Pemohon": "Islam",
+            "Jenis Kelamin Pemohon": "Laki-Laki",
+            "Status Perkawinan Pemohon": "KAWIN",
+            "Pekerjaan Pemohon": "Petani/Pekebun",
+            "Alamat Pemohon": "Wania"
+          },
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/964f9e9d-8a03-47e9-b097-1284c8665bf1",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "ef1eb039-9375-4722-8097-5c7688431d77",
+  "activeVersionId": "ef1eb039-9375-4722-8097-5c7688431d77",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-24T02:11:56.891Z",
+      "createdAt": "2025-12-24T02:11:56.891Z",
+      "role": "workflow:owner",
+      "workflowId": "cNnjAm2LdhCp1dCn",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-24T03:02:48.734Z",
+    "createdAt": "2025-12-24T03:02:48.734Z",
+    "versionId": "ef1eb039-9375-4722-8097-5c7688431d77",
+    "workflowId": "cNnjAm2LdhCp1dCn",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 720,
+          "width": 1024
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          272,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "6baf4ee3-65b2-4d01-b293-2363405e0c57",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          352,
+          -80
+        ],
+        "typeVersion": 1,
+        "id": "ee75d04b-5d96-41ac-8ab7-fcfa1a2c585c",
+        "name": "Sticky Note18"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Arsip Surat Nawaripi\n\n\n\n\n\n\n\n### ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          592,
+          -80
+        ],
+        "typeVersion": 1,
+        "id": "129b12dd-e61e-4cb1-8a1f-0d1c285e68c2",
+        "name": "Sticky Note29"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          992,
+          -80
+        ],
+        "typeVersion": 1,
+        "id": "b5b2980e-01c7-4f06-a08d-97b225211b46",
+        "name": "Sticky Note31"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          464,
+          144
+        ],
+        "typeVersion": 1,
+        "id": "d011e538-a53e-4fca-8cec-6222bb3be04f",
+        "name": "Sticky Note32"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Arsip Surat Keterangan Tidak Mampu\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/mTT196vfVcf5IIV6",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          304,
+          368
+        ],
+        "typeVersion": 1,
+        "id": "4d4efe10-1a15-4fed-b12e-2276009bd752",
+        "name": "Sticky Note33"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Arsip Surat Pengantar RT\n\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/M6srK7ZM5q7Jgyv9",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          544,
+          368
+        ],
+        "typeVersion": 1,
+        "id": "369267ed-5c52-4555-bcf5-79ecec95f5f9",
+        "name": "Sticky Note34"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Arsip Surat Pemberitahuan\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/tPgVO28Jt5m907Bi",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          784,
+          368
+        ],
+        "typeVersion": 1,
+        "id": "2ef7ea1c-6cc3-4928-95b3-544041cc40b7",
+        "name": "Sticky Note35"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Surat Pengaduan\n\n\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/IkIhShgzOwFk4QkH",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1024,
+          368
+        ],
+        "typeVersion": 1,
+        "id": "01b85917-50a5-4c9a-9b50-4a9c83f336ec",
+        "name": "Sticky Note36"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "bd55b2b4-f5be-4a77-a620-cab8e92d441a",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          464,
+          -32
+        ],
+        "id": "6e80cca2-1893-4af7-8a23-651a007c104c",
+        "name": "WI-Surat",
+        "webhookId": "964f9e9d-8a03-47e9-b097-1284c8665bf1"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          1024,
+          -32
+        ],
+        "id": "e1906249-924b-4912-9d55-848120671a87",
+        "name": "WR-Surat"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          672,
+          -32
+        ],
+        "id": "d85215d6-eff5-4740-838a-4f9323d03ea5",
+        "name": "AI Agent Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          576,
+          224
+        ],
+        "id": "2584012d-7900-4cb3-8617-53af98ff31bb",
+        "name": "AI-Surat",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk Arsip SKTM - Surat Keterangan Tidak Mampu",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/b13d8b3c-085a-495b-8344-8433dc69cc39",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          432,
+          432
+        ],
+        "id": "68751ad5-86fd-4649-87c3-539b95d22d9e",
+        "name": "Surat SKTM Nawaripi",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk Arsip SPRT",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/fbf0bef8-f7ac-451b-beb5-0a5379472fcd",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          672,
+          432
+        ],
+        "id": "805c166a-6846-4c8c-bba8-d29e9ab76859",
+        "name": "Surat Pengantar RT Nawaripi",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk Surat Pemberitahuan",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/f68aa442-fa27-4017-90f1-2afd3375a7e4",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          912,
+          432
+        ],
+        "id": "5c97e977-5a94-42c0-a355-9c9e4ac35ce6",
+        "name": "Surat Pemberitahuan Nawaripi",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Hanya Untuk Surat Kadun Jaya",
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/4c191d45-805c-46e4-a5bf-83af9b63125e",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $json.body }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.3,
+        "position": [
+          1152,
+          432
+        ],
+        "id": "3f213d23-a574-4631-99e5-63fadb1cc1d8",
+        "name": "Surat Pengaduan Nawaripi",
+        "notesInFlow": true
+      }
+    ],
+    "connections": {
+      "WI-Surat": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Surat": {
+        "main": [
+          [
+            {
+              "node": "WR-Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Surat": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat SKTM Nawaripi": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat Pengantar RT Nawaripi": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat Pemberitahuan Nawaripi": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Surat Pengaduan Nawaripi": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Surat",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
