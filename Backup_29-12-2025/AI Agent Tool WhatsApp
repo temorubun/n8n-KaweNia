@@ -1,0 +1,636 @@
+{
+  "updatedAt": "2025-12-23T06:56:12.250Z",
+  "createdAt": "2025-11-16T08:09:00.080Z",
+  "id": "Jbrrovhpr14NZBcM",
+  "name": "AI Agent Tool WhatsApp",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "toolDescription": "Gunakan Ini Untuk Kirim Pesan",
+        "method": "POST",
+        "url": "https://waha-vdgnbkmlxfqn.mangga.sumopod.my.id/api/sendText",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wahaApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "session",
+              "value": "={{ $fromAI('session', ``, 'string') }}"
+            },
+            {
+              "name": "chatId",
+              "value": "={{ $fromAI('chatId', `Wajib Format 628xxx@c.us`, 'string') }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $fromAI('Message', ``, 'string') }}"
+            },
+            {
+              "name": "linkPreview",
+              "value": "false"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -848,
+        -144
+      ],
+      "id": "cd1b23ae-cca6-43a3-abb0-5711d3c72c26",
+      "name": "Tool Pesan",
+      "notesInFlow": true,
+      "credentials": {
+        "wahaApi": {
+          "id": "uivlaHVGkUY1vyJT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1152,
+        -144
+      ],
+      "id": "3a7c1f64-dd8c-4f58-868d-ee8407299a20",
+      "name": "AI",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "1Zc5L7wg9qM3Omx7",
+          "mode": "list",
+          "cachedResultName": "Contac",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/1Zc5L7wg9qM3Omx7"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        -144
+      ],
+      "id": "1387af8a-fb02-4c00-ba5c-f1244c12f337",
+      "name": "Tool Contac"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1264,
+        -448
+      ],
+      "typeVersion": 1,
+      "id": "7467c033-1644-4c89-8088-0318d659600d",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "content": "### AI Agent Tool WhatsApp\n\n\n\n\n\n\n\n### ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1024,
+        -448
+      ],
+      "typeVersion": 1,
+      "id": "7de66f08-b352-4aed-b2f9-30696a65768f",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -624,
+        -448
+      ],
+      "typeVersion": 1,
+      "id": "ddc9027e-5391-4de9-a66c-3dafb57c0b9b",
+      "name": "Sticky Note31"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1216,
+        -208
+      ],
+      "typeVersion": 1,
+      "id": "8c5fb3cd-8e2f-4195-abb4-1f35e31a215e",
+      "name": "Sticky Note32"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Kirim Pesan\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -928,
+        -208
+      ],
+      "typeVersion": 1,
+      "id": "29882809-c36c-4875-8f0e-8ebc1b48a76e",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 496,
+        "width": 912
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1280,
+        -480
+      ],
+      "typeVersion": 1,
+      "id": "8ea46621-c606-47b0-9986-c41bd13aff6f",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1200,
+        -400
+      ],
+      "id": "3d66830e-f1a5-4f5c-977a-e96353e10ff6",
+      "name": "WI",
+      "webhookId": "8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -560,
+        -400
+      ],
+      "id": "bc8a70fe-2eb2-4e88-a16a-2dce50fa1aa3",
+      "name": "WR"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Get Contac\n\n\n\n\n\n\n\n\n### ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -640,
+        -208
+      ],
+      "typeVersion": 1,
+      "id": "fa8eef71-60e6-41da-a1b7-be3eb5790a83",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body['System Message'] }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -928,
+        -400
+      ],
+      "id": "c20c8961-ec5a-443d-8e61-fa56896144cd",
+      "name": "AI Agent Pesan"
+    }
+  ],
+  "connections": {
+    "Tool Pesan": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Pesan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent Pesan",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tool Contac": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent Pesan",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WI": {
+      "main": [
+        [
+          {
+            "node": "AI Agent Pesan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent Pesan": {
+      "main": [
+        [
+          {
+            "node": "WR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "16e3cd66-d936-44cd-9e2e-79c1e51cb571",
+  "activeVersionId": "16e3cd66-d936-44cd-9e2e-79c1e51cb571",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-11-16T08:09:00.082Z",
+      "createdAt": "2025-11-16T08:09:00.082Z",
+      "role": "workflow:owner",
+      "workflowId": "Jbrrovhpr14NZBcM",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-23T06:55:56.891Z",
+    "createdAt": "2025-12-23T06:55:56.891Z",
+    "versionId": "16e3cd66-d936-44cd-9e2e-79c1e51cb571",
+    "workflowId": "Jbrrovhpr14NZBcM",
+    "nodes": [
+      {
+        "parameters": {
+          "toolDescription": "Gunakan Ini Untuk Kirim Pesan",
+          "method": "POST",
+          "url": "https://waha-vdgnbkmlxfqn.mangga.sumopod.my.id/api/sendText",
+          "authentication": "predefinedCredentialType",
+          "nodeCredentialType": "wahaApi",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "session",
+                "value": "={{ $fromAI('session', ``, 'string') }}"
+              },
+              {
+                "name": "chatId",
+                "value": "={{ $fromAI('chatId', `Wajib Format 628xxx@c.us`, 'string') }}"
+              },
+              {
+                "name": "text",
+                "value": "={{ $fromAI('Message', ``, 'string') }}"
+              },
+              {
+                "name": "linkPreview",
+                "value": "false"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequestTool",
+        "typeVersion": 4.2,
+        "position": [
+          -848,
+          -144
+        ],
+        "id": "cd1b23ae-cca6-43a3-abb0-5711d3c72c26",
+        "name": "Tool Pesan",
+        "notesInFlow": true,
+        "credentials": {
+          "wahaApi": {
+            "id": "uivlaHVGkUY1vyJT",
+            "name": "WAHA account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "gpt-4.1-mini",
+            "mode": "list",
+            "cachedResultName": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          -1152,
+          -144
+        ],
+        "id": "3a7c1f64-dd8c-4f58-868d-ee8407299a20",
+        "name": "AI",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "1Zc5L7wg9qM3Omx7",
+            "mode": "list",
+            "cachedResultName": "Contac",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/1Zc5L7wg9qM3Omx7"
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTableTool",
+        "typeVersion": 1,
+        "position": [
+          -560,
+          -144
+        ],
+        "id": "1387af8a-fb02-4c00-ba5c-f1244c12f337",
+        "name": "Tool Contac"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1264,
+          -448
+        ],
+        "typeVersion": 1,
+        "id": "7467c033-1644-4c89-8088-0318d659600d",
+        "name": "Sticky Note18"
+      },
+      {
+        "parameters": {
+          "content": "### AI Agent Tool WhatsApp\n\n\n\n\n\n\n\n### ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1024,
+          -448
+        ],
+        "typeVersion": 1,
+        "id": "7de66f08-b352-4aed-b2f9-30696a65768f",
+        "name": "Sticky Note29"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon \n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -624,
+          -448
+        ],
+        "typeVersion": 1,
+        "id": "ddc9027e-5391-4de9-a66c-3dafb57c0b9b",
+        "name": "Sticky Note31"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1216,
+          -208
+        ],
+        "typeVersion": 1,
+        "id": "8c5fb3cd-8e2f-4195-abb4-1f35e31a215e",
+        "name": "Sticky Note32"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Kirim Pesan\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -928,
+          -208
+        ],
+        "typeVersion": 1,
+        "id": "29882809-c36c-4875-8f0e-8ebc1b48a76e",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 496,
+          "width": 912
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1280,
+          -480
+        ],
+        "typeVersion": 1,
+        "id": "8ea46621-c606-47b0-9986-c41bd13aff6f",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -1200,
+          -400
+        ],
+        "id": "3d66830e-f1a5-4f5c-977a-e96353e10ff6",
+        "name": "WI",
+        "webhookId": "8a3a0e85-86cc-47f6-9ad6-b73c0a5795c8"
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          -560,
+          -400
+        ],
+        "id": "bc8a70fe-2eb2-4e88-a16a-2dce50fa1aa3",
+        "name": "WR"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Get Contac\n\n\n\n\n\n\n\n\n### ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -640,
+          -208
+        ],
+        "typeVersion": 1,
+        "id": "fa8eef71-60e6-41da-a1b7-be3eb5790a83",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body['System Message'] }}"
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          -928,
+          -400
+        ],
+        "id": "c20c8961-ec5a-443d-8e61-fa56896144cd",
+        "name": "AI Agent Pesan"
+      }
+    ],
+    "connections": {
+      "Tool Pesan": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Pesan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent Pesan",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Tool Contac": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent Pesan",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "WI": {
+        "main": [
+          [
+            {
+              "node": "AI Agent Pesan",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent Pesan": {
+        "main": [
+          [
+            {
+              "node": "WR",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
