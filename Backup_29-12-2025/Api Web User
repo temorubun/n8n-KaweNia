@@ -1,0 +1,511 @@
+{
+  "updatedAt": "2025-12-28T08:07:10.530Z",
+  "createdAt": "2025-12-28T08:06:35.336Z",
+  "id": "pjP8XzBVONfaGkxB",
+  "name": "Api Web User",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data",
+              "value": "={{ $json }}"
+            },
+            {
+              "name": "key",
+              "value": "={{ $json.data_web.user.id.css.substring(3) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        704,
+        32
+      ],
+      "id": "4a645897-2053-4dfd-9fa1-3332c4daf545",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "path": "5ac5e306-4655-4f62-a225-61216757bd813",
+        "authentication": "basicAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -16,
+        32
+      ],
+      "id": "aecc398e-c77b-4a1f-b33c-c381e078ebfb",
+      "name": "Input1",
+      "webhookId": "5ac5e306-4655-4f62-a225-61216757bd81",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "zwTh7voaiAuBRhUd",
+          "name": "API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{$json.query.id}}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        176,
+        32
+      ],
+      "id": "8a3740fc-4d79-431d-b86e-646e77ed9402",
+      "name": "Get Data1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "K6YEbjdSQULsuuJd",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "fromJson",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        352,
+        32
+      ],
+      "id": "57de8978-cd6d-495a-b1dd-8b1e5b46f8d7",
+      "name": "Extrak Data1"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        880,
+        32
+      ],
+      "id": "279a16a1-780a-45ac-a07f-613fa22b9074",
+      "name": "Output1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "da23749e-468f-432f-bb72-0fc36093323e",
+              "name": "data_web",
+              "value": "={{ $json.data.data_web }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        512,
+        32
+      ],
+      "id": "cbda9bc7-9e76-41d1-acde-20e223e4824d",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "content": "# API Web SKTM User",
+        "height": 112
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        368,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "ecf28d2e-7a88-4d6c-b6b6-2117d7383935",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 304,
+        "width": 1168
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "78f39668-ba63-4994-bd2b-c53e24e2da02",
+      "name": "Sticky Note2"
+    }
+  ],
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Output1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input1": {
+      "main": [
+        [
+          {
+            "node": "Get Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Data1": {
+      "main": [
+        [
+          {
+            "node": "Extrak Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrak Data1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "Input1": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+            "accept": "application/json",
+            "accept-encoding": "gzip, br",
+            "accept-language": "id,en-US;q=0.9,en;q=0.8",
+            "authorization": "Basic RGlzdHJpa1dhbmlhOkthd2VOaWE=",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "125.162.246.163",
+            "cf-ipcountry": "ID",
+            "cf-ray": "9ad60b504a89fcfa-SIN",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "if-none-match": "W/\"26c5-LveqRY440m4Wp2YbK3xgvEgwa04\"",
+            "origin": "http://localhost:3000",
+            "priority": "u=1, i",
+            "referer": "http://localhost:3000/",
+            "sec-ch-ua": "\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+            "x-forwarded-for": "125.162.246.163, 162.158.108.46",
+            "x-forwarded-host": "n8n-qz8tp6856ibc.bgxy.sumopod.my.id",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "45bc8cdf891c",
+            "x-real-ip": "162.158.108.46"
+          },
+          "params": {},
+          "query": {
+            "id": "1VZllhiWdxjew2TvaXEN5XJSH1u-dCFoZ"
+          },
+          "body": {},
+          "webhookUrl": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/5ac5e306-4655-4f62-a225-61216757bd813",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "953b4093-08cb-496e-a4b0-a0c8d63fe715",
+  "activeVersionId": "953b4093-08cb-496e-a4b0-a0c8d63fe715",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-28T08:06:35.339Z",
+      "createdAt": "2025-12-28T08:06:35.339Z",
+      "role": "workflow:owner",
+      "workflowId": "pjP8XzBVONfaGkxB",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-28T08:06:58.860Z",
+    "createdAt": "2025-12-28T08:06:58.860Z",
+    "versionId": "953b4093-08cb-496e-a4b0-a0c8d63fe715",
+    "workflowId": "pjP8XzBVONfaGkxB",
+    "nodes": [
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "data",
+                "value": "={{ $json }}"
+              },
+              {
+                "name": "key",
+                "value": "={{ $json.data_web.user.id.css.substring(3) }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          704,
+          32
+        ],
+        "id": "4a645897-2053-4dfd-9fa1-3332c4daf545",
+        "name": "HTTP Request"
+      },
+      {
+        "parameters": {
+          "path": "5ac5e306-4655-4f62-a225-61216757bd813",
+          "authentication": "basicAuth",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -16,
+          32
+        ],
+        "id": "aecc398e-c77b-4a1f-b33c-c381e078ebfb",
+        "name": "Input1",
+        "webhookId": "5ac5e306-4655-4f62-a225-61216757bd81",
+        "credentials": {
+          "httpBasicAuth": {
+            "id": "zwTh7voaiAuBRhUd",
+            "name": "API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "download",
+          "fileId": {
+            "__rl": true,
+            "value": "={{$json.query.id}}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          176,
+          32
+        ],
+        "id": "8a3740fc-4d79-431d-b86e-646e77ed9402",
+        "name": "Get Data1",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "K6YEbjdSQULsuuJd",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "fromJson",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.extractFromFile",
+        "typeVersion": 1.1,
+        "position": [
+          352,
+          32
+        ],
+        "id": "57de8978-cd6d-495a-b1dd-8b1e5b46f8d7",
+        "name": "Extrak Data1"
+      },
+      {
+        "parameters": {
+          "respondWith": "json",
+          "responseBody": "={{ $json }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          880,
+          32
+        ],
+        "id": "279a16a1-780a-45ac-a07f-613fa22b9074",
+        "name": "Output1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "da23749e-468f-432f-bb72-0fc36093323e",
+                "name": "data_web",
+                "value": "={{ $json.data.data_web }}",
+                "type": "object"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          512,
+          32
+        ],
+        "id": "cbda9bc7-9e76-41d1-acde-20e223e4824d",
+        "name": "Edit Fields2"
+      },
+      {
+        "parameters": {
+          "content": "# API Web SKTM User",
+          "height": 112
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          368,
+          -80
+        ],
+        "typeVersion": 1,
+        "id": "ecf28d2e-7a88-4d6c-b6b6-2117d7383935",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 304,
+          "width": 1168
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -80,
+          -80
+        ],
+        "typeVersion": 1,
+        "id": "78f39668-ba63-4994-bd2b-c53e24e2da02",
+        "name": "Sticky Note2"
+      }
+    ],
+    "connections": {
+      "HTTP Request": {
+        "main": [
+          [
+            {
+              "node": "Output1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Input1": {
+        "main": [
+          [
+            {
+              "node": "Get Data1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get Data1": {
+        "main": [
+          [
+            {
+              "node": "Extrak Data1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Extrak Data1": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields2": {
+        "main": [
+          [
+            {
+              "node": "HTTP Request",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
