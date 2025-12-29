@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-08-03T04:07:03.000Z",
+  "createdAt": "2025-08-02T00:04:04.485Z",
+  "id": "7VC58GoZ8KHNg2Dn",
+  "name": "Whatsapp Admin Kampung Distrik Wania",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "9e504168-f0d3-4877-a1e2-70c1c570243c",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-02T00:04:04.488Z",
+      "createdAt": "2025-08-02T00:04:04.488Z",
+      "role": "workflow:owner",
+      "workflowId": "7VC58GoZ8KHNg2Dn",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
