@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2025-08-03T04:07:20.000Z",
+  "createdAt": "2025-08-02T13:53:34.947Z",
+  "id": "Y7vPD3wFPZro8fYS",
+  "name": "RAG AI",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "04988def-9fa5-47ea-917f-919e37d32401",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2025-08-02T13:53:34.949Z",
+      "createdAt": "2025-08-02T13:53:34.949Z",
+      "role": "workflow:owner",
+      "workflowId": "Y7vPD3wFPZro8fYS",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
