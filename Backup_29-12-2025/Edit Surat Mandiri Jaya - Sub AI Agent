@@ -1,0 +1,750 @@
+{
+  "updatedAt": "2025-12-29T05:37:50.749Z",
+  "createdAt": "2025-12-24T01:38:45.783Z",
+  "id": "tPgVO28Jt5m907Bi",
+  "name": "Edit Surat Mandiri Jaya - Sub AI Agent",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.body['Id Surat SKTM'] }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "{Tanggal_Surat}",
+              "replaceText": "={{ $json.body['Tanggal Surat'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Pemerintah_Kabupaten}",
+              "replaceText": "={{ $json.body['Pemerintah Kabupaten'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Distrik}",
+              "replaceText": "={{ $json.body.Distrik }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Kampung_Kelurahan}",
+              "replaceText": "={{ $json.body['Kampung Kelurahan'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Alamat_Kantor}",
+              "replaceText": "={{ $json.body['Alamat Kantor'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Provinsi}",
+              "replaceText": "={{ $json.body.Provinsi }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Kode_Pos}",
+              "replaceText": "={{ $json.body['Kode Pos'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Email}",
+              "replaceText": "={{ $json.body.Email }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Nomor_Surat}",
+              "replaceText": "={{ $json.body['Nomor Surat'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_1}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 1'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_2}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 2'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_3}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 3'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_4}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 4'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Keterangan_SKTM_Nomor_5}",
+              "replaceText": "={{ $json.body['Keterangan SKTM Nomor 5'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Nama_Pemohon}",
+              "replaceText": "={{ $json.body['Nama Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{NIK_Pemohon}",
+              "replaceText": "={{ $json.body['NIK Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{TTL_Pemohon}",
+              "replaceText": "={{ $json.body['TTL Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Agama_Pemohon}",
+              "replaceText": "={{ $json.body['Agama Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Jenis_Kelamin_Pemohon}",
+              "replaceText": "={{ $json.body['Jenis Kelamin Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Status_Perkawinan_Pemohon}",
+              "replaceText": "={{ $json.body['Status Perkawinan Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Pekerjaan_Pemohon}",
+              "replaceText": "={{ $json.body['Pekerjaan Pemohon'] }}"
+            },
+            {
+              "action": "replaceAll",
+              "text": "{Alamat_Pemohon}",
+              "replaceText": "={{ $json.body['Alamat Pemohon'] }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        48,
+        -240
+      ],
+      "id": "c9718732-8668-4bb1-8a50-cc3f05e4cdc9",
+      "name": "Surat SKTM Mandiri Jaya",
+      "notesInFlow": true,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "et8bSa0Nlnpparmf",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Folder\n### **[Edit Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/PRByDVbDdX8sYu1E)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Kampung Mandiri Jaya](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/BKnTE0nN83IzBdNy/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/dMBkZ6I3aXF89txS/workflows) / [Edit Surat Mandiri Jaya - Sub AI Agent]()** ",
+        "height": 112,
+        "width": 992
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -512,
+        -672
+      ],
+      "typeVersion": 1,
+      "id": "81c7fc31-c7db-4586-9084-6e170d5212ec",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 480,
+        "width": 992
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -512,
+        -560
+      ],
+      "typeVersion": 1,
+      "id": "1eae4f89-1d4b-43b8-a801-0f17f050ca3f",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -464,
+        -544
+      ],
+      "typeVersion": 1,
+      "id": "18a17218-625f-4b13-a8c0-5cfad9fdef59",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "### Sub AI Agent Edit Surat ",
+        "height": 208,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -224,
+        -544
+      ],
+      "typeVersion": 1,
+      "id": "1ff65066-7bcc-41ee-a58d-d824c5971d2f",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon ",
+        "height": 208
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        176,
+        -544
+      ],
+      "typeVersion": 1,
+      "id": "527e28b1-b3ec-4518-b6e9-b02a7d3bcc88",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "### AI Model gpt-4.1-mini",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        -304
+      ],
+      "typeVersion": 1,
+      "id": "37bf0e83-eff3-443e-bac1-7cf30cbe84a0",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Edit Surat\n\n\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -16,
+        -304
+      ],
+      "typeVersion": 1,
+      "id": "528894b4-0e6e-47e6-965a-2541601fe792",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c846c392-2bf0-40d0-8c95-bce8fcced160",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -384,
+        -480
+      ],
+      "id": "317b5210-aab3-43a2-b992-b4e4db5bf4e6",
+      "name": "WI-Surat",
+      "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        208,
+        -480
+      ],
+      "id": "7c8b06d8-e006-44b5-8106-38cd5f196479",
+      "name": "WR-Surat"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -224,
+        -240
+      ],
+      "id": "e89ad269-e004-48e9-b4c8-519c15b40868",
+      "name": "AI-Surat",
+      "credentials": {
+        "openAiApi": {
+          "id": "Qy11fJqEsEUeag8i",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.Prompt }}",
+        "options": {
+          "systemMessage": "={{ $json.body[\"System Message\"] }}",
+          "maxIterations": 3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -160,
+        -480
+      ],
+      "id": "edd83755-45bd-4bd6-ba60-dc9e72df21c0",
+      "name": "Sub AI Agent Edit Surat "
+    }
+  ],
+  "connections": {
+    "Surat SKTM Mandiri Jaya": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sub AI Agent Edit Surat ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WI-Surat": {
+      "main": [
+        [
+          {
+            "node": "Sub AI Agent Edit Surat ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI-Surat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sub AI Agent Edit Surat ",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sub AI Agent Edit Surat ": {
+      "main": [
+        [
+          {
+            "node": "WR-Surat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "4e9d40a5-35c0-46dc-bb76-43b84d02cf94",
+  "activeVersionId": "4e9d40a5-35c0-46dc-bb76-43b84d02cf94",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-24T01:38:45.787Z",
+      "createdAt": "2025-12-24T01:38:45.787Z",
+      "role": "workflow:owner",
+      "workflowId": "tPgVO28Jt5m907Bi",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-29T05:37:50.750Z",
+    "createdAt": "2025-12-29T05:37:50.750Z",
+    "versionId": "4e9d40a5-35c0-46dc-bb76-43b84d02cf94",
+    "workflowId": "tPgVO28Jt5m907Bi",
+    "nodes": [
+      {
+        "parameters": {
+          "operation": "update",
+          "documentURL": "={{ $json.body['Id Surat SKTM'] }}",
+          "actionsUi": {
+            "actionFields": [
+              {
+                "action": "replaceAll",
+                "text": "{Tanggal_Surat}",
+                "replaceText": "={{ $json.body['Tanggal Surat'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Pemerintah_Kabupaten}",
+                "replaceText": "={{ $json.body['Pemerintah Kabupaten'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Distrik}",
+                "replaceText": "={{ $json.body.Distrik }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Kampung_Kelurahan}",
+                "replaceText": "={{ $json.body['Kampung Kelurahan'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Alamat_Kantor}",
+                "replaceText": "={{ $json.body['Alamat Kantor'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Provinsi}",
+                "replaceText": "={{ $json.body.Provinsi }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Kode_Pos}",
+                "replaceText": "={{ $json.body['Kode Pos'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Email}",
+                "replaceText": "={{ $json.body.Email }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Nomor_Surat}",
+                "replaceText": "={{ $json.body['Nomor Surat'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_1}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 1'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_2}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 2'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_3}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 3'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_4}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 4'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Keterangan_SKTM_Nomor_5}",
+                "replaceText": "={{ $json.body['Keterangan SKTM Nomor 5'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Nama_Pemohon}",
+                "replaceText": "={{ $json.body['Nama Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{NIK_Pemohon}",
+                "replaceText": "={{ $json.body['NIK Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{TTL_Pemohon}",
+                "replaceText": "={{ $json.body['TTL Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Agama_Pemohon}",
+                "replaceText": "={{ $json.body['Agama Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Jenis_Kelamin_Pemohon}",
+                "replaceText": "={{ $json.body['Jenis Kelamin Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Status_Perkawinan_Pemohon}",
+                "replaceText": "={{ $json.body['Status Perkawinan Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Pekerjaan_Pemohon}",
+                "replaceText": "={{ $json.body['Pekerjaan Pemohon'] }}"
+              },
+              {
+                "action": "replaceAll",
+                "text": "{Alamat_Pemohon}",
+                "replaceText": "={{ $json.body['Alamat Pemohon'] }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.googleDocsTool",
+        "typeVersion": 2,
+        "position": [
+          48,
+          -240
+        ],
+        "id": "c9718732-8668-4bb1-8a50-cc3f05e4cdc9",
+        "name": "Surat SKTM Mandiri Jaya",
+        "notesInFlow": true,
+        "credentials": {
+          "googleDocsOAuth2Api": {
+            "id": "et8bSa0Nlnpparmf",
+            "name": "Google Docs account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Folder\n### **[Edit Surat - Parent AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/PRByDVbDdX8sYu1E)**\n**[Personal](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/workflows) / [AI Agent](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/RJ0aqPfSZH7rl0mZ/workflows) / [AI Agent Surat](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/CI3fqBT9tUXca4Mh/workflows) / [Surat Kampung Mandiri Jaya](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/BKnTE0nN83IzBdNy/workflows) / [Surat Keterangan Tidak Mampu](https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/folders/dMBkZ6I3aXF89txS/workflows) / [Edit Surat Mandiri Jaya - Sub AI Agent]()** ",
+          "height": 112,
+          "width": 992
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -512,
+          -672
+        ],
+        "typeVersion": 1,
+        "id": "81c7fc31-c7db-4586-9084-6e170d5212ec",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "content": "",
+          "height": 480,
+          "width": 992
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -512,
+          -560
+        ],
+        "typeVersion": 1,
+        "id": "1eae4f89-1d4b-43b8-a801-0f17f050ca3f",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -464,
+          -544
+        ],
+        "typeVersion": 1,
+        "id": "18a17218-625f-4b13-a8c0-5cfad9fdef59",
+        "name": "Sticky Note17"
+      },
+      {
+        "parameters": {
+          "content": "### Sub AI Agent Edit Surat ",
+          "height": 208,
+          "width": 400
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -224,
+          -544
+        ],
+        "typeVersion": 1,
+        "id": "1ff65066-7bcc-41ee-a58d-d824c5971d2f",
+        "name": "Sticky Note28"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon ",
+          "height": 208
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          176,
+          -544
+        ],
+        "typeVersion": 1,
+        "id": "527e28b1-b3ec-4518-b6e9-b02a7d3bcc88",
+        "name": "Sticky Note30"
+      },
+      {
+        "parameters": {
+          "content": "### AI Model gpt-4.1-mini",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -288,
+          -304
+        ],
+        "typeVersion": 1,
+        "id": "37bf0e83-eff3-443e-bac1-7cf30cbe84a0",
+        "name": "Sticky Note27"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Edit Surat\n\n\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -16,
+          -304
+        ],
+        "typeVersion": 1,
+        "id": "528894b4-0e6e-47e6-965a-2541601fe792",
+        "name": "Sticky Note25"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "c846c392-2bf0-40d0-8c95-bce8fcced160",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -384,
+          -480
+        ],
+        "id": "317b5210-aab3-43a2-b992-b4e4db5bf4e6",
+        "name": "WI-Surat",
+        "webhookId": "1f071bd4-a6e8-4bcd-bd9a-74d2ab0854bb"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          208,
+          -480
+        ],
+        "id": "7c8b06d8-e006-44b5-8106-38cd5f196479",
+        "name": "WR-Surat"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          -224,
+          -240
+        ],
+        "id": "e89ad269-e004-48e9-b4c8-519c15b40868",
+        "name": "AI-Surat",
+        "credentials": {
+          "openAiApi": {
+            "id": "Qy11fJqEsEUeag8i",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.Prompt }}",
+          "options": {
+            "systemMessage": "={{ $json.body[\"System Message\"] }}",
+            "maxIterations": 3
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3,
+        "position": [
+          -160,
+          -480
+        ],
+        "id": "edd83755-45bd-4bd6-ba60-dc9e72df21c0",
+        "name": "Sub AI Agent Edit Surat "
+      }
+    ],
+    "connections": {
+      "Surat SKTM Mandiri Jaya": {
+        "ai_tool": [
+          [
+            {
+              "node": "Sub AI Agent Edit Surat ",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "WI-Surat": {
+        "main": [
+          [
+            {
+              "node": "Sub AI Agent Edit Surat ",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI-Surat": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Sub AI Agent Edit Surat ",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Sub AI Agent Edit Surat ": {
+        "main": [
+          [
+            {
+              "node": "WR-Surat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
