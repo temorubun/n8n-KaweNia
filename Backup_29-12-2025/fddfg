@@ -1,0 +1,32 @@
+{
+  "updatedAt": "2025-12-28T08:20:18.000Z",
+  "createdAt": "2025-11-18T11:31:10.043Z",
+  "id": "ddspzLckoUbx04x8",
+  "name": "fddfg",
+  "active": false,
+  "isArchived": true,
+  "nodes": [],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "d7ba22da-5593-49ef-aaba-a15854f5c59d",
+  "activeVersionId": null,
+  "triggerCount": 3,
+  "shared": [
+    {
+      "updatedAt": "2025-11-18T11:31:10.046Z",
+      "createdAt": "2025-11-18T11:31:10.046Z",
+      "role": "workflow:owner",
+      "workflowId": "ddspzLckoUbx04x8",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
