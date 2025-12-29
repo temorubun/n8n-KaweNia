@@ -1,0 +1,2894 @@
+{
+  "updatedAt": "2025-12-28T08:23:34.545Z",
+  "createdAt": "2025-12-28T08:23:30.383Z",
+  "id": "3YXBTrRnRVhPBUou",
+  "name": "Generate Web Admin 2",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 624,
+        "width": 2960
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        -160
+      ],
+      "typeVersion": 1,
+      "id": "48d27d57-dddd-4d2f-9ef1-43106ce686e0",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "# SKTM Web Admin 2\n",
+        "height": 80,
+        "width": 368
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        960,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "bebd5ab6-4a9f-41a6-9950-bc7c69d7be21",
+      "name": "Sticky Note62"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Input SKTM Admin 2\n",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "eb363f93-bd2a-486f-85ca-00c01ecb2d53",
+      "name": "Sticky Note63"
+    },
+    {
+      "parameters": {
+        "content": "### Format Json ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        80,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "3de661c9-f2d5-4766-9056-bbb17e1c3825",
+      "name": "Sticky Note64"
+    },
+    {
+      "parameters": {
+        "content": "### Kode CSS Web ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        320,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "7fc649f4-87b4-4f5c-bcec-f36c357875fd",
+      "name": "Sticky Note65"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Uploud Kode CSS\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/CRuVbFdsuDvupK2i",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        560,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "b5c9805b-6d19-4c45-b972-c2a8e915737c",
+      "name": "Sticky Note66"
+    },
+    {
+      "parameters": {
+        "content": "### Tabel Data Id\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        800,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "fe57d899-603f-4bd0-99d8-5ce32128398d",
+      "name": "Sticky Note67"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Encript Url\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/bkujltHTudpMwHrU",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1040,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "d2883a80-a642-431e-9276-a6a1345231ac",
+      "name": "Sticky Note68"
+    },
+    {
+      "parameters": {
+        "content": "### Tabel Data Auth\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/datatables/PR8F3oNl3mF1UXp9",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1280,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "3151d293-5354-47d0-bbbc-00fba142df70",
+      "name": "Sticky Note69"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Encript Auth User\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/bkujltHTudpMwHrU",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1520,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "e446a653-1d6b-4312-8c33-a8ccdc2414ed",
+      "name": "Sticky Note70"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Encript Auth Password\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/bkujltHTudpMwHrU",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1760,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "f2598f42-96e9-4345-9890-d0b2a0fb046d",
+      "name": "Sticky Note71"
+    },
+    {
+      "parameters": {
+        "content": "### Kode JS Web",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2000,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "b695b046-0503-496f-9bfa-d3951a2f2c3e",
+      "name": "Sticky Note72"
+    },
+    {
+      "parameters": {
+        "content": "### Split Out Kode JS ",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2240,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "7544f17d-1d46-46e3-9346-0258afb4d1e8",
+      "name": "Sticky Note73"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Uploud Kode JS\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/CRuVbFdsuDvupK2i",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -256,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "0c104a20-b4dd-479c-9c10-33ea9b637e3b",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "### Format import Kode JS Web",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -16,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "b288f876-5189-4b09-a5c1-380f7aa1abc9",
+      "name": "Sticky Note74"
+    },
+    {
+      "parameters": {
+        "content": "### Join Kode JS Web",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        224,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "dd2ad058-2706-4695-895a-97b6ac412994",
+      "name": "Sticky Note75"
+    },
+    {
+      "parameters": {
+        "content": "### Main Kode JS",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        464,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "af0d8316-40b7-49a3-89c7-b6286a010ff7",
+      "name": "Sticky Note76"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Uploud Kode JS\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/CRuVbFdsuDvupK2i",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        704,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "dd4ebe31-c28e-4d74-98a4-2c9e83bb4ef7",
+      "name": "Sticky Note77"
+    },
+    {
+      "parameters": {
+        "content": "### Tabel Data Id\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        944,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "30450896-c08c-4d13-90d3-aaef8895e413",
+      "name": "Sticky Note78"
+    },
+    {
+      "parameters": {
+        "content": "### Link CSS Dan JS",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1184,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "4892b58e-7665-4058-857a-d77934130915",
+      "name": "Sticky Note79"
+    },
+    {
+      "parameters": {
+        "content": "### Kode HTML Web",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1424,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "a779b71a-4071-4c95-9306-30bea5c9e52c",
+      "name": "Sticky Note80"
+    },
+    {
+      "parameters": {
+        "content": "### Tool Uploud Kode HTML\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/CRuVbFdsuDvupK2i",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1664,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "e3308239-5b24-4527-a7f2-41d0238dffda",
+      "name": "Sticky Note81"
+    },
+    {
+      "parameters": {
+        "content": "### Tabel Data Id\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1904,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "37da0c4a-6cd8-4325-8f14-b531e660f23e",
+      "name": "Sticky Note82"
+    },
+    {
+      "parameters": {
+        "content": "### Format Respon Json",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2144,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "88efc1f7-e61a-4d00-af2f-3addaf6ed7af",
+      "name": "Sticky Note83"
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Respon SKTM Admin 2",
+        "height": 192
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2384,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "4d62ff25-db76-4852-8a1f-8e06ebf0284d",
+      "name": "Sticky Note84"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ JSON.stringify($json.body) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        144,
+        16
+      ],
+      "id": "69a022b5-db4d-439d-b99f-a40162b0a2ee",
+      "name": "c1",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e5ed211-7817-4ac8-a33a-b4f4ac4faaba",
+              "name": "Nama File",
+              "value": "Style.css",
+              "type": "string"
+            },
+            {
+              "id": "1df4e9d1-f6ef-41a2-87bc-f7a3faeae4e9",
+              "name": "Isi File",
+              "value": "=:root{\n    --bg:#0b1020; --panel:#0f172a; --ink:#e5e7eb; --muted:#9ca3af;\n    --accent:#22c55e; --accent-2:#38bdf8; --line:#1f2937;\n    --danger:#ef4444; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);\n    --space:clamp(14px,2.4vw,22px);\n    --modal-radius:10px;\n    --modal-bg:#111827;\n    --modal-border:rgba(148,163,184,.45);\n    --overlay:rgba(0,0,0,.72);\n}\n*{box-sizing:border-box} html,body{height:100%}\n\n/* ===== FULL BACKGROUND ===== */\nbody{\n    margin:0; color:var(--ink);\n    font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,\"Apple Color Emoji\",\"Segoe UI Emoji\";\n    background:#0a0e1a;\n    min-height:100svh;\n}\n.bg{\n    position:fixed; inset:0; z-index:-1; pointer-events:none;\n    background:\n    radial-gradient(1400px 800px at 20% -10%, #16223f 0%, transparent 60%),\n    radial-gradient(1200px 700px at 90% -20%, rgba(56,189,248,.15) 0%, transparent 60%),\n    linear-gradient(145deg,#0a0e1a,#0f1933 55%,#0a0e1a);\n    background-attachment:fixed,fixed,fixed;\n}\n\nbody,body *{min-width:0; overflow-wrap:anywhere; word-break:break-word; white-space:normal}\n.wrap{max-width:1100px;margin:40px auto;padding:0 20px}\n\n.topbar{display:flex;align-items:center;gap:16px;margin-bottom:18px}\n.brand{display:flex;align-items:center;gap:12px;min-width:0}\n/* ==== Logo responsif & konsisten (tanpa wrapper tambahan) ==== */\n.brand img.logo{\n    width: 120px; /* atau angka yang Anda mau */\n    aspect-ratio: 1 / 1;\n    object-fit: contain;\n    background:#0f172a;\n    border-radius:12px;\n    display:block;\n    /* Garis stroke di dalam */\n    box-shadow:\n    inset 0 0 0 1px rgba(148,163,184,.35), /* border tipis */\n    0 0 6px rgba(0,0,0,.35);               /* glow shadow merata */\n}\n\n.brand .title{font-weight:700;font-size:clamp(16px,2.4vw,20px)}\n.brand .sub{font-size:12px;color:var(--muted)}\n.pill{margin-left:auto;display:flex;gap:8px;align-items:center;font-size:12px;color:#cbd5e1;\n    background:linear-gradient(180deg,rgba(56,189,248,.2),rgba(34,197,94,.15));\n    border:1px solid rgba(148,163,184,.3);padding:6px 10px;border-radius:999px;flex-shrink:0;}\n\n.card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));\n    border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}\n.card-header{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;\n    padding:clamp(14px,2.2vw,20px) var(--space);\n    background:radial-gradient(800px 300px at 10% -20%, rgba(56,189,248,.15), transparent 60%),\n                radial-gradient(600px 300px at 90% -30%, rgba(34,197,94,.18), transparent 55%);\n    border-bottom:1px solid rgba(148,163,184,.2)}\n.hgroup{display:flex;flex-direction:column;gap:8px;min-width:0;margin-bottom:4px;width:100%;text-align:center}\n.h1{font-size:clamp(18px,2.8vw,26px);font-weight:800;letter-spacing:.3px;margin-bottom:2px}\n.h2{font-size:13px;color:var(--muted);margin-top:2px}\n.badges{display:flex;gap:8px;flex-wrap:wrap;min-width:0;margin-top:6px}\n.badge{font-size:12px;padding:6px 10px;border-radius:999px;background:#0b1224;border:1px solid rgba(148,163,184,.26)}\n.badge.info{border-color:rgba(56,189,248,.45);background:rgba(56,189,248,.12);color:#cffafe}\n\n.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:0;min-height:360px}\n@media (max-width:960px){.grid{grid-template-columns:1fr}.side{background:transparent}.panel{border-right:none}}\n\n.panel{padding:var(--space);border-right:1px solid rgba(148,163,184,.16)} .panel:last-child{border-right:none}\n.stitle{font-size:13px;letter-spacing:.4px;text-transform:uppercase;color:#a5b4fc;font-weight:700;margin-bottom:10px}\n\n/* ===== BAR AKSI EDIT ===== */\n.editbar{display:flex;gap:10px;align-items:center;margin-bottom:12px}\n.edit-actions{display:none;gap:10px}\n.edit-mode .edit-actions{display:flex}\n\n/* ===== Data Pemohon ===== */\n.ident{\n    display:grid; grid-template-columns:160px 10px 1fr; gap:6px 10px; align-items:start; font-size:14px;\n    background:rgba(15,23,42,.55); border:1px solid rgba(148,163,184,.15); border-radius:14px; padding:10px 12px;\n}\n@media (max-width:560px){ .ident{grid-template-columns:110px 8px 1fr} }\n.lab{color:#cbd5e1} .sep{color:#475569} .val{color:#e5e7eb;font-weight:600;line-height:1.45}\n.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace}\n\n.note{margin-top:12px;font-size:12.5px;color:#a5b4fc;background:rgba(99,102,241,.1);\n    border:1px dashed rgba(99,102,241,.35);border-radius:12px;padding:10px 12px}\n\n.side{display:flex;flex-direction:column;gap:14px;padding:var(--space);\n    background:linear-gradient(180deg,rgba(2,6,23,.35),rgba(2,6,23,.15))}\n.callout{border:1px solid rgba(56,189,248,.35);background:rgba(56,189,248,.1);border-radius:14px;padding:12px 14px;font-size:13px;color:#e0f2fe}\n.actions{display:flex;flex-wrap:wrap;gap:10px}\n\n/* ===== Buttons ===== */\n.btn{appearance:none;border:none;cursor:pointer;font-weight:700;letter-spacing:.3px;\n    background:#0b1224;color:var(--ink);padding:10px 14px;border-radius:12px; border:1px solid rgba(148,163,184,.3);\n    display:inline-flex; align-items:center; gap:8px; justify-content:center;}\na.btn, a.btn:link, a.btn:visited { text-decoration:none; color:inherit; }\na.btn:hover, a.btn:focus { text-decoration:none; }\n.btn.primary,.btn.success{ background:linear-gradient(180deg,rgba(34,197,94,.95),rgba(16,185,129,.95)); border-color:rgba(16,185,129,.95); color:#052e1a !important; }\n.btn.secondary{ background:linear-gradient(180deg,rgba(56,189,248,.9),rgba(59,130,246,.9)); border-color:rgba(96,165,250,.95); color:#06293a !important; }\n.btn.ghost{background:transparent}\n.btn.danger{ background:linear-gradient(180deg,rgba(239,68,68,.95),rgba(220,38,38,.95)); border-color:rgba(220,38,38,.95); color:#fef2f2 !important; }\n.btn:active{transform:translateY(1px)}\n.btn:disabled, .btn.disabled{\n    opacity: 0.4 !important;\n    cursor: not-allowed !important;\n    pointer-events: none !important;\n    background: #1f2937 !important;\n    border-color: #374151 !important;\n    color: #6b7280 !important;\n    transform: none !important;\n}\n.btn:disabled:hover, .btn.disabled:hover{\n    background: #1f2937 !important;\n    border-color: #374151 !important;\n    color: #6b7280 !important;\n}\n\n.edit-mode .val{display:none}.edit-mode .edit-field{display:block}\n.edit-field{display:none;width:100%;background:rgba(15,23,42,.8);border:1px solid rgba(56,189,248,.4);border-radius:8px;padding:8px 10px;color:#e5e7eb;font-size:14px;font-weight:600}\n.edit-field:focus{outline:none;border-color:rgba(56,189,248,.8);box-shadow:0 0 0 2px rgba(56,189,248,.2)}\n\n.file-upload-container{background:rgba(15,23,42,.55);border:1px solid rgba(148,163,184,.15);border-radius:14px;padding:14px}\n.upload-progress{width:100%;height:4px;background:rgba(148,163,184,.2);border-radius:2px;overflow:hidden;margin:8px 0}\n.upload-progress-bar{height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);width:0%;transition:width .3s ease}\n\n.uploaded-files-container{background:rgba(15,23,42,.55);border:1px solid rgba(148,163,184,.15);border-radius:14px;padding:14px;min-height:60px}\n.no-files-message{color:#9ca3af;font-size:13px;text-align:center;font-style:italic}\n\n.uploaded-file-item{display:flex;flex-direction:column;gap:8px;padding:10px 12px;background:rgba(34,197,94,.06);\n    border:1px solid rgba(34,197,94,.25);border-radius:12px;margin-bottom:8px}\n.file-name{color:#d1fae5;font-weight:700;line-height:1.35}\n.file-meta{color:#a5b4fc;font-size:12px}\n.file-id{font-size:12px;color:#94a3b8}\n.file-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}\n.note-box{background:rgba(15,23,42,.55);border:1px solid rgba(148,163,184,.15);border-radius:14px;padding:12px 14px}\n.note-input{width:100%;min-height:110px;resize:vertical;color:#e5e7eb;font-size:14px;line-height:1.6;\n    background:#0e162b;border:1px solid rgba(56,189,248,.35);border-radius:12px;padding:12px 14px;box-shadow:inset 0 0 0 1px rgba(56,189,248,.15)}\n.note-input::placeholder{color:#94a3b8}\n\n.card-footer{display:flex;gap:14px;justify-content:space-between;align-items:center;\n    padding:12px var(--space);border-top:1px solid rgba(148,163,184,.2);color:var(--muted);font-size:12px}\n\n/* ===== MODAL ===== */\n.modal-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1000;background:var(--overlay)}\n.modal{width:min(480px,92vw);border-radius:var(--modal-radius);background:var(--modal-bg);\n    border:1px solid var(--modal-border);box-shadow:0 18px 50px rgba(0,0,0,.55);padding:18px 18px}\n.modal-header{display:flex;gap:10px;align-items:center;margin-bottom:8px}\n.modal-icon{font-size:28px}\n.modal-title{font-weight:800;font-size:18px;letter-spacing:.3px}\n.modal-message{color:#cbd5e1;line-height:1.7;margin:8px 0 16px;font-size:14px}\n.modal-actions{display:flex;gap:10px;justify-content:flex-end}\n.modal .btn{border-radius:10px;padding:10px 14px}\n.modal--info{box-shadow:inset 4px 0 0 0 #38bdf8, 0 18px 50px rgba(0,0,0,.55)}\n.modal--success{box-shadow:inset 4px 0 0 0 #22c55e, 0 18px 50px rgba(0,0,0,.55)}\n.modal--confirm{box-shadow:inset 4px 0 0 0 #f59e0b, 0 18px 50px rgba(0,0,0,.55)}\n.modal--danger{box-shadow:inset 4px 0 0 0 #ef4444, 0 18px 50px rgba(0,0,0,.55)}\n\n/* ===== LOADING ===== */\n.loading-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:900;background:rgba(2,6,23,.75)}\n.loading-box{display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px;border-radius:12px;border:1px solid rgba(148,163,184,.35);background:#0f172a}\n.spinner{width:52px;height:52px;border-radius:50%;border:4px solid rgba(148,163,184,.35);border-top-color:#22c55e;animation:spin 1s linear infinite}\n@keyframes spin{to{transform:rotate(360deg)}}\n.loading-text{font-size:14px;color:#e5e7eb}\n\n@media print{.side{display:none} body{background:#fff} .card{border:none;box-shadow:none} .pill,.modal-overlay,.loading-overlay{display:none!important}}\n",
+              "type": "string"
+            },
+            {
+              "id": "2c858bc8-bb3a-497c-bb2e-d90ffb227c40",
+              "name": "Catatan File",
+              "value": "=kode Css untuk HTML",
+              "type": "string"
+            },
+            {
+              "id": "03f89783-a9af-4230-86e1-3652d440711f",
+              "name": "Lokasi File",
+              "value": "={{ $('c1').item.json.data_web.admin1.id.folder }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        368,
+        16
+      ],
+      "id": "eaf1ec7e-144c-4a7f-a7aa-060ac17672ab",
+      "name": "c2",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "File Name",
+              "value": "={{ $json['Nama File'] }}"
+            },
+            {
+              "name": "Parent Folder",
+              "value": "={{ $json['Lokasi File'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "=text/css; charset=utf-8",
+        "body": "={{ $json['Isi File'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        16
+      ],
+      "id": "24369e9d-1c07-44c7-9d71-cc335fb44e85",
+      "name": "c3",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "6W3on0nN3Gmmij5S",
+          "mode": "list",
+          "cachedResultName": "Data Id",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Short_Id": "={{$json.data.substring(3)}}",
+            "Full_Id": "={{ $json.data }}",
+            "Url": "=https://distrikwania.com/css/{{ $json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Short_Id",
+              "displayName": "Short_Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Full_Id",
+              "displayName": "Full_Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Url",
+              "displayName": "Url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        896,
+        16
+      ],
+      "id": "3bbd9e35-eaf0-4b0f-b66a-70da7e71cf56",
+      "name": "c4",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data",
+              "value": "=https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/02bef493-fa52-4937-be0c-013e9ce9ee0b?id={{ $('c1').item.json.data_web.admin1.id.json }}"
+            },
+            {
+              "name": "key",
+              "value": "={{ $json.Short_Id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1136,
+        16
+      ],
+      "id": "77b38edd-4a0f-4884-85c4-7f55131c6acf",
+      "name": "c5",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "PR8F3oNl3mF1UXp9",
+          "mode": "list",
+          "cachedResultName": "Data Auth",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/PR8F3oNl3mF1UXp9"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "Nama",
+              "keyValue": "Api_Json"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        1392,
+        16
+      ],
+      "id": "ebcc38f3-777a-45cd-81a2-9846f28c53e5",
+      "name": "c6"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data",
+              "value": "={{ $json.User }}"
+            },
+            {
+              "name": "key",
+              "value": "={{ $('c4').item.json.Short_Id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1616,
+        16
+      ],
+      "id": "2687fafe-a3ec-4222-a3dc-0d6960f2916d",
+      "name": "c7",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "data",
+              "value": "={{ $('c6').item.json.Password }}"
+            },
+            {
+              "name": "key",
+              "value": "={{ $('c4').item.json.Short_Id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1856,
+        16
+      ],
+      "id": "182861ef-b4f7-4084-85e9-106191a73996",
+      "name": "c8",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c04bdd4f-4187-4ea9-8452-73b24ce88d26",
+              "name": "Nama File",
+              "value": "Script.Js",
+              "type": "string"
+            },
+            {
+              "id": "b0ad9943-1c44-4bed-971a-28fa72b37fed",
+              "name": "Lokasi File",
+              "value": "={{ $('c1').item.json.data_web.admin1.id.folder }}",
+              "type": "string"
+            },
+            {
+              "id": "46e72d17-2f9f-4be1-9bd6-06374e6b0ab8",
+              "name": "script.config.js",
+              "value": "=document.addEventListener('DOMContentLoaded', function() {\n  window.a = null;\n  const m = \"{{ $('c7').item.json.data }}\"; \n  const n = \"{{ $('c8').item.json.data }}\";\n  const o = \"{{ $('c5').item.json.data }}\";   \n  const u = document.querySelector('link[rel=\"stylesheet\"]');\n  const v = u ? u.href : '';\n  const w = v.split('/').pop();\n  const p = dnk(dwk(m,w));\n  const q = dnk(dwk(n,w));\n  const s = dwk(o,w);\n  const A = enk(w);\n  window.A = A;\n  window.B = w;\n  if (window.lod) {\n    window.lod(true, 'Memuat data awal… Mohon menunggu.');\n  }\n  const t = btoa(p + ':' + q);\n  fetch(s, {\n    headers: {\n      'Authorization': 'Basic ' + t,\n      'Accept': 'application/json'\n    },\n    credentials: 'same-origin'\n  })\n    .then(async u => {\n      const responseText = await u.text();\n      if (!u.ok) {\n        throw new Error(`Gagal memuat data. Status: ${u.status} - ${responseText || 'Tidak ada detail'}`);\n      }\n      if (!responseText.trim()) {\n        return null;\n      }\n      const contentType = u.headers.get('content-type');\n      if (!contentType || !contentType.includes('application/json')) {\n        throw new Error(`Respon server tidak valid. Diharapkan JSON, tapi dapat: ${contentType || 'tidak ada content-type'}`);\n      }\n      try {\n        const parsedResponse = JSON.parse(responseText);\n        if (parsedResponse && typeof parsedResponse.data === 'string') {\n          const decryptedData = dwk(parsedResponse.data, window.B);\n          return decryptedData;\n        }\n        return parsedResponse;\n      } catch (e) {\n        throw new Error('Gagal memproses data dari server. Format data tidak valid.');\n      }\n    })\n    .then(v => {\n      if (!v) {\n        v = {}; \n      }\n      const w = ndj(v);\n      window.a = w;\n      window.dispatchEvent(new CustomEvent('dataReady'));\n      if (window.lod) {\n        window.lod(false);\n      }\n    })\n    .catch(x => {\n      if (window.lod) {\n        window.lod(false);\n      }\n      if (window.shm) {\n        window.shm({\n          title: 'Gagal Memuat Data',\n          message: 'Tidak dapat memuat data dari server. Silakan coba beberapa saat lagi atau periksa koneksi internet Anda.'\n        });\n      }\n    });\n});",
+              "type": "string"
+            },
+            {
+              "id": "b5dbc01e-9098-498e-b45b-3068b6830aed",
+              "name": "script.buildBasePayload.js",
+              "value": "=  function bby(A, B, C) {\n    // fungsi base payload (buildBasePayload)\n    const a = JSON.parse(JSON.stringify(window.a || {}));\n    if (B) {\n      a.message = B;\n    }\n    if (C) {\n      a.publicKey = C;\n    }\n    return a;\n  }; window.bby = bby",
+              "type": "string"
+            },
+            {
+              "id": "cf24cc6d-f025-4c73-970d-1cf4bf4ef2b2",
+              "name": "script.buttons.js",
+              "value": "=  function dab() {\n    //fungsi disable all buttons (disableAllButtons)\n    const a = [\n      'createSendBtn',   \n      'rejectBtn',      \n      'deleteAllBtn'    \n    ];\n    a.forEach(id => {\n      const b = document.getElementById(id);\n      if (b) b.disabled = true;\n    });\n  };window.dab = dab;\n\n  function eab() {\n    //fungsi enable all buttons (enableAllButtons)\n    const a = [\n      'createSendBtn',  \n      'rejectBtn',      \n      'deleteAllBtn'    \n    ];\n    a.forEach(id => {\n      const b = document.getElementById(id);\n      if (b) b.disabled = false;\n    });\n  };window.eab = eab;",
+              "type": "string"
+            },
+            {
+              "id": "40dd5b5a-16fe-466b-b0d8-0dbcf4f0167f",
+              "name": "script.getWebhookUrl.js",
+              "value": "=  function gwu(A = null){\n    // fungsi get webhook url (getWebhookUrl)\n    const a = {\n      'CREATE_AND_SEND': 'kirim_surat',\n      'DELETE_ALL': 'hapus_surat',\n      'SEND_MESSAGE': 'kirim_pesan'\n    };\n    if (!window.a || typeof window.a !== 'object') {\n      console.error('window.a tidak valid:', window.a);\n      return null;\n    }\n\n    const b = window.a?.data_web?.admin2?.tombol;\n    if (!b || typeof b !== 'object') {\n      console.error('Konfigurasi tombol tidak ditemukan pada data_web.admin1.tombol');\n      return null;\n    }\n\n    if (!A || !a[A]) {\n      console.error('Action webhook tidak dikenali:', action);\n      return null;\n    }\n\n    const c = a[A];\n    const d = b[c];\n\n\n    return d;\n  }; window.gwu = gwu;",
+              "type": "string"
+            },
+            {
+              "id": "8cb12b77-a3ed-4c50-88c0-abd0263e1223",
+              "name": "script.key.js",
+              "value": "= function dwk(A, B) {\n    // Fungsi Decript with key\n    if (!A || !B) {\n      return null;\n    }\n    const a = A.split('_');\n    if (a.length < 3) {\n      return null;\n    }     \n    const b = a[2];       \n\n    let c = [];\n    for (let i = 0; i < b.length; i += 2) {\n      c.push(parseInt(b.substr(i, 2), 16));\n    }\n\n    let d = '';\n    for (let i = 0; i < c.length; i++) {\n      let e = B.charCodeAt(i % B.length);\n      let f = c[i] ^ e;\n      d += String.fromCharCode(f);\n    }\n\n    try {\n      const g = atob(d);\n      try {\n        return JSON.parse(g);\n      } catch (e) {\n        return g;\n      }\n    } catch (e) {\n      return null;\n    }\n  };window.dwk = dwk;\n\n  function dnk(A) {\n    // Fungsi Decript no key\n    if (!A) {\n      console.error('Data harus disediakan');\n      return null;\n    }\n\n    try {\n      const a = A.split('_');\n      if (a.length < 2) {\n        console.error('Format data tidak valid');\n        return null;\n      }\n      const b = a.slice(1).join('_');  \n      let c = atob(b);\n      try {\n        return JSON.parse(c);\n      } catch (e) {\n        return c;   \n      }\n    } catch (e) {\n      console.error('Dekripsi tanpa key gagal:', e);\n      return null;\n    }\n  };window.dnk = dnk;\n\n  function enk(A) {\n    // Fungsi Encript no key\n    let a = btoa(JSON.stringify(A)); \n    const b = (Math.random() + 1).toString(36).substring(2, 8);\n    const c = b + \"_\" + a;\n    return c;\n  };window.enk = enk;\n  \n  function ewk(A, B) {\n    // Fungsi Encript with key\n    let a = btoa(JSON.stringify(A)); \n    let b = [];\n    for (let i = 0; i < a.length; i++) {\n      let c = a.charCodeAt(i);\n      let d = B.charCodeAt(i % B.length);  \n      b.push(c ^ d); \n    }    \n    let e = b.map(v => v.toString(16).padStart(2, \"0\")).join(\"\");\n    const f = (Math.random() + 1).toString(36).substring(2, 8);\n    const g = f + \"_\" + B.length.toString(16) + \"_\" + e;\n    return g;\n  };window.ewk = ewk;",
+              "type": "string"
+            },
+            {
+              "id": "ec5a0082-1fd5-4a08-b40a-d52399b6555e",
+              "name": "script.loading.js",
+              "value": "=  function lod(A, B){\n    // fungsi loading (loading)\n    const a = document.getElementById('loadingOverlay');\n    const b = document.getElementById('loadingText');\n\n    if (b && B) b.textContent = B;\n    if (!a) return;\n    a.style.display = A ? 'flex' : 'none';\n  }; window.lod = lod;",
+              "type": "string"
+            },
+            {
+              "id": "5a45813b-07bb-41ee-a2b1-7ae78faa56bb",
+              "name": "script.modal.js",
+              "value": "=  function shm({\n    // fungsi show modal (showModal)\n    icon = 'ℹ️',\n    title = 'Informasi',\n    message = '',\n    buttons = [{ label: 'Tutup', variant: 'secondary', value: true }],\n    variant = 'info',\n    closable = true\n  } = {}) {\n    const a = document.getElementById('modalOverlay');\n    const b = document.getElementById('modalBox');\n    const c = document.getElementById('modalIcon');\n    const d = document.getElementById('modalTitle');\n    const e = document.getElementById('modalMessage');\n    const f = document.getElementById('modalActions');\n    return new Promise(resolve => {\n      if (!a || !b || !c || !d || !e || !f) {\n        console.error('Elemen modal tidak lengkap di DOM');\n        resolve(null);\n        return;\n      }\n\n      c.textContent = icon;\n      d.textContent = title;\n      e.innerHTML = message;\n      f.innerHTML = '';\n\n      b.className = 'modal modal--' + variant;\n\n      buttons.forEach(btn => {\n        const g = document.createElement('button');\n        g.className = 'btn ' + (btn.primary ? 'primary' : btn.danger ? 'danger' : (btn.variant || 'secondary'));\n        g.textContent = btn.label || 'OK';\n        g.onclick = () => {\n          i();\n          resolve(btn.value);\n        };\n        f.appendChild(g);\n      });\n\n      function h(e) {\n        if (e.key === 'Escape' && closable) {\n          i();\n          resolve(null);\n        }\n      }\n\n      function i() {\n        a.style.display = 'none';\n        document.removeEventListener('keydown', h);\n      }\n\n      a.style.display = 'flex';\n      document.addEventListener('keydown', h);\n    });\n  };window.shm = shm;\n\n  function ifm(title, message) {\n    // fungsi info modal (infoModal)\n    return shm({\n      icon: 'ℹ️',\n      title,\n      message,\n      variant: 'info',\n      buttons: [{ label: 'Tutup', variant: 'secondary', value: true }]\n    });\n  };window.ifm = ifm;\n\n  function scm(title, message) {\n    // fungsi success modal (successModal)\n    return shm({\n      icon: '✅',\n      title,\n      message,\n      variant: 'success',\n      buttons: [{ label: 'Tutup', variant: 'secondary', value: true }]\n    });\n  }; window.scm = scm;\n\n  function cfm(title, message, {\n    // fungsi confirm modal (confirmModal)\n    okLabel = 'Lanjutkan',\n    cancelLabel = 'Batal',\n    icon = '❓',\n    danger = false\n  } = {}) {\n    return shm({\n      icon,\n      title,\n      message,\n      variant: 'confirm',\n      buttons: [\n        { label: cancelLabel, variant: 'secondary', value: false },\n        { label: okLabel, primary: !danger, danger, value: true }\n      ]\n    });\n  };window.cfm = cfm;\n\n    async function prn(A, B = false) {\n    // fungsi process reject with note (processRejectWithNote)\n    try {\n      if (window.dab) window.dab();\n      if (A) {\n        const a = gwu('SEND_MESSAGE');\n        if (a) {\n          const b = {\n            ...bby('SEND_MESSAGE'),\n            message: A,\n          };\n          const c = window.B;\n          const d = window.ewk(b, c);\n          const e = await fetch(a, {\n            method: 'POST',\n            headers: { 'Content-Type': 'application/json' },\n            body: JSON.stringify({ data: d, key: window.A })\n          });\n          \n          if (!e.ok) {\n            throw new Error('Gagal mengirim pesan');\n          }\n          await new Promise(resolve => setTimeout(resolve, 500));\n        }\n      }\n      await pda();\n      const f = B ? 'Penghapusan Berhasil' : 'Permohonan Ditolak';\n      const g = B \n        ? 'Data permohonan telah dihapus dari sistem.'\n        : 'Catatan penolakan telah dikirim dan data telah dihapus dari sistem.';\n      await scm(f, g);\n      location.reload();\n    } catch (e) {\n      const h = B ? 'Gagal Menghapus' : 'Gagal Memproses';\n      const i = B \n        ? 'Terjadi kendala saat menghapus data.'\n        : 'Terjadi kendala saat memproses permintaan.';\n      await shm({\n        icon: '⚠️',\n        title: h,\n        message: `${i}<br><span class=\"mono\">${e.i || e}</span>`,\n        variant: 'danger',\n        buttons: [{ label: 'Tutup', variant: 'secondary', value: true }]\n      });\n      throw e;\n    } finally {\n      lod(false);\n    }\n  }; window.prn = prn;\n\n  async function ccs(){\n    // fungsi confirm create and send (confirmCreateAndSend)\n    const a = window.a || {};\n    const b = a?.data_web?.admin1?.data_surat?.dokumen || [];\n    if(!b || b.length === 0){\n      await shm({ \n        icon: '⚠️', \n        title: 'Tidak Ada Dokumen yang Dilampirkan', \n        message: 'Harap Tolak & Hapus Surat dengan catatan tidak ada dokumen yang dilampirkan dan wajib menyertakan dokumen.', \n        variant: 'danger', \n        buttons: [{label: 'Tutup', variant: 'secondary', value: true}]\n      });\n      return;\n    }\n    const ok = await cfm(\n      'Konfirmasi Pembuatan Surat',\n      'Dengan menekan <b>Setujui & Proses</b>, sistem akan membuat dokumen berdasarkan data saat ini dan mengirimkannya.',\n      {okLabel: 'Setujui & Proses', cancelLabel: 'Tinjau Kembali', icon: '📨'}\n    );\n    if(!ok) return;\n    await gsl();\n    \n  }; window.ccs = ccs;\n\n  async function gsl(){\n    // fungsi generate and send letter (generateAndSendLetter)\n    try {\n      if (window.dab) window.dab();\n      if (window.ssm) window.ssm('Surat telah terkirim');\n      \n      snj('CREATE_AND_SEND');\n      await scm('Surat Berhasil Dibuat', 'Data dan surat telah dikirim untuk verifikasi.');\n    } catch(e) {\n      await shm({\n        icon: '⚠️',\n        title: 'Gagal Membuat Surat',\n        message: 'Terjadi kendala saat membuat atau mengirim surat.<br><span class=\"mono\">' + (e.message || e) + '</span>',\n        variant: 'danger',\n        buttons: [{label: 'Tutup', variant: 'secondary', value: true}]\n      });\n    } finally {\n      lod(false);\n    }\n  };window.gsl = gsl;\n\n  async function srm(A = false) {\n    // fungsi show reject modal (showRejectModal)\n    return new Promise(resolve => {\n      const a = A || false;\n      const b = a ? 'Hapus Permohonan' : 'Tolak & Hapus Permohonan';\n      const c = a ? 'Hapus' : 'Tolak & Hapus';\n      const d = a \n        ? 'Opsional: Tulis catatan untuk penghapusan ini…' \n        : 'Tulis alasan penolakan atau instruksi untuk pemohon (wajib diisi)…';\n      const e = !a;\n\n      // Create modal content with note input\n      const f = `\n        <div style=\"margin-bottom: 16px;\">\n          <label style=\"display: block; margin-bottom: 8px; font-weight: 600; color: #e5e7eb;\">\n            ${a ? 'Catatan Penghapusan' : 'Catatan'}:\n          </label>\n          <textarea id=\"rejectNoteText\" style=\"\n            width: 100%; \n            min-height: 110px; \n            resize: vertical; \n            color: #e5e7eb; \n            font-size: 14px; \n            line-height: 1.6;\n            background: #0e162b; \n            border: 1px solid rgba(56,189,248,.35); \n            border-radius: 12px; \n            padding: 12px 14px; \n            box-shadow: inset 0 0 0 1px rgba(56,189,248,.15);\n          \" placeholder=\"${d}\"></textarea>\n        </div>\n      `;\n      \n      modalIcon.textContent = a ? '🗑️' : '⛔';\n      modalTitle.textContent = b;\n      modalMessage.innerHTML = f;\n      modalActions.innerHTML = '';\n      modalBox.className = 'modal modal--danger';\n      \n      // Create buttons\n      const g = document.createElement('button');\n      g.className = 'btn secondary';\n      g.textContent = 'Batal';\n      g.onclick = () => {\n        hd();\n        resolve(false);\n      };\n      \n      const h = document.createElement('button');\n      h.className = 'btn danger';\n      h.textContent = c;\n      h.onclick = async () => {\n        const i = document.getElementById('rejectNoteText').value.trim();\n        \n        if (e && !i) {\n          await ifm('Catatan Wajib', 'Silakan tulis catatan terlebih dahulu.');\n          return;\n        }\n        \n        hd();\n        \n        // For delete action, use a default message if no note is provided\n        const j = i || 'Permohonan telah dihapus oleh admin.';\n        await prn(j, a);\n        resolve(true);\n      };\n      \n      modalActions.appendChild(g);\n      modalActions.appendChild(h);\n      \n      function oe(e) {\n        // fungsi on escape (onEscape)\n        if (e.key === 'Escape') {\n          hd();\n          resolve(false);\n        }\n      }\n      \n      function hd() {\n        // fungsi hide (hide)\n        modalOverlay.style.display = 'none';\n        document.removeEventListener('keydown', oe);\n      }\n      \n      modalOverlay.style.display = 'flex';\n      document.addEventListener('keydown', oe);\n      \n      // Focus on textarea\n      setTimeout(() => {\n        const k = document.getElementById('rejectNoteText');\n        if (k) k.focus();\n      }, 100);\n    });\n  }; window.srm = srm;",
+              "type": "string"
+            },
+            {
+              "id": "32f0c7f3-6a3b-4bfc-9039-237014fc1e3b",
+              "name": "script.normalizeData.js",
+              "value": "= function ndj(c) {\n    // fungsi normalize data (normalizeData)\n    if (Array.isArray(c)) {\n      return c[0] || {}; \n    }\n    if (c === null || c === undefined) {\n      return {};\n    }\n    return c;\n  };window.ndj = ndj;",
+              "type": "string"
+            },
+            {
+              "id": "0d57e909-7b84-4a92-920c-43c2fe10a5bc",
+              "name": "script.performDeleteAll.js",
+              "value": "=  async function pda(){\n    // fungsi delete (performDeleteAll)\n    const a = gwu('DELETE_ALL');\n    if(!a){\n      throw new Error('Endpoint layanan belum dikonfigurasi. Silakan periksa pengaturan terlebih dahulu.');\n    }\n\n    const b = bby('DELETE_ALL');\n    const c = window.B;\n    const d = window.ewk(b, c);\n    const f = await fetch(a, {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ data: d, key: window.A })\n    });\n    const g = await f.text();\n    \n    if(!f.ok) throw new Error('HTTP '+f.status+' — '+g.slice(0,200));\n    \n    return g;\n  }; window.pda = pda;",
+              "type": "string"
+            },
+            {
+              "id": "ebba4b82-532e-40fc-8557-6137f9ed184e",
+              "name": "script.renderfile.js",
+              "value": "=if (document.readyState === 'loading') {\n    document.addEventListener('DOMContentLoaded', ifh);\n} else {\n    ifh();\n}\n\nif (!window.utils) {\n    window.utils = {\n        toStr: (val, def = '') => val != null ? String(val) : def,\n        humanSize: (bytes) => {\n            if (!bytes) return '0 Bytes';\n            const k = 1024;\n            const sizes = ['Bytes', 'KB', 'MB', 'GB'];\n            const i = Math.floor(Math.log(bytes) / Math.log(k));\n            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];\n        }\n    };\n}\n\nfunction ifh() {\n    // fungsi initialize File Handling (initializeFileHandling)\n    try {\n        const a = window.a || {};\n        const b = a?.data_web?.admin1?.data_surat?.dokumen;\n        \n        if (Array.isArray(b) && b.length > 0) {\n            rfl({ dokumen: b });\n        } else {\n            ubs(false);\n        }\n    } catch (error) {\n        ubs(false);\n    }\n}\n\nwindow.fileHandling = {\n    init: ifh,\n    rfl: rfl,\n    updateButton: ubs\n};\n\nfunction nrd(A) {\n    // fungsi normalize Documents (normalizeDocuments)\n    const a = Array.isArray(A) ? A.filter(Boolean) : [];\n    const b = new Set();\n    const c = [];\n    \n    for (const d of a) {\n        const e = d?.id || null;\n        const f = !!(d?.view || d?.download);\n        \n        if (!e && !f) continue;\n        \n        const g = d?.nama || '';\n        const h = e ? `fid:${e}` : `name:${g.toLowerCase()}`;\n        \n        if (b.has(h)) continue;\n        b.add(h);\n        \n        c.push({\n            nama: g,\n            id: e,\n            view: d?.view || null,\n            download: d?.download || null,\n            size: d?.size || 0,\n            tipe: d?.tipe || ''\n        });\n    }\n    \n    return c;\n}\n\nfunction ubs(A) {\n    // fungsi update Send Button State (updateSendButtonState)\n    const a = document.getElementById('createSendBtn');\n    if (a) {\n        a.disabled = !A;\n        a.title = A ? '' : 'Unggah file terlebih dahulu';\n    }\n}\n\nfunction rfl(A) {\n    // fungsi render File List (renderFileList)\n    try {\n        const flc = window.viw?.fls;\n        if (!flc) {\n            console.error('File list container not found in window.viw.fls');\n            return;\n        }\n        flc.innerHTML = '';\n        if (!A) {\n            ubs(false);\n            return;\n        }\n        const dkm = (Array.isArray(A.h) ? A.h : []);\n        const docs = nrd(dkm);\n        ubs(docs.length > 0);\n        if (docs.length === 0) {\n            const msgEl = document.createElement('div');\n            msgEl.className = 'no-files-message';\n            msgEl.textContent = 'Belum ada file yang diupload';\n            flc.appendChild(msgEl);\n            return;\n        }\n        docs.forEach(f => {\n            if (!f) return;\n            const fel = cef(f);\n            if (fel) {\n                flc.appendChild(fel);\n            }\n        });\n    } catch (e) {\n        ubs(false);\n    }\n}\n\nfunction cef(A) {\n    // fungsi create File Element (createFileElement)\n    const a = document.createElement('div');\n    a.className = 'uploaded-file-item';\n    \n    const b = document.createElement('div');\n    b.className = 'file-name';\n    b.textContent = window.utils.toStr(A.nama, '(tanpa nama)');\n    a.appendChild(b);\n    \n    const c = [];\n    if (A.size != null) c.push(`Ukuran: ${window.utils.humanSize(parseInt(A.size))}`);\n    if (A.tipe) c.push(A.tipe);\n    \n    const d = document.createElement('div');\n    d.className = 'file-meta';\n    d.textContent = c.join(' • ') || '—';\n    a.appendChild(d);\n    \n    const e = document.createElement('div');\n    e.className = 'file-actions';\n    \n    if (A.view) {\n        const viewButton = cab('👁️ Lihat', A.view, 'success');\n        viewButton.target = '_blank';\n        viewButton.rel = 'noopener';\n        e.appendChild(viewButton);\n    }\n    \n    if (A.download) {\n        const downloadButton = cab('💾 Download', A.download, 'secondary');\n        downloadButton.download = '';\n        downloadButton.target = '_blank';\n        downloadButton.rel = 'noopener';\n        e.appendChild(downloadButton);\n    }\n    \n    a.appendChild(e);\n    return a;\n}\n\nfunction cab(A, B, C) {\n    //fungsi create Action Button (createActionButton)\n    const a = document.createElement('a');\n    a.href = B;\n    a.textContent = A;\n    a.className = `btn ${C}`;\n    return a;\n}\n\n",
+              "type": "string"
+            },
+            {
+              "id": "9eeac0e9-f218-4421-88d6-846100e5071b",
+              "name": "script.renderView.js",
+              "value": "=function loadApplicantData() {\n    const a = window.a|| {};\n    const b = a?.data_web?.admin2?.data_surat?.kop || {};\n    const c = a?.data_web?.admin2?.nomor_surat || '';\n    const d = a?.data_web?.user?.data_surat?.pemohon || {};\n    const e = a?.data_web?.admin2?.data_surat?.keterangan_sktm || {};\n    const f = a?.data_web?.admin2?.tanggal || '';\n    const g = a?.data_web?.user?.whatsapp?.chat_id || '';\n    const h = a?.data_web?.admin2?.data_surat?.dokumen || [];\n    const i = a?.data_web?.admin2?.status || '';\n    const j = new Date().getFullYear();\n\n    const k = (A, B) => {\n        const a = document.getElementById(A);\n        if (a) a.textContent = B || '';\n        return a;\n    };\n\n    k('title', `Kawe Nia • ${b.distrik || ''}`);\n    k('pill', '🟢 Layanan aktif • 24/7');\n    k('stitle', 'Data Pemohon');\n    k('labNama', 'Nama');\n    k('labNIK', 'NIK');\n    k('labTempatTglLahir', 'Tempat/Tgl Lahir');\n    k('labAgama', 'Agama');\n    k('labJenisKelamin', 'Jenis Kelamin');\n    k('labStatusPerkawinan', 'Status Perkawinan');\n    k('labPekerjaan', 'Pekerjaan');\n    k('labAlamat', 'Alamat');\n    k('labKelurahan', 'Kelurahan');\n    k('labKecamatan', 'Kecamatan');\n    k('labKotaKab', 'Kota/Kabupaten');\n    k('labProvinsi', 'Provinsi');\n    k('sep', ':');\n    k('stitleFile', 'File Terupload');\n    k('stitleKeterangan', 'Keterangan');\n    k('noFilesMessage', 'Belum ada file yang diupload');\n    k('stitleTindakan', 'Tindakan');\n    k('createSendBtn', '✅ Setujui & TTD');\n    k('rejectBtn', '⛔ Tolak & Hapus');\n    k('stitleRingkasan', 'Ringkasan');\n    k('footer', `© ${j} Pemerintah Distrik Wania • Kawe Nia`);\n    k('loadingText', 'Memuat data… Mohon menunggu.');\n\n    k('operator', '👤 Operator: KaweNia ');\n    k('tanggal', `📅 Tanggal: ${f}`);\n    k('referensi', '🔗 Referensi: KaweNia SKTM');\n    k('from', `🧭 From: ${g}`);\n\n    k('kopHeader1', b.pemerintah_kabupaten);\n    k('kopHeader2', b.distrik);\n    k('kopHeader311', b.kampung_kelurahan);\n    k('kopHeader4', `${b.alamat || ''} - ${b.provinsi || ''} ${b.kode_pos || ''}`);\n    k('kopHeader5', b.email);\n    k('suratHeader', 'SURAT KETERANGAN TIDAK MAMPU');\n    k('nomorSuratHeader', `Nomor : ${c}`);\n\n    k('nama', d.nama);\n    k('nik', d.nik);\n    k('ttl', d.ttl);\n    k('agama', d.agama);\n    k('jenis_kelamin', d.jenis_kelamin);\n    k('status_perkawinan', d.status_perkawinan);\n    k('pekerjaan', d.pekerjaan);\n    k('alamat', d.alamat);\n    k('kelurahan', d.kampung_kelurahan);\n    k('kecamatan', d.kecamatan);\n    k('kota_kab', d.kota_kabupaten);\n    k('provinsi', d.provinsi);\n\n    const fls = document.getElementById('uploadedFilesList');\n    if (window.fileHandling?.rfl && fls) {\n        window.viw = window.viw || {};\n        window.viw.fls = fls;\n        window.fileHandling.rfl({ h });\n    } else {\n        console.error('File handling not initialized or filesList not found');\n    }\n\n    k('keterangan1', e.keterangan_1);\n    k('keterangan2', e.keterangan_2);\n    k('keterangan3', e.keterangan_3);\n    k('keterangan4', e.keterangan_4);\n    k('keterangan5', e.keterangan_5);\n\n    const m = document.querySelector('title');\n    if (m) {\n        m.textContent = `Kawe Nia • Layanan SKTM • ${b.kampung_kelurahan || ''}`;\n    }\n\n    const n = document.getElementById('kopEmailLink');\n    if (n && b.email) {\n        n.textContent = b.email;\n        n.href = `mailto:${b.email}`;\n    }\n\n    const o = document.getElementById('logo');\n    if (o) {\n        const p = a?.data_web?.admin1?.logo || '';\n        o.src = p;\n    }\n\n    // Jika status admin menunjukkan surat telah terkirim, kunci tombol dan tampilkan status\n    if (typeof i === 'string' && i.toLowerCase().includes('terkirim')) {\n        if (window.dab) window.dab();\n        if (window.ssm) window.ssm('Surat telah terkirim');\n    }\n}\n\ndocument.addEventListener('DOMContentLoaded', () => {\n    if (window.a) {\n        loadApplicantData();\n    }\n    window.addEventListener('dataReady', loadApplicantData);\n});\n",
+              "type": "string"
+            },
+            {
+              "id": "2c5744ec-48e1-4159-8374-1560acc09193",
+              "name": "script.sendJSON.js",
+              "value": "= async function snj(A, B={}) {\n    // fungsi send json (sendJSON)\n    const a = gwu(A);\n    const b = { ...window.bby(A), ...B };\n    const c = window.B;\n    const d = window.ewk(b, c);\n    const e = await fetch(a, { \n      method: 'POST', \n      headers: {'Content-Type': 'application/json'}, \n      body: JSON.stringify({ data: d, key: window.A })\n    });\n    const txt = await e.text();\n    if(!e.ok) throw new Error('HTTP '+e.status+' — '+txt.slice(0,200));\n    return txt;\n  };window.snj = snj;",
+              "type": "string"
+            },
+            {
+              "id": "d5147b57-1fb9-4cf5-952f-d3ad0c60a86a",
+              "name": "script.showStatusMessage.js",
+              "value": "=  function ssm(message) {\n    // fungsi show status message (showStatusMessage)\n    let a = document.getElementById('statusMessage');\n    if (!a) {\n      a = document.createElement('div');\n      a.id = 'statusMessage';\n      a.style.cssText = `\n        background: rgba(34,197,94,.1);\n        border: 1px solid rgba(34,197,94,.35);\n        border-radius: 12px;\n        padding: 12px 14px;\n        margin: 14px 0;\n        font-size: 14px;\n        color: #d1fae5;\n        text-align: center;\n        font-weight: 700;\n        animation: slideIn 0.5s ease-out;\n      `;\n\n      const b = document.querySelector('.topbar');\n      if (b && b.nextSibling) {\n        b.parentNode.insertBefore(a, b.nextSibling);\n      }\n    }\n\n    a.innerHTML = `🟢 ${message}`;\n    a.style.display = 'block';\n\n    const c = document.createElement('style');\n    c.textContent = `\n      @keyframes slideIn {\n        from { opacity: 0; transform: translateY(-10px); }\n        to { opacity: 1; transform: translateY(0); }\n      }\n    `;\n    document.head.appendChild(c);\n  };window.ssm = ssm;",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2064,
+        16
+      ],
+      "id": "a247e672-0948-4db7-913c-ca9319c51052",
+      "name": "c9",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "script",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": "Lokasi File, Nama File",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2304,
+        16
+      ],
+      "id": "73cf4add-8648-47fe-8ca7-02bdd761ee06",
+      "name": "c10"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "File Name",
+              "value": "={{ $json[\"Nama File\"] }}"
+            },
+            {
+              "name": "Parent Folder",
+              "value": "={{ $json['Lokasi File'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "=text/js; charset=utf-8",
+        "body": "={{ $json.script.js }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -160,
+        256
+      ],
+      "id": "c4b6884f-ba1a-4bb7-9bd8-5a2b0584f00c",
+      "name": "c11",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5819852-8057-473e-82a4-c245ceae9dad",
+              "name": "url",
+              "value": "=import \"https://distrikwania.com/js/{{ $json.data }}\";",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        64,
+        256
+      ],
+      "id": "b5ccbfaf-1b6d-43ce-a728-552fbb3b6bf1",
+      "name": "c12",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "url"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        288,
+        256
+      ],
+      "id": "8da59369-3151-4808-bede-7e023982b951",
+      "name": "c13"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c04bdd4f-4187-4ea9-8452-73b24ce88d26",
+              "name": "Nama File",
+              "value": "Script.Js",
+              "type": "string"
+            },
+            {
+              "id": "b0ad9943-1c44-4bed-971a-28fa72b37fed",
+              "name": "Lokasi File",
+              "value": "={{ $('c1').item.json.data_web.admin1.id.folder }}",
+              "type": "string"
+            },
+            {
+              "id": "169c5718-3507-47bc-b17e-2f99def03107",
+              "name": "script.main.js",
+              "value": "={{ $json.url.join('\\n') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        528,
+        256
+      ],
+      "id": "45ba32c6-c2b6-4874-bff4-db833ef59020",
+      "name": "c14",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "File Name",
+              "value": "={{ $json[\"Nama File\"] }}"
+            },
+            {
+              "name": "Parent Folder",
+              "value": "={{ $json['Lokasi File'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "=text/js; charset=utf-8",
+        "body": "={{ $json.script.main.js }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        256
+      ],
+      "id": "b3220689-ac59-4ef3-b476-0f2c9b0ea806",
+      "name": "c15",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "6W3on0nN3Gmmij5S",
+          "mode": "list",
+          "cachedResultName": "Data Id",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Short_Id": "={{$json.data.substring(3)}}",
+            "Full_Id": "={{ $json.data }}",
+            "Url": "=https://distrikwania.com/js/{{ $json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Short_Id",
+              "displayName": "Short_Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Full_Id",
+              "displayName": "Full_Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Url",
+              "displayName": "Url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        256
+      ],
+      "id": "4c895b05-33a4-404c-b950-232526ad0ece",
+      "name": "c16",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5819852-8057-473e-82a4-c245ceae9dad",
+              "name": "css",
+              "value": "=https://distrikwania.com/css/{{ $('c4').item.json.Short_Id }}",
+              "type": "string"
+            },
+            {
+              "id": "807ae2c4-d711-487f-bfec-67112f92cdd5",
+              "name": "script",
+              "value": "=https://distrikwania.com/js/{{ $('c16').item.json.Short_Id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1264,
+        256
+      ],
+      "id": "5a730a68-6820-4c0c-95d9-1d06715e89b4",
+      "name": "c17",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7e80eca0-0f2d-4e97-a821-bc7a4b1b0f5f",
+              "name": "html",
+              "value": "=<!doctype html>\n<html lang=\"id\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title></title>\n  <link rel=\"stylesheet\" href=\"{{ $('c17').item.json.css }}\">\n</head>\n<body>\n  <div class=\"bg\" aria-hidden=\"true\"></div>\n\n  <div class=\"wrap\">\n    <div class=\"topbar\">\n      <div class=\"brand\">\n        <img class=\"logo\" id=\"logo\" src=\"\" alt=\"Logo Pemda\">\n        <div>\n          <div class=\"title\" id=\"title\"></div>\n        </div>\n      </div>\n      <div class=\"pill\" id=\"pill\"></div>\n    </div>\n\n    <section class=\"card\" role=\"region\" aria-label=\"Layanan SKTM\">\n      <header class=\"card-header\">\n        <div class=\"hgroup\" style=\"align-items: center; text-align: center;\">\n          <div style=\"text-align: center; margin-bottom: 20px; width: 100%;\">\n            <div id=\"kopHeader1\" style=\"font-weight: bold; font-size: 16px; margin-bottom: 2px;\"></div>\n            <div id=\"kopHeader2\" style=\"font-weight: bold; font-size: 16px; margin-bottom: 2px;\"></div>\n            <div id=\"kopHeader3\" style=\"font-weight: bold; font-size: 16px; margin-bottom: 2px;\"></div>\n            <div id=\"kopHeader4\" style=\"font-size: 12px; margin-bottom: 1px;\"></div>\n            <div id=\"kopHeader5\" style=\"font-size: 12px; margin-bottom: 15px;\"></div>\n            <div style=\"border-top: 2px solid #1f2937; width: 100%; margin: 10px 0;\"></div>\n          </div>\n          <div class=\"h1\" style=\"text-align: center; width: 100%;\" id=\"suratHeader\"></div>\n          <div class=\"h2\" style=\"text-align: center; width: 100%;\" id=\"nomorSuratHeader\"></div>\n        </div>\n      </header>\n\n      <div class=\"grid\">\n        <div class=\"panel\">\n          <div class=\"stitle\" id=\"stitle\"></div>\n\n          <div class=\"ident\" aria-label=\"Identitas Pemohon\">\n            <div class=\"lab\" id=\"labNama\"></div><div class=\"sep\"></div><div class=\"val\" id=\"nama\"></div>\n\n            <div class=\"lab\" id=\"labNIK\"></div><div class=\"sep\"></div><div class=\"val mono\" id=\"nik\"></div>\n\n            <div class=\"lab\" id=\"labTempatTglLahir\"></div><div class=\"sep\"></div><div class=\"val\" id=\"ttl\"></div>\n\n            <div class=\"lab\" id=\"labAgama\"></div><div class=\"sep\"></div><div class=\"val\" id=\"agama\"></div>\n\n            <div class=\"lab\" id=\"labJenisKelamin\"></div><div class=\"sep\"></div><div class=\"val\" id=\"jenis_kelamin\"></div>\n\n            <div class=\"lab\" id=\"labStatusPerkawinan\"></div><div class=\"sep\"></div><div class=\"val\" id=\"status_perkawinan\"></div>\n\n            <div class=\"lab\" id=\"labPekerjaan\"></div><div class=\"sep\"></div><div class=\"val\" id=\"pekerjaan\"></div>\n\n            <div class=\"lab\" id=\"labAlamat\"></div><div class=\"sep\"></div><div class=\"val\" id=\"alamat\"></div>\n\n            <div class=\"lab\" id=\"labKelurahan\"></div><div class=\"sep\"></div><div class=\"val\" id=\"kelurahan\"></div>\n\n            <div class=\"lab\" id=\"labKecamatan\"></div><div class=\"sep\"></div><div class=\"val\" id=\"kecamatan\"></div>\n\n            <div class=\"lab\" id=\"labKotaKab\"></div><div class=\"sep\"></div><div class=\"val\" id=\"kota_kab\"></div>\n\n            <div class=\"lab\" id=\"labProvinsi\"></div><div class=\"sep\"></div><div class=\"val\" id=\"provinsi\"></div>\n          </div>\n\n          <div class=\"stitle\" style=\"margin-top:16px\" id=\"stitleFile\"></div>\n          <div class=\"uploaded-files-container\">\n            <div id=\"uploadedFilesList\"><div class=\"no-files-message\" id=\"noFilesMessage\"></div></div>\n          </div>\n\n          <div class=\"stitle\" style=\"margin-top: 16px;\" id=\"stitleKeterangan\"></div>\n          <div class=\"file-upload-container\" style=\"margin-bottom: 16px; line-height: 1.6; font-size: 14px;\">\n            <div id=\"keterangan1\" style=\"margin-top: 12px; font-style: italic;\"></div>\n            <ol style=\"margin: 16px 0; padding-left: 20px;\">\n              <li id=\"keterangan2\" style=\"margin-bottom: 12px;\"></li>\n              <li id=\"keterangan3\" style=\"margin-bottom: 12px;\"></li>\n              <li id=\"keterangan4\" style=\"margin-bottom: 12px;\"></li>\n            </ol>\n            <div id=\"keterangan5\" style=\"margin-top: 12px; font-style: italic;\"></div>\n          </div>\n\n\n        </div>\n\n        <aside class=\"side\">\n          <div class=\"stitle\" id=\"stitleTindakan\"></div>\n          <div class=\"actions\">\n            <button class=\"btn primary\" id=\"createSendBtn\" onclick=\"ccs()\"></button>\n            <button class=\"btn danger\" id=\"rejectBtn\" onclick=\"srm()\"></button>\n          </div>\n\n          <div class=\"stitle\" style=\"margin-top:10px\" id=\"stitleRingkasan\"></div>\n          <div class=\"callout\">\n            <div id=\"operator\"></div>\n            <div id=\"tanggal\"></div>\n            <div id=\"referensi\"></div>\n            <div id=\"from\"></div>\n          </div>\n        </aside>\n      </div>\n\n      <footer class=\"card-footer\">\n        <div id=\"footer\"></div>\n      </footer>\n    </section>\n  </div>\n\n  <div class=\"loading-overlay\" id=\"loadingOverlay\" aria-live=\"polite\" aria-busy=\"true\">\n    <div class=\"loading-box\">\n      <div class=\"spinner\" aria-hidden=\"true\"></div>\n      <div class=\"loading-text\" id=\"loadingText\"></div>\n    </div>\n  </div>\n\n  <div class=\"modal-overlay\" id=\"modalOverlay\" role=\"dialog\" aria-modal=\"true\" style=\"display: none;\">\n    <div class=\"modal modal--info\" id=\"modalBox\" role=\"document\">\n      <div class=\"modal-header\">\n        <div class=\"modal-icon\" id=\"modalIcon\"></div>\n        <div class=\"modal-title\" id=\"modalTitle\"></div>\n      </div>\n      <div class=\"modal-body\">\n        <div class=\"modal-message\" id=\"modalMessage\"></div>\n      </div>\n      <div class=\"modal-actions\" id=\"modalActions\">\n        <button class=\"btn secondary\" id=\"modalCancelBtn\"></button>\n        <button class=\"btn primary\" id=\"modalConfirmBtn\"></button>\n      </div>\n    </div>\n  </div>\n<script type=\"module\" src=\"{{ $json.script }}\"></script>\n</body>\n</html>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1504,
+        256
+      ],
+      "id": "512fc697-a4be-49ab-b6ed-316b8ef478a4",
+      "name": "c18",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "File Name",
+              "value": "=Index.html"
+            },
+            {
+              "name": "Parent Folder",
+              "value": "={{ $('c1').item.json.data_web.admin1.id.folder }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "=text/html; charset=utf-8",
+        "body": "={{ $json.html }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1760,
+        256
+      ],
+      "id": "6de9d98b-edd4-45b5-93a6-d32f0ccc1b65",
+      "name": "c19",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "6W3on0nN3Gmmij5S",
+          "mode": "list",
+          "cachedResultName": "Data Id",
+          "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Short_Id": "={{$json.data.substring(3)}}",
+            "Full_Id": "={{ $json.data }}",
+            "Url": "=https://distrikwania.com/data/{{ $json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Short_Id",
+              "displayName": "Short_Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Full_Id",
+              "displayName": "Full_Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Url",
+              "displayName": "Url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        1984,
+        256
+      ],
+      "id": "b73cc0b5-e80a-4e1e-a442-2f362c7d4b31",
+      "name": "c20",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "63abb96e-2834-4094-b950-36a2ad7c4302",
+              "name": "Id HTML",
+              "value": "={{ $('c19').item.json.data }}",
+              "type": "string"
+            },
+            {
+              "id": "143bb8cf-9195-43b5-84cf-d40909831b47",
+              "name": "Id CSS",
+              "value": "={{ $('c4').item.json.Full_Id }}",
+              "type": "string"
+            },
+            {
+              "id": "147ab7ea-ef14-4e2e-9f32-6b1d46123854",
+              "name": "Id JS",
+              "value": "={{ $('c16').item.json.Full_Id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2192,
+        256
+      ],
+      "id": "25c8919f-cf10-4b93-9314-a73ff851bae0",
+      "name": "c21",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        2432,
+        256
+      ],
+      "id": "60777e18-cba2-40e0-9254-45f786cdf051",
+      "name": "c22"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "63244d26-6338-41e9-868e-ac3a7f0dd428",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -80,
+        16
+      ],
+      "id": "7d0f2669-c283-47a3-a17f-aab88341c17d",
+      "name": "c",
+      "webhookId": "63244d26-6338-41e9-868e-ac3a7f0dd428"
+    }
+  ],
+  "connections": {
+    "c1": {
+      "main": [
+        [
+          {
+            "node": "c2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c2": {
+      "main": [
+        [
+          {
+            "node": "c3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c3": {
+      "main": [
+        [
+          {
+            "node": "c4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c4": {
+      "main": [
+        [
+          {
+            "node": "c5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c5": {
+      "main": [
+        [
+          {
+            "node": "c6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c6": {
+      "main": [
+        [
+          {
+            "node": "c7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c7": {
+      "main": [
+        [
+          {
+            "node": "c8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c8": {
+      "main": [
+        [
+          {
+            "node": "c9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c9": {
+      "main": [
+        [
+          {
+            "node": "c10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c10": {
+      "main": [
+        [
+          {
+            "node": "c11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c11": {
+      "main": [
+        [
+          {
+            "node": "c12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c12": {
+      "main": [
+        [
+          {
+            "node": "c13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c13": {
+      "main": [
+        [
+          {
+            "node": "c14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c14": {
+      "main": [
+        [
+          {
+            "node": "c15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c15": {
+      "main": [
+        [
+          {
+            "node": "c16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c16": {
+      "main": [
+        [
+          {
+            "node": "c17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c17": {
+      "main": [
+        [
+          {
+            "node": "c18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c18": {
+      "main": [
+        [
+          {
+            "node": "c19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c19": {
+      "main": [
+        [
+          {
+            "node": "c20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c20": {
+      "main": [
+        [
+          {
+            "node": "c21",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c21": {
+      "main": [
+        [
+          {
+            "node": "c22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "c": {
+      "main": [
+        [
+          {
+            "node": "c1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "fd969243-19c7-42e0-80d4-bd6e0c2baa9c",
+  "activeVersionId": "fd969243-19c7-42e0-80d4-bd6e0c2baa9c",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2025-12-28T08:23:30.386Z",
+      "createdAt": "2025-12-28T08:23:30.386Z",
+      "role": "workflow:owner",
+      "workflowId": "3YXBTrRnRVhPBUou",
+      "projectId": "MsnmAoT3kpqQYaku"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2025-12-28T08:23:33.423Z",
+    "createdAt": "2025-12-28T08:23:33.423Z",
+    "versionId": "fd969243-19c7-42e0-80d4-bd6e0c2baa9c",
+    "workflowId": "3YXBTrRnRVhPBUou",
+    "nodes": [
+      {
+        "parameters": {
+          "content": "",
+          "height": 624,
+          "width": 2960
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -288,
+          -160
+        ],
+        "typeVersion": 1,
+        "id": "48d27d57-dddd-4d2f-9ef1-43106ce686e0",
+        "name": "Sticky Note4"
+      },
+      {
+        "parameters": {
+          "content": "# SKTM Web Admin 2\n",
+          "height": 80,
+          "width": 368
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          960,
+          -144
+        ],
+        "typeVersion": 1,
+        "id": "bebd5ab6-4a9f-41a6-9950-bc7c69d7be21",
+        "name": "Sticky Note62"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Input SKTM Admin 2\n",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -160,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "eb363f93-bd2a-486f-85ca-00c01ecb2d53",
+        "name": "Sticky Note63"
+      },
+      {
+        "parameters": {
+          "content": "### Format Json ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          80,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "3de661c9-f2d5-4766-9056-bbb17e1c3825",
+        "name": "Sticky Note64"
+      },
+      {
+        "parameters": {
+          "content": "### Kode CSS Web ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          320,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "7fc649f4-87b4-4f5c-bcec-f36c357875fd",
+        "name": "Sticky Note65"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Uploud Kode CSS\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/CRuVbFdsuDvupK2i",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          560,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "b5c9805b-6d19-4c45-b972-c2a8e915737c",
+        "name": "Sticky Note66"
+      },
+      {
+        "parameters": {
+          "content": "### Tabel Data Id\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          800,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "fe57d899-603f-4bd0-99d8-5ce32128398d",
+        "name": "Sticky Note67"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Encript Url\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/bkujltHTudpMwHrU",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1040,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "d2883a80-a642-431e-9276-a6a1345231ac",
+        "name": "Sticky Note68"
+      },
+      {
+        "parameters": {
+          "content": "### Tabel Data Auth\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/datatables/PR8F3oNl3mF1UXp9",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1280,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "3151d293-5354-47d0-bbbc-00fba142df70",
+        "name": "Sticky Note69"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Encript Auth User\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/bkujltHTudpMwHrU",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1520,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "e446a653-1d6b-4312-8c33-a8ccdc2414ed",
+        "name": "Sticky Note70"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Encript Auth Password\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/bkujltHTudpMwHrU",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1760,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "f2598f42-96e9-4345-9890-d0b2a0fb046d",
+        "name": "Sticky Note71"
+      },
+      {
+        "parameters": {
+          "content": "### Kode JS Web",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          2000,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "b695b046-0503-496f-9bfa-d3951a2f2c3e",
+        "name": "Sticky Note72"
+      },
+      {
+        "parameters": {
+          "content": "### Split Out Kode JS ",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          2240,
+          -32
+        ],
+        "typeVersion": 1,
+        "id": "7544f17d-1d46-46e3-9346-0258afb4d1e8",
+        "name": "Sticky Note73"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Uploud Kode JS\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/CRuVbFdsuDvupK2i",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -256,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "0c104a20-b4dd-479c-9c10-33ea9b637e3b",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "content": "### Format import Kode JS Web",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -16,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "b288f876-5189-4b09-a5c1-380f7aa1abc9",
+        "name": "Sticky Note74"
+      },
+      {
+        "parameters": {
+          "content": "### Join Kode JS Web",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          224,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "dd2ad058-2706-4695-895a-97b6ac412994",
+        "name": "Sticky Note75"
+      },
+      {
+        "parameters": {
+          "content": "### Main Kode JS",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          464,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "af0d8316-40b7-49a3-89c7-b6286a010ff7",
+        "name": "Sticky Note76"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Uploud Kode JS\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/CRuVbFdsuDvupK2i",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          704,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "dd4ebe31-c28e-4d74-98a4-2c9e83bb4ef7",
+        "name": "Sticky Note77"
+      },
+      {
+        "parameters": {
+          "content": "### Tabel Data Id\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          944,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "30450896-c08c-4d13-90d3-aaef8895e413",
+        "name": "Sticky Note78"
+      },
+      {
+        "parameters": {
+          "content": "### Link CSS Dan JS",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1184,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "4892b58e-7665-4058-857a-d77934130915",
+        "name": "Sticky Note79"
+      },
+      {
+        "parameters": {
+          "content": "### Kode HTML Web",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1424,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "a779b71a-4071-4c95-9306-30bea5c9e52c",
+        "name": "Sticky Note80"
+      },
+      {
+        "parameters": {
+          "content": "### Tool Uploud Kode HTML\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/workflow/CRuVbFdsuDvupK2i",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1664,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "e3308239-5b24-4527-a7f2-41d0238dffda",
+        "name": "Sticky Note81"
+      },
+      {
+        "parameters": {
+          "content": "### Tabel Data Id\n\n\n\n\n\n\n\n### https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          1904,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "37da0c4a-6cd8-4325-8f14-b531e660f23e",
+        "name": "Sticky Note82"
+      },
+      {
+        "parameters": {
+          "content": "### Format Respon Json",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          2144,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "88efc1f7-e61a-4d00-af2f-3addaf6ed7af",
+        "name": "Sticky Note83"
+      },
+      {
+        "parameters": {
+          "content": "### Webhook Respon SKTM Admin 2",
+          "height": 192
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          2384,
+          208
+        ],
+        "typeVersion": 1,
+        "id": "4d62ff25-db76-4852-8a1f-8e06ebf0284d",
+        "name": "Sticky Note84"
+      },
+      {
+        "parameters": {
+          "mode": "raw",
+          "jsonOutput": "={{ JSON.stringify($json.body) }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          144,
+          16
+        ],
+        "id": "69a022b5-db4d-439d-b99f-a40162b0a2ee",
+        "name": "c1",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "0e5ed211-7817-4ac8-a33a-b4f4ac4faaba",
+                "name": "Nama File",
+                "value": "Style.css",
+                "type": "string"
+              },
+              {
+                "id": "1df4e9d1-f6ef-41a2-87bc-f7a3faeae4e9",
+                "name": "Isi File",
+                "value": "=:root{\n    --bg:#0b1020; --panel:#0f172a; --ink:#e5e7eb; --muted:#9ca3af;\n    --accent:#22c55e; --accent-2:#38bdf8; --line:#1f2937;\n    --danger:#ef4444; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);\n    --space:clamp(14px,2.4vw,22px);\n    --modal-radius:10px;\n    --modal-bg:#111827;\n    --modal-border:rgba(148,163,184,.45);\n    --overlay:rgba(0,0,0,.72);\n}\n*{box-sizing:border-box} html,body{height:100%}\n\n/* ===== FULL BACKGROUND ===== */\nbody{\n    margin:0; color:var(--ink);\n    font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,\"Apple Color Emoji\",\"Segoe UI Emoji\";\n    background:#0a0e1a;\n    min-height:100svh;\n}\n.bg{\n    position:fixed; inset:0; z-index:-1; pointer-events:none;\n    background:\n    radial-gradient(1400px 800px at 20% -10%, #16223f 0%, transparent 60%),\n    radial-gradient(1200px 700px at 90% -20%, rgba(56,189,248,.15) 0%, transparent 60%),\n    linear-gradient(145deg,#0a0e1a,#0f1933 55%,#0a0e1a);\n    background-attachment:fixed,fixed,fixed;\n}\n\nbody,body *{min-width:0; overflow-wrap:anywhere; word-break:break-word; white-space:normal}\n.wrap{max-width:1100px;margin:40px auto;padding:0 20px}\n\n.topbar{display:flex;align-items:center;gap:16px;margin-bottom:18px}\n.brand{display:flex;align-items:center;gap:12px;min-width:0}\n/* ==== Logo responsif & konsisten (tanpa wrapper tambahan) ==== */\n.brand img.logo{\n    width: 120px; /* atau angka yang Anda mau */\n    aspect-ratio: 1 / 1;\n    object-fit: contain;\n    background:#0f172a;\n    border-radius:12px;\n    display:block;\n    /* Garis stroke di dalam */\n    box-shadow:\n    inset 0 0 0 1px rgba(148,163,184,.35), /* border tipis */\n    0 0 6px rgba(0,0,0,.35);               /* glow shadow merata */\n}\n\n.brand .title{font-weight:700;font-size:clamp(16px,2.4vw,20px)}\n.brand .sub{font-size:12px;color:var(--muted)}\n.pill{margin-left:auto;display:flex;gap:8px;align-items:center;font-size:12px;color:#cbd5e1;\n    background:linear-gradient(180deg,rgba(56,189,248,.2),rgba(34,197,94,.15));\n    border:1px solid rgba(148,163,184,.3);padding:6px 10px;border-radius:999px;flex-shrink:0;}\n\n.card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));\n    border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}\n.card-header{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;\n    padding:clamp(14px,2.2vw,20px) var(--space);\n    background:radial-gradient(800px 300px at 10% -20%, rgba(56,189,248,.15), transparent 60%),\n                radial-gradient(600px 300px at 90% -30%, rgba(34,197,94,.18), transparent 55%);\n    border-bottom:1px solid rgba(148,163,184,.2)}\n.hgroup{display:flex;flex-direction:column;gap:8px;min-width:0;margin-bottom:4px;width:100%;text-align:center}\n.h1{font-size:clamp(18px,2.8vw,26px);font-weight:800;letter-spacing:.3px;margin-bottom:2px}\n.h2{font-size:13px;color:var(--muted);margin-top:2px}\n.badges{display:flex;gap:8px;flex-wrap:wrap;min-width:0;margin-top:6px}\n.badge{font-size:12px;padding:6px 10px;border-radius:999px;background:#0b1224;border:1px solid rgba(148,163,184,.26)}\n.badge.info{border-color:rgba(56,189,248,.45);background:rgba(56,189,248,.12);color:#cffafe}\n\n.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:0;min-height:360px}\n@media (max-width:960px){.grid{grid-template-columns:1fr}.side{background:transparent}.panel{border-right:none}}\n\n.panel{padding:var(--space);border-right:1px solid rgba(148,163,184,.16)} .panel:last-child{border-right:none}\n.stitle{font-size:13px;letter-spacing:.4px;text-transform:uppercase;color:#a5b4fc;font-weight:700;margin-bottom:10px}\n\n/* ===== BAR AKSI EDIT ===== */\n.editbar{display:flex;gap:10px;align-items:center;margin-bottom:12px}\n.edit-actions{display:none;gap:10px}\n.edit-mode .edit-actions{display:flex}\n\n/* ===== Data Pemohon ===== */\n.ident{\n    display:grid; grid-template-columns:160px 10px 1fr; gap:6px 10px; align-items:start; font-size:14px;\n    background:rgba(15,23,42,.55); border:1px solid rgba(148,163,184,.15); border-radius:14px; padding:10px 12px;\n}\n@media (max-width:560px){ .ident{grid-template-columns:110px 8px 1fr} }\n.lab{color:#cbd5e1} .sep{color:#475569} .val{color:#e5e7eb;font-weight:600;line-height:1.45}\n.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace}\n\n.note{margin-top:12px;font-size:12.5px;color:#a5b4fc;background:rgba(99,102,241,.1);\n    border:1px dashed rgba(99,102,241,.35);border-radius:12px;padding:10px 12px}\n\n.side{display:flex;flex-direction:column;gap:14px;padding:var(--space);\n    background:linear-gradient(180deg,rgba(2,6,23,.35),rgba(2,6,23,.15))}\n.callout{border:1px solid rgba(56,189,248,.35);background:rgba(56,189,248,.1);border-radius:14px;padding:12px 14px;font-size:13px;color:#e0f2fe}\n.actions{display:flex;flex-wrap:wrap;gap:10px}\n\n/* ===== Buttons ===== */\n.btn{appearance:none;border:none;cursor:pointer;font-weight:700;letter-spacing:.3px;\n    background:#0b1224;color:var(--ink);padding:10px 14px;border-radius:12px; border:1px solid rgba(148,163,184,.3);\n    display:inline-flex; align-items:center; gap:8px; justify-content:center;}\na.btn, a.btn:link, a.btn:visited { text-decoration:none; color:inherit; }\na.btn:hover, a.btn:focus { text-decoration:none; }\n.btn.primary,.btn.success{ background:linear-gradient(180deg,rgba(34,197,94,.95),rgba(16,185,129,.95)); border-color:rgba(16,185,129,.95); color:#052e1a !important; }\n.btn.secondary{ background:linear-gradient(180deg,rgba(56,189,248,.9),rgba(59,130,246,.9)); border-color:rgba(96,165,250,.95); color:#06293a !important; }\n.btn.ghost{background:transparent}\n.btn.danger{ background:linear-gradient(180deg,rgba(239,68,68,.95),rgba(220,38,38,.95)); border-color:rgba(220,38,38,.95); color:#fef2f2 !important; }\n.btn:active{transform:translateY(1px)}\n.btn:disabled, .btn.disabled{\n    opacity: 0.4 !important;\n    cursor: not-allowed !important;\n    pointer-events: none !important;\n    background: #1f2937 !important;\n    border-color: #374151 !important;\n    color: #6b7280 !important;\n    transform: none !important;\n}\n.btn:disabled:hover, .btn.disabled:hover{\n    background: #1f2937 !important;\n    border-color: #374151 !important;\n    color: #6b7280 !important;\n}\n\n.edit-mode .val{display:none}.edit-mode .edit-field{display:block}\n.edit-field{display:none;width:100%;background:rgba(15,23,42,.8);border:1px solid rgba(56,189,248,.4);border-radius:8px;padding:8px 10px;color:#e5e7eb;font-size:14px;font-weight:600}\n.edit-field:focus{outline:none;border-color:rgba(56,189,248,.8);box-shadow:0 0 0 2px rgba(56,189,248,.2)}\n\n.file-upload-container{background:rgba(15,23,42,.55);border:1px solid rgba(148,163,184,.15);border-radius:14px;padding:14px}\n.upload-progress{width:100%;height:4px;background:rgba(148,163,184,.2);border-radius:2px;overflow:hidden;margin:8px 0}\n.upload-progress-bar{height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);width:0%;transition:width .3s ease}\n\n.uploaded-files-container{background:rgba(15,23,42,.55);border:1px solid rgba(148,163,184,.15);border-radius:14px;padding:14px;min-height:60px}\n.no-files-message{color:#9ca3af;font-size:13px;text-align:center;font-style:italic}\n\n.uploaded-file-item{display:flex;flex-direction:column;gap:8px;padding:10px 12px;background:rgba(34,197,94,.06);\n    border:1px solid rgba(34,197,94,.25);border-radius:12px;margin-bottom:8px}\n.file-name{color:#d1fae5;font-weight:700;line-height:1.35}\n.file-meta{color:#a5b4fc;font-size:12px}\n.file-id{font-size:12px;color:#94a3b8}\n.file-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}\n.note-box{background:rgba(15,23,42,.55);border:1px solid rgba(148,163,184,.15);border-radius:14px;padding:12px 14px}\n.note-input{width:100%;min-height:110px;resize:vertical;color:#e5e7eb;font-size:14px;line-height:1.6;\n    background:#0e162b;border:1px solid rgba(56,189,248,.35);border-radius:12px;padding:12px 14px;box-shadow:inset 0 0 0 1px rgba(56,189,248,.15)}\n.note-input::placeholder{color:#94a3b8}\n\n.card-footer{display:flex;gap:14px;justify-content:space-between;align-items:center;\n    padding:12px var(--space);border-top:1px solid rgba(148,163,184,.2);color:var(--muted);font-size:12px}\n\n/* ===== MODAL ===== */\n.modal-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1000;background:var(--overlay)}\n.modal{width:min(480px,92vw);border-radius:var(--modal-radius);background:var(--modal-bg);\n    border:1px solid var(--modal-border);box-shadow:0 18px 50px rgba(0,0,0,.55);padding:18px 18px}\n.modal-header{display:flex;gap:10px;align-items:center;margin-bottom:8px}\n.modal-icon{font-size:28px}\n.modal-title{font-weight:800;font-size:18px;letter-spacing:.3px}\n.modal-message{color:#cbd5e1;line-height:1.7;margin:8px 0 16px;font-size:14px}\n.modal-actions{display:flex;gap:10px;justify-content:flex-end}\n.modal .btn{border-radius:10px;padding:10px 14px}\n.modal--info{box-shadow:inset 4px 0 0 0 #38bdf8, 0 18px 50px rgba(0,0,0,.55)}\n.modal--success{box-shadow:inset 4px 0 0 0 #22c55e, 0 18px 50px rgba(0,0,0,.55)}\n.modal--confirm{box-shadow:inset 4px 0 0 0 #f59e0b, 0 18px 50px rgba(0,0,0,.55)}\n.modal--danger{box-shadow:inset 4px 0 0 0 #ef4444, 0 18px 50px rgba(0,0,0,.55)}\n\n/* ===== LOADING ===== */\n.loading-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:900;background:rgba(2,6,23,.75)}\n.loading-box{display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px;border-radius:12px;border:1px solid rgba(148,163,184,.35);background:#0f172a}\n.spinner{width:52px;height:52px;border-radius:50%;border:4px solid rgba(148,163,184,.35);border-top-color:#22c55e;animation:spin 1s linear infinite}\n@keyframes spin{to{transform:rotate(360deg)}}\n.loading-text{font-size:14px;color:#e5e7eb}\n\n@media print{.side{display:none} body{background:#fff} .card{border:none;box-shadow:none} .pill,.modal-overlay,.loading-overlay{display:none!important}}\n",
+                "type": "string"
+              },
+              {
+                "id": "2c858bc8-bb3a-497c-bb2e-d90ffb227c40",
+                "name": "Catatan File",
+                "value": "=kode Css untuk HTML",
+                "type": "string"
+              },
+              {
+                "id": "03f89783-a9af-4230-86e1-3652d440711f",
+                "name": "Lokasi File",
+                "value": "={{ $('c1').item.json.data_web.admin1.id.folder }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          368,
+          16
+        ],
+        "id": "eaf1ec7e-144c-4a7f-a7aa-060ac17672ab",
+        "name": "c2",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+          "sendQuery": true,
+          "queryParameters": {
+            "parameters": [
+              {
+                "name": "File Name",
+                "value": "={{ $json['Nama File'] }}"
+              },
+              {
+                "name": "Parent Folder",
+                "value": "={{ $json['Lokasi File'] }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "contentType": "raw",
+          "rawContentType": "=text/css; charset=utf-8",
+          "body": "={{ $json['Isi File'] }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          640,
+          16
+        ],
+        "id": "24369e9d-1c07-44c7-9d71-cc335fb44e85",
+        "name": "c3",
+        "alwaysOutputData": false,
+        "executeOnce": false,
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "dataTableId": {
+            "__rl": true,
+            "value": "6W3on0nN3Gmmij5S",
+            "mode": "list",
+            "cachedResultName": "Data Id",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Short_Id": "={{$json.data.substring(3)}}",
+              "Full_Id": "={{ $json.data }}",
+              "Url": "=https://distrikwania.com/css/{{ $json.data }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "Short_Id",
+                "displayName": "Short_Id",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Full_Id",
+                "displayName": "Full_Id",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Url",
+                "displayName": "Url",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1,
+        "position": [
+          896,
+          16
+        ],
+        "id": "3bbd9e35-eaf0-4b0f-b66a-70da7e71cf56",
+        "name": "c4",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "data",
+                "value": "=https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/02bef493-fa52-4937-be0c-013e9ce9ee0b?id={{ $('c1').item.json.data_web.admin1.id.json }}"
+              },
+              {
+                "name": "key",
+                "value": "={{ $json.Short_Id }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1136,
+          16
+        ],
+        "id": "77b38edd-4a0f-4884-85c4-7f55131c6acf",
+        "name": "c5",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "value": "PR8F3oNl3mF1UXp9",
+            "mode": "list",
+            "cachedResultName": "Data Auth",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/PR8F3oNl3mF1UXp9"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "Nama",
+                "keyValue": "Api_Json"
+              }
+            ]
+          },
+          "returnAll": true
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1,
+        "position": [
+          1392,
+          16
+        ],
+        "id": "ebcc38f3-777a-45cd-81a2-9846f28c53e5",
+        "name": "c6"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "data",
+                "value": "={{ $json.User }}"
+              },
+              {
+                "name": "key",
+                "value": "={{ $('c4').item.json.Short_Id }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1616,
+          16
+        ],
+        "id": "2687fafe-a3ec-4222-a3dc-0d6960f2916d",
+        "name": "c7",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/3bb4e66e-e354-415c-87d8-25631fd005a5-encript-data",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "data",
+                "value": "={{ $('c6').item.json.Password }}"
+              },
+              {
+                "name": "key",
+                "value": "={{ $('c4').item.json.Short_Id }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1856,
+          16
+        ],
+        "id": "182861ef-b4f7-4084-85e9-106191a73996",
+        "name": "c8",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "c04bdd4f-4187-4ea9-8452-73b24ce88d26",
+                "name": "Nama File",
+                "value": "Script.Js",
+                "type": "string"
+              },
+              {
+                "id": "b0ad9943-1c44-4bed-971a-28fa72b37fed",
+                "name": "Lokasi File",
+                "value": "={{ $('c1').item.json.data_web.admin1.id.folder }}",
+                "type": "string"
+              },
+              {
+                "id": "46e72d17-2f9f-4be1-9bd6-06374e6b0ab8",
+                "name": "script.config.js",
+                "value": "=document.addEventListener('DOMContentLoaded', function() {\n  window.a = null;\n  const m = \"{{ $('c7').item.json.data }}\"; \n  const n = \"{{ $('c8').item.json.data }}\";\n  const o = \"{{ $('c5').item.json.data }}\";   \n  const u = document.querySelector('link[rel=\"stylesheet\"]');\n  const v = u ? u.href : '';\n  const w = v.split('/').pop();\n  const p = dnk(dwk(m,w));\n  const q = dnk(dwk(n,w));\n  const s = dwk(o,w);\n  const A = enk(w);\n  window.A = A;\n  window.B = w;\n  if (window.lod) {\n    window.lod(true, 'Memuat data awal… Mohon menunggu.');\n  }\n  const t = btoa(p + ':' + q);\n  fetch(s, {\n    headers: {\n      'Authorization': 'Basic ' + t,\n      'Accept': 'application/json'\n    },\n    credentials: 'same-origin'\n  })\n    .then(async u => {\n      const responseText = await u.text();\n      if (!u.ok) {\n        throw new Error(`Gagal memuat data. Status: ${u.status} - ${responseText || 'Tidak ada detail'}`);\n      }\n      if (!responseText.trim()) {\n        return null;\n      }\n      const contentType = u.headers.get('content-type');\n      if (!contentType || !contentType.includes('application/json')) {\n        throw new Error(`Respon server tidak valid. Diharapkan JSON, tapi dapat: ${contentType || 'tidak ada content-type'}`);\n      }\n      try {\n        const parsedResponse = JSON.parse(responseText);\n        if (parsedResponse && typeof parsedResponse.data === 'string') {\n          const decryptedData = dwk(parsedResponse.data, window.B);\n          return decryptedData;\n        }\n        return parsedResponse;\n      } catch (e) {\n        throw new Error('Gagal memproses data dari server. Format data tidak valid.');\n      }\n    })\n    .then(v => {\n      if (!v) {\n        v = {}; \n      }\n      const w = ndj(v);\n      window.a = w;\n      window.dispatchEvent(new CustomEvent('dataReady'));\n      if (window.lod) {\n        window.lod(false);\n      }\n    })\n    .catch(x => {\n      if (window.lod) {\n        window.lod(false);\n      }\n      if (window.shm) {\n        window.shm({\n          title: 'Gagal Memuat Data',\n          message: 'Tidak dapat memuat data dari server. Silakan coba beberapa saat lagi atau periksa koneksi internet Anda.'\n        });\n      }\n    });\n});",
+                "type": "string"
+              },
+              {
+                "id": "b5dbc01e-9098-498e-b45b-3068b6830aed",
+                "name": "script.buildBasePayload.js",
+                "value": "=  function bby(A, B, C) {\n    // fungsi base payload (buildBasePayload)\n    const a = JSON.parse(JSON.stringify(window.a || {}));\n    if (B) {\n      a.message = B;\n    }\n    if (C) {\n      a.publicKey = C;\n    }\n    return a;\n  }; window.bby = bby",
+                "type": "string"
+              },
+              {
+                "id": "cf24cc6d-f025-4c73-970d-1cf4bf4ef2b2",
+                "name": "script.buttons.js",
+                "value": "=  function dab() {\n    //fungsi disable all buttons (disableAllButtons)\n    const a = [\n      'createSendBtn',   \n      'rejectBtn',      \n      'deleteAllBtn'    \n    ];\n    a.forEach(id => {\n      const b = document.getElementById(id);\n      if (b) b.disabled = true;\n    });\n  };window.dab = dab;\n\n  function eab() {\n    //fungsi enable all buttons (enableAllButtons)\n    const a = [\n      'createSendBtn',  \n      'rejectBtn',      \n      'deleteAllBtn'    \n    ];\n    a.forEach(id => {\n      const b = document.getElementById(id);\n      if (b) b.disabled = false;\n    });\n  };window.eab = eab;",
+                "type": "string"
+              },
+              {
+                "id": "40dd5b5a-16fe-466b-b0d8-0dbcf4f0167f",
+                "name": "script.getWebhookUrl.js",
+                "value": "=  function gwu(A = null){\n    // fungsi get webhook url (getWebhookUrl)\n    const a = {\n      'CREATE_AND_SEND': 'kirim_surat',\n      'DELETE_ALL': 'hapus_surat',\n      'SEND_MESSAGE': 'kirim_pesan'\n    };\n    if (!window.a || typeof window.a !== 'object') {\n      console.error('window.a tidak valid:', window.a);\n      return null;\n    }\n\n    const b = window.a?.data_web?.admin2?.tombol;\n    if (!b || typeof b !== 'object') {\n      console.error('Konfigurasi tombol tidak ditemukan pada data_web.admin1.tombol');\n      return null;\n    }\n\n    if (!A || !a[A]) {\n      console.error('Action webhook tidak dikenali:', action);\n      return null;\n    }\n\n    const c = a[A];\n    const d = b[c];\n\n\n    return d;\n  }; window.gwu = gwu;",
+                "type": "string"
+              },
+              {
+                "id": "8cb12b77-a3ed-4c50-88c0-abd0263e1223",
+                "name": "script.key.js",
+                "value": "= function dwk(A, B) {\n    // Fungsi Decript with key\n    if (!A || !B) {\n      return null;\n    }\n    const a = A.split('_');\n    if (a.length < 3) {\n      return null;\n    }     \n    const b = a[2];       \n\n    let c = [];\n    for (let i = 0; i < b.length; i += 2) {\n      c.push(parseInt(b.substr(i, 2), 16));\n    }\n\n    let d = '';\n    for (let i = 0; i < c.length; i++) {\n      let e = B.charCodeAt(i % B.length);\n      let f = c[i] ^ e;\n      d += String.fromCharCode(f);\n    }\n\n    try {\n      const g = atob(d);\n      try {\n        return JSON.parse(g);\n      } catch (e) {\n        return g;\n      }\n    } catch (e) {\n      return null;\n    }\n  };window.dwk = dwk;\n\n  function dnk(A) {\n    // Fungsi Decript no key\n    if (!A) {\n      console.error('Data harus disediakan');\n      return null;\n    }\n\n    try {\n      const a = A.split('_');\n      if (a.length < 2) {\n        console.error('Format data tidak valid');\n        return null;\n      }\n      const b = a.slice(1).join('_');  \n      let c = atob(b);\n      try {\n        return JSON.parse(c);\n      } catch (e) {\n        return c;   \n      }\n    } catch (e) {\n      console.error('Dekripsi tanpa key gagal:', e);\n      return null;\n    }\n  };window.dnk = dnk;\n\n  function enk(A) {\n    // Fungsi Encript no key\n    let a = btoa(JSON.stringify(A)); \n    const b = (Math.random() + 1).toString(36).substring(2, 8);\n    const c = b + \"_\" + a;\n    return c;\n  };window.enk = enk;\n  \n  function ewk(A, B) {\n    // Fungsi Encript with key\n    let a = btoa(JSON.stringify(A)); \n    let b = [];\n    for (let i = 0; i < a.length; i++) {\n      let c = a.charCodeAt(i);\n      let d = B.charCodeAt(i % B.length);  \n      b.push(c ^ d); \n    }    \n    let e = b.map(v => v.toString(16).padStart(2, \"0\")).join(\"\");\n    const f = (Math.random() + 1).toString(36).substring(2, 8);\n    const g = f + \"_\" + B.length.toString(16) + \"_\" + e;\n    return g;\n  };window.ewk = ewk;",
+                "type": "string"
+              },
+              {
+                "id": "ec5a0082-1fd5-4a08-b40a-d52399b6555e",
+                "name": "script.loading.js",
+                "value": "=  function lod(A, B){\n    // fungsi loading (loading)\n    const a = document.getElementById('loadingOverlay');\n    const b = document.getElementById('loadingText');\n\n    if (b && B) b.textContent = B;\n    if (!a) return;\n    a.style.display = A ? 'flex' : 'none';\n  }; window.lod = lod;",
+                "type": "string"
+              },
+              {
+                "id": "5a45813b-07bb-41ee-a2b1-7ae78faa56bb",
+                "name": "script.modal.js",
+                "value": "=  function shm({\n    // fungsi show modal (showModal)\n    icon = 'ℹ️',\n    title = 'Informasi',\n    message = '',\n    buttons = [{ label: 'Tutup', variant: 'secondary', value: true }],\n    variant = 'info',\n    closable = true\n  } = {}) {\n    const a = document.getElementById('modalOverlay');\n    const b = document.getElementById('modalBox');\n    const c = document.getElementById('modalIcon');\n    const d = document.getElementById('modalTitle');\n    const e = document.getElementById('modalMessage');\n    const f = document.getElementById('modalActions');\n    return new Promise(resolve => {\n      if (!a || !b || !c || !d || !e || !f) {\n        console.error('Elemen modal tidak lengkap di DOM');\n        resolve(null);\n        return;\n      }\n\n      c.textContent = icon;\n      d.textContent = title;\n      e.innerHTML = message;\n      f.innerHTML = '';\n\n      b.className = 'modal modal--' + variant;\n\n      buttons.forEach(btn => {\n        const g = document.createElement('button');\n        g.className = 'btn ' + (btn.primary ? 'primary' : btn.danger ? 'danger' : (btn.variant || 'secondary'));\n        g.textContent = btn.label || 'OK';\n        g.onclick = () => {\n          i();\n          resolve(btn.value);\n        };\n        f.appendChild(g);\n      });\n\n      function h(e) {\n        if (e.key === 'Escape' && closable) {\n          i();\n          resolve(null);\n        }\n      }\n\n      function i() {\n        a.style.display = 'none';\n        document.removeEventListener('keydown', h);\n      }\n\n      a.style.display = 'flex';\n      document.addEventListener('keydown', h);\n    });\n  };window.shm = shm;\n\n  function ifm(title, message) {\n    // fungsi info modal (infoModal)\n    return shm({\n      icon: 'ℹ️',\n      title,\n      message,\n      variant: 'info',\n      buttons: [{ label: 'Tutup', variant: 'secondary', value: true }]\n    });\n  };window.ifm = ifm;\n\n  function scm(title, message) {\n    // fungsi success modal (successModal)\n    return shm({\n      icon: '✅',\n      title,\n      message,\n      variant: 'success',\n      buttons: [{ label: 'Tutup', variant: 'secondary', value: true }]\n    });\n  }; window.scm = scm;\n\n  function cfm(title, message, {\n    // fungsi confirm modal (confirmModal)\n    okLabel = 'Lanjutkan',\n    cancelLabel = 'Batal',\n    icon = '❓',\n    danger = false\n  } = {}) {\n    return shm({\n      icon,\n      title,\n      message,\n      variant: 'confirm',\n      buttons: [\n        { label: cancelLabel, variant: 'secondary', value: false },\n        { label: okLabel, primary: !danger, danger, value: true }\n      ]\n    });\n  };window.cfm = cfm;\n\n    async function prn(A, B = false) {\n    // fungsi process reject with note (processRejectWithNote)\n    try {\n      if (window.dab) window.dab();\n      if (A) {\n        const a = gwu('SEND_MESSAGE');\n        if (a) {\n          const b = {\n            ...bby('SEND_MESSAGE'),\n            message: A,\n          };\n          const c = window.B;\n          const d = window.ewk(b, c);\n          const e = await fetch(a, {\n            method: 'POST',\n            headers: { 'Content-Type': 'application/json' },\n            body: JSON.stringify({ data: d, key: window.A })\n          });\n          \n          if (!e.ok) {\n            throw new Error('Gagal mengirim pesan');\n          }\n          await new Promise(resolve => setTimeout(resolve, 500));\n        }\n      }\n      await pda();\n      const f = B ? 'Penghapusan Berhasil' : 'Permohonan Ditolak';\n      const g = B \n        ? 'Data permohonan telah dihapus dari sistem.'\n        : 'Catatan penolakan telah dikirim dan data telah dihapus dari sistem.';\n      await scm(f, g);\n      location.reload();\n    } catch (e) {\n      const h = B ? 'Gagal Menghapus' : 'Gagal Memproses';\n      const i = B \n        ? 'Terjadi kendala saat menghapus data.'\n        : 'Terjadi kendala saat memproses permintaan.';\n      await shm({\n        icon: '⚠️',\n        title: h,\n        message: `${i}<br><span class=\"mono\">${e.i || e}</span>`,\n        variant: 'danger',\n        buttons: [{ label: 'Tutup', variant: 'secondary', value: true }]\n      });\n      throw e;\n    } finally {\n      lod(false);\n    }\n  }; window.prn = prn;\n\n  async function ccs(){\n    // fungsi confirm create and send (confirmCreateAndSend)\n    const a = window.a || {};\n    const b = a?.data_web?.admin1?.data_surat?.dokumen || [];\n    if(!b || b.length === 0){\n      await shm({ \n        icon: '⚠️', \n        title: 'Tidak Ada Dokumen yang Dilampirkan', \n        message: 'Harap Tolak & Hapus Surat dengan catatan tidak ada dokumen yang dilampirkan dan wajib menyertakan dokumen.', \n        variant: 'danger', \n        buttons: [{label: 'Tutup', variant: 'secondary', value: true}]\n      });\n      return;\n    }\n    const ok = await cfm(\n      'Konfirmasi Pembuatan Surat',\n      'Dengan menekan <b>Setujui & Proses</b>, sistem akan membuat dokumen berdasarkan data saat ini dan mengirimkannya.',\n      {okLabel: 'Setujui & Proses', cancelLabel: 'Tinjau Kembali', icon: '📨'}\n    );\n    if(!ok) return;\n    await gsl();\n    \n  }; window.ccs = ccs;\n\n  async function gsl(){\n    // fungsi generate and send letter (generateAndSendLetter)\n    try {\n      if (window.dab) window.dab();\n      if (window.ssm) window.ssm('Surat telah terkirim');\n      \n      snj('CREATE_AND_SEND');\n      await scm('Surat Berhasil Dibuat', 'Data dan surat telah dikirim untuk verifikasi.');\n    } catch(e) {\n      await shm({\n        icon: '⚠️',\n        title: 'Gagal Membuat Surat',\n        message: 'Terjadi kendala saat membuat atau mengirim surat.<br><span class=\"mono\">' + (e.message || e) + '</span>',\n        variant: 'danger',\n        buttons: [{label: 'Tutup', variant: 'secondary', value: true}]\n      });\n    } finally {\n      lod(false);\n    }\n  };window.gsl = gsl;\n\n  async function srm(A = false) {\n    // fungsi show reject modal (showRejectModal)\n    return new Promise(resolve => {\n      const a = A || false;\n      const b = a ? 'Hapus Permohonan' : 'Tolak & Hapus Permohonan';\n      const c = a ? 'Hapus' : 'Tolak & Hapus';\n      const d = a \n        ? 'Opsional: Tulis catatan untuk penghapusan ini…' \n        : 'Tulis alasan penolakan atau instruksi untuk pemohon (wajib diisi)…';\n      const e = !a;\n\n      // Create modal content with note input\n      const f = `\n        <div style=\"margin-bottom: 16px;\">\n          <label style=\"display: block; margin-bottom: 8px; font-weight: 600; color: #e5e7eb;\">\n            ${a ? 'Catatan Penghapusan' : 'Catatan'}:\n          </label>\n          <textarea id=\"rejectNoteText\" style=\"\n            width: 100%; \n            min-height: 110px; \n            resize: vertical; \n            color: #e5e7eb; \n            font-size: 14px; \n            line-height: 1.6;\n            background: #0e162b; \n            border: 1px solid rgba(56,189,248,.35); \n            border-radius: 12px; \n            padding: 12px 14px; \n            box-shadow: inset 0 0 0 1px rgba(56,189,248,.15);\n          \" placeholder=\"${d}\"></textarea>\n        </div>\n      `;\n      \n      modalIcon.textContent = a ? '🗑️' : '⛔';\n      modalTitle.textContent = b;\n      modalMessage.innerHTML = f;\n      modalActions.innerHTML = '';\n      modalBox.className = 'modal modal--danger';\n      \n      // Create buttons\n      const g = document.createElement('button');\n      g.className = 'btn secondary';\n      g.textContent = 'Batal';\n      g.onclick = () => {\n        hd();\n        resolve(false);\n      };\n      \n      const h = document.createElement('button');\n      h.className = 'btn danger';\n      h.textContent = c;\n      h.onclick = async () => {\n        const i = document.getElementById('rejectNoteText').value.trim();\n        \n        if (e && !i) {\n          await ifm('Catatan Wajib', 'Silakan tulis catatan terlebih dahulu.');\n          return;\n        }\n        \n        hd();\n        \n        // For delete action, use a default message if no note is provided\n        const j = i || 'Permohonan telah dihapus oleh admin.';\n        await prn(j, a);\n        resolve(true);\n      };\n      \n      modalActions.appendChild(g);\n      modalActions.appendChild(h);\n      \n      function oe(e) {\n        // fungsi on escape (onEscape)\n        if (e.key === 'Escape') {\n          hd();\n          resolve(false);\n        }\n      }\n      \n      function hd() {\n        // fungsi hide (hide)\n        modalOverlay.style.display = 'none';\n        document.removeEventListener('keydown', oe);\n      }\n      \n      modalOverlay.style.display = 'flex';\n      document.addEventListener('keydown', oe);\n      \n      // Focus on textarea\n      setTimeout(() => {\n        const k = document.getElementById('rejectNoteText');\n        if (k) k.focus();\n      }, 100);\n    });\n  }; window.srm = srm;",
+                "type": "string"
+              },
+              {
+                "id": "32f0c7f3-6a3b-4bfc-9039-237014fc1e3b",
+                "name": "script.normalizeData.js",
+                "value": "= function ndj(c) {\n    // fungsi normalize data (normalizeData)\n    if (Array.isArray(c)) {\n      return c[0] || {}; \n    }\n    if (c === null || c === undefined) {\n      return {};\n    }\n    return c;\n  };window.ndj = ndj;",
+                "type": "string"
+              },
+              {
+                "id": "0d57e909-7b84-4a92-920c-43c2fe10a5bc",
+                "name": "script.performDeleteAll.js",
+                "value": "=  async function pda(){\n    // fungsi delete (performDeleteAll)\n    const a = gwu('DELETE_ALL');\n    if(!a){\n      throw new Error('Endpoint layanan belum dikonfigurasi. Silakan periksa pengaturan terlebih dahulu.');\n    }\n\n    const b = bby('DELETE_ALL');\n    const c = window.B;\n    const d = window.ewk(b, c);\n    const f = await fetch(a, {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ data: d, key: window.A })\n    });\n    const g = await f.text();\n    \n    if(!f.ok) throw new Error('HTTP '+f.status+' — '+g.slice(0,200));\n    \n    return g;\n  }; window.pda = pda;",
+                "type": "string"
+              },
+              {
+                "id": "ebba4b82-532e-40fc-8557-6137f9ed184e",
+                "name": "script.renderfile.js",
+                "value": "=if (document.readyState === 'loading') {\n    document.addEventListener('DOMContentLoaded', ifh);\n} else {\n    ifh();\n}\n\nif (!window.utils) {\n    window.utils = {\n        toStr: (val, def = '') => val != null ? String(val) : def,\n        humanSize: (bytes) => {\n            if (!bytes) return '0 Bytes';\n            const k = 1024;\n            const sizes = ['Bytes', 'KB', 'MB', 'GB'];\n            const i = Math.floor(Math.log(bytes) / Math.log(k));\n            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];\n        }\n    };\n}\n\nfunction ifh() {\n    // fungsi initialize File Handling (initializeFileHandling)\n    try {\n        const a = window.a || {};\n        const b = a?.data_web?.admin1?.data_surat?.dokumen;\n        \n        if (Array.isArray(b) && b.length > 0) {\n            rfl({ dokumen: b });\n        } else {\n            ubs(false);\n        }\n    } catch (error) {\n        ubs(false);\n    }\n}\n\nwindow.fileHandling = {\n    init: ifh,\n    rfl: rfl,\n    updateButton: ubs\n};\n\nfunction nrd(A) {\n    // fungsi normalize Documents (normalizeDocuments)\n    const a = Array.isArray(A) ? A.filter(Boolean) : [];\n    const b = new Set();\n    const c = [];\n    \n    for (const d of a) {\n        const e = d?.id || null;\n        const f = !!(d?.view || d?.download);\n        \n        if (!e && !f) continue;\n        \n        const g = d?.nama || '';\n        const h = e ? `fid:${e}` : `name:${g.toLowerCase()}`;\n        \n        if (b.has(h)) continue;\n        b.add(h);\n        \n        c.push({\n            nama: g,\n            id: e,\n            view: d?.view || null,\n            download: d?.download || null,\n            size: d?.size || 0,\n            tipe: d?.tipe || ''\n        });\n    }\n    \n    return c;\n}\n\nfunction ubs(A) {\n    // fungsi update Send Button State (updateSendButtonState)\n    const a = document.getElementById('createSendBtn');\n    if (a) {\n        a.disabled = !A;\n        a.title = A ? '' : 'Unggah file terlebih dahulu';\n    }\n}\n\nfunction rfl(A) {\n    // fungsi render File List (renderFileList)\n    try {\n        const flc = window.viw?.fls;\n        if (!flc) {\n            console.error('File list container not found in window.viw.fls');\n            return;\n        }\n        flc.innerHTML = '';\n        if (!A) {\n            ubs(false);\n            return;\n        }\n        const dkm = (Array.isArray(A.h) ? A.h : []);\n        const docs = nrd(dkm);\n        ubs(docs.length > 0);\n        if (docs.length === 0) {\n            const msgEl = document.createElement('div');\n            msgEl.className = 'no-files-message';\n            msgEl.textContent = 'Belum ada file yang diupload';\n            flc.appendChild(msgEl);\n            return;\n        }\n        docs.forEach(f => {\n            if (!f) return;\n            const fel = cef(f);\n            if (fel) {\n                flc.appendChild(fel);\n            }\n        });\n    } catch (e) {\n        ubs(false);\n    }\n}\n\nfunction cef(A) {\n    // fungsi create File Element (createFileElement)\n    const a = document.createElement('div');\n    a.className = 'uploaded-file-item';\n    \n    const b = document.createElement('div');\n    b.className = 'file-name';\n    b.textContent = window.utils.toStr(A.nama, '(tanpa nama)');\n    a.appendChild(b);\n    \n    const c = [];\n    if (A.size != null) c.push(`Ukuran: ${window.utils.humanSize(parseInt(A.size))}`);\n    if (A.tipe) c.push(A.tipe);\n    \n    const d = document.createElement('div');\n    d.className = 'file-meta';\n    d.textContent = c.join(' • ') || '—';\n    a.appendChild(d);\n    \n    const e = document.createElement('div');\n    e.className = 'file-actions';\n    \n    if (A.view) {\n        const viewButton = cab('👁️ Lihat', A.view, 'success');\n        viewButton.target = '_blank';\n        viewButton.rel = 'noopener';\n        e.appendChild(viewButton);\n    }\n    \n    if (A.download) {\n        const downloadButton = cab('💾 Download', A.download, 'secondary');\n        downloadButton.download = '';\n        downloadButton.target = '_blank';\n        downloadButton.rel = 'noopener';\n        e.appendChild(downloadButton);\n    }\n    \n    a.appendChild(e);\n    return a;\n}\n\nfunction cab(A, B, C) {\n    //fungsi create Action Button (createActionButton)\n    const a = document.createElement('a');\n    a.href = B;\n    a.textContent = A;\n    a.className = `btn ${C}`;\n    return a;\n}\n\n",
+                "type": "string"
+              },
+              {
+                "id": "9eeac0e9-f218-4421-88d6-846100e5071b",
+                "name": "script.renderView.js",
+                "value": "=function loadApplicantData() {\n    const a = window.a|| {};\n    const b = a?.data_web?.admin2?.data_surat?.kop || {};\n    const c = a?.data_web?.admin2?.nomor_surat || '';\n    const d = a?.data_web?.user?.data_surat?.pemohon || {};\n    const e = a?.data_web?.admin2?.data_surat?.keterangan_sktm || {};\n    const f = a?.data_web?.admin2?.tanggal || '';\n    const g = a?.data_web?.user?.whatsapp?.chat_id || '';\n    const h = a?.data_web?.admin2?.data_surat?.dokumen || [];\n    const i = a?.data_web?.admin2?.status || '';\n    const j = new Date().getFullYear();\n\n    const k = (A, B) => {\n        const a = document.getElementById(A);\n        if (a) a.textContent = B || '';\n        return a;\n    };\n\n    k('title', `Kawe Nia • ${b.distrik || ''}`);\n    k('pill', '🟢 Layanan aktif • 24/7');\n    k('stitle', 'Data Pemohon');\n    k('labNama', 'Nama');\n    k('labNIK', 'NIK');\n    k('labTempatTglLahir', 'Tempat/Tgl Lahir');\n    k('labAgama', 'Agama');\n    k('labJenisKelamin', 'Jenis Kelamin');\n    k('labStatusPerkawinan', 'Status Perkawinan');\n    k('labPekerjaan', 'Pekerjaan');\n    k('labAlamat', 'Alamat');\n    k('labKelurahan', 'Kelurahan');\n    k('labKecamatan', 'Kecamatan');\n    k('labKotaKab', 'Kota/Kabupaten');\n    k('labProvinsi', 'Provinsi');\n    k('sep', ':');\n    k('stitleFile', 'File Terupload');\n    k('stitleKeterangan', 'Keterangan');\n    k('noFilesMessage', 'Belum ada file yang diupload');\n    k('stitleTindakan', 'Tindakan');\n    k('createSendBtn', '✅ Setujui & TTD');\n    k('rejectBtn', '⛔ Tolak & Hapus');\n    k('stitleRingkasan', 'Ringkasan');\n    k('footer', `© ${j} Pemerintah Distrik Wania • Kawe Nia`);\n    k('loadingText', 'Memuat data… Mohon menunggu.');\n\n    k('operator', '👤 Operator: KaweNia ');\n    k('tanggal', `📅 Tanggal: ${f}`);\n    k('referensi', '🔗 Referensi: KaweNia SKTM');\n    k('from', `🧭 From: ${g}`);\n\n    k('kopHeader1', b.pemerintah_kabupaten);\n    k('kopHeader2', b.distrik);\n    k('kopHeader311', b.kampung_kelurahan);\n    k('kopHeader4', `${b.alamat || ''} - ${b.provinsi || ''} ${b.kode_pos || ''}`);\n    k('kopHeader5', b.email);\n    k('suratHeader', 'SURAT KETERANGAN TIDAK MAMPU');\n    k('nomorSuratHeader', `Nomor : ${c}`);\n\n    k('nama', d.nama);\n    k('nik', d.nik);\n    k('ttl', d.ttl);\n    k('agama', d.agama);\n    k('jenis_kelamin', d.jenis_kelamin);\n    k('status_perkawinan', d.status_perkawinan);\n    k('pekerjaan', d.pekerjaan);\n    k('alamat', d.alamat);\n    k('kelurahan', d.kampung_kelurahan);\n    k('kecamatan', d.kecamatan);\n    k('kota_kab', d.kota_kabupaten);\n    k('provinsi', d.provinsi);\n\n    const fls = document.getElementById('uploadedFilesList');\n    if (window.fileHandling?.rfl && fls) {\n        window.viw = window.viw || {};\n        window.viw.fls = fls;\n        window.fileHandling.rfl({ h });\n    } else {\n        console.error('File handling not initialized or filesList not found');\n    }\n\n    k('keterangan1', e.keterangan_1);\n    k('keterangan2', e.keterangan_2);\n    k('keterangan3', e.keterangan_3);\n    k('keterangan4', e.keterangan_4);\n    k('keterangan5', e.keterangan_5);\n\n    const m = document.querySelector('title');\n    if (m) {\n        m.textContent = `Kawe Nia • Layanan SKTM • ${b.kampung_kelurahan || ''}`;\n    }\n\n    const n = document.getElementById('kopEmailLink');\n    if (n && b.email) {\n        n.textContent = b.email;\n        n.href = `mailto:${b.email}`;\n    }\n\n    const o = document.getElementById('logo');\n    if (o) {\n        const p = a?.data_web?.admin1?.logo || '';\n        o.src = p;\n    }\n\n    // Jika status admin menunjukkan surat telah terkirim, kunci tombol dan tampilkan status\n    if (typeof i === 'string' && i.toLowerCase().includes('terkirim')) {\n        if (window.dab) window.dab();\n        if (window.ssm) window.ssm('Surat telah terkirim');\n    }\n}\n\ndocument.addEventListener('DOMContentLoaded', () => {\n    if (window.a) {\n        loadApplicantData();\n    }\n    window.addEventListener('dataReady', loadApplicantData);\n});\n",
+                "type": "string"
+              },
+              {
+                "id": "2c5744ec-48e1-4159-8374-1560acc09193",
+                "name": "script.sendJSON.js",
+                "value": "= async function snj(A, B={}) {\n    // fungsi send json (sendJSON)\n    const a = gwu(A);\n    const b = { ...window.bby(A), ...B };\n    const c = window.B;\n    const d = window.ewk(b, c);\n    const e = await fetch(a, { \n      method: 'POST', \n      headers: {'Content-Type': 'application/json'}, \n      body: JSON.stringify({ data: d, key: window.A })\n    });\n    const txt = await e.text();\n    if(!e.ok) throw new Error('HTTP '+e.status+' — '+txt.slice(0,200));\n    return txt;\n  };window.snj = snj;",
+                "type": "string"
+              },
+              {
+                "id": "d5147b57-1fb9-4cf5-952f-d3ad0c60a86a",
+                "name": "script.showStatusMessage.js",
+                "value": "=  function ssm(message) {\n    // fungsi show status message (showStatusMessage)\n    let a = document.getElementById('statusMessage');\n    if (!a) {\n      a = document.createElement('div');\n      a.id = 'statusMessage';\n      a.style.cssText = `\n        background: rgba(34,197,94,.1);\n        border: 1px solid rgba(34,197,94,.35);\n        border-radius: 12px;\n        padding: 12px 14px;\n        margin: 14px 0;\n        font-size: 14px;\n        color: #d1fae5;\n        text-align: center;\n        font-weight: 700;\n        animation: slideIn 0.5s ease-out;\n      `;\n\n      const b = document.querySelector('.topbar');\n      if (b && b.nextSibling) {\n        b.parentNode.insertBefore(a, b.nextSibling);\n      }\n    }\n\n    a.innerHTML = `🟢 ${message}`;\n    a.style.display = 'block';\n\n    const c = document.createElement('style');\n    c.textContent = `\n      @keyframes slideIn {\n        from { opacity: 0; transform: translateY(-10px); }\n        to { opacity: 1; transform: translateY(0); }\n      }\n    `;\n    document.head.appendChild(c);\n  };window.ssm = ssm;",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2064,
+          16
+        ],
+        "id": "a247e672-0948-4db7-913c-ca9319c51052",
+        "name": "c9",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "script",
+          "include": "selectedOtherFields",
+          "fieldsToInclude": "Lokasi File, Nama File",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          2304,
+          16
+        ],
+        "id": "73cf4add-8648-47fe-8ca7-02bdd761ee06",
+        "name": "c10"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+          "sendQuery": true,
+          "queryParameters": {
+            "parameters": [
+              {
+                "name": "File Name",
+                "value": "={{ $json[\"Nama File\"] }}"
+              },
+              {
+                "name": "Parent Folder",
+                "value": "={{ $json['Lokasi File'] }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "contentType": "raw",
+          "rawContentType": "=text/js; charset=utf-8",
+          "body": "={{ $json.script.js }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          -160,
+          256
+        ],
+        "id": "c4b6884f-ba1a-4bb7-9bd8-5a2b0584f00c",
+        "name": "c11",
+        "alwaysOutputData": false,
+        "executeOnce": false,
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e5819852-8057-473e-82a4-c245ceae9dad",
+                "name": "url",
+                "value": "=import \"https://distrikwania.com/js/{{ $json.data }}\";",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          64,
+          256
+        ],
+        "id": "b5ccbfaf-1b6d-43ce-a728-552fbb3b6bf1",
+        "name": "c12",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "fieldsToAggregate": {
+            "fieldToAggregate": [
+              {
+                "fieldToAggregate": "url"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.aggregate",
+        "typeVersion": 1,
+        "position": [
+          288,
+          256
+        ],
+        "id": "8da59369-3151-4808-bede-7e023982b951",
+        "name": "c13"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "c04bdd4f-4187-4ea9-8452-73b24ce88d26",
+                "name": "Nama File",
+                "value": "Script.Js",
+                "type": "string"
+              },
+              {
+                "id": "b0ad9943-1c44-4bed-971a-28fa72b37fed",
+                "name": "Lokasi File",
+                "value": "={{ $('c1').item.json.data_web.admin1.id.folder }}",
+                "type": "string"
+              },
+              {
+                "id": "169c5718-3507-47bc-b17e-2f99def03107",
+                "name": "script.main.js",
+                "value": "={{ $json.url.join('\\n') }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          528,
+          256
+        ],
+        "id": "45ba32c6-c2b6-4874-bff4-db833ef59020",
+        "name": "c14",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+          "sendQuery": true,
+          "queryParameters": {
+            "parameters": [
+              {
+                "name": "File Name",
+                "value": "={{ $json[\"Nama File\"] }}"
+              },
+              {
+                "name": "Parent Folder",
+                "value": "={{ $json['Lokasi File'] }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "contentType": "raw",
+          "rawContentType": "=text/js; charset=utf-8",
+          "body": "={{ $json.script.main.js }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          800,
+          256
+        ],
+        "id": "b3220689-ac59-4ef3-b476-0f2c9b0ea806",
+        "name": "c15",
+        "alwaysOutputData": false,
+        "executeOnce": false,
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "dataTableId": {
+            "__rl": true,
+            "value": "6W3on0nN3Gmmij5S",
+            "mode": "list",
+            "cachedResultName": "Data Id",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Short_Id": "={{$json.data.substring(3)}}",
+              "Full_Id": "={{ $json.data }}",
+              "Url": "=https://distrikwania.com/js/{{ $json.data }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "Short_Id",
+                "displayName": "Short_Id",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Full_Id",
+                "displayName": "Full_Id",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Url",
+                "displayName": "Url",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1,
+        "position": [
+          1040,
+          256
+        ],
+        "id": "4c895b05-33a4-404c-b950-232526ad0ece",
+        "name": "c16",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e5819852-8057-473e-82a4-c245ceae9dad",
+                "name": "css",
+                "value": "=https://distrikwania.com/css/{{ $('c4').item.json.Short_Id }}",
+                "type": "string"
+              },
+              {
+                "id": "807ae2c4-d711-487f-bfec-67112f92cdd5",
+                "name": "script",
+                "value": "=https://distrikwania.com/js/{{ $('c16').item.json.Short_Id }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1264,
+          256
+        ],
+        "id": "5a730a68-6820-4c0c-95d9-1d06715e89b4",
+        "name": "c17",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "7e80eca0-0f2d-4e97-a821-bc7a4b1b0f5f",
+                "name": "html",
+                "value": "=<!doctype html>\n<html lang=\"id\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title></title>\n  <link rel=\"stylesheet\" href=\"{{ $('c17').item.json.css }}\">\n</head>\n<body>\n  <div class=\"bg\" aria-hidden=\"true\"></div>\n\n  <div class=\"wrap\">\n    <div class=\"topbar\">\n      <div class=\"brand\">\n        <img class=\"logo\" id=\"logo\" src=\"\" alt=\"Logo Pemda\">\n        <div>\n          <div class=\"title\" id=\"title\"></div>\n        </div>\n      </div>\n      <div class=\"pill\" id=\"pill\"></div>\n    </div>\n\n    <section class=\"card\" role=\"region\" aria-label=\"Layanan SKTM\">\n      <header class=\"card-header\">\n        <div class=\"hgroup\" style=\"align-items: center; text-align: center;\">\n          <div style=\"text-align: center; margin-bottom: 20px; width: 100%;\">\n            <div id=\"kopHeader1\" style=\"font-weight: bold; font-size: 16px; margin-bottom: 2px;\"></div>\n            <div id=\"kopHeader2\" style=\"font-weight: bold; font-size: 16px; margin-bottom: 2px;\"></div>\n            <div id=\"kopHeader3\" style=\"font-weight: bold; font-size: 16px; margin-bottom: 2px;\"></div>\n            <div id=\"kopHeader4\" style=\"font-size: 12px; margin-bottom: 1px;\"></div>\n            <div id=\"kopHeader5\" style=\"font-size: 12px; margin-bottom: 15px;\"></div>\n            <div style=\"border-top: 2px solid #1f2937; width: 100%; margin: 10px 0;\"></div>\n          </div>\n          <div class=\"h1\" style=\"text-align: center; width: 100%;\" id=\"suratHeader\"></div>\n          <div class=\"h2\" style=\"text-align: center; width: 100%;\" id=\"nomorSuratHeader\"></div>\n        </div>\n      </header>\n\n      <div class=\"grid\">\n        <div class=\"panel\">\n          <div class=\"stitle\" id=\"stitle\"></div>\n\n          <div class=\"ident\" aria-label=\"Identitas Pemohon\">\n            <div class=\"lab\" id=\"labNama\"></div><div class=\"sep\"></div><div class=\"val\" id=\"nama\"></div>\n\n            <div class=\"lab\" id=\"labNIK\"></div><div class=\"sep\"></div><div class=\"val mono\" id=\"nik\"></div>\n\n            <div class=\"lab\" id=\"labTempatTglLahir\"></div><div class=\"sep\"></div><div class=\"val\" id=\"ttl\"></div>\n\n            <div class=\"lab\" id=\"labAgama\"></div><div class=\"sep\"></div><div class=\"val\" id=\"agama\"></div>\n\n            <div class=\"lab\" id=\"labJenisKelamin\"></div><div class=\"sep\"></div><div class=\"val\" id=\"jenis_kelamin\"></div>\n\n            <div class=\"lab\" id=\"labStatusPerkawinan\"></div><div class=\"sep\"></div><div class=\"val\" id=\"status_perkawinan\"></div>\n\n            <div class=\"lab\" id=\"labPekerjaan\"></div><div class=\"sep\"></div><div class=\"val\" id=\"pekerjaan\"></div>\n\n            <div class=\"lab\" id=\"labAlamat\"></div><div class=\"sep\"></div><div class=\"val\" id=\"alamat\"></div>\n\n            <div class=\"lab\" id=\"labKelurahan\"></div><div class=\"sep\"></div><div class=\"val\" id=\"kelurahan\"></div>\n\n            <div class=\"lab\" id=\"labKecamatan\"></div><div class=\"sep\"></div><div class=\"val\" id=\"kecamatan\"></div>\n\n            <div class=\"lab\" id=\"labKotaKab\"></div><div class=\"sep\"></div><div class=\"val\" id=\"kota_kab\"></div>\n\n            <div class=\"lab\" id=\"labProvinsi\"></div><div class=\"sep\"></div><div class=\"val\" id=\"provinsi\"></div>\n          </div>\n\n          <div class=\"stitle\" style=\"margin-top:16px\" id=\"stitleFile\"></div>\n          <div class=\"uploaded-files-container\">\n            <div id=\"uploadedFilesList\"><div class=\"no-files-message\" id=\"noFilesMessage\"></div></div>\n          </div>\n\n          <div class=\"stitle\" style=\"margin-top: 16px;\" id=\"stitleKeterangan\"></div>\n          <div class=\"file-upload-container\" style=\"margin-bottom: 16px; line-height: 1.6; font-size: 14px;\">\n            <div id=\"keterangan1\" style=\"margin-top: 12px; font-style: italic;\"></div>\n            <ol style=\"margin: 16px 0; padding-left: 20px;\">\n              <li id=\"keterangan2\" style=\"margin-bottom: 12px;\"></li>\n              <li id=\"keterangan3\" style=\"margin-bottom: 12px;\"></li>\n              <li id=\"keterangan4\" style=\"margin-bottom: 12px;\"></li>\n            </ol>\n            <div id=\"keterangan5\" style=\"margin-top: 12px; font-style: italic;\"></div>\n          </div>\n\n\n        </div>\n\n        <aside class=\"side\">\n          <div class=\"stitle\" id=\"stitleTindakan\"></div>\n          <div class=\"actions\">\n            <button class=\"btn primary\" id=\"createSendBtn\" onclick=\"ccs()\"></button>\n            <button class=\"btn danger\" id=\"rejectBtn\" onclick=\"srm()\"></button>\n          </div>\n\n          <div class=\"stitle\" style=\"margin-top:10px\" id=\"stitleRingkasan\"></div>\n          <div class=\"callout\">\n            <div id=\"operator\"></div>\n            <div id=\"tanggal\"></div>\n            <div id=\"referensi\"></div>\n            <div id=\"from\"></div>\n          </div>\n        </aside>\n      </div>\n\n      <footer class=\"card-footer\">\n        <div id=\"footer\"></div>\n      </footer>\n    </section>\n  </div>\n\n  <div class=\"loading-overlay\" id=\"loadingOverlay\" aria-live=\"polite\" aria-busy=\"true\">\n    <div class=\"loading-box\">\n      <div class=\"spinner\" aria-hidden=\"true\"></div>\n      <div class=\"loading-text\" id=\"loadingText\"></div>\n    </div>\n  </div>\n\n  <div class=\"modal-overlay\" id=\"modalOverlay\" role=\"dialog\" aria-modal=\"true\" style=\"display: none;\">\n    <div class=\"modal modal--info\" id=\"modalBox\" role=\"document\">\n      <div class=\"modal-header\">\n        <div class=\"modal-icon\" id=\"modalIcon\"></div>\n        <div class=\"modal-title\" id=\"modalTitle\"></div>\n      </div>\n      <div class=\"modal-body\">\n        <div class=\"modal-message\" id=\"modalMessage\"></div>\n      </div>\n      <div class=\"modal-actions\" id=\"modalActions\">\n        <button class=\"btn secondary\" id=\"modalCancelBtn\"></button>\n        <button class=\"btn primary\" id=\"modalConfirmBtn\"></button>\n      </div>\n    </div>\n  </div>\n<script type=\"module\" src=\"{{ $json.script }}\"></script>\n</body>\n</html>",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1504,
+          256
+        ],
+        "id": "512fc697-a4be-49ab-b6ed-316b8ef478a4",
+        "name": "c18",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://n8n-qz8tp6856ibc.bgxy.sumopod.my.id/webhook/ea1611aa-ed6e-474c-8a9c-4fd32f460241",
+          "sendQuery": true,
+          "queryParameters": {
+            "parameters": [
+              {
+                "name": "File Name",
+                "value": "=Index.html"
+              },
+              {
+                "name": "Parent Folder",
+                "value": "={{ $('c1').item.json.data_web.admin1.id.folder }}"
+              }
+            ]
+          },
+          "sendBody": true,
+          "contentType": "raw",
+          "rawContentType": "=text/html; charset=utf-8",
+          "body": "={{ $json.html }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          1760,
+          256
+        ],
+        "id": "6de9d98b-edd4-45b5-93a6-d32f0ccc1b65",
+        "name": "c19",
+        "alwaysOutputData": false,
+        "executeOnce": false,
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "dataTableId": {
+            "__rl": true,
+            "value": "6W3on0nN3Gmmij5S",
+            "mode": "list",
+            "cachedResultName": "Data Id",
+            "cachedResultUrl": "/projects/MsnmAoT3kpqQYaku/datatables/6W3on0nN3Gmmij5S"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Short_Id": "={{$json.data.substring(3)}}",
+              "Full_Id": "={{ $json.data }}",
+              "Url": "=https://distrikwania.com/data/{{ $json.data }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "Short_Id",
+                "displayName": "Short_Id",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Full_Id",
+                "displayName": "Full_Id",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Url",
+                "displayName": "Url",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1,
+        "position": [
+          1984,
+          256
+        ],
+        "id": "b73cc0b5-e80a-4e1e-a442-2f362c7d4b31",
+        "name": "c20",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "63abb96e-2834-4094-b950-36a2ad7c4302",
+                "name": "Id HTML",
+                "value": "={{ $('c19').item.json.data }}",
+                "type": "string"
+              },
+              {
+                "id": "143bb8cf-9195-43b5-84cf-d40909831b47",
+                "name": "Id CSS",
+                "value": "={{ $('c4').item.json.Full_Id }}",
+                "type": "string"
+              },
+              {
+                "id": "147ab7ea-ef14-4e2e-9f32-6b1d46123854",
+                "name": "Id JS",
+                "value": "={{ $('c16').item.json.Full_Id }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2192,
+          256
+        ],
+        "id": "25c8919f-cf10-4b93-9314-a73ff851bae0",
+        "name": "c21",
+        "notesInFlow": true
+      },
+      {
+        "parameters": {
+          "respondWith": "allIncomingItems",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.4,
+        "position": [
+          2432,
+          256
+        ],
+        "id": "60777e18-cba2-40e0-9254-45f786cdf051",
+        "name": "c22"
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "63244d26-6338-41e9-868e-ac3a7f0dd428",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -80,
+          16
+        ],
+        "id": "7d0f2669-c283-47a3-a17f-aab88341c17d",
+        "name": "c",
+        "webhookId": "63244d26-6338-41e9-868e-ac3a7f0dd428"
+      }
+    ],
+    "connections": {
+      "c1": {
+        "main": [
+          [
+            {
+              "node": "c2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c2": {
+        "main": [
+          [
+            {
+              "node": "c3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c3": {
+        "main": [
+          [
+            {
+              "node": "c4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c4": {
+        "main": [
+          [
+            {
+              "node": "c5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c5": {
+        "main": [
+          [
+            {
+              "node": "c6",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c6": {
+        "main": [
+          [
+            {
+              "node": "c7",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c7": {
+        "main": [
+          [
+            {
+              "node": "c8",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c8": {
+        "main": [
+          [
+            {
+              "node": "c9",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c9": {
+        "main": [
+          [
+            {
+              "node": "c10",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c10": {
+        "main": [
+          [
+            {
+              "node": "c11",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c11": {
+        "main": [
+          [
+            {
+              "node": "c12",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c12": {
+        "main": [
+          [
+            {
+              "node": "c13",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c13": {
+        "main": [
+          [
+            {
+              "node": "c14",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c14": {
+        "main": [
+          [
+            {
+              "node": "c15",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c15": {
+        "main": [
+          [
+            {
+              "node": "c16",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c16": {
+        "main": [
+          [
+            {
+              "node": "c17",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c17": {
+        "main": [
+          [
+            {
+              "node": "c18",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c18": {
+        "main": [
+          [
+            {
+              "node": "c19",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c19": {
+        "main": [
+          [
+            {
+              "node": "c20",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c20": {
+        "main": [
+          [
+            {
+              "node": "c21",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c21": {
+        "main": [
+          [
+            {
+              "node": "c22",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "c": {
+        "main": [
+          [
+            {
+              "node": "c1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wania Mimika",
+    "name": null,
+    "description": null
+  },
+  "tags": []
+}
